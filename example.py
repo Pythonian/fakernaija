@@ -3,9 +3,9 @@ from Faker9ja.faker import NameGenerator
 # Create instances of provider classes and use them as needed
 faker = NameGenerator()
 
-print("Random Yoruba names:")
+print("Random Hausa names:")
 for i in range(5):
-    full_name = faker.full_name("yoruba")
+    full_name = faker.full_name("hausa")
     print(full_name)
 print()
 
