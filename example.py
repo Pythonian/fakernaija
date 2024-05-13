@@ -15,9 +15,9 @@ for i in range(5):
     print(full_name)
 print()
 
-print("Random Yoruba female names:")
+print("Random Igbo female names:")
 for i in range(5):
-    full_name = faker.full_name(ethnic_group="yoruba", gender="female")
+    full_name = faker.full_name(ethnic_group="igbo", gender="female")
     print(full_name)
 print()
 
@@ -27,7 +27,7 @@ for i in range(5):
     print(first_name)
 print()
 
-print("Random Yoruba last names:")
+print("Random Igbo last names:")
 for i in range(5):
-    last_name = faker.last_name("yoruba")
+    last_name = faker.last_name("igbo")
     print(last_name)
