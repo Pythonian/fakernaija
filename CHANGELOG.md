@@ -10,5 +10,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
-- Name Providers for: Yoruba, Igbo, Hausa, Fulani
+- Name Providers for: Yoruba, Igbo, Hausa, Fulani, Edo
 - Everything else
