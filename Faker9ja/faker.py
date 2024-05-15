@@ -1,79 +1,19 @@
 import random
 from Faker9ja.providers.names import NameProvider
-from Faker9ja.providers.states import StateProvider
+from Faker9ja.providers.geo import GeoProvider
 
 
 class Faker:
-    """
-    A class for generating Nigerian names.
-
-    This class provides methods to generate Nigerian names,
-    including first names, last names, and full names.
-
-    Usage:
-        from Faker9ja.faker import Faker
-
-        naija = Faker()
-
-        # Get a random full name irrespective of ethnic_group or gender
-        full_name = naija.full_name()
-
-        # Get a random Igbo full name irrespective of gender
-        igbo_full_name = naija.full_name(ethnic_group="igbo")
-
-        # Get a male full name irrespective of ethnic_group
-        male_full_name = naija.male_full_name()
-
-        # Get an Igbo male full name
-        igbo_male_full_name = naija.male_full_name(ethnic_group="igbo")
-
-        # Get a female full name irrespective of ethnic_group
-        female_full_name = naija.female_full_name()
-
-        # Get an Igbo female full name
-        igbo_female_full_name = naija.female_full_name(ethnic_group="igbo")
-
-        # Get a random first name irrespective of ethnic_group or gender
-        first_name = naija.first_name()
-
-        # Get a random Yoruba first name irrespective of gender
-        yoruba_first_name = naija.first_name(ethnic_group="yoruba")
-
-        # Get a random last name irrespective of ethnic_group
-        last_name = naija.last_name()
-
-        # Get a random Yoruba last name
-        yoruba_last_name = naija.last_name(ethnic_group="yoruba")
-
-        # Get a random male first name irrespective of ethnic_group
-        male_first_name = naija.male_first_name()
-
-        # Get a random Hausa male first name
-        hausa_male_first_name = naija.male_first_name(ethnic_group="hausa")
-
-        # Get a random female first name irrespective of ethnic_group
-        female_first_name = naija.female_first_name()
-
-        # Get a random Hausa female first name
-        hausa_female_first_name = naija.female_first_name(ethnic_group="hausa")
-
-        # Get a random name prefix
-        prefix = naija.prefix()
-
-        # Get a random male name prefix
-        male_prefix = naija.male_prefix()
-
-        # Get a random female name prefix
-        female_prefix = naija.female_prefix()
-    """
+    """A class for generating fake data exposed by different Providers."""
 
     def __init__(self):
         """
         Initializes the Faker class.
 
-        Creates an instance of the NameProvider class for generating names.
+        Creates an instance of each of the Provider classes.
         """
         self.name_provider = NameProvider()
+        self.geo_provider = GeoProvider()
 
     def full_name(self, ethnic_group=None, gender=None):
         """
@@ -198,57 +138,6 @@ class Faker:
         prefixes = ["Mrs.", "Miss", "Madam"]
         return random.choice(prefixes)
 
-
-class StateGenerator:
-    """
-    A class for generating random Nigerian state information.
-
-    Attributes:
-        state_provider (StateProvider):
-            An instance of the StateProvider class used for accessing state information.
-
-    Usage:
-        from Faker9ja.faker import StateGenerator
-
-        state_generator = StateGenerator()
-
-        # Get a random state
-        random_state = state_generator.state()
-        print("Random state:", random_state)
-
-        # Get a random state capital
-        random_capital = state_generator.capital()
-        print("Random capital city:", random_capital)
-
-        # Get the capital of a specific state
-        capital = state_generator.capital(state="Lagos")
-        print("The capital of Lagos is:", capital)
-
-        # Get a random state short code
-        random_state_shortcode = state_generator.state(shortcode=True)
-        print("Random state shortcode:", random_state_shortcode)
-
-        # Get a random state from a specific region (e.g., South West)
-        random_state_by_region = state_generator.state(region_initial="SW")
-        print("Random state by Region:", random_state_by_region)
-
-        # Get a random LGA
-        random_lga = state_generator.lga()
-        print("Random LGA:", random_lga)
-
-        # Get a random LGA in a specific state
-        random_lga_in_state = state_generator.lga(state="Abia")
-        print("Random LGA in Abia:", random_lga_in_state)
-    """
-
-    def __init__(self):
-        """
-        Initializes the StateGenerator class.
-
-        Creates an instance of the StateProvider class.
-        """
-        self.state_provider = StateProvider()
-
     def state(self, shortcode=False, region_initial=None):
         """
         Get a random state.
@@ -266,13 +155,13 @@ class StateGenerator:
             str: Random state name or initial.
         """
         if region_initial:
-            states = self.state_provider.get_states_by_region(region_initial)
+            states = self.geo_provider.get_states_by_region(region_initial)
             random_state = random.choice(states)
             return random_state["name"] if not shortcode else random_state["code"]
         elif shortcode:
-            return random.choice(self.state_provider.get_shortcodes())
+            return random.choice(self.geo_provider.get_shortcodes())
         else:
-            return random.choice(self.state_provider.get_states())
+            return random.choice(self.geo_provider.get_states())
 
     def capital(self, state=None):
         """
@@ -287,9 +176,9 @@ class StateGenerator:
             str: Random state capital or the capital of the specified state.
         """
         if state:
-            return self.state_provider.get_state_capital(state)
+            return self.geo_provider.get_state_capital(state)
         else:
-            return random.choice(self.state_provider.get_capitals())
+            return random.choice(self.geo_provider.get_capitals())
 
     def lga(self, state=None):
         """
@@ -304,11 +193,45 @@ class StateGenerator:
             str: Random LGA.
         """
         if state:
-            lgas = self.state_provider.get_state_lgas(state)
+            lgas = self.geo_provider.get_state_lgas(state)
         else:
-            lgas = [
-                lga
-                for state_code in self.state_provider.get_states()
-                for lga in self.state_provider.get_state_lgas(state_code) or []
-            ]
+            lgas = self.geo_provider.get_lgas()
         return random.choice(lgas) if lgas else None
+
+    def region(self, initial=False):
+        """
+        Get a random geopolitical region in Nigeria.
+
+        Args:
+            initial (bool, optional):
+                If True, return the initials of the region (e.g., "SW" for South West).
+                If False (default), return the full name of the region.
+
+        Returns:
+            str: Random region name or initials.
+        """
+        regions = self.geo_provider.get_regions()
+        if initial:
+            return random.choice(regions)
+        else:
+            return random.choice(
+                [state["region"] for state in self.geo_provider.states_data["states"]]
+            )
+
+    def postal_code(self, state=None):
+        """
+        Get a random postal code of any state, or of a specific state if specified.
+
+        Args:
+            state (str, optional):
+                The name of the state for which to get the postal code.
+                If None, a random postal code of any state will be returned.
+                Defaults to None.
+
+        Returns:
+            str: Random postal code.
+        """
+        if state:
+            return self.geo_provider.get_postal_code_by_state(state)
+        else:
+            return random.choice(self.geo_provider.get_postal_codes())

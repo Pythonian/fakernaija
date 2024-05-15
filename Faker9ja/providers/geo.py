@@ -2,7 +2,7 @@ import json
 import os
 
 
-class StateProvider:
+class GeoProvider:
     """
     A class to provide information about states and their attributes.
 
@@ -12,7 +12,7 @@ class StateProvider:
 
     def __init__(self, data_path=None):
         """
-        Initializes the StateProvider instance.
+        Initializes the GeoProvider instance.
 
         Args:
             data_path (str, optional):
@@ -51,10 +51,10 @@ class StateProvider:
 
     def get_shortcodes(self):
         """
-        Get the short codes of all states.
+        Get the shortcodes of all states.
 
         Returns:
-            list: A list of state short codes.
+            list: A list of state shortcodes.
         """
         return [state["code"] for state in self.states_data["states"]]
 
@@ -65,10 +65,19 @@ class StateProvider:
         Returns:
             list: A list of state capitals.
         """
-        capitals = [
-            state["capital"] for state in self.states_data["states"] if state["capital"]
-        ]
-        return capitals
+        return [state["capital"] for state in self.states_data["states"]]
+
+    def get_lgas(self):
+        """
+        Get a list of all Local Government Areas for all states.
+
+        Returns:
+            list: A list of all LGAs for all states.
+        """
+        all_lgas = []
+        for state in self.states_data["states"]:
+            all_lgas.extend(state["lgas"])
+        return all_lgas
 
     def get_regions(self):
         """
@@ -77,12 +86,16 @@ class StateProvider:
         Returns:
             list: A list of unique region codes.
         """
-        regions = {
-            state["region_initial"]
-            for state in self.states_data["states"]
-            if state["region_initial"]
-        }
-        return list(regions)
+        return [state["region_initial"] for state in self.states_data["states"]]
+
+    def get_postal_codes(self):
+        """
+        Get a list of all postal codes of states.
+
+        Returns:
+            list: A list of all postal codes.
+        """
+        return [state["postal_code"] for state in self.states_data["states"]]
 
     def get_states_by_region(self, region_initial):
         """
@@ -108,12 +121,28 @@ class StateProvider:
             state_name (str): The name of the state.
 
         Returns:
-            dict or None: Information about the specified state, or None if not found.
+            dict: Information about the specified state, or None if not found.
         """
         for state in self.states_data["states"]:
             if state["name"].lower() == state_name.lower():
                 return state
         return None
+
+    def get_postal_code_by_state(self, state_name):
+        """
+        Get the postal code of a specific state.
+
+        Args:
+            state_name (str): The name of the state.
+
+        Returns:
+            str: The postal code of the specified state, or None if not found.
+        """
+        state_info = self.get_state_by_name(state_name)
+        if state_info:
+            return state_info.get("postal_code")
+        else:
+            return None
 
     def get_state_capital(self, state):
         """
