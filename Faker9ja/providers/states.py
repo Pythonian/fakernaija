@@ -78,18 +78,18 @@ class StateProvider:
             list: A list of unique region codes.
         """
         regions = {
-            state["region_code"]
+            state["region_initial"]
             for state in self.states_data["states"]
-            if state["region_code"]
+            if state["region_initial"]
         }
         return list(regions)
 
-    def get_states_by_region(self, region_code):
+    def get_states_by_region(self, region_initial):
         """
         Get states by a specific region code.
 
         Args:
-            region_code (str): The code of the region to filter states.
+            region_initial (str): The code of the region to filter states.
 
         Returns:
             list: A list of states belonging to the specified region code.
@@ -97,7 +97,7 @@ class StateProvider:
         return [
             state
             for state in self.states_data["states"]
-            if state["region_code"] == region_code
+            if state["region_initial"] == region_initial
         ]
 
     def get_state_by_name(self, state_name):

@@ -9,19 +9,6 @@ class NameProvider:
 
     Attributes:
         data_path (str): The path to the directory containing name data files.
-
-    Methods:
-        load_json(file_path): Load data from a JSON file.
-        get_first_names(ethnic_group=None, gender=None): Get a list of first
-            names optionally filtered by ethnic group and gender.
-        get_last_names(ethnic_group=None): Get a list of last names optionally
-            filtered by ethnic group.
-        generate_first_name(ethnic_group=None, gender=None): Generate a random
-            first name optionally from a specific ethnic group and gender.
-        generate_full_name(ethnic_group=None, gender=None): Generate a random
-            full name optionally from a specific ethnic group and gender.
-        generate_last_name(ethnic_group=None): Generate a random last name
-            optionally from a specific ethnic group.
     """
 
     def __init__(self, data_path=None):

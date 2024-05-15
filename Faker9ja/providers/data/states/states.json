@@ -5,7 +5,8 @@
             "name": "FCT",
             "capital": "Abuja",
             "region": "North Central",
-            "region_code": "NC",
+            "region_initial": "NC",
+            "postal_code": "900001",
             "lgas": [
                 "Abuja",
                 "Kwali",
@@ -20,7 +21,8 @@
             "name": "Abia",
             "capital": "Umuahia",
             "region": "South East",
-            "region_code": "SE",
+            "region_initial": "SE",
+            "postal_code": "440001",
             "lgas": [
                 "Aba North",
                 "Aba South",
@@ -49,7 +51,8 @@
             "name": "Adamawa",
             "capital": "Yola",
             "region": "North East",
-            "region_code": "NE",
+            "region_initial": "NE",
+            "postal_code": "640001",
             "lgas": [
                 "Demsa",
                 "Fufore",
@@ -79,7 +82,8 @@
             "name": "AkwaIbom",
             "capital": "Uyo",
             "region": "South South",
-            "region_code": "SS",
+            "region_initial": "SS",
+            "postal_code": "520001",
             "lgas": [
                 "Abak",
                 "Eastern-Obolo",
@@ -119,7 +123,8 @@
             "name": "Anambra",
             "capital": "Awka",
             "region": "South East",
-            "region_code": "SE",
+            "region_initial": "SE",
+            "postal_code": "420001",
             "lgas": [
                 "Aguata",
                 "Anambra East",
@@ -148,7 +153,8 @@
             "name": "Bauchi",
             "capital": "Bauchi",
             "region": "North West",
-            "region_code": "NW",
+            "region_initial": "NW",
+            "postal_code": "740001",
             "lgas": [
                 "Alkaleri",
                 "Bauchi",
@@ -177,7 +183,8 @@
             "name": "Bayelsa",
             "capital": "Yenagoa",
             "region": "South South",
-            "region_code": "SS",
+            "region_initial": "SS",
+            "postal_code": "561001",
             "lgas": [
                 "Brass",
                 "Ekeremor",
@@ -194,7 +201,8 @@
             "name": "Benue",
             "capital": "Makurdi",
             "region": "North Central",
-            "region_code": "NC",
+            "region_initial": "NC",
+            "postal_code": "970001",
             "lgas": [
                 "Ado",
                 "Agatu",
@@ -225,7 +233,8 @@
             "name": "Borno",
             "capital": "Maiduguri",
             "region": "North East",
-            "region_code": "NE",
+            "region_initial": "NE",
+            "postal_code": "600001",
             "lgas": [
                 "Abadam",
                 "Askira-Uba",
@@ -261,7 +270,8 @@
             "name": "CrossRiver",
             "capital": "Calabar",
             "region": "South South",
-            "region_code": "SS",
+            "region_initial": "SS",
+            "postal_code": "540001",
             "lgas": [
                 "Abi",
                 "Akamkpa",
@@ -288,7 +298,8 @@
             "name": "Delta",
             "capital": "Asaba",
             "region": "South South",
-            "region_code": "SS",
+            "region_initial": "SS",
+            "postal_code": "320001",
             "lgas": [
                 "Aniocha North",
                 "Aniocha-North",
@@ -323,7 +334,8 @@
             "name": "Ebonyi",
             "capital": "Abakaliki",
             "region": "South East",
-            "region_code": "SE",
+            "region_initial": "SE",
+            "postal_code": "840001",
             "lgas": [
                 "Abakaliki",
                 "Afikpo-North",
@@ -344,7 +356,8 @@
             "name": "Edo",
             "capital": "Benin City",
             "region": "South South",
-            "region_code": "SS",
+            "region_initial": "SS",
+            "postal_code": "300001",
             "lgas": [
                 "Akoko Edo",
                 "Egor",
@@ -371,7 +384,8 @@
             "name": "Ekiti",
             "capital": "Ado-Ekiti",
             "region": "South West",
-            "region_code": "SW",
+            "region_initial": "SW",
+            "postal_code": "360001",
             "lgas": [
                 "Ado-Ekiti",
                 "Efon",
@@ -396,7 +410,8 @@
             "name": "Enugu",
             "capital": "Enugu",
             "region": "South East",
-            "region_code": "SE",
+            "region_initial": "SE",
+            "postal_code": "400001",
             "lgas": [
                 "Aninri",
                 "Awgu",
@@ -422,7 +437,8 @@
             "name": "Gombe",
             "capital": "Gombe",
             "region": "North East",
-            "region_code": "NE",
+            "region_initial": "NE",
+            "postal_code": "760001",
             "lgas": [
                 "Akko",
                 "Balanga",
@@ -442,7 +458,8 @@
             "name": "Imo",
             "capital": "Owerri",
             "region": "South East",
-            "region_code": "SE",
+            "region_initial": "SE",
+            "postal_code": "460001",
             "lgas": [
                 "Aboh-Mbaise",
                 "Ahiazu-Mbaise",
@@ -478,7 +495,8 @@
             "name": "Jigawa",
             "capital": "Dutse",
             "region": "North West",
-            "region_code": "NW",
+            "region_initial": "NW",
+            "postal_code": "720001",
             "lgas": [
                 "Auyo",
                 "Babura",
@@ -513,7 +531,8 @@
             "name": "Kaduna",
             "capital": "Kaduna",
             "region": "North West",
-            "region_code": "NW",
+            "region_initial": "NW",
+            "postal_code": "700001",
             "lgas": [
                 "Birnin-Gwari",
                 "Chikun",
@@ -545,7 +564,8 @@
             "name": "Kano",
             "capital": "Kano",
             "region": "North West",
-            "region_code": "NW",
+            "region_initial": "NW",
+            "postal_code": "800001",
             "lgas": [
                 "Ajingi",
                 "Albasu",
@@ -598,7 +618,8 @@
             "name": "Katsina",
             "capital": "Katsina",
             "region": "North West",
-            "region_code": "NW",
+            "region_initial": "NW",
+            "postal_code": "820001",
             "lgas": [
                 "Bakori",
                 "Batagarawa",
@@ -641,7 +662,8 @@
             "name": "Kebbi",
             "capital": "Birnin Kebbi",
             "region": "North West",
-            "region_code": "NW",
+            "region_initial": "NW",
+            "postal_code": "860001",
             "lgas": [
                 "Aleiro",
                 "Arewa-Dandi",
@@ -671,7 +693,8 @@
             "name": "Kogi",
             "capital": "Lokoja",
             "region": "North Central",
-            "region_code": "NC",
+            "region_initial": "NC",
+            "postal_code": "260001",
             "lgas": [
                 "Adavi",
                 "Ajaokuta",
@@ -701,7 +724,8 @@
             "name": "Kwara",
             "capital": "Ilorin",
             "region": "North Central",
-            "region_code": "NC",
+            "region_initial": "NC",
+            "postal_code": "240001",
             "lgas": [
                 "Asa",
                 "Baruten",
@@ -724,7 +748,8 @@
             "name": "Lagos",
             "capital": "Ikeja",
             "region": "South West",
-            "region_code": "SW",
+            "region_initial": "SW",
+            "postal_code": "100001",
             "lgas": [
                 "Agege",
                 "Ajeromi-Ifelodun",
@@ -754,7 +779,8 @@
             "name": "Nassarawa",
             "capital": "Lafia",
             "region": "North Central",
-            "region_code": "NC",
+            "region_initial": "NC",
+            "postal_code": "962001",
             "lgas": [
                 "Akwanga",
                 "Awe",
@@ -776,7 +802,8 @@
             "name": "Niger",
             "capital": "Minna",
             "region": "North Central",
-            "region_code": "NC",
+            "region_initial": "NC",
+            "postal_code": "920001",
             "lgas": [
                 "Agaie",
                 "Agwara",
@@ -810,7 +837,8 @@
             "name": "Ogun",
             "capital": "Abeokuta",
             "region": "South West",
-            "region_code": "SW",
+            "region_initial": "SW",
+            "postal_code": "110001",
             "lgas": [
                 "Abeokuta-North",
                 "Abeokuta-South",
@@ -838,7 +866,8 @@
             "name": "Ondo",
             "capital": "Akure",
             "region": "South West",
-            "region_code": "SW",
+            "region_initial": "SW",
+            "postal_code": "340001",
             "lgas": [
                 "Akoko North-East",
                 "Akoko North-West",
@@ -865,7 +894,8 @@
             "name": "Osun",
             "capital": "Osogbo",
             "region": "South West",
-            "region_code": "SW",
+            "region_initial": "SW",
+            "postal_code": "230001",
             "lgas": [
                 "Atakumosa West",
                 "Atakumosa East",
@@ -903,7 +933,8 @@
             "name": "Oyo",
             "capital": "Ibadan",
             "region": "South West",
-            "region_code": "SW",
+            "region_initial": "SW",
+            "postal_code": "200001",
             "lgas": [
                 "Afijio",
                 "Akinyele",
@@ -946,7 +977,8 @@
             "name": "Plateau",
             "capital": "Jos",
             "region": "North Central",
-            "region_code": "NC",
+            "region_initial": "NC",
+            "postal_code": "930001",
             "lgas": [
                 "Barkin-Ladi",
                 "Bassa",
@@ -972,7 +1004,8 @@
             "name": "Rivers",
             "capital": "Port Harcourt",
             "region": "South South",
-            "region_code": "SS",
+            "region_initial": "SS",
+            "postal_code": "500001",
             "lgas": [
                 "Abua Odual",
                 "Ahoada-East",
@@ -1005,7 +1038,8 @@
             "name": "Sokoto",
             "capital": "Sokoto",
             "region": "North West",
-            "region_code": "NW",
+            "region_initial": "NW",
+            "postal_code": "840001",
             "lgas": [
                 "Binji",
                 "Bodinga",
@@ -1036,7 +1070,8 @@
             "name": "Taraba",
             "capital": "Jalingo",
             "region": "North East",
-            "region_code": "NE",
+            "region_initial": "NE",
+            "postal_code": "660001",
             "lgas": [
                 "Ardo-Kola",
                 "Bali",
@@ -1061,7 +1096,8 @@
             "name": "Yobe",
             "capital": "Damaturu",
             "region": "North East",
-            "region_code": "NE",
+            "region_initial": "NE",
+            "postal_code": "320001",
             "lgas": [
                 "Bade",
                 "Bursari",
@@ -1087,7 +1123,8 @@
             "name": "Zamfara",
             "capital": "Gusau",
             "region": "North West",
-            "region_code": "NW",
+            "region_initial": "NW",
+            "postal_code": "860001",
             "lgas": [
                 "Anka",
                 "Bakura",

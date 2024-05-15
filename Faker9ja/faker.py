@@ -109,7 +109,7 @@ class StateGenerator:
         print("Random state shortcode:", random_state_shortcode)
 
         # Get a random state from a specific region (e.g., South West)
-        random_state_by_region = state_generator.state(region_code="SW")
+        random_state_by_region = state_generator.state(region_initial="SW")
         print("Random state by Region:", random_state_by_region)
 
         # Get a random LGA
@@ -119,11 +119,6 @@ class StateGenerator:
         # Get a random LGA in a specific state
         random_lga_in_state = state_generator.lga(state="Abia")
         print("Random LGA in Abia:", random_lga_in_state)
-
-        # Get all the Geopolitical regions
-        regions = state_provider.get_regions()
-        print("Geopolitical regions:", regions)
-
     """
 
     def __init__(self):
@@ -134,7 +129,7 @@ class StateGenerator:
         """
         self.state_provider = StateProvider()
 
-    def state(self, shortcode=False, region_code=None):
+    def state(self, shortcode=False, region_initial=None):
         """
         Get a random state.
 
@@ -142,16 +137,16 @@ class StateGenerator:
             shortcode (bool, optional):
                 Whether to return the shortcode of the state instead of its name.
                 Defaults to False.
-            region_code (str, optional):
-                The code of the region from which to select a state.
+            region_initial (str, optional):
+                The initial of the region from which to select a state.
                 If provided, the method will return a random state from that region.
                 Defaults to None.
 
         Returns:
-            str: Random state name or short code.
+            str: Random state name or initial.
         """
-        if region_code:
-            states = self.state_provider.get_states_by_region(region_code)
+        if region_initial:
+            states = self.state_provider.get_states_by_region(region_initial)
             random_state = random.choice(states)
             return random_state["name"] if not shortcode else random_state["code"]
         elif shortcode:
