@@ -39,12 +39,12 @@ class NameProvider:
         with open(file_path, "r", encoding="utf-8") as file:
             return json.load(file)
 
-    def get_first_names(self, ethnic_group=None, gender=None):
+    def get_first_names(self, tribe=None, gender=None):
         """
         Get a list of first names optionally filtered by ethnic group and gender.
 
         Args:
-            ethnic_group (str, optional):
+            tribe (str, optional):
                 The ethnic group to filter by. Defaults to None.
             gender (str, optional):
                 The gender to filter by. Defaults to None.
@@ -53,12 +53,12 @@ class NameProvider:
             list: A list of first names matching the specified filters.
         """
 
-        if ethnic_group:
+        if tribe:
             file_path = os.path.join(
-                self.data_path, "names", "ethnicities", ethnic_group, "first_names"
+                self.data_path, "names", "tribes", tribe, "first_names"
             )
         else:
-            file_path = os.path.join(self.data_path, "names", "ethnicities")
+            file_path = os.path.join(self.data_path, "names", "tribes")
         first_names = []
         for _, _, files in os.walk(file_path):
             for file in files:
@@ -71,35 +71,35 @@ class NameProvider:
                     first_names.extend(file_data)
         return first_names
 
-    def get_last_names(self, ethnic_group=None):
+    def get_last_names(self, tribe=None):
         """
         Get a list of last names optionally filtered by ethnic group.
         Last names are not gender specific so we do not filter by gender here.
 
         Args:
-            ethnic_group (str, optional):
+            tribe (str, optional):
                 The ethnic group to filter by. Defaults to None.
 
         Returns:
             list: A list of last names matching the specified filter.
         """
 
-        if ethnic_group:
+        if tribe:
             file_path = os.path.join(
-                self.data_path, "names", "ethnicities", ethnic_group, "last_names.json"
+                self.data_path, "names", "tribes", tribe, "last_names.json"
             )
         else:
             file_path = os.path.join(
-                self.data_path, "names", "ethnicities", "last_names.json"
+                self.data_path, "names", "tribes", "last_names.json"
             )
         return self.load_json(file_path)
 
-    def generate_first_name(self, ethnic_group=None, gender=None):
+    def generate_first_name(self, tribe=None, gender=None):
         """
         Generate a random first name optionally from a specific ethnic group and gender.
 
         Args:
-            ethnic_group (str, optional):
+            tribe (str, optional):
                 The ethnic group of the name. Defaults to None.
             gender (str, optional):
                 The gender of the name. Defaults to None.
@@ -108,7 +108,7 @@ class NameProvider:
             str: A random first name.
         """
 
-        first_names = self.get_first_names(ethnic_group)
+        first_names = self.get_first_names(tribe)
         if first_names:
             if gender:
                 first_names = [
@@ -118,12 +118,12 @@ class NameProvider:
         else:
             return None
 
-    def generate_full_name(self, ethnic_group=None, gender=None):
+    def generate_full_name(self, tribe=None, gender=None):
         """
         Generate a random full name optionally from a specific ethnic group and gender.
 
         Args:
-            ethnic_group (str, optional):
+            tribe (str, optional):
                 The ethnic group of the name. Defaults to None.
             gender (str, optional):
                 The gender of the name. Defaults to None.
@@ -132,26 +132,26 @@ class NameProvider:
             str: A random full name.
         """
 
-        first_name = self.generate_first_name(ethnic_group, gender)
-        last_name = random.choice(self.get_last_names(ethnic_group))["name"]
+        first_name = self.generate_first_name(tribe, gender)
+        last_name = random.choice(self.get_last_names(tribe))["name"]
         if first_name:
             return f"{first_name} {last_name}"
         else:
             return None
 
-    def generate_last_name(self, ethnic_group=None):
+    def generate_last_name(self, tribe=None):
         """
         Generate a random last name optionally from a specific ethnic group.
 
         Args:
-            ethnic_group (str, optional):
+            tribe (str, optional):
                 The ethnic group of the name. Defaults to None.
 
         Returns:
             str: A random last name.
         """
 
-        last_names = self.get_last_names(ethnic_group)
+        last_names = self.get_last_names(tribe)
         if last_names:
             return random.choice(last_names)["name"]
         else:

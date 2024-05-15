@@ -15,12 +15,12 @@ class Faker:
         self.name_provider = NameProvider()
         self.geo_provider = GeoProvider()
 
-    def full_name(self, ethnic_group=None, gender=None):
+    def full_name(self, tribe=None, gender=None):
         """
         Generates a random full name.
 
         Args:
-            ethnic_group (str, optional):
+            tribe (str, optional):
                 The ethnic group for which to generate the name.
             gender (str, optional):
                 The gender for which to generate the name.
@@ -28,85 +28,85 @@ class Faker:
         Returns:
             str: A random full name.
         """
-        return self.name_provider.generate_full_name(ethnic_group, gender)
+        return self.name_provider.generate_full_name(tribe, gender)
 
-    def male_full_name(self, ethnic_group=None):
+    def male_full_name(self, tribe=None):
         """
         Generates a random male full name.
 
         Args:
-            ethnic_group (str, optional):
+            tribe (str, optional):
                 The ethnic group for which to generate the name.
 
         Returns:
             str: A random male full name.
         """
-        return self.name_provider.generate_full_name(ethnic_group, gender="male")
+        return self.name_provider.generate_full_name(tribe, gender="male")
 
-    def female_full_name(self, ethnic_group=None):
+    def female_full_name(self, tribe=None):
         """
         Generates a random female full name.
 
         Args:
-            ethnic_group (str, optional):
+            tribe (str, optional):
                 The ethnic group for which to generate the name.
 
         Returns:
             str: A random female full name.
         """
-        return self.name_provider.generate_full_name(ethnic_group, gender="female")
+        return self.name_provider.generate_full_name(tribe, gender="female")
 
-    def first_name(self, ethnic_group=None):
+    def first_name(self, tribe=None):
         """
         Generates a random first name.
 
         Args:
-            ethnic_group (str, optional):
+            tribe (str, optional):
                 The ethnic group for which to generate the name.
 
         Returns:
             str: A random first name.
         """
-        return self.name_provider.generate_first_name(ethnic_group)
+        return self.name_provider.generate_first_name(tribe)
 
-    def last_name(self, ethnic_group=None):
+    def last_name(self, tribe=None):
         """
         Generates a random last name.
 
         Args:
-            ethnic_group (str, optional):
+            tribe (str, optional):
                 The ethnic group for which to generate the name.
 
         Returns:
             str: A random last name.
         """
-        return self.name_provider.generate_last_name(ethnic_group)
+        return self.name_provider.generate_last_name(tribe)
 
-    def male_first_name(self, ethnic_group=None):
+    def male_first_name(self, tribe=None):
         """
         Generates a random male first name.
 
         Args:
-            ethnic_group (str, optional):
+            tribe (str, optional):
                 The ethnic group for which to generate the name.
 
         Returns:
             str: A random male first name.
         """
-        return self.name_provider.generate_first_name(ethnic_group, gender="male")
+        return self.name_provider.generate_first_name(tribe, gender="male")
 
-    def female_first_name(self, ethnic_group=None):
+    def female_first_name(self, tribe=None):
         """
         Generates a random female first name.
 
         Args:
-            ethnic_group (str, optional):
+            tribe (str, optional):
                 The ethnic group for which to generate the name.
 
         Returns:
             str: A random female first name.
         """
-        return self.name_provider.generate_first_name(ethnic_group, gender="female")
+        return self.name_provider.generate_first_name(tribe, gender="female")
 
     def prefix(self):
         """

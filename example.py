@@ -4,31 +4,31 @@ naija = Faker()
 
 # Test the full_name() method
 print("Random Full Name:", naija.full_name())
-print("Random Igbo Full Name:", naija.full_name(ethnic_group="igbo"))
+print("Random Igbo Full Name:", naija.full_name(tribe="igbo"))
 
 # Test the male_full_name() method
 print("Random Male Full Name:", naija.male_full_name())
-print("Random Igbo Male Full Name:", naija.male_full_name(ethnic_group="igbo"))
+print("Random Igbo Male Full Name:", naija.male_full_name(tribe="igbo"))
 
 # Test the female_full_name() method
 print("Random Female Full Name:", naija.female_full_name())
-print("Random Igbo Female Full Name:", naija.female_full_name(ethnic_group="igbo"))
+print("Random Igbo Female Full Name:", naija.female_full_name(tribe="igbo"))
 
 # Test the first_name() method
 print("Random First Name:", naija.first_name())
-print("Random Yoruba First Name:", naija.first_name(ethnic_group="yoruba"))
+print("Random Yoruba First Name:", naija.first_name(tribe="yoruba"))
 
 # Test the last_name() method
 print("Random Last Name:", naija.last_name())
-print("Random Yoruba Last Name:", naija.last_name(ethnic_group="yoruba"))
+print("Random Yoruba Last Name:", naija.last_name(tribe="yoruba"))
 
 # Test the male_first_name() method
 print("Random Male First Name:", naija.male_first_name())
-print("Random Hausa Male First Name:", naija.male_first_name(ethnic_group="hausa"))
+print("Random Hausa Male First Name:", naija.male_first_name(tribe="hausa"))
 
 # Test the female_first_name() method
 print("Random Female First Name:", naija.female_first_name())
-print("Random Hausa Female First Name:", naija.female_first_name(ethnic_group="hausa"))
+print("Random Hausa Female First Name:", naija.female_first_name(tribe="hausa"))
 
 # Test the prefix() method
 print("Random Name Prefix:", naija.prefix())

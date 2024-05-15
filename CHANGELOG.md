@@ -11,7 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 - *postal_code* key to the states dictionary in `states.json` file
-- Added more last names to the file `ethnicities/last_names.json`
+- Added more last names to the file `tribes/last_names.json`
 - Added new set of methods to generate names to the `Faker` class
 - Added the `example.py` file to test class methods easily
 - Added the `region` and `postal_code` methods to `Faker` class
@@ -25,6 +25,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Changed `NameGenerator` class to `Faker`
 - Changed `providers/states.py` to `providers/geo.py`
 - Merged the methods in the `StateGenerator` class into the `Faker` class
+- Renamed `ethnic_group` to `tribe` in all occurences
+- Renamed folder `names/ethnicities` to `names/tribes`
+- Correction of Postcode of Kano and Kaduna
 
 ### Removed
 
