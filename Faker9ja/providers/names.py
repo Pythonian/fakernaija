@@ -108,8 +108,12 @@ class NameProvider:
             str: A random first name.
         """
 
-        first_names = self.get_first_names(ethnic_group, gender)
+        first_names = self.get_first_names(ethnic_group)
         if first_names:
+            if gender:
+                first_names = [
+                    name for name in first_names if name.get("gender") == gender
+                ]
             return random.choice(first_names)["name"]
         else:
             return None

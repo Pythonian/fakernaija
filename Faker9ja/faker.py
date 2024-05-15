@@ -3,7 +3,7 @@ from Faker9ja.providers.names import NameProvider
 from Faker9ja.providers.states import StateProvider
 
 
-class NameGenerator:
+class Faker:
     """
     A class for generating Nigerian names.
 
@@ -11,48 +11,73 @@ class NameGenerator:
     including first names, last names, and full names.
 
     Usage:
-        from Faker9ja.faker import NameGenerator
+        from Faker9ja.faker import Faker
 
-        name = NameGenerator()
+        naija = Faker()
 
-        # Get a random Yoruba male fullname
-        full_name = name.full_name(ethnic_group="yoruba", gender="male")
+        # Get a random full name irrespective of ethnic_group or gender
+        full_name = naija.full_name()
 
-        # Get a random Igbo lastname
-        last_name = name.last_name("igbo")
+        # Get a random Igbo full name irrespective of gender
+        igbo_full_name = naija.full_name(ethnic_group="igbo")
 
-        # Get 5 random Hausa female firstname
-        for i in range(5):
-            first_name = name.first_name(ethnic_group="hausa", gender="female")
-            print(first_name)
+        # Get a male full name irrespective of ethnic_group
+        male_full_name = naija.male_full_name()
+
+        # Get an Igbo male full name
+        igbo_male_full_name = naija.male_full_name(ethnic_group="igbo")
+
+        # Get a female full name irrespective of ethnic_group
+        female_full_name = naija.female_full_name()
+
+        # Get an Igbo female full name
+        igbo_female_full_name = naija.female_full_name(ethnic_group="igbo")
+
+        # Get a random first name irrespective of ethnic_group or gender
+        first_name = naija.first_name()
+
+        # Get a random Yoruba first name irrespective of gender
+        yoruba_first_name = naija.first_name(ethnic_group="yoruba")
+
+        # Get a random last name irrespective of ethnic_group
+        last_name = naija.last_name()
+
+        # Get a random Yoruba last name
+        yoruba_last_name = naija.last_name(ethnic_group="yoruba")
+
+        # Get a random male first name irrespective of ethnic_group
+        male_first_name = naija.male_first_name()
+
+        # Get a random Hausa male first name
+        hausa_male_first_name = naija.male_first_name(ethnic_group="hausa")
+
+        # Get a random female first name irrespective of ethnic_group
+        female_first_name = naija.female_first_name()
+
+        # Get a random Hausa female first name
+        hausa_female_first_name = naija.female_first_name(ethnic_group="hausa")
+
+        # Get a random name prefix
+        prefix = naija.prefix()
+
+        # Get a random male name prefix
+        male_prefix = naija.male_prefix()
+
+        # Get a random female name prefix
+        female_prefix = naija.female_prefix()
     """
 
     def __init__(self):
         """
-        Initializes the NameGenerator class.
+        Initializes the Faker class.
 
         Creates an instance of the NameProvider class for generating names.
         """
         self.name_provider = NameProvider()
 
-    def first_name(self, ethnic_group=None, gender=None):
-        """
-        Generates a Nigerian first name.
-
-        Args:
-            ethnic_group (str, optional):
-                The ethnic group for which to generate the name.
-            gender (str, optional):
-                The gender for which to generate the name.
-
-        Returns:
-            str: A Nigerian first name.
-        """
-        return self.name_provider.generate_first_name(ethnic_group, gender)
-
     def full_name(self, ethnic_group=None, gender=None):
         """
-        Generates a Nigerian full name (first name + last name).
+        Generates a random full name.
 
         Args:
             ethnic_group (str, optional):
@@ -61,22 +86,117 @@ class NameGenerator:
                 The gender for which to generate the name.
 
         Returns:
-            str: A Nigerian full name.
+            str: A random full name.
         """
         return self.name_provider.generate_full_name(ethnic_group, gender)
 
-    def last_name(self, ethnic_group=None):
+    def male_full_name(self, ethnic_group=None):
         """
-        Generates a Nigerian last name.
+        Generates a random male full name.
 
         Args:
             ethnic_group (str, optional):
                 The ethnic group for which to generate the name.
 
         Returns:
-            str: A Nigerian last name.
+            str: A random male full name.
+        """
+        return self.name_provider.generate_full_name(ethnic_group, gender="male")
+
+    def female_full_name(self, ethnic_group=None):
+        """
+        Generates a random female full name.
+
+        Args:
+            ethnic_group (str, optional):
+                The ethnic group for which to generate the name.
+
+        Returns:
+            str: A random female full name.
+        """
+        return self.name_provider.generate_full_name(ethnic_group, gender="female")
+
+    def first_name(self, ethnic_group=None):
+        """
+        Generates a random first name.
+
+        Args:
+            ethnic_group (str, optional):
+                The ethnic group for which to generate the name.
+
+        Returns:
+            str: A random first name.
+        """
+        return self.name_provider.generate_first_name(ethnic_group)
+
+    def last_name(self, ethnic_group=None):
+        """
+        Generates a random last name.
+
+        Args:
+            ethnic_group (str, optional):
+                The ethnic group for which to generate the name.
+
+        Returns:
+            str: A random last name.
         """
         return self.name_provider.generate_last_name(ethnic_group)
+
+    def male_first_name(self, ethnic_group=None):
+        """
+        Generates a random male first name.
+
+        Args:
+            ethnic_group (str, optional):
+                The ethnic group for which to generate the name.
+
+        Returns:
+            str: A random male first name.
+        """
+        return self.name_provider.generate_first_name(ethnic_group, gender="male")
+
+    def female_first_name(self, ethnic_group=None):
+        """
+        Generates a random female first name.
+
+        Args:
+            ethnic_group (str, optional):
+                The ethnic group for which to generate the name.
+
+        Returns:
+            str: A random female first name.
+        """
+        return self.name_provider.generate_first_name(ethnic_group, gender="female")
+
+    def prefix(self):
+        """
+        Generates a random name prefix.
+
+        Returns:
+            str: A random name prefix.
+        """
+        prefixes = ["Mr.", "Mrs.", "Miss", "Master", "Mister", "Madam"]
+        return random.choice(prefixes)
+
+    def male_prefix(self):
+        """
+        Generates a random male name prefix.
+
+        Returns:
+            str: A random male name prefix.
+        """
+        prefixes = ["Mr.", "Master", "Mister"]
+        return random.choice(prefixes)
+
+    def female_prefix(self):
+        """
+        Generates a random female name prefix.
+
+        Returns:
+            str: A random female name prefix.
+        """
+        prefixes = ["Mrs.", "Miss", "Madam"]
+        return random.choice(prefixes)
 
 
 class StateGenerator:
