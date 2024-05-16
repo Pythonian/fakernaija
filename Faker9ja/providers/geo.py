@@ -5,26 +5,16 @@ import os
 class GeoProvider:
     """
     A class to provide information about states and their attributes.
-
-    Attributes:
-        data_path (str): The path to the JSON file containing state data.
     """
 
-    def __init__(self, data_path=None):
-        """
-        Initializes the GeoProvider instance.
+    def __init__(self):
+        """Initializes the GeoProvider instance."""
 
-        Args:
-            data_path (str, optional):
-                The path to the JSON file containing state data.
-        """
-        if data_path is None:
-            self.data_path = os.path.join(
-                os.path.dirname(__file__), "data", "states", "states.json"
-            )
-        else:
-            self.data_path = data_path
-
+        # The path to the JSON file containing state data.
+        self.data_path = os.path.join(
+            os.path.dirname(__file__), "data", "geo", "states.json"
+        )
+        # Loads the json data into the states_data variable
         self.states_data = self.load_json(self.data_path)
 
     def load_json(self, file_path):

@@ -6,24 +6,15 @@ import random
 class NameProvider:
     """
     Provides functionality for generating names based on ethnicity and gender.
-
-    Attributes:
-        data_path (str): The path to the directory containing name data files.
     """
 
-    def __init__(self, data_path=None):
-        """
-        Initialize the NameProvider.
+    def __init__(self):
+        """Initialize the NameProvider."""
 
-        Args:
-            data_path (str, optional):
-                The path to the directory containing name data files.
-        """
-
-        if data_path is None:
-            self.data_path = os.path.join(os.path.dirname(__file__), "data")
-        else:
-            self.data_path = data_path
+        # The path to the directory containing name data files.
+        self.data_path = os.path.join(
+            os.path.dirname(__file__), "data", "names", "tribes"
+        )
 
     def load_json(self, file_path):
         """
@@ -54,11 +45,9 @@ class NameProvider:
         """
 
         if tribe:
-            file_path = os.path.join(
-                self.data_path, "names", "tribes", tribe, "first_names"
-            )
+            file_path = os.path.join(self.data_path, tribe, "first_names")
         else:
-            file_path = os.path.join(self.data_path, "names", "tribes")
+            file_path = os.path.join(self.data_path)
         first_names = []
         for _, _, files in os.walk(file_path):
             for file in files:
@@ -85,13 +74,9 @@ class NameProvider:
         """
 
         if tribe:
-            file_path = os.path.join(
-                self.data_path, "names", "tribes", tribe, "last_names.json"
-            )
+            file_path = os.path.join(self.data_path, tribe, "last_names.json")
         else:
-            file_path = os.path.join(
-                self.data_path, "names", "tribes", "last_names.json"
-            )
+            file_path = os.path.join(self.data_path, "last_names.json")
         return self.load_json(file_path)
 
     def generate_first_name(self, tribe=None, gender=None):

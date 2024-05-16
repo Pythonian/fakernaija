@@ -1,0 +1,204 @@
+{
+    "schools": [
+        {
+            "name": "University of Lagos",
+            "acronym": "UNILAG",
+            "location": "Lagos",
+            "type": "University",
+            "ownership": "Federal",
+            "year_founded": 1962
+        },
+        {
+            "name": "University of Ibadan",
+            "acronym": "UI",
+            "location": "Oyo",
+            "type": "University",
+            "ownership": "Federal",
+            "year_founded": 1948
+        },
+        {
+            "name": "Obafemi Awolowo University",
+            "acronym": "OAU",
+            "location": "Osun",
+            "type": "University",
+            "ownership": "Federal",
+            "year_founded": 1962
+        },
+        {
+            "name": "Federal University of Technology, Akure",
+            "acronym": "FUTA",
+            "location": "Ondo",
+            "type": "University",
+            "ownership": "Federal",
+            "year_founded": 1981
+        },
+        {
+            "name": "University of Nigeria, Nsukka",
+            "acronym": "UNN",
+            "location": "Enugu",
+            "type": "University",
+            "ownership": "Federal",
+            "year_founded": 1955
+        },
+        {
+            "name": "Federal Polytechnic, Nekede",
+            "acronym": "NEKEDEPOLY",
+            "location": "Imo",
+            "type": "Polytechnic",
+            "ownership": "Federal",
+            "year_founded": 1978
+        },
+        {
+            "name": "Federal College of Education, Zaria",
+            "acronym": "FCEZARIA",
+            "location": "Kaduna",
+            "type": "College of Education",
+            "ownership": "Federal",
+            "year_founded": 1963
+        },
+        {
+            "name": "Lagos State University",
+            "acronym": "LASU",
+            "location": "Lagos",
+            "type": "University",
+            "ownership": "State",
+            "year_founded": 1983
+        },
+        {
+            "name": "Olabisi Onabanjo University",
+            "acronym": "OOU",
+            "location": "Ogun",
+            "type": "University",
+            "ownership": "State",
+            "year_founded": 1982
+        },
+        {
+            "name": "Enugu State University of Science and Technology",
+            "acronym": "ESUT",
+            "location": "Enugu",
+            "type": "University",
+            "ownership": "State",
+            "year_founded": 1980
+        },
+        {
+            "name": "Ogun State Institute of Technology",
+            "acronym": "OGITECH",
+            "location": "Ogun",
+            "type": "Polytechnic",
+            "ownership": "State",
+            "year_founded": 1981
+        },
+        {
+            "name": "Kano State Polytechnic",
+            "acronym": "KANOPOLY",
+            "location": "Kano",
+            "type": "Polytechnic",
+            "ownership": "State",
+            "year_founded": 1975
+        },
+        {
+            "name": "Abia State College of Education (Technical), Arochukwu",
+            "acronym": "ASCETA",
+            "location": "Abia",
+            "type": "College of Education",
+            "ownership": "State",
+            "year_founded": 1981
+        },
+        {
+            "name": "Covenant University",
+            "acronym": "CU",
+            "location": "Ogun",
+            "type": "University",
+            "ownership": "Private",
+            "year_founded": 2002
+        },
+        {
+            "name": "Babcock University",
+            "acronym": "BU",
+            "location": "Ogun",
+            "type": "University",
+            "ownership": "Private",
+            "year_founded": 1959
+        },
+        {
+            "name": "Igbinedion University Okada",
+            "acronym": "IUO",
+            "location": "Edo",
+            "type": "University",
+            "ownership": "Private",
+            "year_founded": 1999
+        },
+        {
+            "name": "Bells University of Technology",
+            "acronym": "BELLSTECH",
+            "location": "Ogun",
+            "type": "University",
+            "ownership": "Private",
+            "year_founded": 2005
+        },
+        {
+            "name": "Yaba College of Technology",
+            "acronym": "YABATECH",
+            "location": "Lagos",
+            "type": "Polytechnic",
+            "ownership": "Private",
+            "year_founded": 1947
+        },
+        {
+            "name": "Ahmadu Bello University",
+            "acronym": "ABU",
+            "location": "Kaduna",
+            "type": "University",
+            "ownership": "Federal",
+            "year_founded": 1962
+        },
+        {
+            "name": "University of Benin",
+            "acronym": "UNIBEN",
+            "location": "Edo",
+            "type": "University",
+            "ownership": "Federal",
+            "year_founded": 1970
+        },
+        {
+            "name": "University of Abuja",
+            "acronym": "UNIABUJA",
+            "location": "Abuja",
+            "type": "University",
+            "ownership": "Federal",
+            "year_founded": 1988
+        },
+        {
+            "name": "Federal University of Agriculture, Abeokuta",
+            "acronym": "FUNAAB",
+            "location": "Ogun",
+            "type": "University",
+            "ownership": "Federal",
+            "year_founded": 1988
+        },
+        {
+            "name": "Federal University of Petroleum Resources, Effurun",
+            "acronym": "FUPRE",
+            "location": "Delta",
+            "type": "University",
+            "ownership": "Federal",
+            "year_founded": 2007
+        },
+        {
+            "name": "Federal Polytechnic, Ilaro",
+            "acronym": "ILAROPOLY",
+            "location": "Ogun",
+            "type": "Polytechnic",
+            "ownership": "Federal",
+            "year_founded": 1979
+        },
+        {
+            "name": "Federal College of Education, Kano",
+            "acronym": "FCEKANO",
+            "location": "Kano",
+            "type": "College of Education",
+            "ownership": "Federal",
+            "year_founded": 1963
+        }
+    ]
+}

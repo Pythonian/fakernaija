@@ -6,6 +6,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [0.0.4] - 2024-05-16
+
+### Added
+
+- Schools Provider
+- Added more examples to the `examples.py` file for testing
+
+### Refactor
+
+- Renamed `data/states` folder to `data/geo`
+- Updated the path to the JSON file containing states data in `geo.py`
+- Changed the option of conditionally adding a `data_path` to the files
+- Modified paths to the directory containing name data files
+
 ## [0.0.3] - 2024-05-15
 
 ### Added
