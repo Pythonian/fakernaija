@@ -64,6 +64,7 @@ class GeoProvider:
         Returns:
             list: A list of all LGAs for all states.
         """
+        # return [state["lgas"] for state in self.states_data["states"]]
         all_lgas = []
         for state in self.states_data["states"]:
             all_lgas.extend(state["lgas"])

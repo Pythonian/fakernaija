@@ -2,6 +2,7 @@ import random
 from Faker9ja.providers.names import NameProvider
 from Faker9ja.providers.geo import GeoProvider
 from Faker9ja.providers.schools import SchoolProvider
+from Faker9ja.providers.phonenumbers import PhoneNumberProvider
 
 
 class Faker:
@@ -16,6 +17,7 @@ class Faker:
         self.name_provider = NameProvider()
         self.geo_provider = GeoProvider()
         self.school_provider = SchoolProvider()
+        self.phonenumber_provider = PhoneNumberProvider()
 
     def full_name(self, tribe=None, gender=None):
         """
@@ -929,3 +931,18 @@ class Faker:
                     )
             else:
                 return None
+
+    def phone_number(self, network=None, prefix=None):
+        """
+        Generate a random Nigerian phone number, or a phone number
+        based on the specified network or prefix.
+        Args:
+            network (str, optional):
+                The name of the network ('mtn', 'glo', 'airtel', '9mobile').
+                Defaults to None.
+            prefix (str, optional):
+                The prefix of the phone number. Defaults to None.
+        Returns:
+            str: A valid Nigerian phone number.
+        """
+        return self.phonenumber_provider.phone_number(network=network, prefix=prefix)

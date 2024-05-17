@@ -280,3 +280,30 @@ print("Random state college of education in Lagos:", state_colofedu_lagos)
 # Random state college of education acronym in Lagos
 colofedu_acronym = naija.state_college_of_education(acronym=True, location="Lagos")
 print("Random state college of education Acronym in Lagos:", colofedu_acronym)
+
+print()
+
+# Generate any correct phone number sequence
+random_phone_number = naija.phone_number()
+print(f"Random Nigerian phone number: {random_phone_number}")
+
+# Generate a correct phone number of the network 'glo'
+glo_phone_number = naija.phone_number(network="glo")
+print(f"Glo phone number: {glo_phone_number}")
+
+# Generate a correct phone number of the network airtel but starts with a prefix 0812
+phone_number = naija.phone_number(network="airtel", prefix="0812")
+print(f"Phone number with network 'airtel' and prefix '0812': {phone_number}")
+
+# Generate a correct phone number that starts with the prefix '0803'
+specific_prefix_phone_number = naija.phone_number(prefix="0803")
+print(f"Phone number with prefix 0803: {specific_prefix_phone_number}")
+
+# Generate a correct phone number of the network 'glo' and the prefix '0803'
+try:
+    invalid_combination_phone_number = naija.phone_number(network="glo", prefix="0803")
+    print(
+        f"Phone number with network 'glo' and prefix '0803': {invalid_combination_phone_number}"
+    )
+except ValueError as e:
+    print(e)
