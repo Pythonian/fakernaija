@@ -2,18 +2,16 @@ import json
 import os
 
 
-class GeoProvider:
+class StateProvider:
     """
     A class to provide information about states and their attributes.
     """
 
     def __init__(self):
-        """Initializes the GeoProvider instance."""
+        """Initializes the StateProvider instance."""
 
         # The path to the JSON file containing state data.
-        self.data_path = os.path.join(
-            os.path.dirname(__file__), "data", "geo", "states.json"
-        )
+        self.data_path = os.path.join(os.path.dirname(__file__), "data", "states.json")
         # Loads the json data into the states_data variable
         self.states_data = self.load_json(self.data_path)
 
@@ -64,7 +62,6 @@ class GeoProvider:
         Returns:
             list: A list of all LGAs for all states.
         """
-        # return [state["lgas"] for state in self.states_data["states"]]
         all_lgas = []
         for state in self.states_data["states"]:
             all_lgas.extend(state["lgas"])

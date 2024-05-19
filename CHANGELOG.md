@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [0.0.6] - 2024-05-19
+
+### Refactor
+
+- Renamed `geo.py` to `states.py`
+- Removed `data/geo` folder, and moved `states.json` file into the `data` folder
+- Removed `data/schools` folder, and moved `schools.json` file into the `data` folder
+- Renamed `GeoProvider` to `StateProvider` and updated relevant imports
+
 ## [0.0.5] - 2024-05-17
 
 ### Added

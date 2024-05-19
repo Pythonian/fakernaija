@@ -11,9 +11,7 @@ class SchoolProvider:
         """Initializes the SchoolProvider instance."""
 
         # The path to the JSON file containing schools data
-        self.data_path = os.path.join(
-            os.path.dirname(__file__), "data", "schools", "schools.json"
-        )
+        self.data_path = os.path.join(os.path.dirname(__file__), "data", "schools.json")
         # Loads the json data for reuse
         self.schools_data = self.load_json(self.data_path)
 

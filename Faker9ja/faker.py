@@ -1,6 +1,6 @@
 import random
 from Faker9ja.providers.names import NameProvider
-from Faker9ja.providers.geo import GeoProvider
+from Faker9ja.providers.states import StateProvider
 from Faker9ja.providers.schools import SchoolProvider
 from Faker9ja.providers.phonenumbers import PhoneNumberProvider
 
@@ -15,7 +15,7 @@ class Faker:
         Creates an instance of each of the Provider classes.
         """
         self.name_provider = NameProvider()
-        self.geo_provider = GeoProvider()
+        self.state_provider = StateProvider()
         self.school_provider = SchoolProvider()
         self.phonenumber_provider = PhoneNumberProvider()
 
@@ -159,13 +159,13 @@ class Faker:
             str: Random state name or initial.
         """
         if region_initial:
-            states = self.geo_provider.get_states_by_region(region_initial)
+            states = self.state_provider.get_states_by_region(region_initial)
             random_state = random.choice(states)
             return random_state["name"] if not shortcode else random_state["code"]
         elif shortcode:
-            return random.choice(self.geo_provider.get_shortcodes())
+            return random.choice(self.state_provider.get_shortcodes())
         else:
-            return random.choice(self.geo_provider.get_states())
+            return random.choice(self.state_provider.get_states())
 
     def capital(self, state=None):
         """
@@ -180,9 +180,9 @@ class Faker:
             str: Random state capital or the capital of the specified state.
         """
         if state:
-            return self.geo_provider.get_state_capital(state)
+            return self.state_provider.get_state_capital(state)
         else:
-            return random.choice(self.geo_provider.get_capitals())
+            return random.choice(self.state_provider.get_capitals())
 
     def lga(self, state=None):
         """
@@ -197,9 +197,9 @@ class Faker:
             str: Random LGA.
         """
         if state:
-            lgas = self.geo_provider.get_state_lgas(state)
+            lgas = self.state_provider.get_state_lgas(state)
         else:
-            lgas = self.geo_provider.get_lgas()
+            lgas = self.state_provider.get_lgas()
         return random.choice(lgas) if lgas else None
 
     def region(self, initial=False):
@@ -214,12 +214,12 @@ class Faker:
         Returns:
             str: Random region name or initials.
         """
-        regions = self.geo_provider.get_regions()
+        regions = self.state_provider.get_regions()
         if initial:
             return random.choice(regions)
         else:
             return random.choice(
-                [state["region"] for state in self.geo_provider.states_data["states"]]
+                [state["region"] for state in self.state_provider.states_data["states"]]
             )
 
     def postal_code(self, state=None):
@@ -236,9 +236,9 @@ class Faker:
             str: Random postal code.
         """
         if state:
-            return self.geo_provider.get_postal_code_by_state(state)
+            return self.state_provider.get_postal_code_by_state(state)
         else:
-            return random.choice(self.geo_provider.get_postal_codes())
+            return random.choice(self.state_provider.get_postal_codes())
 
     def school(self, acronym=False, location=None):
         """
