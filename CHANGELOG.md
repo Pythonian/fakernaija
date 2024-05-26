@@ -10,7 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
-- Added ruff linter; linting config files and git hook with pre-commit
+- Added ruff linter; linting config files and git hook with pre-commit and mypy
 - Added data validation for the JSON files
 
 ### Refactor
