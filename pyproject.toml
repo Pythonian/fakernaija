@@ -1,0 +1,15 @@
+[tool.ruff]
+target-version = "py310"
+select = ["ALL"]
+
+# Rules to ignore
+ignore = ["E501", "S311", "ANN101", "FBT001", "FBT002"]
+
+# Avoid trying to fix flake8-bugbear (`B`) violations.
+unfixable = ["B"]
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
+[tool.ruff.flake8-quotes]
+docstring-quotes = "double"
