@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - JSON files formatted by ruff
 - Updated python files to use Type checking and made code improvements
+- Changed Faker9ja package name to fakernaija
 
 ## [0.0.6] - 2024-05-19
 

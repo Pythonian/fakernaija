@@ -5,10 +5,10 @@ The `Faker` class includes methods to retrieve various types of data, such as na
 
 import random
 
-from Faker9ja.providers.names import NameProvider
-from Faker9ja.providers.phonenumbers import PhoneNumberProvider
-from Faker9ja.providers.schools import SchoolProvider
-from Faker9ja.providers.states import StateProvider
+from fakernaija.providers.names import NameProvider
+from fakernaija.providers.phonenumbers import PhoneNumberProvider
+from fakernaija.providers.schools import SchoolProvider
+from fakernaija.providers.states import StateProvider
 
 
 class Faker:
