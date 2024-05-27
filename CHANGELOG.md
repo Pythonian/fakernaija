@@ -6,6 +6,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [0.0.8] - 2024-05-27
+
+### Added
+
+- Added Requirements file
+- Added docstrings to module `__init__` files
+- Added mypy configurations to `setup.cfg` file
+
+### Refactor
+
+- Fix mypy indetified static type warnings in `faker.py` and `names.py` files
+- Modified few names in the json names file
+
+### Removed
+
+- Deleted the `mypy.ini` file
+
 ## [0.0.7] - 2024-05-26
 
 ### Added

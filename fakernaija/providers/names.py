@@ -81,7 +81,7 @@ class NameProvider:
         self,
         tribe: str | None = None,
         gender: str | None = None,
-    ) -> str | None:
+    ) -> str:
         """Generate a random first name optionally from a specific ethnic group and gender.
 
         Args:
@@ -89,32 +89,28 @@ class NameProvider:
             gender (str | None, optional): The gender of the name. Defaults to None.
 
         Returns:
-            str | None: A random first name or None if no names are found.
+            str: A random first name.
         """
         first_names = self.get_first_names(tribe, gender)
-        if first_names:
-            return random.choice(first_names)["name"]
-        return None
+        return random.choice(first_names)["name"]
 
-    def generate_last_name(self, tribe: str | None = None) -> str | None:
+    def generate_last_name(self, tribe: str | None = None) -> str:
         """Generate a random last name optionally from a specific ethnic group.
 
         Args:
             tribe (str | None, optional): The ethnic group of the name. Defaults to None.
 
         Returns:
-            str | None: A random last name or None if no names are found.
+            str: A random last name.
         """
         last_names = self.get_last_names(tribe)
-        if last_names:
-            return random.choice(last_names)["name"]
-        return None
+        return random.choice(last_names)["name"]
 
     def generate_full_name(
         self,
         tribe: str | None = None,
         gender: str | None = None,
-    ) -> str | None:
+    ) -> str:
         """Generate a random full name optionally from a specific ethnic group and gender.
 
         Args:
@@ -122,10 +118,8 @@ class NameProvider:
             gender (str | None, optional): The gender of the name. Defaults to None.
 
         Returns:
-            str | None: A random full name or None if no names are found.
+            str: A random full name.
         """
         first_name = self.generate_first_name(tribe, gender)
         last_name = self.generate_last_name(tribe)
-        if first_name and last_name:
-            return f"{first_name} {last_name}"
-        return None
+        return f"{first_name} {last_name}"

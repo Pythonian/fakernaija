@@ -147,7 +147,7 @@ class Faker:
             return random.choice(self.state_provider.get_shortcodes())
         return random.choice(self.state_provider.get_states())
 
-    def capital(self, state: str | None = None) -> str:
+    def capital(self, state: str | None = None) -> str | None:
         """Get a random state capital or the capital of a specific state.
 
         Args:
@@ -155,7 +155,8 @@ class Faker:
             If None, a random capital city will be returned.
 
         Returns:
-            str: Random state capital or the capital of the specified state.
+            str | None: Random state capital or the capital of the specified state.
+            Returns None if the specified state does not exist.
         """
         if state:
             return self.state_provider.get_state_capital(state)
@@ -194,7 +195,7 @@ class Faker:
             [state["region"] for state in self.state_provider.states_data["states"]],
         )
 
-    def postal_code(self, state: str | None = None) -> str:
+    def postal_code(self, state: str | None = None) -> str | None:
         """Get a random postal code of any state, or of a specific state if specified.
 
         Args:
@@ -202,7 +203,8 @@ class Faker:
             If None (default), return a random postal code of any state.
 
         Returns:
-            str: Random postal code.
+            str | None: Random postal code or the postal code of the specified state.
+            Returns None if the specified state does not exist.
         """
         if state:
             return self.state_provider.get_postal_code_by_state(state)
