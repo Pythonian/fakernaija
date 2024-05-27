@@ -199,6 +199,774 @@
             "type": "College of Education",
             "ownership": "Federal",
             "year_founded": 1963
+        },
+        {
+            "name": "Nnamdi Azikiwe University",
+            "acronym": "UNIZIK",
+            "location": "Anambra",
+            "type": "University",
+            "ownership": "Federal",
+            "year_founded": 1991
+        },
+        {
+            "name": "Bayero University Kano",
+            "acronym": "BUK",
+            "location": "Kano",
+            "type": "University",
+            "ownership": "Federal",
+            "year_founded": 1977
+        },
+        {
+            "name": "University of Ilorin",
+            "acronym": "UNILORIN",
+            "location": "Kwara",
+            "type": "University",
+            "ownership": "Federal",
+            "year_founded": 1975
+        },
+        {
+            "name": "Federal University of Technology, Minna",
+            "acronym": "FUTMINNA",
+            "location": "Niger",
+            "type": "University",
+            "ownership": "Federal",
+            "year_founded": 1983
+        },
+        {
+            "name": "Modibbo Adama University of Technology",
+            "acronym": "MAUTECH",
+            "location": "Adamawa",
+            "type": "University",
+            "ownership": "Federal",
+            "year_founded": 1981
+        },
+        {
+            "name": "University of Jos",
+            "acronym": "UNIJOS",
+            "location": "Plateau",
+            "type": "University",
+            "ownership": "Federal",
+            "year_founded": 1975
+        },
+        {
+            "name": "Rivers State University",
+            "acronym": "RSU",
+            "location": "Rivers",
+            "type": "University",
+            "ownership": "State",
+            "year_founded": 1980
+        },
+        {
+            "name": "Ladoke Akintola University of Technology",
+            "acronym": "LAUTECH",
+            "location": "Oyo",
+            "type": "University",
+            "ownership": "State",
+            "year_founded": 1990
+        },
+        {
+            "name": "Delta State University, Abraka",
+            "acronym": "DELSU",
+            "location": "Delta",
+            "type": "University",
+            "ownership": "State",
+            "year_founded": 1992
+        },
+        {
+            "name": "Ekiti State University",
+            "acronym": "EKSU",
+            "location": "Ekiti",
+            "type": "University",
+            "ownership": "State",
+            "year_founded": 1982
+        },
+        {
+            "name": "Moshood Abiola Polytechnic",
+            "acronym": "MAPOLY",
+            "location": "Ogun",
+            "type": "Polytechnic",
+            "ownership": "State",
+            "year_founded": 1979
+        },
+        {
+            "name": "Kaduna Polytechnic",
+            "acronym": "KADPOLY",
+            "location": "Kaduna",
+            "type": "Polytechnic",
+            "ownership": "Federal",
+            "year_founded": 1968
+        },
+        {
+            "name": "Federal Polytechnic, Ado-Ekiti",
+            "acronym": "FEDPOLYADO",
+            "location": "Ekiti",
+            "type": "Polytechnic",
+            "ownership": "Federal",
+            "year_founded": 1977
+        },
+        {
+            "name": "College of Education, Warri",
+            "acronym": "COEWarri",
+            "location": "Delta",
+            "type": "College of Education",
+            "ownership": "State",
+            "year_founded": 1979
+        },
+        {
+            "name": "Adeyemi College of Education",
+            "acronym": "ACE",
+            "location": "Ondo",
+            "type": "College of Education",
+            "ownership": "Federal",
+            "year_founded": 1963
+        },
+        {
+            "name": "Al-Hikmah University",
+            "acronym": "AL-HIKMAH",
+            "location": "Kwara",
+            "type": "University",
+            "ownership": "Private",
+            "year_founded": 2005
+        },
+        {
+            "name": "Afe Babalola University",
+            "acronym": "ABUAD",
+            "location": "Ekiti",
+            "type": "University",
+            "ownership": "Private",
+            "year_founded": 2009
+        },
+        {
+            "name": "Redeemer's University",
+            "acronym": "RUN",
+            "location": "Osun",
+            "type": "University",
+            "ownership": "Private",
+            "year_founded": 2005
+        },
+        {
+            "name": "Pan-Atlantic University",
+            "acronym": "PAU",
+            "location": "Lagos",
+            "type": "University",
+            "ownership": "Private",
+            "year_founded": 2002
+        },
+        {
+            "name": "Bowen University",
+            "acronym": "BU",
+            "location": "Osun",
+            "type": "University",
+            "ownership": "Private",
+            "year_founded": 2001
+        },
+        {
+            "name": "Michael Okpara University of Agriculture",
+            "acronym": "MOUAU",
+            "location": "Abia",
+            "type": "University",
+            "ownership": "Federal",
+            "year_founded": 1992
+        },
+        {
+            "name": "University of Maiduguri",
+            "acronym": "UNIMAID",
+            "location": "Borno",
+            "type": "University",
+            "ownership": "Federal",
+            "year_founded": 1975
+        },
+        {
+            "name": "University of Calabar",
+            "acronym": "UNICAL",
+            "location": "Cross River",
+            "type": "University",
+            "ownership": "Federal",
+            "year_founded": 1975
+        },
+        {
+            "name": "Usmanu Danfodiyo University",
+            "acronym": "UDUS",
+            "location": "Sokoto",
+            "type": "University",
+            "ownership": "Federal",
+            "year_founded": 1975
+        },
+        {
+            "name": "Abubakar Tafawa Balewa University",
+            "acronym": "ATBU",
+            "location": "Bauchi",
+            "type": "University",
+            "ownership": "Federal",
+            "year_founded": 1980
+        },
+        {
+            "name": "University of Uyo",
+            "acronym": "UNIUYO",
+            "location": "Akwa Ibom",
+            "type": "University",
+            "ownership": "Federal",
+            "year_founded": 1991
+        },
+        {
+            "name": "Nasarawa State University",
+            "acronym": "NSUK",
+            "location": "Nasarawa",
+            "type": "University",
+            "ownership": "State",
+            "year_founded": 2002
+        },
+        {
+            "name": "Benue State University",
+            "acronym": "BSU",
+            "location": "Benue",
+            "type": "University",
+            "ownership": "State",
+            "year_founded": 1992
+        },
+        {
+            "name": "Kebbi State University of Science and Technology",
+            "acronym": "KSUSTA",
+            "location": "Kebbi",
+            "type": "University",
+            "ownership": "State",
+            "year_founded": 2006
+        },
+        {
+            "name": "Tai Solarin University of Education",
+            "acronym": "TASUED",
+            "location": "Ogun",
+            "type": "University",
+            "ownership": "State",
+            "year_founded": 2005
+        },
+        {
+            "name": "Kwara State Polytechnic",
+            "acronym": "KWARAPOLY",
+            "location": "Kwara",
+            "type": "Polytechnic",
+            "ownership": "State",
+            "year_founded": 1973
+        },
+        {
+            "name": "Akwa Ibom State Polytechnic",
+            "acronym": "AKWAPOLY",
+            "location": "Akwa Ibom",
+            "type": "Polytechnic",
+            "ownership": "State",
+            "year_founded": 1991
+        },
+        {
+            "name": "Imo State Polytechnic",
+            "acronym": "IMOPOLY",
+            "location": "Imo",
+            "type": "Polytechnic",
+            "ownership": "State",
+            "year_founded": 1978
+        },
+        {
+            "name": "College of Education, Ikere-Ekiti",
+            "acronym": "COEIKERE",
+            "location": "Ekiti",
+            "type": "College of Education",
+            "ownership": "State",
+            "year_founded": 1977
+        },
+        {
+            "name": "Federal College of Education (Technical), Akoka",
+            "acronym": "FCE(T)AKOKA",
+            "location": "Lagos",
+            "type": "College of Education",
+            "ownership": "Federal",
+            "year_founded": 1967
+        },
+        {
+            "name": "Federal College of Education (Special), Oyo",
+            "acronym": "FCE(S)OYO",
+            "location": "Oyo",
+            "type": "College of Education",
+            "ownership": "Federal",
+            "year_founded": 1977
+        },
+        {
+            "name": "American University of Nigeria",
+            "acronym": "AUN",
+            "location": "Adamawa",
+            "type": "University",
+            "ownership": "Private",
+            "year_founded": 2004
+        },
+        {
+            "name": "Baze University",
+            "acronym": "BU",
+            "location": "Abuja",
+            "type": "University",
+            "ownership": "Private",
+            "year_founded": 2011
+        },
+        {
+            "name": "Joseph Ayo Babalola University",
+            "acronym": "JABU",
+            "location": "Osun",
+            "type": "University",
+            "ownership": "Private",
+            "year_founded": 2006
+        },
+        {
+            "name": "Nile University of Nigeria",
+            "acronym": "NUN",
+            "location": "Abuja",
+            "type": "University",
+            "ownership": "Private",
+            "year_founded": 2009
+        },
+        {
+            "name": "Ajayi Crowther University",
+            "acronym": "ACU",
+            "location": "Oyo",
+            "type": "University",
+            "ownership": "Private",
+            "year_founded": 2005
+        },
+        {
+            "name": "Lead City University",
+            "acronym": "LCU",
+            "location": "Oyo",
+            "type": "University",
+            "ownership": "Private",
+            "year_founded": 2005
+        },
+        {
+            "name": "Paul University",
+            "acronym": "PU",
+            "location": "Anambra",
+            "type": "University",
+            "ownership": "Private",
+            "year_founded": 2009
+        },
+        {
+            "name": "Federal College of Education, Obudu",
+            "acronym": "FCEOBUDU",
+            "location": "Cross River",
+            "type": "College of Education",
+            "ownership": "Federal",
+            "year_founded": 1982
+        },
+        {
+            "name": "Federal College of Education, Abeokuta",
+            "acronym": "FCEA",
+            "location": "Ogun",
+            "type": "College of Education",
+            "ownership": "Federal",
+            "year_founded": 1976
+        },
+        {
+            "name": "Federal College of Education (Technical), Asaba",
+            "acronym": "FCETA",
+            "location": "Delta",
+            "type": "College of Education",
+            "ownership": "Federal",
+            "year_founded": 1987
+        },
+        {
+            "name": "Federal College of Education (Technical), Gombe",
+            "acronym": "FCETGOMBE",
+            "location": "Gombe",
+            "type": "College of Education",
+            "ownership": "Federal",
+            "year_founded": 1977
+        },
+        {
+            "name": "Federal College of Education, Pankshin",
+            "acronym": "FCEP",
+            "location": "Plateau",
+            "type": "College of Education",
+            "ownership": "Federal",
+            "year_founded": 1974
+        },
+        {
+            "name": "Federal College of Education, Okene",
+            "acronym": "FCEOKENE",
+            "location": "Kogi",
+            "type": "College of Education",
+            "ownership": "Federal",
+            "year_founded": 1974
+        },
+        {
+            "name": "Federal College of Education (Technical), Bichi",
+            "acronym": "FCETBICHI",
+            "location": "Kano",
+            "type": "College of Education",
+            "ownership": "Federal",
+            "year_founded": 1986
+        },
+        {
+            "name": "Adeyemi College of Education",
+            "acronym": "ACEONDO",
+            "location": "Ondo",
+            "type": "College of Education",
+            "ownership": "Federal",
+            "year_founded": 1963
+        },
+        {
+            "name": "Emmanuel Alayande College of Education",
+            "acronym": "EACOED",
+            "location": "Oyo",
+            "type": "College of Education",
+            "ownership": "State",
+            "year_founded": 1976
+        },
+        {
+            "name": "Kwara State College of Education, Ilorin",
+            "acronym": "KWCOE",
+            "location": "Kwara",
+            "type": "College of Education",
+            "ownership": "State",
+            "year_founded": 1974
+        },
+        {
+            "name": "Michael Otedola College of Primary Education",
+            "acronym": "MOCPED",
+            "location": "Lagos",
+            "type": "College of Education",
+            "ownership": "State",
+            "year_founded": 1994
+        },
+        {
+            "name": "Sa'adatu Rimi College of Education",
+            "acronym": "SRCOE",
+            "location": "Kano",
+            "type": "College of Education",
+            "ownership": "State",
+            "year_founded": 1981
+        },
+        {
+            "name": "Umar Suleiman College of Education, Gashua",
+            "acronym": "USCOEGA",
+            "location": "Yobe",
+            "type": "College of Education",
+            "ownership": "State",
+            "year_founded": 1986
+        },
+        {
+            "name": "College of Education, Ekiadolor",
+            "acronym": "COEEKIADOLOR",
+            "location": "Edo",
+            "type": "College of Education",
+            "ownership": "State",
+            "year_founded": 1980
+        },
+        {
+            "name": "Kashim Ibrahim College of Education",
+            "acronym": "KICOE",
+            "location": "Borno",
+            "type": "College of Education",
+            "ownership": "State",
+            "year_founded": 1977
+        },
+        {
+            "name": "Tai Solarin College of Education",
+            "acronym": "TASCE",
+            "location": "Ogun",
+            "type": "College of Education",
+            "ownership": "State",
+            "year_founded": 1978
+        },
+        {
+            "name": "College of Education, Waka-Biu",
+            "acronym": "COEWAKA",
+            "location": "Borno",
+            "type": "College of Education",
+            "ownership": "State",
+            "year_founded": 1986
+        },
+        {
+            "name": "College of Education, Warri",
+            "acronym": "COEWARRI",
+            "location": "Delta",
+            "type": "College of Education",
+            "ownership": "State",
+            "year_founded": 1979
+        },
+        {
+            "name": "Jama’Atu College of Education",
+            "acronym": "JACE",
+            "location": "Kaduna",
+            "type": "College of Education",
+            "ownership": "Private",
+            "year_founded": 1994
+        },
+        {
+            "name": "St. Augustine College of Education",
+            "acronym": "SACOED",
+            "location": "Lagos",
+            "type": "College of Education",
+            "ownership": "Private",
+            "year_founded": 1971
+        },
+        {
+            "name": "Delar College of Education",
+            "acronym": "DELARCOE",
+            "location": "Oyo",
+            "type": "College of Education",
+            "ownership": "Private",
+            "year_founded": 2006
+        },
+        {
+            "name": "City College of Education",
+            "acronym": "CITYCOE",
+            "location": "Abuja",
+            "type": "College of Education",
+            "ownership": "Private",
+            "year_founded": 2004
+        },
+        {
+            "name": "Ansar-Ud-Deen College of Education",
+            "acronym": "ANSARUDEEN",
+            "location": "Lagos",
+            "type": "College of Education",
+            "ownership": "Private",
+            "year_founded": 1986
+        },
+        {
+            "name": "Cornerstone College of Education",
+            "acronym": "CORNCOE",
+            "location": "Lagos",
+            "type": "College of Education",
+            "ownership": "Private",
+            "year_founded": 2008
+        },
+        {
+            "name": "Crestfield College of Education",
+            "acronym": "CRESTCOE",
+            "location": "Osun",
+            "type": "College of Education",
+            "ownership": "Private",
+            "year_founded": 2005
+        },
+        {
+            "name": "Diamond College of Education",
+            "acronym": "DIAMONDCOE",
+            "location": "Abia",
+            "type": "College of Education",
+            "ownership": "Private",
+            "year_founded": 2007
+        },
+        {
+            "name": "Best Legacy College of Education",
+            "acronym": "BESTLEGACY",
+            "location": "Oyo",
+            "type": "College of Education",
+            "ownership": "Private",
+            "year_founded": 2004
+        },
+        {
+            "name": "ECWA College of Education",
+            "acronym": "ECWACOE",
+            "location": "Plateau",
+            "type": "College of Education",
+            "ownership": "Private",
+            "year_founded": 1989
+        },
+        {
+            "name": "Akanu Ibiam Federal Polytechnic",
+            "acronym": "AKANUPOLY",
+            "location": "Ebonyi",
+            "type": "Polytechnic",
+            "ownership": "Federal",
+            "year_founded": 1979
+        },
+        {
+            "name": "Auchi Polytechnic",
+            "acronym": "AUCHIPOLY",
+            "location": "Edo",
+            "type": "Polytechnic",
+            "ownership": "Federal",
+            "year_founded": 1963
+        },
+        {
+            "name": "Federal Polytechnic Ado Ekiti",
+            "acronym": "FEDPOLYADO",
+            "location": "Ekiti",
+            "type": "Polytechnic",
+            "ownership": "Federal",
+            "year_founded": 1977
+        },
+        {
+            "name": "Federal Polytechnic Bali",
+            "acronym": "FEDPOLYBALI",
+            "location": "Taraba",
+            "type": "Polytechnic",
+            "ownership": "Federal",
+            "year_founded": 2007
+        },
+        {
+            "name": "Federal Polytechnic Bauchi",
+            "acronym": "FEDPOLYBAU",
+            "location": "Bauchi",
+            "type": "Polytechnic",
+            "ownership": "Federal",
+            "year_founded": 1979
+        },
+        {
+            "name": "Federal Polytechnic Bida",
+            "acronym": "FEDPOLYBIDA",
+            "location": "Niger",
+            "type": "Polytechnic",
+            "ownership": "Federal",
+            "year_founded": 1977
+        },
+        {
+            "name": "Federal Polytechnic Damaturu",
+            "acronym": "FEDPODAM",
+            "location": "Yobe",
+            "type": "Polytechnic",
+            "ownership": "Federal",
+            "year_founded": 1993
+        },
+        {
+            "name": "Federal Polytechnic Daura",
+            "acronym": "FEDPOLYDAURA",
+            "location": "Katsina",
+            "type": "Polytechnic",
+            "ownership": "Federal",
+            "year_founded": 2021
+        },
+        {
+            "name": "Federal Polytechnic Ede",
+            "acronym": "FEDPOLYEDE",
+            "location": "Osun",
+            "type": "Polytechnic",
+            "ownership": "Federal",
+            "year_founded": 1992
+        },
+        {
+            "name": "Federal Polytechnic Ekowe",
+            "acronym": "FEDPOLYEKOWE",
+            "location": "Bayelsa",
+            "type": "Polytechnic",
+            "ownership": "Federal",
+            "year_founded": 2009
+        },
+        {
+            "name": "Kogi State Polytechnic",
+            "acronym": "KOGIPOLY",
+            "location": "Kogi",
+            "type": "Polytechnic",
+            "ownership": "State",
+            "year_founded": 1992
+        },
+        {
+            "name": "Lagos State Polytechnic",
+            "acronym": "LASPOTECH",
+            "location": "Lagos",
+            "type": "Polytechnic",
+            "ownership": "State",
+            "year_founded": 1978
+        },
+        {
+            "name": "Nasarawa State Polytechnic",
+            "acronym": "NASPOLY",
+            "location": "Nasarawa",
+            "type": "Polytechnic",
+            "ownership": "State",
+            "year_founded": 2000
+        },
+        {
+            "name": "Nuhu Bamalli Polytechnic",
+            "acronym": "NUBAPOLY",
+            "location": "Kaduna",
+            "type": "Polytechnic",
+            "ownership": "State",
+            "year_founded": 1989
+        },
+        {
+            "name": "Osun State Polytechnic",
+            "acronym": "OSUNPOLY",
+            "location": "Osun",
+            "type": "Polytechnic",
+            "ownership": "State",
+            "year_founded": 1992
+        },
+        {
+            "name": "Plateau State Polytechnic",
+            "acronym": "PLAPOLY",
+            "location": "Plateau",
+            "type": "Polytechnic",
+            "ownership": "State",
+            "year_founded": 1978
+        },
+        {
+            "name": "Port Harcourt Polytechnic",
+            "acronym": "PHCPOLY",
+            "location": "Rivers",
+            "type": "Polytechnic",
+            "ownership": "State",
+            "year_founded": 1987
+        },
+        {
+            "name": "Ramat Polytechnic",
+            "acronym": "RAMATPOLY",
+            "location": "Borno",
+            "type": "Polytechnic",
+            "ownership": "State",
+            "year_founded": 1978
+        },
+        {
+            "name": "Umaru Ali Shinkafi Polytechnic",
+            "acronym": "UASPOLY",
+            "location": "Sokoto",
+            "type": "Polytechnic",
+            "ownership": "State",
+            "year_founded": 2002
+        },
+        {
+            "name": "Allover Central Polytechnic",
+            "acronym": "ALLOVERPOLY",
+            "location": "Ogun",
+            "type": "Polytechnic",
+            "ownership": "Private",
+            "year_founded": 2003
+        },
+        {
+            "name": "Crown Polytechnic",
+            "acronym": "CROWNPOLY",
+            "location": "Ekiti",
+            "type": "Polytechnic",
+            "ownership": "Private",
+            "year_founded": 2008
+        },
+        {
+            "name": "Dorben Polytechnic",
+            "acronym": "DORBENPOLY",
+            "location": "Abuja",
+            "type": "Polytechnic",
+            "ownership": "Private",
+            "year_founded": 1995
+        },
+        {
+            "name": "Eastern Polytechnic",
+            "acronym": "EASTERNPOLY",
+            "location": "Rivers",
+            "type": "Polytechnic",
+            "ownership": "Private",
+            "year_founded": 2008
+        },
+        {
+            "name": "Fidei Polytechnic",
+            "acronym": "FIDEIPOLY",
+            "location": "Benue",
+            "type": "Polytechnic",
+            "ownership": "Private",
+            "year_founded": 2006
+        },
+        {
+            "name": "Ibadan City Polytechnic",
+            "acronym": "IBADANPOLY",
+            "location": "Oyo",
+            "type": "Polytechnic",
+            "ownership": "Private",
+            "year_founded": 2014
         }
     ]
 }

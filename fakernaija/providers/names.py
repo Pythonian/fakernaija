@@ -13,7 +13,9 @@ class NameProvider:
 
         Sets the path to the directory containing name data files.
         """
-        self.data_path = Path(__file__).parent / "data" / "names" / "tribes"
+        self.data_path = Path(__file__).parent / "data" / "names"
+        self.first_names = self.load_json(self.data_path / "first_names.json")
+        self.last_names = self.load_json(self.data_path / "last_names.json")
 
     def load_json(self, file_path: str | Path) -> list[dict[str, str]]:
         """Load data from a JSON file.
@@ -52,14 +54,12 @@ class NameProvider:
         Returns:
             list[dict[str, str]]: A list of first names matching the specified filters.
         """
-        file_path = self.data_path / tribe / "first_names" if tribe else self.data_path
-        first_names = []
-        for json_file in file_path.rglob("*.json"):
-            file_data = self.load_json(json_file)
-            if gender:
-                file_data = [name for name in file_data if name["gender"] == gender]
-            first_names.extend(file_data)
-        return first_names
+        names = self.first_names
+        if tribe:
+            names = [name for name in names if name["tribe"] == tribe]
+        if gender:
+            names = [name for name in names if name["gender"] == gender]
+        return names
 
     def get_last_names(self, tribe: str | None = None) -> list[dict[str, str]]:
         """Get a list of last names optionally filtered by ethnic group.
@@ -70,12 +70,9 @@ class NameProvider:
         Returns:
             list[dict[str, str]]: A list of last names matching the specified filter.
         """
-        file_path = (
-            self.data_path / tribe / "last_names.json"
-            if tribe
-            else self.data_path / "last_names.json"
-        )
-        return self.load_json(file_path)
+        if tribe:
+            return [name for name in self.last_names if name["tribe"] == tribe]
+        return self.last_names
 
     def generate_first_name(
         self,

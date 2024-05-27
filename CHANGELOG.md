@@ -12,11 +12,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Added Requirements file
 - Added docstrings to module `__init__` files
+- Added more schools data
+- Added `first_names.json` and `last_names.json` files for names data
 
 ### Refactor
 
 - Fix mypy indetified static type warnings in `faker.py` and `names.py` files
 - Modified few names in the json names file
+- Changed the structure of json name directory and files
+
+## Removed
+
+- Deleted the tribe folder containing names
+- Delete unnecessary `__init__` files
 
 ## [0.0.7] - 2024-05-26
 

@@ -1,0 +1,578 @@
+[
+    {
+        "tribe": "edo",
+        "name": "Ogiemwonyi"
+    },
+    {
+        "tribe": "edo",
+        "name": "Igbinedion"
+    },
+    {
+        "tribe": "edo",
+        "name": "Obaseki"
+    },
+    {
+        "tribe": "edo",
+        "name": "Omoruyi"
+    },
+    {
+        "tribe": "edo",
+        "name": "Osagie"
+    },
+    {
+        "tribe": "edo",
+        "name": "Iyamu"
+    },
+    {
+        "tribe": "edo",
+        "name": "Aigbe"
+    },
+    {
+        "tribe": "edo",
+        "name": "Okojie"
+    },
+    {
+        "tribe": "edo",
+        "name": "Ogbeide"
+    },
+    {
+        "tribe": "edo",
+        "name": "Osimhen"
+    },
+    {
+        "tribe": "edo",
+        "name": "Osaigbovo"
+    },
+    {
+        "tribe": "edo",
+        "name": "Okoeguale"
+    },
+    {
+        "tribe": "edo",
+        "name": "Ogbebor"
+    },
+    {
+        "tribe": "edo",
+        "name": "Ize-Iyamu"
+    },
+    {
+        "tribe": "edo",
+        "name": "Ebhomielen"
+    },
+    {
+        "tribe": "edo",
+        "name": "Omorogbe"
+    },
+    {
+        "tribe": "edo",
+        "name": "Iyoha"
+    },
+    {
+        "tribe": "edo",
+        "name": "Ikhine"
+    },
+    {
+        "tribe": "edo",
+        "name": "Oviasu"
+    },
+    {
+        "tribe": "edo",
+        "name": "Uzamere"
+    },
+    {
+        "tribe": "edo",
+        "name": "Ogbeide"
+    },
+    {
+        "tribe": "edo",
+        "name": "Agho"
+    },
+    {
+        "tribe": "edo",
+        "name": "Ogieva"
+    },
+    {
+        "tribe": "edo",
+        "name": "Aigbogun"
+    },
+    {
+        "tribe": "fulani",
+        "name": "Abubakar"
+    },
+    {
+        "tribe": "fulani",
+        "name": "Mohammed"
+    },
+    {
+        "tribe": "fulani",
+        "name": "Umaru"
+    },
+    {
+        "tribe": "fulani",
+        "name": "Ibrahim"
+    },
+    {
+        "tribe": "fulani",
+        "name": "Aliyu"
+    },
+    {
+        "tribe": "fulani",
+        "name": "Suleiman"
+    },
+    {
+        "tribe": "fulani",
+        "name": "Abdullahi"
+    },
+    {
+        "tribe": "fulani",
+        "name": "Shehu"
+    },
+    {
+        "tribe": "fulani",
+        "name": "Yusuf"
+    },
+    {
+        "tribe": "fulani",
+        "name": "Garba"
+    },
+    {
+        "tribe": "fulani",
+        "name": "Mustapha"
+    },
+    {
+        "tribe": "fulani",
+        "name": "Ahmed"
+    },
+    {
+        "tribe": "fulani",
+        "name": "Hassan"
+    },
+    {
+        "tribe": "fulani",
+        "name": "Adamu"
+    },
+    {
+        "tribe": "fulani",
+        "name": "Abdulrahman"
+    },
+    {
+        "tribe": "fulani",
+        "name": "Jibrin"
+    },
+    {
+        "tribe": "fulani",
+        "name": "Ismail"
+    },
+    {
+        "tribe": "fulani",
+        "name": "Nuhu"
+    },
+    {
+        "tribe": "fulani",
+        "name": "Musa"
+    },
+    {
+        "tribe": "fulani",
+        "name": "Yakubu"
+    },
+    {
+        "tribe": "fulani",
+        "name": "Danladi"
+    },
+    {
+        "tribe": "fulani",
+        "name": "Bello"
+    },
+    {
+        "tribe": "fulani",
+        "name": "Usman"
+    },
+    {
+        "tribe": "fulani",
+        "name": "Dauda"
+    },
+    {
+        "tribe": "hausa",
+        "name": "Abubakar"
+    },
+    {
+        "tribe": "hausa",
+        "name": "Ahmad"
+    },
+    {
+        "tribe": "hausa",
+        "name": "Aliyu"
+    },
+    {
+        "tribe": "hausa",
+        "name": "Danladi"
+    },
+    {
+        "tribe": "hausa",
+        "name": "Dauda"
+    },
+    {
+        "tribe": "hausa",
+        "name": "Garba"
+    },
+    {
+        "tribe": "hausa",
+        "name": "Gidado"
+    },
+    {
+        "tribe": "hausa",
+        "name": "Ibrahim"
+    },
+    {
+        "tribe": "hausa",
+        "name": "Kabiru"
+    },
+    {
+        "tribe": "hausa",
+        "name": "Muhammad"
+    },
+    {
+        "tribe": "hausa",
+        "name": "Musawa"
+    },
+    {
+        "tribe": "hausa",
+        "name": "El-Rufai"
+    },
+    {
+        "tribe": "hausa",
+        "name": "Sani"
+    },
+    {
+        "tribe": "hausa",
+        "name": "Shehu"
+    },
+    {
+        "tribe": "hausa",
+        "name": "Suleiman"
+    },
+    {
+        "tribe": "hausa",
+        "name": "Tanimu"
+    },
+    {
+        "tribe": "hausa",
+        "name": "Umar"
+    },
+    {
+        "tribe": "hausa",
+        "name": "Yahaya"
+    },
+    {
+        "tribe": "hausa",
+        "name": "Yakubu"
+    },
+    {
+        "tribe": "hausa",
+        "name": "Zakari"
+    },
+    {
+        "tribe": "hausa",
+        "name": "Bello"
+    },
+    {
+        "tribe": "hausa",
+        "name": "Idris"
+    },
+    {
+        "tribe": "hausa",
+        "name": "Usman"
+    },
+    {
+        "tribe": "hausa",
+        "name": "Buhari"
+    },
+    {
+        "tribe": "igbo",
+        "name": "Nwankwo"
+    },
+    {
+        "tribe": "igbo",
+        "name": "Okoye"
+    },
+    {
+        "tribe": "igbo",
+        "name": "Eze"
+    },
+    {
+        "tribe": "igbo",
+        "name": "Obi"
+    },
+    {
+        "tribe": "igbo",
+        "name": "Ude"
+    },
+    {
+        "tribe": "igbo",
+        "name": "Okafor"
+    },
+    {
+        "tribe": "igbo",
+        "name": "Okeke"
+    },
+    {
+        "tribe": "igbo",
+        "name": "Okonkwo"
+    },
+    {
+        "tribe": "igbo",
+        "name": "Ibe"
+    },
+    {
+        "tribe": "igbo",
+        "name": "Onyekachi"
+    },
+    {
+        "tribe": "igbo",
+        "name": "Onyemaechi"
+    },
+    {
+        "tribe": "igbo",
+        "name": "Onwubiko"
+    },
+    {
+        "tribe": "igbo",
+        "name": "Oka"
+    },
+    {
+        "tribe": "igbo",
+        "name": "Ezeani"
+    },
+    {
+        "tribe": "igbo",
+        "name": "Onyekwere"
+    },
+    {
+        "tribe": "igbo",
+        "name": "Nwosu"
+    },
+    {
+        "tribe": "igbo",
+        "name": "Okereke"
+    },
+    {
+        "tribe": "igbo",
+        "name": "Obasi"
+    },
+    {
+        "tribe": "igbo",
+        "name": "Nnabuihe"
+    },
+    {
+        "tribe": "igbo",
+        "name": "Oji"
+    },
+    {
+        "tribe": "igbo",
+        "name": "Ani"
+    },
+    {
+        "tribe": "igbo",
+        "name": "Ibezim"
+    },
+    {
+        "tribe": "igbo",
+        "name": "Onyekaozuru"
+    },
+    {
+        "tribe": "igbo",
+        "name": "Okwuosa"
+    },
+    {
+        "tribe": "ijaw",
+        "name": "Ebi"
+    },
+    {
+        "tribe": "ijaw",
+        "name": "Ibim"
+    },
+    {
+        "tribe": "ijaw",
+        "name": "Owei"
+    },
+    {
+        "tribe": "ijaw",
+        "name": "Ebiere"
+    },
+    {
+        "tribe": "ijaw",
+        "name": "Sotonye"
+    },
+    {
+        "tribe": "ijaw",
+        "name": "Oyintare"
+    },
+    {
+        "tribe": "ijaw",
+        "name": "Dinipre"
+    },
+    {
+        "tribe": "ijaw",
+        "name": "Erebi"
+    },
+    {
+        "tribe": "ijaw",
+        "name": "Opobo"
+    },
+    {
+        "tribe": "ijaw",
+        "name": "Ogba"
+    },
+    {
+        "tribe": "ijaw",
+        "name": "Ogboru"
+    },
+    {
+        "tribe": "ijaw",
+        "name": "Ogboro"
+    },
+    {
+        "tribe": "ijaw",
+        "name": "Adaka"
+    },
+    {
+        "tribe": "ijaw",
+        "name": "Oforibo"
+    },
+    {
+        "tribe": "ijaw",
+        "name": "Toru"
+    },
+    {
+        "tribe": "ijaw",
+        "name": "Ebigwei"
+    },
+    {
+        "tribe": "ijaw",
+        "name": "Egberibin"
+    },
+    {
+        "tribe": "ijaw",
+        "name": "Oba"
+    },
+    {
+        "tribe": "ijaw",
+        "name": "Ogburu"
+    },
+    {
+        "tribe": "ijaw",
+        "name": "Ogbeide"
+    },
+    {
+        "tribe": "ijaw",
+        "name": "Oweipade"
+    },
+    {
+        "tribe": "ijaw",
+        "name": "Tubor"
+    },
+    {
+        "tribe": "ijaw",
+        "name": "Ojobo"
+    },
+    {
+        "tribe": "ijaw",
+        "name": "Ogun"
+    },
+    {
+        "tribe": "yoruba",
+        "name": "Ogundijo"
+    },
+    {
+        "tribe": "yoruba",
+        "name": "Ojo"
+    },
+    {
+        "tribe": "yoruba",
+        "name": "Adewale"
+    },
+    {
+        "tribe": "yoruba",
+        "name": "Ogunleye"
+    },
+    {
+        "tribe": "yoruba",
+        "name": "Ogunmola"
+    },
+    {
+        "tribe": "yoruba",
+        "name": "Olatunji"
+    },
+    {
+        "tribe": "yoruba",
+        "name": "Oluwole"
+    },
+    {
+        "tribe": "yoruba",
+        "name": "Ogunbiyi"
+    },
+    {
+        "tribe": "yoruba",
+        "name": "Lemboye"
+    },
+    {
+        "tribe": "yoruba",
+        "name": "Ogunlade"
+    },
+    {
+        "tribe": "yoruba",
+        "name": "Olawale"
+    },
+    {
+        "tribe": "yoruba",
+        "name": "Oluwaseun"
+    },
+    {
+        "tribe": "yoruba",
+        "name": "Olalekan"
+    },
+    {
+        "tribe": "yoruba",
+        "name": "Ogundiran"
+    },
+    {
+        "tribe": "yoruba",
+        "name": "Ogunlana"
+    },
+    {
+        "tribe": "yoruba",
+        "name": "Ogunseitan"
+    },
+    {
+        "tribe": "yoruba",
+        "name": "Adebayo"
+    },
+    {
+        "tribe": "yoruba",
+        "name": "Ajayi"
+    },
+    {
+        "tribe": "yoruba",
+        "name": "Lawal"
+    },
+    {
+        "tribe": "yoruba",
+        "name": "Oluwadamilare"
+    },
+    {
+        "tribe": "yoruba",
+        "name": "Ogunleye"
+    },
+    {
+        "tribe": "yoruba",
+        "name": "Afolayan"
+    },
+    {
+        "tribe": "yoruba",
+        "name": "Olabisi"
+    },
+    {
+        "tribe": "yoruba",
+        "name": "Ogunleye"
+    }
+]
