@@ -190,10 +190,13 @@ class Faker:
         """
         regions = self.state_provider.get_regions()
         if initial:
-            return random.choice(regions)
-        return random.choice(
-            [state["region"] for state in self.state_provider.states_data["states"]],
-        )
+            return random.choice(
+                [
+                    state["region_initial"]
+                    for state in self.state_provider.states_data["states"]
+                ],
+            )
+        return random.choice(regions)
 
     def postal_code(self, state: str | None = None) -> str | None:
         """Get a random postal code of any state, or of a specific state if specified.

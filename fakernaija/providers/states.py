@@ -109,10 +109,10 @@ class StateProvider:
         """Get a list of all geopolitical regions.
 
         Returns:
-            list[str]: A list of unique region codes.
+            list[str]: A list of unique regions.
         """
         return list(
-            {state["region_initial"] for state in self.states_data["states"]},
+            {state["region"] for state in self.states_data["states"]},
         )
 
     def get_postal_codes(self) -> list[str]:
@@ -147,14 +147,10 @@ class StateProvider:
         Returns:
             dict[str, Any] | None: Information about the specified state, or None if not found.
         """
-        return next(
-            (
-                state
-                for state in self.states_data["states"]
-                if state["name"].lower() == state_name.lower()
-            ),
-            None,
-        )
+        for state in self.states_data["states"]:
+            if state["name"].lower() == state_name.lower():
+                return state
+        return None
 
     def get_postal_code_by_state(self, state_name: str) -> str | None:
         """Get the postal code of a specific state.

@@ -14,6 +14,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Added docstrings to module `__init__` files
 - Added more schools data
 - Added `first_names.json` and `last_names.json` files for names data
+- Added Unittests and coverage for the Provider classes
+- Added coverage configurations to `setup.cfg`
+- Added coverage version to `requirements.txt`
+- Added more rules for Ruff to ignore
 
 ### Refactor
 
