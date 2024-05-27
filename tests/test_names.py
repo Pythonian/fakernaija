@@ -37,18 +37,6 @@ class TestNameProvider(unittest.TestCase):
     def setUp(self) -> None:
         """Set up the NameProvider instance for testing."""
         self.name_provider = NameProvider()
-        # self.name_provider.first_names = [
-        #     {"tribe": "igbo", "gender": "female", "name": "Ugochi"},
-        #     {"tribe": "igbo", "gender": "male", "name": "Jidenna"},
-        #     {"tribe": "yoruba", "gender": "female", "name": "Adeola"},
-        #     {"tribe": "yoruba", "gender": "male", "name": "Tunde"},
-        # ]
-        # self.name_provider.last_names = [
-        #     {"tribe": "yoruba", "name": "Obisesan"},
-        #     {"tribe": "igbo", "name": "Maduike"},
-        #     {"tribe": "igbo", "name": "Okafor"},
-        #     {"tribe": "yoruba", "name": "Adebayo"},
-        # ]
         self.valid_first_names = [
             {"tribe": "igbo", "gender": "female", "name": "Ugochi"},
             {"tribe": "igbo", "gender": "male", "name": "Jidenna"},
