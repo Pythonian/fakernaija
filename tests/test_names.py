@@ -23,14 +23,14 @@ class TestLoadJson(unittest.TestCase):
     @patch(
         "fakernaija.providers.names.Path.open",
         new_callable=mock_open,
-        read_data=json.dumps([{"tribe": "yoruba", "gender": "male", "name": "Tunde"}]),
+        read_data=json.dumps([{"tribe": "yoruba", "gender": "male", "name": "Seyi"}]),
     )
     def test_load_json_success(self, mock_file: Any) -> None:  # noqa: ANN401
         """Test loading JSON data successfully."""
         data = self.name_provider.load_json(
             self.name_provider.data_path / "first_names.json",
         )
-        expected_data = [{"tribe": "yoruba", "gender": "male", "name": "Tunde"}]
+        expected_data = [{"tribe": "yoruba", "gender": "male", "name": "Seyi"}]
         assert data == expected_data
         mock_file.assert_called_once_with(encoding="utf-8")
 
@@ -71,7 +71,7 @@ class TestLoadJson(unittest.TestCase):
     @patch(
         "fakernaija.providers.names.Path.open",
         new_callable=mock_open,
-        read_data=json.dumps([{"tribe": "yoruba", "gender": "male", "name": "Tunde"}]),
+        read_data=json.dumps([{"tribe": "yoruba", "gender": "male", "name": "Seyi"}]),
     )
     def test_load_json_check_path(self, mock_file: Any) -> None:  # noqa: ANN401
         """Test that the correct file path is used."""
@@ -83,22 +83,20 @@ class TestLoadJson(unittest.TestCase):
 class TestNameProvider(unittest.TestCase):
     """Unit tests for the NameProvider class."""
 
-    mock_first_names = [  # noqa: RUF012
-        {"tribe": "igbo", "gender": "female", "name": "Ugochi"},
-        {"tribe": "igbo", "gender": "male", "name": "Jidenna"},
-        {"tribe": "yoruba", "gender": "female", "name": "Adeola"},
-        {"tribe": "yoruba", "gender": "male", "name": "Tunde"},
-    ]
-
-    mock_last_names = [  # noqa: RUF012
-        {"tribe": "yoruba", "name": "Obisesan"},
-        {"tribe": "igbo", "name": "Maduike"},
-        {"tribe": "igbo", "name": "Okafor"},
-        {"tribe": "yoruba", "name": "Adebayo"},
-    ]
-
     def setUp(self) -> None:
         """Set up the NameProvider instance for testing."""
+        self.mock_first_names = [
+            {"tribe": "igbo", "gender": "female", "name": "Ugochi"},
+            {"tribe": "igbo", "gender": "male", "name": "Jidenna"},
+            {"tribe": "yoruba", "gender": "female", "name": "Adeola"},
+            {"tribe": "yoruba", "gender": "male", "name": "Seyi"},
+        ]
+        self.mock_last_names = [
+            {"tribe": "yoruba", "name": "Obisesan"},
+            {"tribe": "igbo", "name": "Maduike"},
+            {"tribe": "igbo", "name": "Okafor"},
+            {"tribe": "yoruba", "name": "Adebayo"},
+        ]
         self.patcher = patch.object(
             NameProvider,
             "load_json",
@@ -166,11 +164,7 @@ class TestNameProvider(unittest.TestCase):
         last_names = self.name_provider.get_last_names(tribe="hausa")
         assert last_names == []
 
-    @patch("random.choice", side_effect=lambda x: x[0])
-    def test_generate_first_name(
-        self,
-        mock_random_choice: MagicMock,  # noqa: ARG002
-    ) -> None:
+    def test_generate_first_name(self) -> None:
         """Test generating a random first name."""
         first_name = self.name_provider.generate_first_name(
             tribe="igbo",
@@ -178,11 +172,7 @@ class TestNameProvider(unittest.TestCase):
         )
         assert first_name == "Ugochi"
 
-    @patch("random.choice", side_effect=lambda x: x[0])
-    def test_generate_last_name(
-        self,
-        mock_random_choice: MagicMock,  # noqa: ARG002
-    ) -> None:
+    def test_generate_last_name(self) -> None:
         """Test generating a random last name."""
         last_name = self.name_provider.generate_last_name(tribe="igbo")
         assert last_name == "Maduike"
@@ -193,7 +183,10 @@ class TestNameProvider(unittest.TestCase):
         mock_random_choice: MagicMock,  # noqa: ARG002
     ) -> None:
         """Test generating a random full name."""
-        full_name = self.name_provider.generate_full_name(tribe="igbo", gender="female")
+        full_name = self.name_provider.generate_full_name(
+            tribe="igbo",
+            gender="female",
+        )
         assert full_name == "Ugochi Maduike"
 
 
