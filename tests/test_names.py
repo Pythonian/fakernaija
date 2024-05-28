@@ -7,44 +7,18 @@ methods return the expected names based on tribes and gender.
 
 import json
 import unittest
-from pathlib import Path
 from typing import Any
-from unittest.mock import mock_open, patch
+from unittest.mock import MagicMock, mock_open, patch
 
 from fakernaija.providers.names import NameProvider
 
 
-class TestNameProvider(unittest.TestCase):
-    """Unit tests for the NameProvider class."""
-
-    @classmethod
-    def setUpClass(cls) -> None:  # noqa: ANN102
-        """Load the JSON data once for all tests."""
-        base_path = (
-            Path(__file__).parent.parent / "fakernaija" / "providers" / "data" / "names"
-        )
-
-        # Load first names data
-        first_names_path = base_path / "first_names.json"
-        with first_names_path.open(encoding="utf-8") as file:
-            cls.first_names_data = json.load(file)
-
-        # Load last names data
-        last_names_path = base_path / "last_names.json"
-        with last_names_path.open(encoding="utf-8") as file:
-            cls.last_names_data = json.load(file)
+class TestLoadJson(unittest.TestCase):
+    """Unit tests for the NameProvider load_json method."""
 
     def setUp(self) -> None:
-        """Set up the NameProvider instance for testing."""
+        """Set up the test case environment."""
         self.name_provider = NameProvider()
-        self.valid_first_names = [
-            {"tribe": "igbo", "gender": "female", "name": "Ugochi"},
-            {"tribe": "igbo", "gender": "male", "name": "Jidenna"},
-        ]
-        self.valid_last_names = [
-            {"tribe": "yoruba", "name": "Obisesan"},
-            {"tribe": "igbo", "name": "Maduike"},
-        ]
 
     @patch(
         "fakernaija.providers.names.Path.open",
@@ -105,53 +79,122 @@ class TestNameProvider(unittest.TestCase):
         self.name_provider.load_json(file_path)
         mock_file.assert_called_once_with(encoding="utf-8")
 
-    def test_get_first_names(self) -> None:
-        """Test getting the first names."""
-        first_names = self.valid_first_names
-        assert first_names[0]["name"] == "Ugochi"
-        assert first_names[1]["name"] == "Jidenna"
 
-    def test_get_last_names(self) -> None:
-        """Test getting the last names."""
-        last_names = self.valid_last_names
-        assert last_names[0]["name"] == "Obisesan"
-        assert last_names[1]["name"] == "Maduike"
+class TestNameProvider(unittest.TestCase):
+    """Unit tests for the NameProvider class."""
 
-    def test_generate_first_name(self) -> None:
-        """Test generating a first name."""
+    mock_first_names = [  # noqa: RUF012
+        {"tribe": "igbo", "gender": "female", "name": "Ugochi"},
+        {"tribe": "igbo", "gender": "male", "name": "Jidenna"},
+        {"tribe": "yoruba", "gender": "female", "name": "Adeola"},
+        {"tribe": "yoruba", "gender": "male", "name": "Tunde"},
+    ]
+
+    mock_last_names = [  # noqa: RUF012
+        {"tribe": "yoruba", "name": "Obisesan"},
+        {"tribe": "igbo", "name": "Maduike"},
+        {"tribe": "igbo", "name": "Okafor"},
+        {"tribe": "yoruba", "name": "Adebayo"},
+    ]
+
+    def setUp(self) -> None:
+        """Set up the NameProvider instance for testing."""
+        self.patcher = patch.object(
+            NameProvider,
+            "load_json",
+            side_effect=[self.mock_first_names, self.mock_last_names],
+        )
+        self.mock_load_json = self.patcher.start()
+        self.name_provider = NameProvider()
+
+    def tearDown(self) -> None:
+        """Stop the patcher."""
+        self.patcher.stop()
+
+    def test_get_first_names_no_filters(self) -> None:
+        """Test getting all first names without any filters."""
+        first_names = self.name_provider.get_first_names()
+        expected_names = self.mock_first_names
+        assert first_names == expected_names
+
+    def test_get_first_names_by_tribe(self) -> None:
+        """Test getting first names filtered by tribe."""
+        first_names = self.name_provider.get_first_names(tribe="igbo")
+        expected_names = [
+            {"tribe": "igbo", "gender": "female", "name": "Ugochi"},
+            {"tribe": "igbo", "gender": "male", "name": "Jidenna"},
+        ]
+        assert first_names == expected_names
+
+    def test_get_first_names_by_gender(self) -> None:
+        """Test getting first names filtered by gender."""
+        first_names = self.name_provider.get_first_names(gender="female")
+        expected_names = [
+            {"tribe": "igbo", "gender": "female", "name": "Ugochi"},
+            {"tribe": "yoruba", "gender": "female", "name": "Adeola"},
+        ]
+        assert first_names == expected_names
+
+    def test_get_first_names_by_tribe_and_gender(self) -> None:
+        """Test getting first names filtered by tribe and gender."""
+        first_names = self.name_provider.get_first_names(tribe="igbo", gender="female")
+        expected_names = [{"tribe": "igbo", "gender": "female", "name": "Ugochi"}]
+        assert first_names == expected_names
+
+    def test_get_first_names_no_match(self) -> None:
+        """Test getting first names with no match found."""
+        first_names = self.name_provider.get_first_names(tribe="hausa", gender="male")
+        assert first_names == []
+
+    def test_get_last_names_no_filters(self) -> None:
+        """Test getting all last names without any filters."""
+        last_names = self.name_provider.get_last_names()
+        expected_names = self.mock_last_names
+        assert last_names == expected_names
+
+    def test_get_last_names_by_tribe(self) -> None:
+        """Test getting last names filtered by tribe."""
+        last_names = self.name_provider.get_last_names(tribe="igbo")
+        expected_names = [
+            {"tribe": "igbo", "name": "Maduike"},
+            {"tribe": "igbo", "name": "Okafor"},
+        ]
+        assert last_names == expected_names
+
+    def test_get_last_names_no_match(self) -> None:
+        """Test getting last names with no match found."""
+        last_names = self.name_provider.get_last_names(tribe="hausa")
+        assert last_names == []
+
+    @patch("random.choice", side_effect=lambda x: x[0])
+    def test_generate_first_name(
+        self,
+        mock_random_choice: MagicMock,  # noqa: ARG002
+    ) -> None:
+        """Test generating a random first name."""
         first_name = self.name_provider.generate_first_name(
             tribe="igbo",
             gender="female",
         )
-        assert first_name in [
-            entry["name"]
-            for entry in self.first_names_data
-            if entry["tribe"] == "igbo" and entry["gender"] == "female"
-        ]
+        assert first_name == "Ugochi"
 
-    def test_generate_last_name(self) -> None:
-        """Test generating a last name."""
-        last_name = self.name_provider.generate_last_name(tribe="yoruba")
-        assert last_name in [
-            entry["name"]
-            for entry in self.last_names_data
-            if entry["tribe"] == "yoruba"
-        ]
+    @patch("random.choice", side_effect=lambda x: x[0])
+    def test_generate_last_name(
+        self,
+        mock_random_choice: MagicMock,  # noqa: ARG002
+    ) -> None:
+        """Test generating a random last name."""
+        last_name = self.name_provider.generate_last_name(tribe="igbo")
+        assert last_name == "Maduike"
 
-    def test_generate_full_name(self) -> None:
-        """Test generating a full name."""
-        full_name = self.name_provider.generate_full_name(tribe="igbo", gender="male")
-        first_names = [
-            entry["name"]
-            for entry in self.first_names_data
-            if entry["tribe"] == "igbo" and entry["gender"] == "male"
-        ]
-        last_names = [
-            entry["name"] for entry in self.last_names_data if entry["tribe"] == "igbo"
-        ]
-        first_name, last_name = full_name.split()
-        assert first_name in first_names
-        assert last_name in last_names
+    @patch("random.choice", side_effect=lambda x: x[0])
+    def test_generate_full_name(
+        self,
+        mock_random_choice: MagicMock,  # noqa: ARG002
+    ) -> None:
+        """Test generating a random full name."""
+        full_name = self.name_provider.generate_full_name(tribe="igbo", gender="female")
+        assert full_name == "Ugochi Maduike"
 
 
 if __name__ == "__main__":
