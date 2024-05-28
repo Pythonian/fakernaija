@@ -12,6 +12,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Added tox to manage test and linting
 
+### Refactor
+
+- Moved the tests folder into the fakernaija folder
+- Fixed mypy errors
+
 ## [0.0.8] - 2024-05-27
 
 ### Added

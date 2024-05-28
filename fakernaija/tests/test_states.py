@@ -176,6 +176,7 @@ class TestStateProvider(unittest.TestCase):
     def test_get_state_by_name(self) -> None:
         """Test getting state information by state name."""
         state_info = self.state_provider.get_state_by_name("Lagos")
+        assert state_info is not None, "Expected state info to not be None"
         assert state_info["name"] == "Lagos"
         assert state_info["code"] == "LA"
         assert state_info["capital"] == "Ikeja"

@@ -125,6 +125,7 @@ class TestSchoolProvider(unittest.TestCase):
     def test_get_school_by_name(self) -> None:
         """Test getting information about a school by its name."""
         school_info = self.school_provider.get_school_by_name("University of Lagos")
+        assert school_info is not None, "Expected school info to not be None"
         assert school_info["name"] == "University of Lagos"
         assert school_info["acronym"] == "UNILAG"
         assert school_info["location"] == "Lagos"

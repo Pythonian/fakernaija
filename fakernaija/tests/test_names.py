@@ -164,7 +164,11 @@ class TestNameProvider(unittest.TestCase):
         last_names = self.name_provider.get_last_names(tribe="hausa")
         assert last_names == []
 
-    def test_generate_first_name(self) -> None:
+    @patch("random.choice", side_effect=lambda x: x[0])
+    def test_generate_first_name(
+        self,
+        mock_random_choice: MagicMock,  # noqa: ARG002
+    ) -> None:
         """Test generating a random first name."""
         first_name = self.name_provider.generate_first_name(
             tribe="igbo",
@@ -172,7 +176,11 @@ class TestNameProvider(unittest.TestCase):
         )
         assert first_name == "Ugochi"
 
-    def test_generate_last_name(self) -> None:
+    @patch("random.choice", side_effect=lambda x: x[0])
+    def test_generate_last_name(
+        self,
+        mock_random_choice: MagicMock,  # noqa: ARG002
+    ) -> None:
         """Test generating a random last name."""
         last_name = self.name_provider.generate_last_name(tribe="igbo")
         assert last_name == "Maduike"
