@@ -11,11 +11,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 - Added tox to manage test and linting
+- Added github workflow for linting and testing
 
 ### Refactor
 
 - Moved the tests folder into the fakernaija folder
 - Fixed mypy errors
+- Updated requirements file
+- Updated pyproject.toml file with ruff configurations
+- Update pre-commit hook configurations
+- Updated `mypy.ini` file to remove the strict requirement
+
+### Removed
+
+- Removed black from pre-commit file
 
 ## [0.0.8] - 2024-05-27
 
