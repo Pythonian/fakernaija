@@ -288,14 +288,78 @@ class TestFaker(unittest.TestCase):
             {"name": "University of Lagos", "acronym": "UNILAG"},
             {"name": "Lagos State University", "acronym": "LASU"},
         ]
+
+        # Test when acronym=False
         mock_choice.return_value = "University of Lagos"
+        with patch.object(
+            self.faker.school_provider,
+            "get_schools_by_location",
+            return_value=[{"name": "University of Lagos", "acronym": "UNILAG"}],
+        ):
+            result = self.faker.school(location="Lagos")
+            self.assertEqual(result, "University of Lagos")
 
-        result = self.faker.school(location="Lagos")
-        self.assertEqual(result, "University of Lagos")
-
+        # Test when acronym=True
         mock_choice.return_value = "UNILAG"
-        result = self.faker.school(acronym=True, location="Lagos")
-        self.assertEqual(result, "UNILAG")
+        with patch.object(
+            self.faker.school_provider,
+            "get_schools_by_location",
+            return_value=[{"name": "University of Lagos", "acronym": "UNILAG"}],
+        ):
+            result = self.faker.school(acronym=True, location="Lagos")
+            self.assertEqual(result, "UNILAG")
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_schools")
+    @patch("random.choice")
+    def test_school_without_location(
+        self,
+        mock_choice: MagicMock,
+        mock_get_schools: MagicMock,
+    ) -> None:
+        """Test school method without location parameter."""
+        mock_get_schools.return_value = [
+            {"name": "Covenant University", "acronym": "CU"},
+            {"name": "Babcock University", "acronym": "BU"},
+        ]
+
+        # Test when acronym=False
+        mock_choice.return_value = "Covenant University"
+        with patch.object(
+            self.faker.school_provider,
+            "get_schools",
+            return_value=[{"name": "Covenant University", "acronym": "CU"}],
+        ):
+            result = self.faker.school()
+            self.assertEqual(result, "Covenant University")
+
+        # Test when acronym=True
+        mock_choice.return_value = "CU"
+        with patch.object(
+            self.faker.school_provider,
+            "get_schools",
+            return_value=[{"name": "Covenant University", "acronym": "CU"}],
+        ):
+            result = self.faker.school(acronym=True)
+            self.assertEqual(result, "CU")
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_schools_by_location")
+    def test_school_with_location_no_schools(
+        self,
+        mock_get_schools_by_location: MagicMock,
+    ) -> None:
+        """Test school method with location but no schools available."""
+        mock_get_schools_by_location.return_value = []
+
+        result = self.faker.school(location="NonExistentLocation")
+        self.assertIsNone(result)
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_schools")
+    def test_school_no_schools_available(self, mock_get_schools: MagicMock) -> None:
+        """Test school method with no schools available."""
+        mock_get_schools.return_value = []
+
+        result = self.faker.school()
+        self.assertIsNone(result)
 
     @patch("fakernaija.providers.schools.SchoolProvider.get_school_acronyms")
     @patch("random.choice")
@@ -348,8 +412,14 @@ class TestFaker(unittest.TestCase):
         mock_choice.return_value = "University of Lagos"
         with patch.object(
             self.faker.school_provider,
-            "get_federal_schools",
-            return_value=[{"name": "University of Lagos", "acronym": "UNILAG"}],
+            "get_schools_by_location",
+            return_value=[
+                {
+                    "name": "University of Lagos",
+                    "acronym": "UNILAG",
+                    "ownership": "Federal",
+                },
+            ],
         ):
             result = self.faker.federal_school(location="Lagos")
             self.assertEqual(result, "University of Lagos")
@@ -358,8 +428,14 @@ class TestFaker(unittest.TestCase):
         mock_choice.return_value = "UNILAG"
         with patch.object(
             self.faker.school_provider,
-            "get_federal_schools",
-            return_value=[{"name": "University of Lagos", "acronym": "UNILAG"}],
+            "get_schools_by_location",
+            return_value=[
+                {
+                    "name": "University of Lagos",
+                    "acronym": "UNILAG",
+                    "ownership": "Federal",
+                },
+            ],
         ):
             result = self.faker.federal_school(acronym=True, location="Lagos")
             self.assertEqual(result, "UNILAG")
@@ -373,8 +449,16 @@ class TestFaker(unittest.TestCase):
     ) -> None:
         """Test federal_school method without location parameter."""
         mock_get_federal_schools.return_value = [
-            {"name": "University of Lagos"},
-            {"name": "University of Ibadan"},
+            {
+                "name": "University of Lagos",
+                "acronym": "UNILAG",
+                "ownership": "Federal",
+            },
+            {
+                "name": "Ahmadu Bello University",
+                "acronym": "ABU",
+                "ownership": "Federal",
+            },
         ]
         # Test when acronym=False
         mock_choice.return_value = "University of Lagos"
@@ -397,6 +481,41 @@ class TestFaker(unittest.TestCase):
             self.assertEqual(result, "UNILAG")
 
     @patch("fakernaija.providers.schools.SchoolProvider.get_schools_by_location")
+    def test_federal_school_with_location_no_schools(
+        self,
+        mock_get_schools_by_location: MagicMock,
+    ) -> None:
+        """Test federal_school method with location but no schools available."""
+        mock_get_schools_by_location.return_value = []
+
+        result = self.faker.federal_school(location="NonExistentLocation")
+        self.assertIsNone(result)
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_schools_by_location")
+    def test_federal_school_with_location_no_federal_schools(
+        self,
+        mock_get_schools_by_location: MagicMock,
+    ) -> None:
+        """Test federal_school method with location but no federal schools available."""
+        mock_get_schools_by_location.return_value = [
+            {"name": "Lagos State University", "acronym": "LASU", "ownership": "State"},
+        ]
+
+        result = self.faker.federal_school(location="Lagos")
+        self.assertIsNone(result)
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_federal_schools")
+    def test_federal_school_no_schools_available(
+        self,
+        mock_get_federal_schools: MagicMock,
+    ) -> None:
+        """Test federal_school method with no schools available."""
+        mock_get_federal_schools.return_value = []
+
+        result = self.faker.federal_school()
+        self.assertIsNone(result)
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_schools_by_location")
     @patch("random.choice")
     def test_state_school_with_location(
         self,
@@ -410,14 +529,24 @@ class TestFaker(unittest.TestCase):
                 "acronym": "UNILAG",
                 "ownership": "Federal",
             },
-            {"name": "Lagos State University", "acronym": "LASU", "ownership": "State"},
+            {
+                "name": "Lagos State University",
+                "acronym": "LASU",
+                "ownership": "State",
+            },
         ]
         # Test when acronym=False
         mock_choice.return_value = "Lagos State University"
         with patch.object(
             self.faker.school_provider,
-            "get_state_schools",
-            return_value=[{"name": "Lagos State University", "acronym": "LASU"}],
+            "get_schools_by_location",
+            return_value=[
+                {
+                    "name": "Lagos State University",
+                    "acronym": "LASU",
+                    "ownership": "State",
+                },
+            ],
         ):
             result = self.faker.state_school(location="Lagos")
             self.assertEqual(result, "Lagos State University")
@@ -425,8 +554,14 @@ class TestFaker(unittest.TestCase):
         mock_choice.return_value = "LASU"
         with patch.object(
             self.faker.school_provider,
-            "get_state_schools",
-            return_value=[{"name": "Lagos State University", "acronym": "LASU"}],
+            "get_schools_by_location",
+            return_value=[
+                {
+                    "name": "Lagos State University",
+                    "acronym": "LASU",
+                    "ownership": "State",
+                },
+            ],
         ):
             result = self.faker.state_school(acronym=True, location="Lagos")
             self.assertEqual(result, "LASU")
@@ -440,8 +575,16 @@ class TestFaker(unittest.TestCase):
     ) -> None:
         """Test state_school method without location parameter."""
         mock_get_state_schools.return_value = [
-            {"name": "Lagos State University"},
-            {"name": "Osun State University"},
+            {
+                "name": "Lagos State University",
+                "acronym": "LASU",
+                "ownership": "State",
+            },
+            {
+                "name": "Ekiti State University",
+                "acronym": "EKSU",
+                "ownership": "State",
+            },
         ]
         # Test when acronym=False
         mock_choice.return_value = "Lagos State University"
@@ -463,6 +606,45 @@ class TestFaker(unittest.TestCase):
             self.assertEqual(result, "LASU")
 
     @patch("fakernaija.providers.schools.SchoolProvider.get_schools_by_location")
+    def test_state_school_with_location_no_schools(
+        self,
+        mock_get_schools_by_location: MagicMock,
+    ) -> None:
+        """Test state_school method with location but no schools available."""
+        mock_get_schools_by_location.return_value = []
+
+        result = self.faker.state_school(location="NonExistentLocation")
+        self.assertIsNone(result)
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_schools_by_location")
+    def test_state_school_with_location_no_state_schools(
+        self,
+        mock_get_schools_by_location: MagicMock,
+    ) -> None:
+        """Test state_school method with location but no state schools available."""
+        mock_get_schools_by_location.return_value = [
+            {
+                "name": "University of Lagos",
+                "acronym": "UNILAG",
+                "ownership": "Federal",
+            },
+        ]
+
+        result = self.faker.state_school(location="Lagos")
+        self.assertIsNone(result)
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_state_schools")
+    def test_state_school_no_schools_available(
+        self,
+        mock_get_state_schools: MagicMock,
+    ) -> None:
+        """Test state_school method with no schools available."""
+        mock_get_state_schools.return_value = []
+
+        result = self.faker.state_school()
+        self.assertIsNone(result)
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_schools_by_location")
     @patch("random.choice")
     def test_private_school_with_location(
         self,
@@ -471,27 +653,48 @@ class TestFaker(unittest.TestCase):
     ) -> None:
         """Test private_school method with location parameter."""
         mock_get_schools_by_location.return_value = [
-            {"name": "Covenant University", "acronym": "CU", "ownership": "Private"},
-            {"name": "Babcock University", "acronym": "BU", "ownership": "Private"},
+            {
+                "name": "Covenant University",
+                "acronym": "CU",
+                "ownership": "Private",
+            },
+            {
+                "name": "Babcock University",
+                "acronym": "BU",
+                "ownership": "Private",
+            },
         ]
+
         # Test when acronym=False
         mock_choice.return_value = "Covenant University"
         with patch.object(
             self.faker.school_provider,
-            "get_private_schools",
-            return_value=[{"name": "Covenant University", "acronym": "CU"}],
+            "get_schools_by_location",
+            return_value=[
+                {
+                    "name": "Covenant University",
+                    "acronym": "CU",
+                    "ownership": "Private",
+                },
+            ],
         ):
-            result = self.faker.private_school(location="Lagos")
+            result = self.faker.private_school(location="Ogun")
             self.assertEqual(result, "Covenant University")
 
         # Test when acronym=True
         mock_choice.return_value = "CU"
         with patch.object(
             self.faker.school_provider,
-            "get_private_schools",
-            return_value=[{"name": "Covenant University", "acronym": "CU"}],
+            "get_schools_by_location",
+            return_value=[
+                {
+                    "name": "Covenant University",
+                    "acronym": "CU",
+                    "ownership": "Private",
+                },
+            ],
         ):
-            result = self.faker.private_school(acronym=True, location="Lagos")
+            result = self.faker.private_school(acronym=True, location="Ogun")
             self.assertEqual(result, "CU")
 
     @patch("fakernaija.providers.schools.SchoolProvider.get_private_schools")
@@ -503,28 +706,1551 @@ class TestFaker(unittest.TestCase):
     ) -> None:
         """Test private_school method without location parameter."""
         mock_get_private_schools.return_value = [
-            {"name": "Covenant University", "acronym": "CU"},
-            {"name": "Babcock University", "acronym": "BU"},
+            {
+                "name": "Covenant University",
+                "acronym": "CU",
+                "ownership": "Private",
+            },
+            {
+                "name": "Babcock University",
+                "acronym": "BU",
+                "ownership": "Private",
+            },
         ]
         # Test when acronym=False
         mock_choice.return_value = "Covenant University"
         with patch.object(
             self.faker.school_provider,
             "get_private_schools",
-            return_value=[{"name": "Covenant University", "acronym": "CU"}],
+            return_value=[
+                {
+                    "name": "Covenant University",
+                    "acronym": "CU",
+                    "ownership": "Private",
+                },
+            ],
         ):
             result = self.faker.private_school()
             self.assertEqual(result, "Covenant University")
-
         # Test when acronym=True
         mock_choice.return_value = "CU"
         with patch.object(
             self.faker.school_provider,
             "get_private_schools",
-            return_value=[{"name": "Covenant University", "acronym": "CU"}],
+            return_value=[
+                {
+                    "name": "Covenant University",
+                    "acronym": "CU",
+                    "ownership": "Private",
+                },
+            ],
         ):
             result = self.faker.private_school(acronym=True)
             self.assertEqual(result, "CU")
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_schools_by_location")
+    def test_private_school_with_location_no_schools(
+        self,
+        mock_get_schools_by_location: MagicMock,
+    ) -> None:
+        """Test private_school method with location but no schools available."""
+        mock_get_schools_by_location.return_value = []
+
+        result = self.faker.private_school(location="NonExistentLocation")
+        self.assertIsNone(result)
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_schools_by_location")
+    def test_private_school_with_location_no_private_schools(
+        self,
+        mock_get_schools_by_location: MagicMock,
+    ) -> None:
+        """Test private_school method with location but no private schools available."""
+        mock_get_schools_by_location.return_value = [
+            {"name": "Federal University", "acronym": "FU", "ownership": "Federal"},
+        ]
+
+        result = self.faker.private_school(location="Lagos")
+        self.assertIsNone(result)
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_private_schools")
+    def test_private_school_no_schools_available(
+        self,
+        mock_get_private_schools: MagicMock,
+    ) -> None:
+        """Test private_school method with no schools available."""
+        mock_get_private_schools.return_value = []
+
+        result = self.faker.private_school()
+        self.assertIsNone(result)
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_universities_by_location")
+    @patch("random.choice")
+    def test_university_with_location(
+        self,
+        mock_choice: MagicMock,
+        mock_get_universities_by_location: MagicMock,
+    ) -> None:
+        """Test university method with location parameter."""
+        mock_get_universities_by_location.return_value = [
+            {
+                "name": "University of Lagos",
+                "acronym": "UNILAG",
+                "type": "University",
+            },
+            {
+                "name": "Lagos State University",
+                "acronym": "LASU",
+                "type": "University",
+            },
+        ]
+        # Test when acronym=False
+        mock_choice.return_value = "Lagos State University"
+        with patch.object(
+            self.faker.school_provider,
+            "get_universities_by_location",
+            return_value=[
+                {
+                    "name": "Lagos State University",
+                    "acronym": "LASU",
+                    "type": "University",
+                },
+            ],
+        ):
+            result = self.faker.university(location="Lagos")
+            self.assertEqual(result, "Lagos State University")
+        # Test when acronym=True
+        mock_choice.return_value = "LASU"
+        with patch.object(
+            self.faker.school_provider,
+            "get_universities_by_location",
+            return_value=[
+                {
+                    "name": "Lagos State University",
+                    "acronym": "LASU",
+                    "type": "University",
+                },
+            ],
+        ):
+            result = self.faker.university(acronym=True, location="Lagos")
+            self.assertEqual(result, "LASU")
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_universities")
+    @patch("random.choice")
+    def test_university_without_location(
+        self,
+        mock_choice: MagicMock,
+        mock_get_universities: MagicMock,
+    ) -> None:
+        """Test university method without location parameter."""
+        mock_get_universities.return_value = [
+            {
+                "name": "University of Lagos",
+                "acronym": "UNILAG",
+                "type": "University",
+            },
+            {
+                "name": "Lagos State University",
+                "acronym": "LASU",
+                "type": "University",
+            },
+        ]
+        # Test when acronym=False
+        mock_choice.return_value = "Lagos State University"
+        with patch.object(
+            self.faker.school_provider,
+            "get_universities",
+            return_value=[
+                {
+                    "name": "Lagos State University",
+                    "acronym": "LASU",
+                    "type": "University",
+                },
+            ],
+        ):
+            result = self.faker.university()
+            self.assertEqual(result, "Lagos State University")
+        # Test when acronym=True
+        mock_choice.return_value = "LASU"
+        with patch.object(
+            self.faker.school_provider,
+            "get_universities",
+            return_value=[
+                {
+                    "name": "Lagos State University",
+                    "acronym": "LASU",
+                    "type": "University",
+                },
+            ],
+        ):
+            result = self.faker.university(acronym=True)
+            self.assertEqual(result, "LASU")
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_universities_by_location")
+    def test_university_with_location_no_universities(
+        self,
+        mock_get_universities_by_location: MagicMock,
+    ) -> None:
+        """Test university method with location but no universities available."""
+        mock_get_universities_by_location.return_value = []
+
+        result = self.faker.university(location="NonExistentLocation")
+        self.assertIsNone(result)
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_universities")
+    def test_university_no_universities_available(
+        self,
+        mock_get_universities: MagicMock,
+    ) -> None:
+        """Test university method with no universities available."""
+        mock_get_universities.return_value = []
+
+        result = self.faker.university()
+        self.assertIsNone(result)
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_polytechnics_by_location")
+    @patch("random.choice")
+    def test_polytechnic_with_location(
+        self,
+        mock_choice: MagicMock,
+        mock_get_polytechnics_by_location: MagicMock,
+    ) -> None:
+        """Test polytechnic method with location parameter."""
+        mock_get_polytechnics_by_location.return_value = [
+            {
+                "name": "Lagos State Polytechnic",
+                "acronym": "LASPOTECH",
+                "type": "Polytechnic",
+            },
+        ]
+        # Test when acronym=False
+        mock_choice.return_value = "Lagos State Polytechnic"
+        with patch.object(
+            self.faker.school_provider,
+            "get_polytechnics_by_location",
+            return_value=[
+                {
+                    "name": "Lagos State Polytechnic",
+                    "acronym": "LASPOTECH",
+                    "type": "Polytechnic",
+                },
+            ],
+        ):
+            result = self.faker.polytechnic(location="Lagos")
+            self.assertEqual(result, "Lagos State Polytechnic")
+        # Test when acronym=True
+        mock_choice.return_value = "LASPOTECH"
+        with patch.object(
+            self.faker.school_provider,
+            "get_polytechnics_by_location",
+            return_value=[
+                {
+                    "name": "Lagos State Polytechnic",
+                    "acronym": "LASPOTECH",
+                    "type": "Polytechnic",
+                },
+            ],
+        ):
+            result = self.faker.polytechnic(acronym=True, location="Lagos")
+            self.assertEqual(result, "LASPOTECH")
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_polytechnics")
+    @patch("random.choice")
+    def test_polytechnic_without_location(
+        self,
+        mock_choice: MagicMock,
+        mock_get_polytechnics: MagicMock,
+    ) -> None:
+        """Test polytechnic method without location parameter."""
+        mock_get_polytechnics.return_value = [
+            {
+                "name": "Lagos State Polytechnic",
+                "acronym": "LASPOTECH",
+                "type": "Polytechnic",
+            },
+        ]
+        # Test when acronym=False
+        mock_choice.return_value = "Lagos State Polytechnic"
+        with patch.object(
+            self.faker.school_provider,
+            "get_polytechnics",
+            return_value=[
+                {
+                    "name": "Lagos State Polytechnic",
+                    "acronym": "LASPOTECH",
+                    "type": "Polytechnic",
+                },
+            ],
+        ):
+            result = self.faker.polytechnic()
+            self.assertEqual(result, "Lagos State Polytechnic")
+        # Test when acronym=True
+        mock_choice.return_value = "LASPOTECH"
+        with patch.object(
+            self.faker.school_provider,
+            "get_polytechnics",
+            return_value=[
+                {
+                    "name": "Lagos State Polytechnic",
+                    "acronym": "LASPOTECH",
+                    "type": "Polytechnic",
+                },
+            ],
+        ):
+            result = self.faker.polytechnic(acronym=True)
+            self.assertEqual(result, "LASPOTECH")
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_polytechnics_by_location")
+    def test_polytechnic_with_location_no_polytechnics(
+        self,
+        mock_get_polytechnics_by_location: MagicMock,
+    ) -> None:
+        """Test polytechnic method with location but no polytechnics available."""
+        mock_get_polytechnics_by_location.return_value = []
+
+        result = self.faker.polytechnic(location="NonExistentLocation")
+        self.assertIsNone(result)
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_polytechnics")
+    def test_polytechnic_no_polytechnics_available(
+        self,
+        mock_get_polytechnics: MagicMock,
+    ) -> None:
+        """Test polytechnic method with no polytechnics available."""
+        mock_get_polytechnics.return_value = []
+
+        result = self.faker.polytechnic()
+        self.assertIsNone(result)
+
+    @patch(
+        "fakernaija.providers.schools.SchoolProvider.get_colleges_of_education_by_location",
+    )
+    @patch("random.choice")
+    def test_college_of_education_with_location(
+        self,
+        mock_choice: MagicMock,
+        mock_get_colleges_of_education_by_location: MagicMock,
+    ) -> None:
+        """Test college_of_education method with location parameter."""
+        mock_get_colleges_of_education_by_location.return_value = [
+            {
+                "name": "Corona College of Education",
+                "acronym": "CCED",
+                "type": "College of Education",
+            },
+        ]
+        # Test when acronym=False
+        mock_choice.return_value = "Corona College of Education"
+        with patch.object(
+            self.faker.school_provider,
+            "get_colleges_of_education_by_location",
+            return_value=[
+                {
+                    "name": "Corona College of Education",
+                    "acronym": "CCED",
+                    "type": "College of Education",
+                },
+            ],
+        ):
+            result = self.faker.college_of_education(location="Lagos")
+            self.assertEqual(result, "Corona College of Education")
+        # Test when acronym=True
+        mock_choice.return_value = "CCED"
+        with patch.object(
+            self.faker.school_provider,
+            "get_colleges_of_education_by_location",
+            return_value=[
+                {
+                    "name": "Corona College of Education",
+                    "acronym": "CCED",
+                    "type": "College of Education",
+                },
+            ],
+        ):
+            result = self.faker.college_of_education(acronym=True, location="Lagos")
+            self.assertEqual(result, "CCED")
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_colleges_of_education")
+    @patch("random.choice")
+    def test_college_of_education_without_location(
+        self,
+        mock_choice: MagicMock,
+        mock_get_colleges_of_education: MagicMock,
+    ) -> None:
+        """Test college_of_education method without location parameter."""
+        mock_get_colleges_of_education.return_value = [
+            {
+                "name": "Corona College of Education",
+                "acronym": "CCED",
+                "type": "College of Education",
+            },
+        ]
+        # Test when acronym=False
+        mock_choice.return_value = "Corona College of Education"
+        with patch.object(
+            self.faker.school_provider,
+            "get_colleges_of_education",
+            return_value=[
+                {
+                    "name": "Corona College of Education",
+                    "acronym": "CCED",
+                    "type": "College of Education",
+                },
+            ],
+        ):
+            result = self.faker.college_of_education()
+            self.assertEqual(result, "Corona College of Education")
+        # Test when acronym=True
+        mock_choice.return_value = "CCED"
+        with patch.object(
+            self.faker.school_provider,
+            "get_colleges_of_education",
+            return_value=[
+                {
+                    "name": "Corona College of Education",
+                    "acronym": "CCED",
+                    "type": "College of Education",
+                },
+            ],
+        ):
+            result = self.faker.college_of_education(acronym=True)
+            self.assertEqual(result, "CCED")
+
+    @patch(
+        "fakernaija.providers.schools.SchoolProvider.get_colleges_of_education_by_location",
+    )
+    def test_college_of_education_with_location_no_colleges_of_education(
+        self,
+        mock_get_colleges_of_education_by_location: MagicMock,
+    ) -> None:
+        """Test college_of_education method with location but no colleges of education available."""
+        mock_get_colleges_of_education_by_location.return_value = []
+
+        result = self.faker.college_of_education(location="NonExistentLocation")
+        self.assertIsNone(result)
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_colleges_of_education")
+    def test_college_of_education_no_colleges_of_education_available(
+        self,
+        mock_get_colleges_of_education: MagicMock,
+    ) -> None:
+        """Test college_of_education method with no colleges of education available."""
+        mock_get_colleges_of_education.return_value = []
+
+        result = self.faker.college_of_education()
+        self.assertIsNone(result)
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_universities_by_location")
+    @patch("random.choice")
+    def test_federal_university_with_location(
+        self,
+        mock_choice: MagicMock,
+        mock_get_federal_universities_by_location: MagicMock,
+    ) -> None:
+        """Test federal_university method with location parameter."""
+        mock_get_federal_universities_by_location.return_value = [
+            {
+                "name": "University of Lagos",
+                "acronym": "UNILAG",
+                "type": "University",
+                "ownership": "Federal",
+            },
+        ]
+        # Test when acronym=False
+        mock_choice.return_value = "University of Lagos"
+        with patch.object(
+            self.faker.school_provider,
+            "get_universities_by_location",
+            return_value=[
+                {
+                    "name": "University of Lagos",
+                    "acronym": "UNILAG",
+                    "type": "University",
+                    "ownership": "Federal",
+                },
+            ],
+        ):
+            result = self.faker.federal_university(location="Lagos")
+            self.assertEqual(result, "University of Lagos")
+        # Test when acronym=True
+        mock_choice.return_value = "UNILAG"
+        with patch.object(
+            self.faker.school_provider,
+            "get_universities_by_location",
+            return_value=[
+                {
+                    "name": "University of Lagos",
+                    "acronym": "UNILAG",
+                    "type": "University",
+                    "ownership": "Federal",
+                },
+            ],
+        ):
+            result = self.faker.federal_university(acronym=True, location="Lagos")
+            self.assertEqual(result, "UNILAG")
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_federal_universities")
+    @patch("random.choice")
+    def test_federal_university_without_location(
+        self,
+        mock_choice: MagicMock,
+        mock_get_universities: MagicMock,
+    ) -> None:
+        """Test federal_university method without location parameter."""
+        mock_get_universities.return_value = [
+            {
+                "name": "University of Lagos",
+                "acronym": "UNILAG",
+                "type": "University",
+                "ownership": "Federal",
+            },
+        ]
+        # Test when acronym=False
+        mock_choice.return_value = "University of Lagos"
+        with patch.object(
+            self.faker.school_provider,
+            "get_federal_universities",
+            return_value=[
+                {
+                    "name": "University of Lagos",
+                    "acronym": "UNILAG",
+                    "type": "University",
+                    "ownership": "Federal",
+                },
+            ],
+        ):
+            result = self.faker.federal_university()
+            self.assertEqual(result, "University of Lagos")
+        # Test when acronym=True
+        mock_choice.return_value = "UNILAG"
+        with patch.object(
+            self.faker.school_provider,
+            "get_federal_universities",
+            return_value=[
+                {
+                    "name": "University of Lagos",
+                    "acronym": "UNILAG",
+                    "type": "University",
+                    "ownership": "Federal",
+                },
+            ],
+        ):
+            result = self.faker.federal_university(acronym=True)
+            self.assertEqual(result, "UNILAG")
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_universities_by_location")
+    def test_federal_university_with_location_no_universities(
+        self,
+        mock_get_federal_universities_by_location: MagicMock,
+    ) -> None:
+        """Test federal_university method with location but no universities available."""
+        mock_get_federal_universities_by_location.return_value = []
+
+        result = self.faker.federal_university(location="NonExistentLocation")
+        self.assertIsNone(result)
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_federal_universities")
+    def test_federal_university_no_universities_available(
+        self,
+        mock_get_universities: MagicMock,
+    ) -> None:
+        """Test federal_university method with no universities available."""
+        mock_get_universities.return_value = []
+
+        result = self.faker.federal_university()
+        self.assertIsNone(result)
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_polytechnics_by_location")
+    @patch("random.choice")
+    def test_federal_polytechnic_with_location(
+        self,
+        mock_choice: MagicMock,
+        mock_get_federal_polytechnics_by_location: MagicMock,
+    ) -> None:
+        """Test federal_polytechnic method with location parameter."""
+        mock_get_federal_polytechnics_by_location.return_value = [
+            {
+                "name": "Federal Polytechnic Ado Ekiti",
+                "acronym": "FEDPOLYADO",
+                "type": "Polytechnic",
+                "ownership": "Federal",
+            },
+        ]
+        # Test when acronym=False
+        mock_choice.return_value = "Federal Polytechnic Ado Ekiti"
+        with patch.object(
+            self.faker.school_provider,
+            "get_polytechnics_by_location",
+            return_value=[
+                {
+                    "name": "Federal Polytechnic Ado Ekiti",
+                    "acronym": "FEDPOLYADO",
+                    "type": "Polytechnic",
+                    "ownership": "Federal",
+                },
+            ],
+        ):
+            result = self.faker.federal_polytechnic(location="Ekiti")
+            self.assertEqual(result, "Federal Polytechnic Ado Ekiti")
+        # Test when acronym=True
+        mock_choice.return_value = "FEDPOLYADO"
+        with patch.object(
+            self.faker.school_provider,
+            "get_polytechnics_by_location",
+            return_value=[
+                {
+                    "name": "Federal Polytechnic Ado Ekiti",
+                    "acronym": "FEDPOLYADO",
+                    "type": "Polytechnic",
+                    "ownership": "Federal",
+                },
+            ],
+        ):
+            result = self.faker.federal_polytechnic(acronym=True, location="Ekiti")
+            self.assertEqual(result, "FEDPOLYADO")
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_federal_polytechnics")
+    @patch("random.choice")
+    def test_federal_polytechnic_without_location(
+        self,
+        mock_choice: MagicMock,
+        mock_get_federal_polytechnics: MagicMock,
+    ) -> None:
+        """Test federal_polytechnic method without location parameter."""
+        mock_get_federal_polytechnics.return_value = [
+            {
+                "name": "Federal Polytechnic Ado Ekiti",
+                "acronym": "FEDPOLYADO",
+                "type": "Polytechnic",
+                "ownership": "Federal",
+            },
+        ]
+        # Test when acronym=False
+        mock_choice.return_value = "Federal Polytechnic Ado Ekiti"
+        with patch.object(
+            self.faker.school_provider,
+            "get_federal_polytechnics",
+            return_value=[
+                {
+                    "name": "Federal Polytechnic Ado Ekiti",
+                    "acronym": "FEDPOLYADO",
+                    "type": "Polytechnic",
+                    "ownership": "Federal",
+                },
+            ],
+        ):
+            result = self.faker.federal_polytechnic()
+            self.assertEqual(result, "Federal Polytechnic Ado Ekiti")
+        # Test when acronym=True
+        mock_choice.return_value = "FEDPOLYADO"
+        with patch.object(
+            self.faker.school_provider,
+            "get_federal_polytechnics",
+            return_value=[
+                {
+                    "name": "Federal Polytechnic Ado Ekiti",
+                    "acronym": "FEDPOLYADO",
+                    "type": "Polytechnic",
+                    "ownership": "Federal",
+                },
+            ],
+        ):
+            result = self.faker.federal_polytechnic(acronym=True)
+            self.assertEqual(result, "FEDPOLYADO")
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_polytechnics_by_location")
+    def test_federal_polytechnic_with_location_no_polytechnics(
+        self,
+        mock_get_federal_polytechnics_by_location: MagicMock,
+    ) -> None:
+        """Test federal_polytechnic method with location but no polytechnics available."""
+        mock_get_federal_polytechnics_by_location.return_value = []
+
+        result = self.faker.federal_polytechnic(location="NonExistentLocation")
+        self.assertIsNone(result)
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_federal_polytechnics")
+    def test_federal_polytechnic_no_polytechnics_available(
+        self,
+        mock_get_federal_polytechnics: MagicMock,
+    ) -> None:
+        """Test federal_polytechnic method with no polytechnics available."""
+        mock_get_federal_polytechnics.return_value = []
+
+        result = self.faker.federal_polytechnic()
+        self.assertIsNone(result)
+
+    @patch(
+        "fakernaija.providers.schools.SchoolProvider.get_colleges_of_education_by_location",
+    )
+    @patch("random.choice")
+    def test_federal_college_of_education_with_location(
+        self,
+        mock_choice: MagicMock,
+        mock_get_federal_colleges_of_education_by_location: MagicMock,
+    ) -> None:
+        """Test federal_college_of_education method with location parameter."""
+        mock_get_federal_colleges_of_education_by_location.return_value = [
+            {
+                "name": "Federal College of Education, Zaria",
+                "acronym": "FCEZARIA",
+                "type": "College of Education",
+                "ownership": "Federal",
+            },
+        ]
+        # Test when acronym=False
+        mock_choice.return_value = "Federal College of Education, Zaria"
+        with patch.object(
+            self.faker.school_provider,
+            "get_colleges_of_education_by_location",
+            return_value=[
+                {
+                    "name": "Federal College of Education, Zaria",
+                    "acronym": "FCEZARIA",
+                    "type": "College of Education",
+                    "ownership": "Federal",
+                },
+            ],
+        ):
+            result = self.faker.federal_college_of_education(location="Kaduna")
+            self.assertEqual(result, "Federal College of Education, Zaria")
+        # Test when acronym=True
+        mock_choice.return_value = "FCEZARIA"
+        with patch.object(
+            self.faker.school_provider,
+            "get_colleges_of_education_by_location",
+            return_value=[
+                {
+                    "name": "Federal College of Education, Zaria",
+                    "acronym": "FCEZARIA",
+                    "type": "College of Education",
+                    "ownership": "Federal",
+                },
+            ],
+        ):
+            result = self.faker.federal_college_of_education(
+                acronym=True,
+                location="Kaduna",
+            )
+            self.assertEqual(result, "FCEZARIA")
+
+    @patch(
+        "fakernaija.providers.schools.SchoolProvider.get_federal_colleges_of_education",
+    )
+    @patch("random.choice")
+    def test_federal_college_of_education_without_location(
+        self,
+        mock_choice: MagicMock,
+        mock_get_federal_colleges_of_education: MagicMock,
+    ) -> None:
+        """Test federal_college_of_education method without location parameter."""
+        mock_get_federal_colleges_of_education.return_value = [
+            {
+                "name": "Federal College of Education, Zaria",
+                "acronym": "FCEZARIA",
+                "type": "College of Education",
+                "ownership": "Federal",
+            },
+        ]
+        # Test when acronym=False
+        mock_choice.return_value = "Federal College of Education, Zaria"
+        with patch.object(
+            self.faker.school_provider,
+            "get_federal_colleges_of_education",
+            return_value=[
+                {
+                    "name": "Federal College of Education, Zaria",
+                    "acronym": "FCEZARIA",
+                    "type": "College of Education",
+                    "ownership": "Federal",
+                },
+            ],
+        ):
+            result = self.faker.federal_college_of_education()
+            self.assertEqual(result, "Federal College of Education, Zaria")
+        # Test when acronym=True
+        mock_choice.return_value = "FCEZARIA"
+        with patch.object(
+            self.faker.school_provider,
+            "get_federal_colleges_of_education",
+            return_value=[
+                {
+                    "name": "Federal College of Education, Zaria",
+                    "acronym": "FCEZARIA",
+                    "type": "College of Education",
+                    "ownership": "Federal",
+                },
+            ],
+        ):
+            result = self.faker.federal_college_of_education(acronym=True)
+            self.assertEqual(result, "FCEZARIA")
+
+    @patch(
+        "fakernaija.providers.schools.SchoolProvider.get_colleges_of_education_by_location",
+    )
+    def test_federal_college_of_education_with_location_no_colleges(
+        self,
+        mock_get_federal_colleges_of_education_by_location: MagicMock,
+    ) -> None:
+        """Test federal_college_of_education method with location but no colleges available."""
+        mock_get_federal_colleges_of_education_by_location.return_value = []
+
+        result = self.faker.federal_college_of_education(location="NonExistentLocation")
+        self.assertIsNone(result)
+
+    @patch(
+        "fakernaija.providers.schools.SchoolProvider.get_federal_colleges_of_education",
+    )
+    def test_federal_college_of_education_no_colleges_available(
+        self,
+        mock_get_federal_colleges_of_education: MagicMock,
+    ) -> None:
+        """Test federal_college_of_education method with no colleges available."""
+        mock_get_federal_colleges_of_education.return_value = []
+
+        result = self.faker.federal_college_of_education()
+        self.assertIsNone(result)
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_universities_by_location")
+    @patch("random.choice")
+    def test_state_university_with_location(
+        self,
+        mock_choice: MagicMock,
+        mock_get_state_universities_by_location: MagicMock,
+    ) -> None:
+        """Test state_university method with location parameter."""
+        mock_get_state_universities_by_location.return_value = [
+            {
+                "name": "Lagos State University",
+                "acronym": "LASU",
+                "type": "University",
+                "ownership": "State",
+            },
+        ]
+        # Test when acronym=False
+        mock_choice.return_value = "Lagos State University"
+        with patch.object(
+            self.faker.school_provider,
+            "get_universities_by_location",
+            return_value=[
+                {
+                    "name": "Lagos State University",
+                    "acronym": "LASU",
+                    "type": "University",
+                    "ownership": "State",
+                },
+            ],
+        ):
+            result = self.faker.state_university(location="Lagos")
+            self.assertEqual(result, "Lagos State University")
+        # Test when acronym=True
+        mock_choice.return_value = "LASU"
+        with patch.object(
+            self.faker.school_provider,
+            "get_universities_by_location",
+            return_value=[
+                {
+                    "name": "Lagos State University",
+                    "acronym": "LASU",
+                    "type": "University",
+                    "ownership": "State",
+                },
+            ],
+        ):
+            result = self.faker.state_university(acronym=True, location="Lagos")
+            self.assertEqual(result, "LASU")
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_state_universities")
+    @patch("random.choice")
+    def test_state_university_without_location(
+        self,
+        mock_choice: MagicMock,
+        mock_get_state_universities: MagicMock,
+    ) -> None:
+        """Test state_university method without location parameter."""
+        mock_get_state_universities.return_value = [
+            {
+                "name": "Lagos State University",
+                "acronym": "LASU",
+                "type": "University",
+                "ownership": "State",
+            },
+        ]
+        # Test when acronym=False
+        mock_choice.return_value = "Lagos State University"
+        with patch.object(
+            self.faker.school_provider,
+            "get_state_universities",
+            return_value=[
+                {
+                    "name": "Lagos State University",
+                    "acronym": "LASU",
+                    "type": "University",
+                    "ownership": "State",
+                },
+            ],
+        ):
+            result = self.faker.state_university()
+            self.assertEqual(result, "Lagos State University")
+        # Test when acronym=True
+        mock_choice.return_value = "LASU"
+        with patch.object(
+            self.faker.school_provider,
+            "get_state_universities",
+            return_value=[
+                {
+                    "name": "Lagos State University",
+                    "acronym": "LASU",
+                    "type": "University",
+                    "ownership": "State",
+                },
+            ],
+        ):
+            result = self.faker.state_university(acronym=True)
+            self.assertEqual(result, "LASU")
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_universities_by_location")
+    def test_state_university_with_location_no_universities(
+        self,
+        mock_get_state_universities_by_location: MagicMock,
+    ) -> None:
+        """Test state_university method with location but no universities available."""
+        mock_get_state_universities_by_location.return_value = []
+
+        result = self.faker.state_university(location="NonExistentLocation")
+        self.assertIsNone(result)
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_state_universities")
+    def test_state_university_no_universities_available(
+        self,
+        mock_get_universities: MagicMock,
+    ) -> None:
+        """Test state_university method with no universities available."""
+        mock_get_universities.return_value = []
+
+        result = self.faker.state_university()
+        self.assertIsNone(result)
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_polytechnics_by_location")
+    @patch("random.choice")
+    def test_state_polytechnic_with_location(
+        self,
+        mock_choice: MagicMock,
+        mock_get_state_polytechnics_by_location: MagicMock,
+    ) -> None:
+        """Test state_polytechnic method with location parameter."""
+        mock_get_state_polytechnics_by_location.return_value = [
+            {
+                "name": "Akwa Ibom State Polytechnic",
+                "acronym": "AKWAPOLY",
+                "type": "Polytechnic",
+                "ownership": "State",
+            },
+        ]
+        # Test when acronym=False
+        mock_choice.return_value = "Akwa Ibom State Polytechnic"
+        with patch.object(
+            self.faker.school_provider,
+            "get_polytechnics_by_location",
+            return_value=[
+                {
+                    "name": "Akwa Ibom State Polytechnic",
+                    "acronym": "AKWAPOLY",
+                    "type": "Polytechnic",
+                    "ownership": "State",
+                },
+            ],
+        ):
+            result = self.faker.state_polytechnic(location="Akwa Ibom")
+            self.assertEqual(result, "Akwa Ibom State Polytechnic")
+        # Test when acronym=True
+        mock_choice.return_value = "AKWAPOLY"
+        with patch.object(
+            self.faker.school_provider,
+            "get_polytechnics_by_location",
+            return_value=[
+                {
+                    "name": "Akwa Ibom State Polytechnic",
+                    "acronym": "AKWAPOLY",
+                    "type": "Polytechnic",
+                    "ownership": "State",
+                },
+            ],
+        ):
+            result = self.faker.state_polytechnic(acronym=True, location="Akwa Ibom")
+            self.assertEqual(result, "AKWAPOLY")
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_state_polytechnics")
+    @patch("random.choice")
+    def test_state_polytechnic_without_location(
+        self,
+        mock_choice: MagicMock,
+        mock_get_state_polytechnics: MagicMock,
+    ) -> None:
+        """Test state_polytechnic method without location parameter."""
+        mock_get_state_polytechnics.return_value = [
+            {
+                "name": "Akwa Ibom State Polytechnic",
+                "acronym": "AKWAPOLY",
+                "type": "Polytechnic",
+                "ownership": "State",
+            },
+        ]
+        # Test when acronym=False
+        mock_choice.return_value = "Akwa Ibom State Polytechnic"
+        with patch.object(
+            self.faker.school_provider,
+            "get_state_polytechnics",
+            return_value=[
+                {
+                    "name": "Akwa Ibom State Polytechnic",
+                    "acronym": "AKWAPOLY",
+                    "type": "Polytechnic",
+                    "ownership": "State",
+                },
+            ],
+        ):
+            result = self.faker.state_polytechnic()
+            self.assertEqual(result, "Akwa Ibom State Polytechnic")
+        # Test when acronym=True
+        mock_choice.return_value = "AKWAPOLY"
+        with patch.object(
+            self.faker.school_provider,
+            "get_state_polytechnics",
+            return_value=[
+                {
+                    "name": "Akwa Ibom State Polytechnic",
+                    "acronym": "AKWAPOLY",
+                    "type": "Polytechnic",
+                    "ownership": "State",
+                },
+            ],
+        ):
+            result = self.faker.state_polytechnic(acronym=True)
+            self.assertEqual(result, "AKWAPOLY")
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_polytechnics_by_location")
+    def test_state_polytechnic_with_location_no_polytechnics(
+        self,
+        mock_get_state_polytechnics_by_location: MagicMock,
+    ) -> None:
+        """Test state_polytechnic method with location but no polytechnics available."""
+        mock_get_state_polytechnics_by_location.return_value = []
+
+        result = self.faker.state_polytechnic(location="NonExistentLocation")
+        self.assertIsNone(result)
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_state_polytechnics")
+    def test_state_polytechnic_no_polytechnics_available(
+        self,
+        mock_get_state_polytechnics: MagicMock,
+    ) -> None:
+        """Test state_polytechnic method with no polytechnics available."""
+        mock_get_state_polytechnics.return_value = []
+
+        result = self.faker.state_polytechnic()
+        self.assertIsNone(result)
+
+    @patch(
+        "fakernaija.providers.schools.SchoolProvider.get_colleges_of_education_by_location",
+    )
+    @patch("random.choice")
+    def test_state_college_of_education_with_location(
+        self,
+        mock_choice: MagicMock,
+        mock_get_state_colleges_of_education_by_location: MagicMock,
+    ) -> None:
+        """Test state_college_of_education method with location parameter."""
+        mock_get_state_colleges_of_education_by_location.return_value = [
+            {
+                "name": "College of Education, Ikere-Ekiti",
+                "acronym": "COEIKERE",
+                "type": "College of Education",
+                "ownership": "State",
+            },
+        ]
+        # Test when acronym=False
+        mock_choice.return_value = "College of Education, Ikere-Ekiti"
+        with patch.object(
+            self.faker.school_provider,
+            "get_colleges_of_education_by_location",
+            return_value=[
+                {
+                    "name": "College of Education, Ikere-Ekiti",
+                    "acronym": "COEIKERE",
+                    "type": "College of Education",
+                    "ownership": "State",
+                },
+            ],
+        ):
+            result = self.faker.state_college_of_education(location="Ekiti")
+            self.assertEqual(result, "College of Education, Ikere-Ekiti")
+        # Test when acronym=True
+        mock_choice.return_value = "COEIKERE"
+        with patch.object(
+            self.faker.school_provider,
+            "get_colleges_of_education_by_location",
+            return_value=[
+                {
+                    "name": "College of Education, Ikere-Ekiti",
+                    "acronym": "COEIKERE",
+                    "type": "College of Education",
+                    "ownership": "State",
+                },
+            ],
+        ):
+            result = self.faker.state_college_of_education(
+                acronym=True,
+                location="Ekiti",
+            )
+            self.assertEqual(result, "COEIKERE")
+
+    @patch(
+        "fakernaija.providers.schools.SchoolProvider.get_state_colleges_of_education",
+    )
+    @patch("random.choice")
+    def test_state_college_of_education_without_location(
+        self,
+        mock_choice: MagicMock,
+        mock_get_state_colleges_of_education: MagicMock,
+    ) -> None:
+        """Test state_college_of_education method without location parameter."""
+        mock_get_state_colleges_of_education.return_value = [
+            {
+                "name": "College of Education, Ikere-Ekiti",
+                "acronym": "COEIKERE",
+                "type": "College of Education",
+                "ownership": "State",
+            },
+        ]
+        # Test when acronym=False
+        mock_choice.return_value = "College of Education, Ikere-Ekiti"
+        with patch.object(
+            self.faker.school_provider,
+            "get_state_colleges_of_education",
+            return_value=[
+                {
+                    "name": "College of Education, Ikere-Ekiti",
+                    "acronym": "COEIKERE",
+                    "type": "College of Education",
+                    "ownership": "State",
+                },
+            ],
+        ):
+            result = self.faker.state_college_of_education()
+            self.assertEqual(result, "College of Education, Ikere-Ekiti")
+        # Test when acronym=True
+        mock_choice.return_value = "COEIKERE"
+        with patch.object(
+            self.faker.school_provider,
+            "get_state_colleges_of_education",
+            return_value=[
+                {
+                    "name": "College of Education, Ikere-Ekiti",
+                    "acronym": "COEIKERE",
+                    "type": "College of Education",
+                    "ownership": "State",
+                },
+            ],
+        ):
+            result = self.faker.state_college_of_education(acronym=True)
+            self.assertEqual(result, "COEIKERE")
+
+    @patch(
+        "fakernaija.providers.schools.SchoolProvider.get_colleges_of_education_by_location",
+    )
+    def test_state_college_of_education_with_location_no_colleges(
+        self,
+        mock_get_state_colleges_of_education_by_location: MagicMock,
+    ) -> None:
+        """Test state_college_of_education method with location but no colleges available."""
+        mock_get_state_colleges_of_education_by_location.return_value = []
+
+        result = self.faker.state_college_of_education(location="NonExistentLocation")
+        self.assertIsNone(result)
+
+    @patch(
+        "fakernaija.providers.schools.SchoolProvider.get_state_colleges_of_education",
+    )
+    def test_state_college_of_education_no_colleges_available(
+        self,
+        mock_get_state_colleges_of_education: MagicMock,
+    ) -> None:
+        """Test state_college_of_education method with no colleges available."""
+        mock_get_state_colleges_of_education.return_value = []
+
+        result = self.faker.state_college_of_education()
+        self.assertIsNone(result)
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_universities_by_location")
+    @patch("random.choice")
+    def test_private_university_with_location(
+        self,
+        mock_choice: MagicMock,
+        mock_get_private_universities_by_location: MagicMock,
+    ) -> None:
+        """Test private_university method with location parameter."""
+        mock_get_private_universities_by_location.return_value = [
+            {
+                "name": "Pan-Atlantic University",
+                "acronym": "PAU",
+                "type": "University",
+                "ownership": "Private",
+            },
+        ]
+        # Test when acronym=False
+        mock_choice.return_value = "Pan-Atlantic University"
+        with patch.object(
+            self.faker.school_provider,
+            "get_universities_by_location",
+            return_value=[
+                {
+                    "name": "Pan-Atlantic University",
+                    "acronym": "PAU",
+                    "type": "University",
+                    "ownership": "Private",
+                },
+            ],
+        ):
+            result = self.faker.private_university(location="Lagos")
+            self.assertEqual(result, "Pan-Atlantic University")
+        # Test when acronym=True
+        mock_choice.return_value = "PAU"
+        with patch.object(
+            self.faker.school_provider,
+            "get_universities_by_location",
+            return_value=[
+                {
+                    "name": "Pan-Atlantic University",
+                    "acronym": "PAU",
+                    "type": "University",
+                    "ownership": "Private",
+                },
+            ],
+        ):
+            result = self.faker.private_university(acronym=True, location="Lagos")
+            self.assertEqual(result, "PAU")
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_state_universities")
+    @patch("random.choice")
+    def test_private_university_without_location(
+        self,
+        mock_choice: MagicMock,
+        mock_get_private_universities: MagicMock,
+    ) -> None:
+        """Test private_university method without location parameter."""
+        mock_get_private_universities.return_value = [
+            {
+                "name": "Pan-Atlantic University",
+                "acronym": "PAU",
+                "type": "University",
+                "ownership": "Private",
+            },
+        ]
+        # Test when acronym=False
+        mock_choice.return_value = "Pan-Atlantic University"
+        with patch.object(
+            self.faker.school_provider,
+            "get_private_universities",
+            return_value=[
+                {
+                    "name": "Pan-Atlantic University",
+                    "acronym": "PAU",
+                    "type": "University",
+                    "ownership": "Private",
+                },
+            ],
+        ):
+            result = self.faker.private_university()
+            self.assertEqual(result, "Pan-Atlantic University")
+        # Test when acronym=True
+        mock_choice.return_value = "PAU"
+        with patch.object(
+            self.faker.school_provider,
+            "get_private_universities",
+            return_value=[
+                {
+                    "name": "Pan-Atlantic University",
+                    "acronym": "PAU",
+                    "type": "University",
+                    "ownership": "Private",
+                },
+            ],
+        ):
+            result = self.faker.private_university(acronym=True)
+            self.assertEqual(result, "PAU")
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_universities_by_location")
+    def test_private_university_with_location_no_universities(
+        self,
+        mock_get_private_universities_by_location: MagicMock,
+    ) -> None:
+        """Test private_university method with location but no universities available."""
+        mock_get_private_universities_by_location.return_value = []
+
+        result = self.faker.private_university(location="NonExistentLocation")
+        self.assertIsNone(result)
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_private_universities")
+    def test_private_university_no_universities_available(
+        self,
+        mock_get_universities: MagicMock,
+    ) -> None:
+        """Test private_university method with no universities available."""
+        mock_get_universities.return_value = []
+
+        result = self.faker.private_university()
+        self.assertIsNone(result)
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_polytechnics_by_location")
+    @patch("random.choice")
+    def test_private_polytechnic_with_location(
+        self,
+        mock_choice: MagicMock,
+        mock_get_private_polytechnics_by_location: MagicMock,
+    ) -> None:
+        """Test private_polytechnic method with location parameter."""
+        mock_get_private_polytechnics_by_location.return_value = [
+            {
+                "name": "Crown Polytechnic",
+                "acronym": "CROWNPOLY",
+                "type": "Polytechnic",
+                "ownership": "Private",
+            },
+        ]
+        # Test when acronym=False
+        mock_choice.return_value = "Crown Polytechnic"
+        with patch.object(
+            self.faker.school_provider,
+            "get_polytechnics_by_location",
+            return_value=[
+                {
+                    "name": "Crown Polytechnic",
+                    "acronym": "CROWNPOLY",
+                    "type": "Polytechnic",
+                    "ownership": "Private",
+                },
+            ],
+        ):
+            result = self.faker.private_polytechnic(location="Ekiti")
+            self.assertEqual(result, "Crown Polytechnic")
+        # Test when acronym=True
+        mock_choice.return_value = "CROWNPOLY"
+        with patch.object(
+            self.faker.school_provider,
+            "get_polytechnics_by_location",
+            return_value=[
+                {
+                    "name": "Crown Polytechnic",
+                    "acronym": "CROWNPOLY",
+                    "type": "Polytechnic",
+                    "ownership": "Private",
+                },
+            ],
+        ):
+            result = self.faker.private_polytechnic(acronym=True, location="Ekiti")
+            self.assertEqual(result, "CROWNPOLY")
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_private_polytechnics")
+    @patch("random.choice")
+    def test_private_polytechnic_without_location(
+        self,
+        mock_choice: MagicMock,
+        mock_get_private_polytechnics: MagicMock,
+    ) -> None:
+        """Test private_polytechnic method without location parameter."""
+        mock_get_private_polytechnics.return_value = [
+            {
+                "name": "Crown Polytechnic",
+                "acronym": "CROWNPOLY",
+                "type": "Polytechnic",
+                "ownership": "Private",
+            },
+        ]
+        # Test when acronym=False
+        mock_choice.return_value = "Crown Polytechnic"
+        with patch.object(
+            self.faker.school_provider,
+            "get_private_polytechnics",
+            return_value=[
+                {
+                    "name": "Crown Polytechnic",
+                    "acronym": "CROWNPOLY",
+                    "type": "Polytechnic",
+                    "ownership": "Private",
+                },
+            ],
+        ):
+            result = self.faker.private_polytechnic()
+            self.assertEqual(result, "Crown Polytechnic")
+        # Test when acronym=True
+        mock_choice.return_value = "CROWNPOLY"
+        with patch.object(
+            self.faker.school_provider,
+            "get_private_polytechnics",
+            return_value=[
+                {
+                    "name": "Crown Polytechnic",
+                    "acronym": "CROWNPOLY",
+                    "type": "Polytechnic",
+                    "ownership": "Private",
+                },
+            ],
+        ):
+            result = self.faker.private_polytechnic(acronym=True)
+            self.assertEqual(result, "CROWNPOLY")
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_polytechnics_by_location")
+    def test_private_polytechnic_with_location_no_polytechnics(
+        self,
+        mock_get_private_polytechnics_by_location: MagicMock,
+    ) -> None:
+        """Test private_polytechnic method with location but no polytechnics available."""
+        mock_get_private_polytechnics_by_location.return_value = []
+
+        result = self.faker.private_polytechnic(location="NonExistentLocation")
+        self.assertIsNone(result)
+
+    @patch("fakernaija.providers.schools.SchoolProvider.get_private_polytechnics")
+    def test_private_polytechnic_no_polytechnics_available(
+        self,
+        mock_get_private_polytechnics: MagicMock,
+    ) -> None:
+        """Test private_polytechnic method with no polytechnics available."""
+        mock_get_private_polytechnics.return_value = []
+
+        result = self.faker.private_polytechnic()
+        self.assertIsNone(result)
+
+    @patch(
+        "fakernaija.providers.schools.SchoolProvider.get_colleges_of_education_by_location",
+    )
+    @patch("random.choice")
+    def test_private_college_of_education_with_location(
+        self,
+        mock_choice: MagicMock,
+        mock_get_private_colleges_of_education_by_location: MagicMock,
+    ) -> None:
+        """Test private_college_of_education method with location parameter."""
+        mock_get_private_colleges_of_education_by_location.return_value = [
+            {
+                "name": "Best Legacy College of Education",
+                "acronym": "BESTLEGACY",
+                "type": "College of Education",
+                "ownership": "Private",
+            },
+        ]
+        # Test when acronym=False
+        mock_choice.return_value = "Best Legacy College of Education"
+        with patch.object(
+            self.faker.school_provider,
+            "get_colleges_of_education_by_location",
+            return_value=[
+                {
+                    "name": "Best Legacy College of Education",
+                    "acronym": "BESTLEGACY",
+                    "type": "College of Education",
+                    "ownership": "Private",
+                },
+            ],
+        ):
+            result = self.faker.private_college_of_education(location="Oyo")
+            self.assertEqual(result, "Best Legacy College of Education")
+        # Test when acronym=True
+        mock_choice.return_value = "BESTLEGACY"
+        with patch.object(
+            self.faker.school_provider,
+            "get_colleges_of_education_by_location",
+            return_value=[
+                {
+                    "name": "Best Legacy College of Education",
+                    "acronym": "BESTLEGACY",
+                    "type": "College of Education",
+                    "ownership": "Private",
+                },
+            ],
+        ):
+            result = self.faker.private_college_of_education(
+                acronym=True,
+                location="Oyo",
+            )
+            self.assertEqual(result, "BESTLEGACY")
+
+    @patch(
+        "fakernaija.providers.schools.SchoolProvider.get_private_colleges_of_education",
+    )
+    @patch("random.choice")
+    def test_private_college_of_education_without_location(
+        self,
+        mock_choice: MagicMock,
+        mock_get_private_colleges_of_education: MagicMock,
+    ) -> None:
+        """Test private_college_of_education method without location parameter."""
+        mock_get_private_colleges_of_education.return_value = [
+            {
+                "name": "Best Legacy College of Education",
+                "acronym": "BESTLEGACY",
+                "type": "College of Education",
+                "ownership": "Private",
+            },
+        ]
+        # Test when acronym=False
+        mock_choice.return_value = "Best Legacy College of Education"
+        with patch.object(
+            self.faker.school_provider,
+            "get_private_colleges_of_education",
+            return_value=[
+                {
+                    "name": "Best Legacy College of Education",
+                    "acronym": "BESTLEGACY",
+                    "type": "College of Education",
+                    "ownership": "Private",
+                },
+            ],
+        ):
+            result = self.faker.private_college_of_education()
+            self.assertEqual(result, "Best Legacy College of Education")
+        # Test when acronym=True
+        mock_choice.return_value = "BESTLEGACY"
+        with patch.object(
+            self.faker.school_provider,
+            "get_private_colleges_of_education",
+            return_value=[
+                {
+                    "name": "Best Legacy College of Education",
+                    "acronym": "BESTLEGACY",
+                    "type": "College of Education",
+                    "ownership": "Private",
+                },
+            ],
+        ):
+            result = self.faker.private_college_of_education(acronym=True)
+            self.assertEqual(result, "BESTLEGACY")
+
+    @patch(
+        "fakernaija.providers.schools.SchoolProvider.get_colleges_of_education_by_location",
+    )
+    def test_private_college_of_education_with_location_no_colleges(
+        self,
+        mock_get_private_colleges_of_education_by_location: MagicMock,
+    ) -> None:
+        """Test private_college_of_education method with location but no colleges available."""
+        mock_get_private_colleges_of_education_by_location.return_value = []
+
+        result = self.faker.private_college_of_education(location="NonExistentLocation")
+        self.assertIsNone(result)
+
+    @patch(
+        "fakernaija.providers.schools.SchoolProvider.get_private_colleges_of_education",
+    )
+    def test_private_college_of_education_no_colleges_available(
+        self,
+        mock_get_private_colleges_of_education: MagicMock,
+    ) -> None:
+        """Test private_college_of_education method with no colleges available."""
+        mock_get_private_colleges_of_education.return_value = []
+
+        result = self.faker.private_college_of_education()
+        self.assertIsNone(result)
 
 
 if __name__ == "__main__":

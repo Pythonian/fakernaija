@@ -649,12 +649,12 @@
             "year_founded": 1986
         },
         {
-            "name": "College of Education, Ekiadolor",
-            "acronym": "COEEKIADOLOR",
+            "name": " Federal College of Education (Technical), Ekiadolor",
+            "acronym": "FCETEkiadolor",
             "location": "Edo",
             "type": "College of Education",
-            "ownership": "State",
-            "year_founded": 1980
+            "ownership": "Federal",
+            "year_founded": 2021
         },
         {
             "name": "Kashim Ibrahim College of Education",
@@ -671,6 +671,14 @@
             "type": "College of Education",
             "ownership": "State",
             "year_founded": 1978
+        },
+        {
+            "name": "Corona College of Education",
+            "acronym": "CCED",
+            "location": "Lagos",
+            "type": "College of Education",
+            "ownership": "Private",
+            "year_founded": 2014
         },
         {
             "name": "College of Education, Waka-Biu",

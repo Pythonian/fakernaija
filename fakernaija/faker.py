@@ -213,7 +213,7 @@ class Faker:
             return self.state_provider.get_postal_code_by_state(state)
         return random.choice(self.state_provider.get_postal_codes())
 
-    def school(self, acronym: bool = False, location: str | None = None) -> str:
+    def school(self, acronym: bool = False, location: str | None = None) -> str | None:
         """Get a random school name.
 
         Args:
@@ -223,20 +223,22 @@ class Faker:
             Defaults to None.
 
         Returns:
-            str: Random school name or acronym.
+            str | None: Random school name or acronym, or None if no schools are found.
         """
         if location:
             locations = self.school_provider.get_schools_by_location(location)
+            if not locations:
+                return None
             schools = [
                 school["acronym"] if acronym else school["name"] for school in locations
             ]
-            return random.choice(schools)
+            return random.choice(schools) if schools else None
         schools = (
             self.school_provider.get_school_acronyms()
             if acronym
             else self.school_provider.get_schools()
         )
-        return random.choice(schools)
+        return random.choice(schools) if schools else None
 
     def federal_school(
         self,
@@ -252,22 +254,27 @@ class Faker:
             Defaults to None.
 
         Returns:
-            str | None: Random federal school name or acronym.
+            str | None: Random federal school name or acronym, or None if no federal schools are found.
         """
         if location:
             locations = self.school_provider.get_schools_by_location(location)
+            if not locations:
+                return None
             federal_schools = [
                 school for school in locations if school["ownership"] == "Federal"
             ]
+            if not federal_schools:
+                return None
         else:
             federal_schools = self.school_provider.get_federal_schools()
-        if not federal_schools:
-            return None
+            if not federal_schools:
+                return None
+
         schools = [
             school["acronym"] if acronym else school["name"]
             for school in federal_schools
         ]
-        return random.choice(schools)
+        return random.choice(schools) if schools else None
 
     def state_school(
         self,
@@ -283,21 +290,26 @@ class Faker:
             Defaults to None.
 
         Returns:
-            str | None: Random state school name or acronym.
+            str | None: Random state school name or acronym, or None if no state schools are found.
         """
         if location:
             locations = self.school_provider.get_schools_by_location(location)
+            if not locations:
+                return None
             state_schools = [
                 school for school in locations if school["ownership"] == "State"
             ]
+            if not state_schools:
+                return None
         else:
             state_schools = self.school_provider.get_state_schools()
-        if not state_schools:
-            return None
+            if not state_schools:
+                return None
+
         schools = [
             school["acronym"] if acronym else school["name"] for school in state_schools
         ]
-        return random.choice(schools)
+        return random.choice(schools) if schools else None
 
     def private_school(
         self,
@@ -313,22 +325,27 @@ class Faker:
             Defaults to None.
 
         Returns:
-            str | None: Random private school name or acronym.
+            str | None: Random private school name or acronym, or None if no private schools are found.
         """
         if location:
             locations = self.school_provider.get_schools_by_location(location)
+            if not locations:
+                return None
             private_schools = [
                 school for school in locations if school["ownership"] == "Private"
             ]
+            if not private_schools:
+                return None
         else:
             private_schools = self.school_provider.get_private_schools()
-        if not private_schools:
-            return None
+            if not private_schools:
+                return None
+
         schools = [
             school["acronym"] if acronym else school["name"]
             for school in private_schools
         ]
-        return random.choice(schools)
+        return random.choice(schools) if schools else None
 
     def university(
         self,
@@ -344,7 +361,7 @@ class Faker:
             Defaults to None.
 
         Returns:
-            str | None: Random university name or acronym.
+        str | None: Random university name or acronym, or None if no universities are found.
         """
         if location:
             locations = self.school_provider.get_universities_by_location(location)
@@ -353,7 +370,7 @@ class Faker:
             universities = [
                 school["acronym"] if acronym else school["name"] for school in locations
             ]
-            return random.choice(universities)
+            return random.choice(universities) if universities else None
 
         universities = self.school_provider.get_universities()
         if not universities:
@@ -361,7 +378,7 @@ class Faker:
         university_names = [
             school["acronym"] if acronym else school["name"] for school in universities
         ]
-        return random.choice(university_names)
+        return random.choice(university_names) if university_names else None
 
     def polytechnic(
         self,
@@ -377,7 +394,7 @@ class Faker:
             Defaults to None.
 
         Returns:
-            str | None: Random polytechnic name or acronym.
+            str | None: Random polytechnic name or acronym, or None if no polytechnics are found.
         """
         if location:
             locations = self.school_provider.get_polytechnics_by_location(location)
@@ -386,7 +403,7 @@ class Faker:
             polytechnics = [
                 school["acronym"] if acronym else school["name"] for school in locations
             ]
-            return random.choice(polytechnics)
+            return random.choice(polytechnics) if polytechnics else None
 
         polytechnics = self.school_provider.get_polytechnics()
         if not polytechnics:
@@ -394,7 +411,7 @@ class Faker:
         polytechnic_names = [
             school["acronym"] if acronym else school["name"] for school in polytechnics
         ]
-        return random.choice(polytechnic_names)
+        return random.choice(polytechnic_names) if polytechnic_names else None
 
     def college_of_education(
         self,
@@ -410,7 +427,7 @@ class Faker:
             Defaults to None.
 
         Returns:
-            str | None: Random college of education name or acronym.
+            str | None: Random college of education name or acronym, or None if no colleges of education are found.
         """
         if location:
             locations = self.school_provider.get_colleges_of_education_by_location(
@@ -421,7 +438,7 @@ class Faker:
             colleges = [
                 school["acronym"] if acronym else school["name"] for school in locations
             ]
-            return random.choice(colleges)
+            return random.choice(colleges) if colleges else None
 
         colleges_of_education = self.school_provider.get_colleges_of_education()
         if not colleges_of_education:
@@ -430,7 +447,7 @@ class Faker:
             school["acronym"] if acronym else school["name"]
             for school in colleges_of_education
         ]
-        return random.choice(college_names)
+        return random.choice(college_names) if college_names else None
 
     def federal_university(
         self,
@@ -446,22 +463,22 @@ class Faker:
             Defaults to None.
 
         Returns:
-            str | None: Random federal university name or acronym.
+            str | None: Random federal university name or acronym, or None if no federal universities are found.
         """
         if location:
             locations = self.school_provider.get_schools_by_location(location)
+            if not locations:
+                return None
             federal_universities = [
                 school
                 for school in locations
                 if school["type"] == "University" and school["ownership"] == "Federal"
             ]
-            if not federal_universities:
-                return None
             universities = [
                 school["acronym"] if acronym else school["name"]
                 for school in federal_universities
             ]
-            return random.choice(universities)
+            return random.choice(universities) if universities else None
 
         federal_universities = self.school_provider.get_federal_universities()
         if not federal_universities:
@@ -470,7 +487,7 @@ class Faker:
             school["acronym"] if acronym else school["name"]
             for school in federal_universities
         ]
-        return random.choice(universities)
+        return random.choice(universities) if universities else None
 
     def federal_polytechnic(
         self,
@@ -486,22 +503,22 @@ class Faker:
             Defaults to None.
 
         Returns:
-            str | None: Random federal polytechnic name or acronym.
+            str | None: Random federal polytechnic name or acronym, or None if no federal polytechnics are found.
         """
         if location:
             locations = self.school_provider.get_schools_by_location(location)
+            if not locations:
+                return None
             federal_polytechnics = [
                 school
                 for school in locations
                 if school["type"] == "Polytechnic" and school["ownership"] == "Federal"
             ]
-            if not federal_polytechnics:
-                return None
             polytechnics = [
                 school["acronym"] if acronym else school["name"]
                 for school in federal_polytechnics
             ]
-            return random.choice(polytechnics)
+            return random.choice(polytechnics) if polytechnics else None
 
         federal_polytechnics = self.school_provider.get_federal_polytechnics()
         if not federal_polytechnics:
@@ -510,7 +527,7 @@ class Faker:
             school["acronym"] if acronym else school["name"]
             for school in federal_polytechnics
         ]
-        return random.choice(polytechnics)
+        return random.choice(polytechnics) if polytechnics else None
 
     def federal_college_of_education(
         self,
@@ -526,23 +543,23 @@ class Faker:
             Defaults to None.
 
         Returns:
-            str | None: Random federal college of education name or acronym.
+            str | None: Random federal college of education name or acronym, or None if no federal colleges of education are found.
         """
         if location:
             locations = self.school_provider.get_schools_by_location(location)
+            if not locations:
+                return None
             federal_colleges_of_education = [
                 school
                 for school in locations
                 if school["type"] == "College of Education"
                 and school["ownership"] == "Federal"
             ]
-            if not federal_colleges_of_education:
-                return None
             colleges = [
                 school["acronym"] if acronym else school["name"]
                 for school in federal_colleges_of_education
             ]
-            return random.choice(colleges)
+            return random.choice(colleges) if colleges else None
 
         federal_colleges_of_education = (
             self.school_provider.get_federal_colleges_of_education()
@@ -553,7 +570,7 @@ class Faker:
             school["acronym"] if acronym else school["name"]
             for school in federal_colleges_of_education
         ]
-        return random.choice(colleges)
+        return random.choice(colleges) if colleges else None
 
     def state_university(
         self,
@@ -569,22 +586,22 @@ class Faker:
             Defaults to None.
 
         Returns:
-            str | None: Random state university name or acronym.
+            str | None: Random state university name or acronym, or None if no state universities are found.
         """
         if location:
             locations = self.school_provider.get_schools_by_location(location)
+            if not locations:
+                return None
             state_universities = [
                 school
                 for school in locations
                 if school["type"] == "University" and school["ownership"] == "State"
             ]
-            if not state_universities:
-                return None
             universities = [
                 school["acronym"] if acronym else school["name"]
                 for school in state_universities
             ]
-            return random.choice(universities)
+            return random.choice(universities) if universities else None
 
         state_universities = self.school_provider.get_state_universities()
         if not state_universities:
@@ -593,7 +610,7 @@ class Faker:
             school["acronym"] if acronym else school["name"]
             for school in state_universities
         ]
-        return random.choice(universities)
+        return random.choice(universities) if universities else None
 
     def state_polytechnic(
         self,
@@ -609,22 +626,22 @@ class Faker:
             Defaults to None.
 
         Returns:
-            str | None: Random state polytechnic name or acronym.
+            str | None: Random state polytechnic name or acronym, or None if no state polytechnics are found.
         """
         if location:
             locations = self.school_provider.get_schools_by_location(location)
+            if not locations:
+                return None
             state_polytechnics = [
                 school
                 for school in locations
                 if school["type"] == "Polytechnic" and school["ownership"] == "State"
             ]
-            if not state_polytechnics:
-                return None
             polytechnics = [
                 school["acronym"] if acronym else school["name"]
                 for school in state_polytechnics
             ]
-            return random.choice(polytechnics)
+            return random.choice(polytechnics) if polytechnics else None
 
         state_polytechnics = self.school_provider.get_state_polytechnics()
         if not state_polytechnics:
@@ -633,7 +650,7 @@ class Faker:
             school["acronym"] if acronym else school["name"]
             for school in state_polytechnics
         ]
-        return random.choice(polytechnics)
+        return random.choice(polytechnics) if polytechnics else None
 
     def state_college_of_education(
         self,
@@ -649,23 +666,23 @@ class Faker:
             Defaults to None.
 
         Returns:
-            str | None: Random state college of education name or acronym.
+            str | None: Random state college of education name or acronym, or None if no state colleges of education are found.
         """
         if location:
             locations = self.school_provider.get_schools_by_location(location)
+            if not locations:
+                return None
             state_colleges_of_education = [
                 school
                 for school in locations
                 if school["type"] == "College of Education"
                 and school["ownership"] == "State"
             ]
-            if not state_colleges_of_education:
-                return None
             colleges = [
                 school["acronym"] if acronym else school["name"]
                 for school in state_colleges_of_education
             ]
-            return random.choice(colleges)
+            return random.choice(colleges) if colleges else None
 
         state_colleges_of_education = (
             self.school_provider.get_state_colleges_of_education()
@@ -676,7 +693,7 @@ class Faker:
             school["acronym"] if acronym else school["name"]
             for school in state_colleges_of_education
         ]
-        return random.choice(colleges)
+        return random.choice(colleges) if colleges else None
 
     def private_university(
         self,
@@ -692,22 +709,22 @@ class Faker:
             Defaults to None.
 
         Returns:
-            str | None: Random private university name or acronym.
+            str | None: Random private university name or acronym, or None if no private universities are found.
         """
         if location:
             locations = self.school_provider.get_schools_by_location(location)
+            if not locations:
+                return None
             private_universities = [
                 school
                 for school in locations
                 if school["type"] == "University" and school["ownership"] == "Private"
             ]
-            if not private_universities:
-                return None
             universities = [
                 school["acronym"] if acronym else school["name"]
                 for school in private_universities
             ]
-            return random.choice(universities)
+            return random.choice(universities) if universities else None
 
         private_universities = self.school_provider.get_private_universities()
         if not private_universities:
@@ -716,7 +733,7 @@ class Faker:
             school["acronym"] if acronym else school["name"]
             for school in private_universities
         ]
-        return random.choice(universities)
+        return random.choice(universities) if universities else None
 
     def private_polytechnic(
         self,
@@ -732,22 +749,22 @@ class Faker:
             Defaults to None.
 
         Returns:
-            str | None: Random private polytechnic name or acronym.
+            str | None: Random private polytechnic name or acronym, or None if no private polytechnics are found.
         """
         if location:
             locations = self.school_provider.get_schools_by_location(location)
+            if not locations:
+                return None
             private_polytechnics = [
                 school
                 for school in locations
                 if school["type"] == "Polytechnic" and school["ownership"] == "Private"
             ]
-            if not private_polytechnics:
-                return None
             polytechnics = [
                 school["acronym"] if acronym else school["name"]
                 for school in private_polytechnics
             ]
-            return random.choice(polytechnics)
+            return random.choice(polytechnics) if polytechnics else None
 
         private_polytechnics = self.school_provider.get_private_polytechnics()
         if not private_polytechnics:
@@ -756,7 +773,7 @@ class Faker:
             school["acronym"] if acronym else school["name"]
             for school in private_polytechnics
         ]
-        return random.choice(polytechnics)
+        return random.choice(polytechnics) if polytechnics else None
 
     def private_college_of_education(
         self,
@@ -772,23 +789,23 @@ class Faker:
             Defaults to None.
 
         Returns:
-            str | None: Random private college of education name or acronym.
+            str | None: Random private college of education name or acronym, or None if no federal colleges of education are found.
         """
         if location:
             locations = self.school_provider.get_schools_by_location(location)
+            if not locations:
+                return None
             private_colleges_of_education = [
                 school
                 for school in locations
                 if school["type"] == "College of Education"
                 and school["ownership"] == "Private"
             ]
-            if not private_colleges_of_education:
-                return None
             colleges = [
                 school["acronym"] if acronym else school["name"]
                 for school in private_colleges_of_education
             ]
-            return random.choice(colleges)
+            return random.choice(colleges) if colleges else None
 
         private_colleges_of_education = (
             self.school_provider.get_private_colleges_of_education()
@@ -799,7 +816,7 @@ class Faker:
             school["acronym"] if acronym else school["name"]
             for school in private_colleges_of_education
         ]
-        return random.choice(colleges)
+        return random.choice(colleges) if colleges else None
 
     def phone_number(
         self,

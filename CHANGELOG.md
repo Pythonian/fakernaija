@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [0.0.10] - 2024-05-29
+
+### Added
+
+- Added more tests for Faker class to cover all existing methods
+
+### Refactor
+
+- Pinned coverage version in `tox.ini`
+- Made adjustments to Faker class to handle None or empty return values
+- Modified an existing school data in `schools.json`
+
 ## [0.0.9] - 2024-05-28
 
 ### Added
