@@ -13,109 +13,12 @@ from fakernaija.faker import Faker
 PHONE_NUMBER_LENGTH = 11
 
 
-class TestFaker(unittest.TestCase):
-    """Test suite for the Faker class."""
+class TestFakerStateProvider(unittest.TestCase):
+    """Unit tests for the Faker method from the StateProvider."""
 
     def setUp(self) -> None:
         """Set up the test case environment."""
         self.faker = Faker()
-
-    def test_full_name(self) -> None:
-        """Test that full_name returns a string."""
-        name = self.faker.full_name()
-        self.assertIsInstance(name, str)
-
-    def test_male_full_name(self) -> None:
-        """Test that male_full_name returns a string."""
-        name = self.faker.male_full_name()
-        self.assertIsInstance(name, str)
-
-    def test_female_full_name(self) -> None:
-        """Test that female_full_name returns a string."""
-        name = self.faker.female_full_name()
-        self.assertIsInstance(name, str)
-
-    def test_first_name(self) -> None:
-        """Test that first_name returns a string."""
-        name = self.faker.first_name()
-        self.assertIsInstance(name, str)
-
-    def test_male_first_name(self) -> None:
-        """Test that male_first_name returns a string."""
-        name = self.faker.male_first_name()
-        self.assertIsInstance(name, str)
-
-    def test_female_first_name(self) -> None:
-        """Test that female_first_name returns a string."""
-        name = self.faker.female_first_name()
-        self.assertIsInstance(name, str)
-
-    def test_last_name(self) -> None:
-        """Test that last_name returns a string."""
-        name = self.faker.last_name()
-        self.assertIsInstance(name, str)
-
-    def test_prefix(self) -> None:
-        """Test that prefix returns a string."""
-        prefix = self.faker.prefix()
-        self.assertIsInstance(prefix, str)
-
-    def test_male_prefix(self) -> None:
-        """Test that male_prefix returns a string."""
-        prefix = self.faker.male_prefix()
-        self.assertIsInstance(prefix, str)
-
-    def test_female_prefix(self) -> None:
-        """Test that female_prefix returns a string."""
-        prefix = self.faker.female_prefix()
-        self.assertIsInstance(prefix, str)
-
-    def test_phone_number(self) -> None:
-        """Test that phone_number returns a valid Nigerian phone number."""
-        number = self.faker.phone_number()
-        self.assertIsInstance(number, str)
-        self.assertEqual(len(number), PHONE_NUMBER_LENGTH)
-
-    def test_phone_number_with_network(self) -> None:
-        """Test that phone_number returns a valid phone number for a given network."""
-        number = self.faker.phone_number(network="mtn")
-        self.assertIsInstance(number, str)
-        self.assertEqual(len(number), PHONE_NUMBER_LENGTH)
-        self.assertTrue(
-            number.startswith(
-                (
-                    "0703",
-                    "0706",
-                    "0803",
-                    "0806",
-                    "0813",
-                    "0816",
-                    "0810",
-                    "0814",
-                    "0903",
-                    "0906",
-                    "0913",
-                    "0916",
-                ),
-            ),
-        )
-
-    def test_phone_number_with_prefix(self) -> None:
-        """Test that phone_number returns a valid phone number for a given prefix."""
-        number = self.faker.phone_number(prefix="0803")
-        self.assertIsInstance(number, str)
-        self.assertEqual(len(number), PHONE_NUMBER_LENGTH)
-        self.assertTrue(number.startswith("0803"))
-
-    def test_phone_number_with_invalid_prefix(self) -> None:
-        """Test that phone_number raises ValueError for an invalid prefix."""
-        with self.assertRaises(ValueError):
-            self.faker.phone_number(prefix="0999")
-
-    def test_phone_number_with_invalid_network(self) -> None:
-        """Test that phone_number raises ValueError for an invalid network."""
-        with self.assertRaises(ValueError):
-            self.faker.phone_number(network="invalid_network")
 
     @patch("fakernaija.providers.states.StateProvider.get_states_by_region")
     @patch("random.choice")
@@ -275,6 +178,14 @@ class TestFaker(unittest.TestCase):
 
         result = self.faker.postal_code()
         self.assertEqual(result, "100001")
+
+
+class TestFakerSchoolProvider(unittest.TestCase):
+    """Unit tests for the Faker method from the SchoolProvider."""
+
+    def setUp(self) -> None:
+        """Set up the test case environment."""
+        self.faker = Faker()
 
     @patch("fakernaija.providers.schools.SchoolProvider.get_schools_by_location")
     @patch("random.choice")
@@ -2253,5 +2164,198 @@ class TestFaker(unittest.TestCase):
         self.assertIsNone(result)
 
 
-if __name__ == "__main__":
-    unittest.main()
+class TestFakerName(unittest.TestCase):
+    """Unit tests for the Faker method from the NameProvider."""
+
+    def setUp(self) -> None:
+        """Set up the test case environment."""
+        self.faker = Faker()
+
+    def test_full_name(self) -> None:
+        """Test that full_name returns a string."""
+        name = self.faker.full_name()
+        self.assertIsInstance(name, str)
+
+    def test_male_full_name(self) -> None:
+        """Test that male_full_name returns a string."""
+        name = self.faker.male_full_name()
+        self.assertIsInstance(name, str)
+
+    def test_female_full_name(self) -> None:
+        """Test that female_full_name returns a string."""
+        name = self.faker.female_full_name()
+        self.assertIsInstance(name, str)
+
+    def test_first_name(self) -> None:
+        """Test that first_name returns a string."""
+        name = self.faker.first_name()
+        self.assertIsInstance(name, str)
+
+    def test_male_first_name(self) -> None:
+        """Test that male_first_name returns a string."""
+        name = self.faker.male_first_name()
+        self.assertIsInstance(name, str)
+
+    def test_female_first_name(self) -> None:
+        """Test that female_first_name returns a string."""
+        name = self.faker.female_first_name()
+        self.assertIsInstance(name, str)
+
+    def test_last_name(self) -> None:
+        """Test that last_name returns a string."""
+        name = self.faker.last_name()
+        self.assertIsInstance(name, str)
+
+    def test_prefix(self) -> None:
+        """Test that prefix returns a string."""
+        prefix = self.faker.prefix()
+        self.assertIsInstance(prefix, str)
+
+    def test_male_prefix(self) -> None:
+        """Test that male_prefix returns a string."""
+        prefix = self.faker.male_prefix()
+        self.assertIsInstance(prefix, str)
+
+    def test_female_prefix(self) -> None:
+        """Test that female_prefix returns a string."""
+        prefix = self.faker.female_prefix()
+        self.assertIsInstance(prefix, str)
+
+
+class TestFakerEmailProvider(unittest.TestCase):
+    """Unit tests for the Faker method from the EmailProvider."""
+
+    def setUp(self) -> None:
+        """Set up the test case environment."""
+        self.faker = Faker()
+        self.email_provider_mock = patch.object(
+            self.faker,
+            "email_provider",
+            autospec=True,
+        ).start()
+        self.addCleanup(patch.stopall)
+
+    def test_email_no_filters(self) -> None:
+        """Test generating an email with no tribe or gender filters."""
+        self.email_provider_mock.generate_email.return_value = "test@example.com"
+
+        result = self.faker.email()
+        self.email_provider_mock.generate_email.assert_called_once_with(None, None)
+        self.assertEqual(result, "test@example.com")
+
+    def test_email_with_tribe_filter(self) -> None:
+        """Test generating an email with a tribe filter."""
+        self.email_provider_mock.generate_email.return_value = "tribe_test@example.com"
+
+        result = self.faker.email(tribe="yoruba")
+        self.email_provider_mock.generate_email.assert_called_once_with("yoruba", None)
+        self.assertEqual(result, "tribe_test@example.com")
+
+    def test_email_with_gender_filter(self) -> None:
+        """Test generating an email with a gender filter."""
+        self.email_provider_mock.generate_email.return_value = "gender_test@example.com"
+
+        result = self.faker.email(gender="male")
+        self.email_provider_mock.generate_email.assert_called_once_with(None, "male")
+        self.assertEqual(result, "gender_test@example.com")
+
+    def test_email_with_tribe_and_gender_filters(self) -> None:
+        """Test generating an email with both tribe and gender filters."""
+        self.email_provider_mock.generate_email.return_value = (
+            "tribe_gender_test@example.com"
+        )
+
+        result = self.faker.email(tribe="yoruba", gender="male")
+        self.email_provider_mock.generate_email.assert_called_once_with(
+            "yoruba",
+            "male",
+        )
+        self.assertEqual(result, "tribe_gender_test@example.com")
+
+    def test_email_with_invalid_tribe(self) -> None:
+        """Test generating an email with an invalid tribe."""
+        self.email_provider_mock.generate_email.return_value = None
+
+        result = self.faker.email(tribe="invalid_tribe")
+        self.email_provider_mock.generate_email.assert_called_once_with(
+            "invalid_tribe",
+            None,
+        )
+        self.assertIsNone(result)
+
+    def test_email_with_invalid_gender(self) -> None:
+        """Test generating an email with an invalid gender."""
+        self.email_provider_mock.generate_email.return_value = None
+
+        result = self.faker.email(gender="invalid_gender")
+        self.email_provider_mock.generate_email.assert_called_once_with(
+            None,
+            "invalid_gender",
+        )
+        self.assertIsNone(result)
+
+    def test_email_with_invalid_tribe_and_gender(self) -> None:
+        """Test generating an email with invalid tribe and gender."""
+        self.email_provider_mock.generate_email.return_value = None
+
+        result = self.faker.email(tribe="invalid_tribe", gender="invalid_gender")
+        self.email_provider_mock.generate_email.assert_called_once_with(
+            "invalid_tribe",
+            "invalid_gender",
+        )
+        self.assertIsNone(result)
+
+
+class TestFakerPhoneNumberProvider(unittest.TestCase):
+    """Unit tests for the Faker method from the PhoneNumberProvider."""
+
+    def setUp(self) -> None:
+        """Set up the test case environment."""
+        self.faker = Faker()
+
+    def test_phone_number(self) -> None:
+        """Test that phone_number returns a valid Nigerian phone number."""
+        number = self.faker.phone_number()
+        self.assertIsInstance(number, str)
+        self.assertEqual(len(number), PHONE_NUMBER_LENGTH)
+
+    def test_phone_number_with_network(self) -> None:
+        """Test that phone_number returns a valid phone number for a given network."""
+        number = self.faker.phone_number(network="mtn")
+        self.assertIsInstance(number, str)
+        self.assertEqual(len(number), PHONE_NUMBER_LENGTH)
+        self.assertTrue(
+            number.startswith(
+                (
+                    "0703",
+                    "0706",
+                    "0803",
+                    "0806",
+                    "0813",
+                    "0816",
+                    "0810",
+                    "0814",
+                    "0903",
+                    "0906",
+                    "0913",
+                    "0916",
+                ),
+            ),
+        )
+
+    def test_phone_number_with_prefix(self) -> None:
+        """Test that phone_number returns a valid phone number for a given prefix."""
+        number = self.faker.phone_number(prefix="0803")
+        self.assertIsInstance(number, str)
+        self.assertEqual(len(number), PHONE_NUMBER_LENGTH)
+        self.assertTrue(number.startswith("0803"))
+
+    def test_phone_number_with_invalid_prefix(self) -> None:
+        """Test that phone_number raises ValueError for an invalid prefix."""
+        with self.assertRaises(ValueError):
+            self.faker.phone_number(prefix="0999")
+
+    def test_phone_number_with_invalid_network(self) -> None:
+        """Test that phone_number raises ValueError for an invalid network."""
+        with self.assertRaises(ValueError):
+            self.faker.phone_number(network="invalid_network")

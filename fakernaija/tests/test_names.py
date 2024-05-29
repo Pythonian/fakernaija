@@ -196,7 +196,3 @@ class TestNameProvider(unittest.TestCase):
             gender="female",
         )
         assert full_name == "Ugochi Maduike"
-
-
-if __name__ == "__main__":
-    unittest.main()

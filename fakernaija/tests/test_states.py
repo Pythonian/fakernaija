@@ -28,8 +28,8 @@ class TestStateProvider(unittest.TestCase):
     def test_load_json_success(self, mock_file: Any) -> None:  # noqa: ARG002, ANN401
         """Test loading JSON data successfully."""
         data = self.state_provider.load_json(self.state_provider.data_path)
-        assert "states" in data
-        assert isinstance(data, dict)
+        self.assertIn("states", data)
+        self.assertIsInstance(data, dict)
 
     @patch("pathlib.Path.open", new_callable=mock_open)
     def test_load_json_file_not_found(self, mock_file: Any) -> None:  # noqa: ANN401
@@ -50,7 +50,7 @@ class TestStateProvider(unittest.TestCase):
         """Test handling of invalid JSON format."""
         with self.assertRaises(ValueError) as context:
             self.state_provider.load_json(self.state_provider.data_path)
-        assert "Error decoding JSON" in str(context.exception)
+        self.assertIn("Error decoding JSON", str(context.exception))
 
     @patch(
         "pathlib.Path.open",
@@ -64,7 +64,7 @@ class TestStateProvider(unittest.TestCase):
         """Test handling of invalid data structure."""
         with self.assertRaises(ValueError) as context:
             self.state_provider.load_json(self.state_provider.data_path)
-        assert "Invalid data format" in str(context.exception)
+        self.assertIn("Invalid data format", str(context.exception))
 
     @patch(
         "pathlib.Path.open",
@@ -78,7 +78,7 @@ class TestStateProvider(unittest.TestCase):
         """Test handling of missing required keys in state data."""
         with self.assertRaises(ValueError) as context:
             self.state_provider.load_json(self.state_provider.data_path)
-        assert "Invalid data format" in str(context.exception)
+        self.assertIn("Invalid data format", str(context.exception))
 
     def test_validate_states_data(self) -> None:
         """Test validation of state data."""
@@ -106,8 +106,8 @@ class TestStateProvider(unittest.TestCase):
                 },
             ],
         }
-        assert self.state_provider.validate_states_data(valid_data) is True
-        assert self.state_provider.validate_states_data(invalid_data) is False
+        self.assertTrue(self.state_provider.validate_states_data(valid_data))
+        self.assertFalse(self.state_provider.validate_states_data(invalid_data))
 
     def test_validate_state_data(self) -> None:
         """Test validation of individual state data."""
@@ -128,50 +128,44 @@ class TestStateProvider(unittest.TestCase):
             "region_initial": "SW",
             "postal_code": "100001",
         }
-        assert self.state_provider.validate_state_data(valid_state) is True
-        assert self.state_provider.validate_state_data(invalid_state) is False
+        self.assertTrue(self.state_provider.validate_state_data(valid_state))
+        self.assertFalse(self.state_provider.validate_state_data(invalid_state))
 
     def test_get_states(self) -> None:
         """Test getting all state names."""
         states = self.state_provider.get_states()
-        # Check that a state exists in the list of state names
-        assert "Lagos" in states
+        self.assertIn("Lagos", states)
 
     def test_get_shortcodes(self) -> None:
         """Test getting all state shortcodes."""
         shortcodes = self.state_provider.get_shortcodes()
-        # Check that a shortcode exists in the list of shortcodes
-        assert "LA" in shortcodes
+        self.assertIn("LA", shortcodes)
 
     def test_get_capitals(self) -> None:
         """Test getting all state capitals."""
         capitals = self.state_provider.get_capitals()
-        # Check that a capital exists in the list of capitals
-        assert "Ikeja" in capitals
+        self.assertIn("Ikeja", capitals)
 
     def test_get_lgas(self) -> None:
         """Test getting all LGAs for all states."""
         lgas = self.state_provider.get_lgas()
-        # Check that an LGA exists in the list of all LGAs
-        assert "Apapa" in lgas
+        self.assertIn("Apapa", lgas)
 
     def test_get_regions(self) -> None:
         """Test getting all unique region codes."""
         regions = self.state_provider.get_regions()
-        # Check that a region exists in the list of regions
-        assert "South West" in regions
+        self.assertIn("South West", regions)
 
     def test_get_postal_codes(self) -> None:
         """Test getting all postal codes of states."""
         postal_codes = self.state_provider.get_postal_codes()
-        # Check the existence of Lagos postal code in the list returned
-        assert "100001" in postal_codes
+        self.assertIn("100001", postal_codes)
 
     def test_get_states_by_region(self) -> None:
         """Test getting states by a specific region code."""
         states = self.state_provider.get_states_by_region("SW")
         state_names = [state["name"] for state in states]
-        assert "Lagos" in state_names
+        self.assertIn("Lagos", state_names)
 
     def test_get_state_by_name(self) -> None:
         """Test getting state information by state name."""
@@ -184,24 +178,19 @@ class TestStateProvider(unittest.TestCase):
     def test_get_state_by_name_not_found(self) -> None:
         """Test getting a state by name when the state does not exist."""
         state = self.state_provider.get_state_by_name("Pythonian")
-        assert state is None
+        self.assertIsNone(state)
 
     def test_get_postal_code_by_state(self) -> None:
         """Test getting the postal code of a specific state."""
         postal_code = self.state_provider.get_postal_code_by_state("Lagos")
-        assert postal_code == "100001"
+        self.assertEqual(postal_code, "100001")
 
     def test_get_state_capital(self) -> None:
         """Test getting the capital city of a specific state."""
         capital = self.state_provider.get_state_capital("Lagos")
-        assert capital == "Ikeja"
+        self.assertEqual(capital, "Ikeja")
 
     def test_get_state_lgas(self) -> None:
         """Test getting a list of Local Government Areas for a specific state."""
         lgas = self.state_provider.get_state_lgas("Lagos")
-        # Check that an LGA in Lagos is in the list
-        assert "Agege" in lgas
-
-
-if __name__ == "__main__":
-    unittest.main()
+        self.assertIn("Agege", lgas)

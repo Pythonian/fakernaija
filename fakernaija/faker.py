@@ -5,6 +5,7 @@ The `Faker` class includes methods to retrieve various types of data, such as na
 
 import random
 
+from fakernaija.providers.emails import EmailProvider
 from fakernaija.providers.names import NameProvider
 from fakernaija.providers.phonenumbers import PhoneNumberProvider
 from fakernaija.providers.schools import SchoolProvider
@@ -19,6 +20,7 @@ class Faker:
 
         Creates an instance of each of the Provider classes.
         """
+        self.email_provider = EmailProvider()
         self.name_provider = NameProvider()
         self.state_provider = StateProvider()
         self.school_provider = SchoolProvider()
@@ -836,3 +838,15 @@ class Faker:
             str: A valid Nigerian phone number.
         """
         return self.phonenumber_provider.phone_number(network=network, prefix=prefix)
+
+    def email(self, tribe: str | None = None, gender: str | None = None) -> str | None:
+        """Generate a random email address with optional tribe and gender filters.
+
+        Args:
+            tribe (str | None, optional): The ethnic group to filter by. Defaults to None.
+            gender (str | None, optional): The gender to filter by. Defaults to None.
+
+        Returns:
+            str | None: The generated email address, or none if no filters match.
+        """
+        return self.email_provider.generate_email(tribe, gender)

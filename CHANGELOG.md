@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- Added EmailProvider module and tests for the prvider methods
 - Added more tests for Faker class to cover all existing methods
 
 ### Refactor
@@ -17,6 +18,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Pinned coverage version in `tox.ini`
 - Made adjustments to Faker class to handle None or empty return values
 - Modified an existing school data in `schools.json`
+- Split the Faker class tests based on the providers
+- Removed assert and replaced with unittest-style assert calls
 
 ## [0.0.9] - 2024-05-28
 
