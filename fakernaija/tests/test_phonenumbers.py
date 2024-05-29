@@ -47,12 +47,12 @@ class TestPhoneNumberProvider(unittest.TestCase):
 
     def test_phone_number_with_invalid_prefix(self) -> None:
         """Test that phone_number raises ValueError for an invalid prefix."""
-        with self.assertRaises(ValueError):  # noqa: PT027
+        with self.assertRaises(ValueError):
             self.provider.phone_number(prefix="1234")
 
     def test_phone_number_with_invalid_network(self) -> None:
         """Test that phone_number raises ValueError for an invalid network."""
-        with self.assertRaises(ValueError):  # noqa: PT027
+        with self.assertRaises(ValueError):
             self.provider.phone_number(network="invalid_network")
 
     def test_phone_number_with_network_and_prefix(self) -> None:
@@ -63,7 +63,7 @@ class TestPhoneNumberProvider(unittest.TestCase):
 
     def test_phone_number_with_invalid_network_and_prefix(self) -> None:
         """Test that phone_number raises ValueError for a valid network and invalid prefix combination."""
-        with self.assertRaises(ValueError):  # noqa: PT027
+        with self.assertRaises(ValueError):
             self.provider.phone_number(network="glo", prefix="0703")
 
 

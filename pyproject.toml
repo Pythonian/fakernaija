@@ -42,7 +42,9 @@ ignore = [
     "ANN101", # Avoid enforcing type annotation for `self` in method
     "FBT001", # Avoid enforcing boolean-typed positional argument
     "FBT002", # Avoid enforcing boolean default positional argument
-    "S101" # Use of `assert` detected
+    "S101", # Use of `assert` detected
+    "PT027", # Avoid suggesting pytest.raises
+    "PT009", # Avoid suggesting assert as against using unittest-style assertions
 ]
 
 # Allow fix for all enabled rules (when `--fix`) is provided.

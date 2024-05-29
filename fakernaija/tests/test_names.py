@@ -38,7 +38,7 @@ class TestLoadJson(unittest.TestCase):
     def test_load_json_file_not_found(self, mock_open: Any) -> None:  # noqa: ANN401
         """Test handling of a missing JSON file."""
         mock_open.side_effect = FileNotFoundError
-        with self.assertRaises(FileNotFoundError) as cm:  # noqa: PT027
+        with self.assertRaises(FileNotFoundError) as cm:
             self.name_provider.load_json(self.name_provider.data_path / "none.json")
         assert (
             str(cm.exception)
@@ -52,7 +52,7 @@ class TestLoadJson(unittest.TestCase):
     )
     def test_load_json_invalid_json(self, mock_file: Any) -> None:  # noqa: ANN401
         """Test handling of invalid JSON data."""
-        with self.assertRaises(ValueError) as cm:  # noqa: PT027
+        with self.assertRaises(ValueError) as cm:
             self.name_provider.load_json(self.name_provider.data_path / "invalid.json")
         assert "Error decoding JSON from file" in str(cm.exception)
         mock_file.assert_called_once_with(encoding="utf-8")

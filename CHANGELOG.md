@@ -12,6 +12,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Added tox to manage test and linting
 - Added github workflow for linting and testing
+- Added PT027 and PT029 to list of ignored ruff rules
+- Added tests on the Faker class
 
 ### Refactor
 

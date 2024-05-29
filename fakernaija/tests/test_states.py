@@ -35,7 +35,7 @@ class TestStateProvider(unittest.TestCase):
     def test_load_json_file_not_found(self, mock_file: Any) -> None:  # noqa: ANN401
         """Test handling of file not found error."""
         mock_file.side_effect = FileNotFoundError
-        with self.assertRaises(FileNotFoundError):  # noqa: PT027
+        with self.assertRaises(FileNotFoundError):
             self.state_provider.load_json("none.json")
 
     @patch(
@@ -48,7 +48,7 @@ class TestStateProvider(unittest.TestCase):
         mock_file: Any,  # noqa: ARG002, ANN401
     ) -> None:
         """Test handling of invalid JSON format."""
-        with self.assertRaises(ValueError) as context:  # noqa: PT027
+        with self.assertRaises(ValueError) as context:
             self.state_provider.load_json(self.state_provider.data_path)
         assert "Error decoding JSON" in str(context.exception)
 
@@ -62,7 +62,7 @@ class TestStateProvider(unittest.TestCase):
         mock_file: Any,  # noqa: ARG002, ANN401
     ) -> None:
         """Test handling of invalid data structure."""
-        with self.assertRaises(ValueError) as context:  # noqa: PT027
+        with self.assertRaises(ValueError) as context:
             self.state_provider.load_json(self.state_provider.data_path)
         assert "Invalid data format" in str(context.exception)
 
@@ -76,7 +76,7 @@ class TestStateProvider(unittest.TestCase):
         mock_file: Any,  # noqa: ARG002, ANN401
     ) -> None:
         """Test handling of missing required keys in state data."""
-        with self.assertRaises(ValueError) as context:  # noqa: PT027
+        with self.assertRaises(ValueError) as context:
             self.state_provider.load_json(self.state_provider.data_path)
         assert "Invalid data format" in str(context.exception)
 
