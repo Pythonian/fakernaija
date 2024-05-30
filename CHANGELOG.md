@@ -6,6 +6,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [0.0.11] - 2024-05-30
+
+### Added
+
+- Added Issue Templates for Github
+- Added bandit and black to `tox.ini` setup
+
+### Refactor
+
+- Moved coverage configurations from `setup.cfg` to `tox.ini` file
+
+### Removed
+
+- Deleted `setup.cfg` file
+
 ## [0.0.10] - 2024-05-29
 
 ### Added
