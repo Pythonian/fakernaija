@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 - Added Issue Templates for Github
+- Added Pull Request Template for Github
 - Added bandit and black to `tox.ini` setup
 
 ### Refactor
