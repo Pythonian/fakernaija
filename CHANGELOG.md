@@ -13,14 +13,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Added Issue Templates for Github
 - Added Pull Request Template for Github
 - Added bandit and black to `tox.ini` setup
+- Added Makefile
 
 ### Refactor
 
 - Moved coverage configurations from `setup.cfg` to `tox.ini` file
+- Moved mypy configurations from `mypy.ini` to `pyproject.toml`
 
 ### Removed
 
 - Deleted `setup.cfg` file
+- Deleted `mypy.ini` file
 
 ## [0.0.10] - 2024-05-29
 
