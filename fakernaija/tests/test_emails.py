@@ -31,7 +31,7 @@ class TestLoadJson(unittest.TestCase):
             self.email_provider.data_path / "first_names.json",
         )
         expected_data = [{"tribe": "yoruba", "gender": "male", "name": "Seyi"}]
-        assert data == expected_data
+        self.assertEqual(data, expected_data)
         mock_file.assert_called_once_with(encoding="utf-8")
 
     @patch("fakernaija.providers.names.Path.open")
@@ -40,9 +40,9 @@ class TestLoadJson(unittest.TestCase):
         mock_open.side_effect = FileNotFoundError
         with self.assertRaises(FileNotFoundError) as cm:
             self.email_provider.load_json(self.email_provider.data_path / "none.json")
-        assert (
-            str(cm.exception)
-            == f"File not found: {self.email_provider.data_path / 'none.json'}"
+        self.assertEqual(
+            str(cm.exception),
+            f"File not found: {self.email_provider.data_path / 'none.json'}",
         )
 
     @patch(
@@ -56,7 +56,7 @@ class TestLoadJson(unittest.TestCase):
             self.email_provider.load_json(
                 self.email_provider.data_path / "invalid.json",
             )
-        assert "Error decoding JSON from file" in str(cm.exception)
+        self.assertIn("Error decoding JSON from file", str(cm.exception))
         mock_file.assert_called_once_with(encoding="utf-8")
 
     @patch(
@@ -69,7 +69,7 @@ class TestLoadJson(unittest.TestCase):
         data = self.email_provider.load_json(
             self.email_provider.data_path / "empty.json",
         )
-        assert data == []
+        self.assertEqual(data, [])
         mock_file.assert_called_once_with(encoding="utf-8")
 
     @patch(
@@ -126,7 +126,7 @@ class TestGetFirstNames(unittest.TestCase):
                 {"tribe": "igbo", "gender": "male", "name": "Chinedu"},
                 {"tribe": "igbo", "gender": "female", "name": "Ada"},
             ]
-            assert result == expected
+            self.assertEqual(result, expected)
 
     def test_get_first_names_with_tribe_filter(self) -> None:
         """Test get_first_names with only tribe filter applied."""
@@ -145,7 +145,7 @@ class TestGetFirstNames(unittest.TestCase):
                 {"tribe": "yoruba", "gender": "male", "name": "Seyi"},
                 {"tribe": "yoruba", "gender": "female", "name": "Funke"},
             ]
-            assert result == expected
+            self.assertEqual(result, expected)
 
     def test_get_first_names_with_gender_filter(self) -> None:
         """Test get_first_names with only gender filter applied."""
@@ -164,7 +164,7 @@ class TestGetFirstNames(unittest.TestCase):
                 {"tribe": "yoruba", "gender": "male", "name": "Seyi"},
                 {"tribe": "igbo", "gender": "male", "name": "Chinedu"},
             ]
-            assert result == expected
+            self.assertEqual(result, expected)
 
     def test_get_first_names_with_tribe_and_gender_filter(self) -> None:
         """Test get_first_names with both tribe and gender filters applied."""
@@ -182,7 +182,7 @@ class TestGetFirstNames(unittest.TestCase):
             expected = [
                 {"tribe": "yoruba", "gender": "male", "name": "Seyi"},
             ]
-            assert result == expected
+            self.assertEqual(result, expected)
 
     def test_get_last_names_no_filter(self) -> None:
         """Test get_last_names with no filters applied."""
@@ -199,7 +199,7 @@ class TestGetFirstNames(unittest.TestCase):
                 {"tribe": "yoruba", "name": "Afolabi"},
                 {"tribe": "igbo", "name": "Maduike"},
             ]
-            assert result == expected
+            self.assertEqual(result, expected)
 
     def test_get_last_names_with_tribe_filter(self) -> None:
         """Test get_last_names with only tribe filter applied."""
@@ -215,7 +215,7 @@ class TestGetFirstNames(unittest.TestCase):
             expected = [
                 {"tribe": "yoruba", "name": "Afolabi"},
             ]
-            assert result == expected
+            self.assertEqual(result, expected)
 
 
 class TestGetNamesByTribe(unittest.TestCase):

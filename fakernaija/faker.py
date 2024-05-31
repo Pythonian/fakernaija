@@ -1,6 +1,6 @@
 """This module provides a `Faker` class that generates random Nigerian data.
 
-The `Faker` class includes methods to retrieve various types of data, such as names, phone numbers, states and capitals, schools etc.
+The `Faker` class includes methods to retrieve various types of data, such as names, phone numbers, states and capitals, schools, emails etc.
 """
 
 import random

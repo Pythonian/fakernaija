@@ -170,10 +170,11 @@ class TestStateProvider(unittest.TestCase):
     def test_get_state_by_name(self) -> None:
         """Test getting state information by state name."""
         state_info = self.state_provider.get_state_by_name("Lagos")
-        assert state_info is not None, "Expected state info to not be None"
-        assert state_info["name"] == "Lagos"
-        assert state_info["code"] == "LA"
-        assert state_info["capital"] == "Ikeja"
+        self.assertIsNotNone(state_info, "Expected state info to not be None")
+        if state_info:
+            self.assertEqual(state_info["name"], "Lagos")
+            self.assertEqual(state_info["code"], "LA")
+            self.assertEqual(state_info["capital"], "Ikeja")
 
     def test_get_state_by_name_not_found(self) -> None:
         """Test getting a state by name when the state does not exist."""

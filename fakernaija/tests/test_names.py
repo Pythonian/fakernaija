@@ -31,7 +31,7 @@ class TestLoadJson(unittest.TestCase):
             self.name_provider.data_path / "first_names.json",
         )
         expected_data = [{"tribe": "yoruba", "gender": "male", "name": "Seyi"}]
-        assert data == expected_data
+        self.assertEqual(data, expected_data)
         mock_file.assert_called_once_with(encoding="utf-8")
 
     @patch("fakernaija.providers.names.Path.open")
@@ -40,9 +40,9 @@ class TestLoadJson(unittest.TestCase):
         mock_open.side_effect = FileNotFoundError
         with self.assertRaises(FileNotFoundError) as cm:
             self.name_provider.load_json(self.name_provider.data_path / "none.json")
-        assert (
-            str(cm.exception)
-            == f"File not found: {self.name_provider.data_path / 'none.json'}"
+        self.assertEqual(
+            str(cm.exception),
+            f"File not found: {self.name_provider.data_path / 'none.json'}",
         )
 
     @patch(
@@ -54,7 +54,7 @@ class TestLoadJson(unittest.TestCase):
         """Test handling of invalid JSON data."""
         with self.assertRaises(ValueError) as cm:
             self.name_provider.load_json(self.name_provider.data_path / "invalid.json")
-        assert "Error decoding JSON from file" in str(cm.exception)
+        self.assertIn("Error decoding JSON from file", str(cm.exception))
         mock_file.assert_called_once_with(encoding="utf-8")
 
     @patch(
@@ -65,7 +65,7 @@ class TestLoadJson(unittest.TestCase):
     def test_load_json_empty_file(self, mock_file: Any) -> None:  # noqa: ANN401
         """Test loading an empty JSON file."""
         data = self.name_provider.load_json(self.name_provider.data_path / "empty.json")
-        assert data == []
+        self.assertEqual(data, [])
         mock_file.assert_called_once_with(encoding="utf-8")
 
     @patch(
@@ -113,7 +113,7 @@ class TestNameProvider(unittest.TestCase):
         """Test getting all first names without any filters."""
         first_names = self.name_provider.get_first_names()
         expected_names = self.mock_first_names
-        assert first_names == expected_names
+        self.assertEqual(first_names, expected_names)
 
     def test_get_first_names_by_tribe(self) -> None:
         """Test getting first names filtered by tribe."""
@@ -122,7 +122,7 @@ class TestNameProvider(unittest.TestCase):
             {"tribe": "igbo", "gender": "female", "name": "Ugochi"},
             {"tribe": "igbo", "gender": "male", "name": "Jidenna"},
         ]
-        assert first_names == expected_names
+        self.assertEqual(first_names, expected_names)
 
     def test_get_first_names_by_gender(self) -> None:
         """Test getting first names filtered by gender."""
@@ -131,24 +131,24 @@ class TestNameProvider(unittest.TestCase):
             {"tribe": "igbo", "gender": "female", "name": "Ugochi"},
             {"tribe": "yoruba", "gender": "female", "name": "Adeola"},
         ]
-        assert first_names == expected_names
+        self.assertEqual(first_names, expected_names)
 
     def test_get_first_names_by_tribe_and_gender(self) -> None:
         """Test getting first names filtered by tribe and gender."""
         first_names = self.name_provider.get_first_names(tribe="igbo", gender="female")
         expected_names = [{"tribe": "igbo", "gender": "female", "name": "Ugochi"}]
-        assert first_names == expected_names
+        self.assertEqual(first_names, expected_names)
 
     def test_get_first_names_no_match(self) -> None:
         """Test getting first names with no match found."""
         first_names = self.name_provider.get_first_names(tribe="hausa", gender="male")
-        assert first_names == []
+        self.assertEqual(first_names, [])
 
     def test_get_last_names_no_filters(self) -> None:
         """Test getting all last names without any filters."""
         last_names = self.name_provider.get_last_names()
         expected_names = self.mock_last_names
-        assert last_names == expected_names
+        self.assertEqual(last_names, expected_names)
 
     def test_get_last_names_by_tribe(self) -> None:
         """Test getting last names filtered by tribe."""
@@ -157,12 +157,12 @@ class TestNameProvider(unittest.TestCase):
             {"tribe": "igbo", "name": "Maduike"},
             {"tribe": "igbo", "name": "Okafor"},
         ]
-        assert last_names == expected_names
+        self.assertEqual(last_names, expected_names)
 
     def test_get_last_names_no_match(self) -> None:
         """Test getting last names with no match found."""
         last_names = self.name_provider.get_last_names(tribe="hausa")
-        assert last_names == []
+        self.assertEqual(last_names, [])
 
     @patch("random.choice", side_effect=lambda x: x[0])
     def test_generate_first_name(
@@ -174,7 +174,7 @@ class TestNameProvider(unittest.TestCase):
             tribe="igbo",
             gender="female",
         )
-        assert first_name == "Ugochi"
+        self.assertEqual(first_name, "Ugochi")
 
     @patch("random.choice", side_effect=lambda x: x[0])
     def test_generate_last_name(
@@ -183,7 +183,7 @@ class TestNameProvider(unittest.TestCase):
     ) -> None:
         """Test generating a random last name."""
         last_name = self.name_provider.generate_last_name(tribe="igbo")
-        assert last_name == "Maduike"
+        self.assertEqual(last_name, "Maduike")
 
     @patch("random.choice", side_effect=lambda x: x[0])
     def test_generate_full_name(
@@ -195,4 +195,4 @@ class TestNameProvider(unittest.TestCase):
             tribe="igbo",
             gender="female",
         )
-        assert full_name == "Ugochi Maduike"
+        self.assertEqual(full_name, "Ugochi Maduike")

@@ -6,6 +6,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [0.0.12] - 2024-05-31
+
+### Added
+
+- Added flake8 line length ignore rule to `tox.ini`
+
+### Refactor
+
+- Changed assert style statement to using unittest-style assert statements
+- Updated `__init__.py` and `faker.py` module docstrings
+
+### Removed
+
+- Removed assert_used skipping code from bandit configuration
+
 ## [0.0.11] - 2024-05-30
 
 ### Added
