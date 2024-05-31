@@ -55,6 +55,7 @@ tox: install ## Run all checks using tox
 	@echo "All checks passed"
 
 clean: ## Clean the project of unneeded files
+	@echo "Cleaning up the project of unneeded files..."
 	@rm -rf $(VENV_DIR)
 	@rm -rf .cache
 	@rm -rf htmlcov coverage.xml .coverage
@@ -62,7 +63,7 @@ clean: ## Clean the project of unneeded files
 	@rm -rf .mypy_cache
 	@rm -rf .ruff_cache
 	@rm -rf *.egg-info
-	@rm -rf build dist
+	@rm -rf dist
 	@find . -name "*.pyc" -delete
 	@find . -type d -name "__pycache__" -exec rm -r {} +
-	@echo "Cleaned up the project of unneeded files"
+	@echo "Clean up successfully completed."

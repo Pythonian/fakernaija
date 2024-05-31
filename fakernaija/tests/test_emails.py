@@ -317,3 +317,36 @@ class TestGenerateEmail(unittest.TestCase):
         self.email_provider.last_names = []
         result = self.email_provider.generate_email(tribe="yoruba")
         self.assertIsNone(result)
+
+    @patch("random.choice")
+    @patch.object(EmailProvider, "get_names_by_tribe")
+    def test_generate_email_no_tribe(
+        self,
+        mock_get_names_by_tribe: MagicMock,
+        mock_random_choice: MagicMock,
+    ) -> None:
+        """Test for when no tribe is specified, and a random tribe has to be chosen."""
+        # Mock the randomness
+        mock_random_choice.side_effect = [
+            "Yoruba",  # Chosen tribe
+            "Seyi",  # Chosen first name
+            "Ade",  # Chosen last name
+            "seyi.ade",  # Chosen format
+            "test.com",  # Chosen domain
+            0.6,  # Random number to not add a suffix
+        ]
+
+        # Mock get_names_by_tribe to return names for the chosen tribe
+        mock_get_names_by_tribe.return_value = (
+            ["Seyi", "Funke"],  # First names for Yoruba
+            ["Ade"],  # Last names for Yoruba
+        )
+
+        # Ensure the random number is controlled to avoid adding a numeric suffix
+        with patch("random.random", return_value=0.6):
+            email = self.email_provider.generate_email()
+
+        self.assertIsNotNone(email)
+        if email is not None:  # This check ensures email is a str for type checkers
+            self.assertTrue(email.endswith("@test.com"))
+            self.assertTrue(email.startswith("seyi.ade"))

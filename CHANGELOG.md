@@ -13,11 +13,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Added flake8 line length ignore rule to `tox.ini`
 - Added issue templates
 - Added some information to Readme file
+- Added more tests to ensure test_emails coverage reached 100
 
 ### Refactor
 
 - Changed assert style statement to using unittest-style assert statements
 - Updated `__init__.py` and `faker.py` module docstrings
+- Made changes to the `make build` command
 
 ### Removed
 
