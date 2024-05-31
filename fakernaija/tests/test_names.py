@@ -7,7 +7,6 @@ methods return the expected names based on tribes and gender.
 
 import json
 import unittest
-from typing import Any
 from unittest.mock import MagicMock, mock_open, patch
 
 from fakernaija.providers.names import NameProvider
@@ -25,21 +24,25 @@ class TestLoadJson(unittest.TestCase):
         new_callable=mock_open,
         read_data=json.dumps([{"tribe": "yoruba", "gender": "male", "name": "Seyi"}]),
     )
-    def test_load_json_success(self, mock_file: Any) -> None:  # noqa: ANN401
+    def test_load_json_success(self, mock_file: MagicMock) -> None:
         """Test loading JSON data successfully."""
         data = self.name_provider.load_json(
             self.name_provider.data_path / "first_names.json",
+            ["tribe", "gender", "name"],
         )
         expected_data = [{"tribe": "yoruba", "gender": "male", "name": "Seyi"}]
         self.assertEqual(data, expected_data)
         mock_file.assert_called_once_with(encoding="utf-8")
 
     @patch("fakernaija.providers.names.Path.open")
-    def test_load_json_file_not_found(self, mock_open: Any) -> None:  # noqa: ANN401
+    def test_load_json_file_not_found(self, mock_open: MagicMock) -> None:
         """Test handling of a missing JSON file."""
         mock_open.side_effect = FileNotFoundError
         with self.assertRaises(FileNotFoundError) as cm:
-            self.name_provider.load_json(self.name_provider.data_path / "none.json")
+            self.name_provider.load_json(
+                self.name_provider.data_path / "none.json",
+                ["tribe", "gender", "name"],
+            )
         self.assertEqual(
             str(cm.exception),
             f"File not found: {self.name_provider.data_path / 'none.json'}",
@@ -50,10 +53,13 @@ class TestLoadJson(unittest.TestCase):
         new_callable=mock_open,
         read_data="Invalid JSON",
     )
-    def test_load_json_invalid_json(self, mock_file: Any) -> None:  # noqa: ANN401
+    def test_load_json_invalid_json(self, mock_file: MagicMock) -> None:
         """Test handling of invalid JSON data."""
         with self.assertRaises(ValueError) as cm:
-            self.name_provider.load_json(self.name_provider.data_path / "invalid.json")
+            self.name_provider.load_json(
+                self.name_provider.data_path / "invalid.json",
+                ["tribe", "gender", "name"],
+            )
         self.assertIn("Error decoding JSON from file", str(cm.exception))
         mock_file.assert_called_once_with(encoding="utf-8")
 
@@ -62,9 +68,12 @@ class TestLoadJson(unittest.TestCase):
         new_callable=mock_open,
         read_data=json.dumps([]),
     )
-    def test_load_json_empty_file(self, mock_file: Any) -> None:  # noqa: ANN401
+    def test_load_json_empty_file(self, mock_file: MagicMock) -> None:
         """Test loading an empty JSON file."""
-        data = self.name_provider.load_json(self.name_provider.data_path / "empty.json")
+        data = self.name_provider.load_json(
+            self.name_provider.data_path / "empty.json",
+            ["tribe", "gender", "name"],
+        )
         self.assertEqual(data, [])
         mock_file.assert_called_once_with(encoding="utf-8")
 
@@ -73,11 +82,50 @@ class TestLoadJson(unittest.TestCase):
         new_callable=mock_open,
         read_data=json.dumps([{"tribe": "yoruba", "gender": "male", "name": "Seyi"}]),
     )
-    def test_load_json_check_path(self, mock_file: Any) -> None:  # noqa: ANN401
+    def test_load_json_check_path(self, mock_file: MagicMock) -> None:
         """Test that the correct file path is used."""
         file_path = self.name_provider.data_path / "first_names.json"
-        self.name_provider.load_json(file_path)
+        self.name_provider.load_json(file_path, ["tribe", "gender", "name"])
         mock_file.assert_called_once_with(encoding="utf-8")
+
+
+class TestValidateJsonStructure(unittest.TestCase):
+    """Unit tests for the NameProvider validate_json_structure method."""
+
+    def setUp(self) -> None:
+        """Set up the test case environment."""
+        self.name_provider = NameProvider()
+
+    def test_validate_json_structure_success(self) -> None:
+        """Test successful validation of JSON structure."""
+        data = [{"tribe": "yoruba", "gender": "male", "name": "Seyi"}]
+        try:
+            self.name_provider.validate_json_structure(
+                data,
+                ["tribe", "gender", "name"],
+            )
+        except ValueError:
+            self.fail("validate_json_structure raised ValueError unexpectedly!")
+
+    def test_validate_json_structure_missing_keys(self) -> None:
+        """Test validation of JSON structure with missing keys."""
+        data = [{"tribe": "yoruba", "name": "Seyi"}]
+        with self.assertRaises(ValueError) as cm:
+            self.name_provider.validate_json_structure(
+                data,
+                ["tribe", "gender", "name"],
+            )
+        self.assertIn("Missing keys {'gender'} in entry", str(cm.exception))
+
+    def test_validate_json_structure_extra_keys(self) -> None:
+        """Test validation of JSON structure with extra keys."""
+        data = [{"tribe": "yoruba", "gender": "male", "name": "Seyi", "extra": "value"}]
+        with self.assertRaises(ValueError) as cm:
+            self.name_provider.validate_json_structure(
+                data,
+                ["tribe", "gender", "name"],
+            )
+        self.assertIn("Invalid keys {'extra'} in entry", str(cm.exception))
 
 
 class TestNameProvider(unittest.TestCase):

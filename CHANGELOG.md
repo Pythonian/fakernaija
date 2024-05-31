@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Added issue templates
 - Added some information to Readme file
 - Added more tests to ensure test_emails coverage reached 100
+- Added code to validate the name json data structure, and updated test cases
 
 ### Refactor
 
