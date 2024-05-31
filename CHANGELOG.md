@@ -11,6 +11,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 - Added flake8 line length ignore rule to `tox.ini`
+- Added issue templates
+- Added some information to Readme file
 
 ### Refactor
 
@@ -20,6 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Removed
 
 - Removed assert_used skipping code from bandit configuration
+- Removed ruff linting in github workflow
 
 ## [0.0.11] - 2024-05-30
 
