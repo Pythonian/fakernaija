@@ -21,7 +21,7 @@ class TestEmailProvider(unittest.TestCase):
         self.mock_name_provider = MagicMock(spec=NameProvider)
         self.email_provider.name_provider = self.mock_name_provider
 
-    def test_get_first_names(self) -> None:
+    def test_get_first_names_with_filters(self) -> None:
         """Test get_first_names method with various filters."""
         mock_first_names = [
             {"tribe": "yoruba", "gender": "male", "name": "Ade"},
@@ -33,6 +33,21 @@ class TestEmailProvider(unittest.TestCase):
         self.mock_name_provider.get_first_names.assert_called_once_with(
             "yoruba",
             "male",
+        )
+        self.assertEqual(result, mock_first_names)
+
+    def test_get_first_names_no_filters(self) -> None:
+        """Test get_first_names method with no filters."""
+        mock_first_names = [
+            {"tribe": "yoruba", "gender": "male", "name": "Ade"},
+            {"tribe": "igbo", "gender": "female", "name": "Ugochi"},
+        ]
+        self.mock_name_provider.get_first_names.return_value = mock_first_names
+
+        result = self.email_provider.get_first_names()
+        self.mock_name_provider.get_first_names.assert_called_once_with(
+            None,
+            None,
         )
         self.assertEqual(result, mock_first_names)
 
@@ -48,8 +63,8 @@ class TestEmailProvider(unittest.TestCase):
         self.mock_name_provider.get_last_names.assert_called_once_with("yoruba")
         self.assertEqual(result, mock_last_names)
 
-    def test_get_names_by_tribe(self) -> None:
-        """Test get_names_by_tribe method with tribe and gender filters."""
+    def test_get_first_names_with_tribe_and_gender_filter(self) -> None:
+        """Test get_first_names with both tribe and gender filters applied."""
         mock_first_names = [{"name": "Ade"}]
         mock_last_names = [{"name": "Ojo"}]
         self.mock_name_provider.get_first_names.return_value = mock_first_names

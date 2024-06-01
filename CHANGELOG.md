@@ -21,6 +21,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Now loading the json data for `emails.py` and `names.py` via the utility `load_json` function
 - Normalized tribe and gender inputs to lowercase
+- Added new test case to `test_emails.py`
+
+### Removed
+
+- Removed formatting with black command in `tox.ini`
 
 ## [0.0.12] - 2024-05-31
 
