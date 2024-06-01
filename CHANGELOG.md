@@ -6,6 +6,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [0.0.13] - 2024-06-01
+
+### Added
+
+- Added ascii art to `README.md`
+- Added a `utils.py` file to encapsulate common functionalities
+- Added ability to add domains optionally to email generation
+- Added email validation logic
+- Added ability to specify an optional middle name for full name generation
+- Unittest updates for the new functionalities added
+
+### Refactor
+
+- Now loading the json data for `emails.py` and `names.py` via the utility `load_json` function
+- Normalized tribe and gender inputs to lowercase
+
 ## [0.0.12] - 2024-05-31
 
 ### Added

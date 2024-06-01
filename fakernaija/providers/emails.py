@@ -1,46 +1,27 @@
 """This module provides an EmailProvider class for generating email addresses with Nigerian name combinations."""
 
-import json
 import random
-from pathlib import Path
+import re
+
+from fakernaija.providers.names import NameProvider
 
 
 class EmailProvider:
     """Provides functionality for generating email addresses with Nigerian names."""
 
     def __init__(self) -> None:
-        """Initialize the NameProvider.
+        """Initialize the EmailProvider.
 
-        Sets the path to the directory containing name data files
-        and loads the name data.
+        Initializes NameProvider and sets up email domains.
         """
-        self.data_path = Path(__file__).parent / "data" / "names"
-        self.first_names = self.load_json(self.data_path / "first_names.json")
-        self.last_names = self.load_json(self.data_path / "last_names.json")
-        self.domains = ["gmail.com", "yahoo.com", "outlook.com"]
-
-    def load_json(self, file_path: str | Path) -> list[dict[str, str]]:
-        """Load data from a JSON file.
-
-        Args:
-            file_path (Path): The path to the JSON file.
-
-        Returns:
-            list[dict[str, str]]: The data loaded from the JSON file.
-
-        Raises:
-            FileNotFoundError: If the JSON file is not found.
-            ValueError: If the JSON data is invalid.
-        """
-        try:
-            with Path(file_path).open(encoding="utf-8") as file:
-                return json.load(file)
-        except FileNotFoundError:
-            msg = f"File not found: {file_path}"
-            raise FileNotFoundError(msg) from None
-        except json.JSONDecodeError as exc:
-            msg = f"Error decoding JSON from file: {file_path}"
-            raise ValueError(msg) from exc
+        self.name_provider = NameProvider()
+        self.default_domains = [
+            "gmail.com",
+            "yahoo.com",
+            "edu.ng",
+            "gov.ng",
+            "mail.com",
+        ]
 
     def get_first_names(
         self,
@@ -56,12 +37,7 @@ class EmailProvider:
         Returns:
             list[dict[str, str]]: A list of first names matching the specified filters.
         """
-        names = self.first_names
-        if tribe:
-            names = [name for name in names if name["tribe"] == tribe]
-        if gender:
-            names = [name for name in names if name["gender"] == gender]
-        return names
+        return self.name_provider.get_first_names(tribe, gender)
 
     def get_last_names(self, tribe: str | None = None) -> list[dict[str, str]]:
         """Get a list of last names optionally filtered by ethnic group.
@@ -72,9 +48,7 @@ class EmailProvider:
         Returns:
             list[dict[str, str]]: A list of last names matching the specified filter.
         """
-        if tribe:
-            return [name for name in self.last_names if name["tribe"] == tribe]
-        return self.last_names
+        return self.name_provider.get_last_names(tribe)
 
     def get_names_by_tribe(
         self,
@@ -94,25 +68,69 @@ class EmailProvider:
         last_names = [name["name"] for name in self.get_last_names(tribe)]
         return first_names, last_names
 
+    def validate_domain(self, domain: str) -> bool:
+        """Validate the domain format.
+
+        Args:
+            domain (str): The domain to validate.
+
+        Returns:
+            bool: True if the domain is valid, False otherwise.
+        """
+        regex = (
+            r"^(?!-)[A-Za-z0-9-]{1,63}(?<!-)(\.[A-Za-z0-9-]{1,63}){0,2}\.[A-Za-z]{2,}$"
+        )
+        return (
+            re.match(regex, domain) is not None and domain.count(".") <= 3  # noqa: PLR2004
+        )
+
+    def validate_email(self, email: str) -> bool:
+        """Validate the complete email address format.
+
+        Args:
+            email (str): The email address to validate.
+
+        Returns:
+            bool: True if the email address is valid, False otherwise.
+        """
+        regex = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+        return re.match(regex, email) is not None
+
     def generate_email(
         self,
         tribe: str | None = None,
         gender: str | None = None,
+        domain: str | None = None,
     ) -> str | None:
         """Generate a random email address with Nigerian names.
 
         Args:
             tribe (str | None, optional): The ethnic group to filter by. Defaults to None.
             gender (str | None, optional): The gender to filter by. Defaults to None.
+            domain (str | None, optional): The domain to use for the email. Defaults to None.
 
         Returns:
-        str | None: The generated email address or None if no matching data is found.
+            str | None: The generated email address or None if no matching data
+                        is found or the domain is invalid.
         """
+        # Normalize the gender and tribe inputs to lowercase
+        if tribe:
+            tribe = tribe.lower()
+        if gender:
+            gender = gender.lower()
+
+        if domain:
+            domain = domain.lower()
+            if not self.validate_domain(domain):
+                return None
+
         if tribe:
             first_names, last_names = self.get_names_by_tribe(tribe, gender)
         else:
             # Randomly choose a tribe to ensure names are from the same tribe
-            all_tribes = list({name["tribe"] for name in self.first_names})
+            all_tribes = list(
+                {name["tribe"] for name in self.name_provider.first_names},
+            )
             chosen_tribe = random.choice(all_tribes)
             first_names, last_names = self.get_names_by_tribe(chosen_tribe, gender)
 
@@ -130,17 +148,17 @@ class EmailProvider:
         ]
 
         chosen_format = random.choice(formats)
-        domain = random.choice(self.domains)
+        domain = domain or random.choice(self.default_domains)
         email = f"{chosen_format}@{domain}".lower()
 
         # Optionally, add a random number suffix to ensure uniqueness
         # We set it at 50% probability for adding a suffix to the email
         if random.random() < 0.5:  # noqa: PLR2004
             email = (
-                email.split("@")[0]
-                + str(random.randint(1, 999))
-                + "@"
-                + email.split("@")[1]
+                f"{email.split('@')[0]}{random.randint(1, 999)}@{email.split('@')[1]}"
             )
+
+        if not self.validate_email(email):
+            return None
 
         return email

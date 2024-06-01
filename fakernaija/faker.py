@@ -26,39 +26,63 @@ class Faker:
         self.school_provider = SchoolProvider()
         self.phonenumber_provider = PhoneNumberProvider()
 
-    def full_name(self, tribe: str | None = None, gender: str | None = None) -> str:
+    def full_name(
+        self,
+        tribe: str | None = None,
+        gender: str | None = None,
+        middle_name: bool = False,
+    ) -> str:
         """Generate a random full name.
 
         Args:
             tribe (str | None, optional): The ethnic group for which to generate the name.
             gender (str | None, optional): The gender for which to generate the name.
+            middle_name (bool, optional): Whether to include a middle name. Defaults to False.
 
         Returns:
             str: A random full name.
         """
-        return self.name_provider.generate_full_name(tribe, gender)
+        return self.name_provider.generate_full_name(tribe, gender, middle_name)
 
-    def male_full_name(self, tribe: str | None = None) -> str:
+    def male_full_name(
+        self,
+        tribe: str | None = None,
+        middle_name: bool = False,
+    ) -> str:
         """Generate a random male full name.
 
         Args:
             tribe (str | None, optional): The ethnic group for which to generate the name.
+            middle_name (bool, optional): Whether to include a middle name. Defaults to False.
 
         Returns:
             str: A random male full name.
         """
-        return self.name_provider.generate_full_name(tribe, gender="male")
+        return self.name_provider.generate_full_name(
+            tribe,
+            gender="male",
+            middle_name=middle_name,
+        )
 
-    def female_full_name(self, tribe: str | None = None) -> str:
+    def female_full_name(
+        self,
+        tribe: str | None = None,
+        middle_name: bool = False,
+    ) -> str:
         """Generate a random female full name.
 
         Args:
             tribe (str | None, optional): The ethnic group for which to generate the name.
+            middle_name (bool, optional): Whether to include a middle name. Defaults to False.
 
         Returns:
             str: A random female full name.
         """
-        return self.name_provider.generate_full_name(tribe, gender="female")
+        return self.name_provider.generate_full_name(
+            tribe,
+            gender="female",
+            middle_name=middle_name,
+        )
 
     def first_name(self, tribe: str | None = None) -> str:
         """Generate a random first name.
@@ -839,14 +863,21 @@ class Faker:
         """
         return self.phonenumber_provider.phone_number(network=network, prefix=prefix)
 
-    def email(self, tribe: str | None = None, gender: str | None = None) -> str | None:
+    def email(
+        self,
+        tribe: str | None = None,
+        gender: str | None = None,
+        domain: str | None = None,
+    ) -> str | None:
         """Generate a random email address with optional tribe and gender filters.
 
         Args:
             tribe (str | None, optional): The ethnic group to filter by. Defaults to None.
             gender (str | None, optional): The gender to filter by. Defaults to None.
+            domain (str | None, optional): The domain to use for the email. Defaults to None.
 
         Returns:
-            str | None: The generated email address, or none if no filters match.
+            str | None: The generated email address or None if no matching data
+                        is found or the domain is invalid.
         """
-        return self.email_provider.generate_email(tribe, gender)
+        return self.email_provider.generate_email(tribe, gender, domain)
