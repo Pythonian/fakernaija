@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Added unittests for the `utils.py` file
 - Added unittests for the `generate_email` method in the `EmailProvider` class
+- Added more name prefix variants to the `Faker` class with unittest cases
 
 ## [0.0.13] - 2024-06-01
 

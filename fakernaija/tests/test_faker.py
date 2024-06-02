@@ -2221,6 +2221,21 @@ class TestFakerName(unittest.TestCase):
         prefix = self.faker.female_prefix()
         self.assertIsInstance(prefix, str)
 
+    def test_traditional_male_title(self) -> None:
+        """Test that traditional_male_title returns a string."""
+        prefix = self.faker.traditional_male_title()
+        self.assertIsInstance(prefix, str)
+
+    def test_traditional_female_title(self) -> None:
+        """Test that traditional_female_title returns a string."""
+        prefix = self.faker.traditional_female_title()
+        self.assertIsInstance(prefix, str)
+
+    def test_professional_title(self) -> None:
+        """Test that professional_title returns a string."""
+        prefix = self.faker.professional_title()
+        self.assertIsInstance(prefix, str)
+
 
 class TestFakerEmailProvider(unittest.TestCase):
     """Unit tests for the Faker method from the EmailProvider."""

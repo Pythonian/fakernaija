@@ -134,7 +134,30 @@ class Faker:
         Returns:
             str: A random name prefix.
         """
-        prefixes = ["Mr.", "Mrs.", "Miss", "Master", "Mister", "Madam"]
+        prefixes = [
+            "Mr.",
+            "Mrs.",
+            "Miss",
+            "Master",
+            "Mister",
+            "Madam",
+            "Prof.",
+            "J.P",
+            "Chief",
+            "Oba",
+            "Otunba",
+            "Erelu",
+            "Prince",
+            "Princess",
+            "Alhaja",
+            "Alhaji",
+            "Hajia",
+            "Lady",
+            "Dr.",
+            "Engr.",
+            "Tpl",
+            "Barrister",
+        ]
         return random.choice(prefixes)
 
     def male_prefix(self) -> str:
@@ -143,7 +166,21 @@ class Faker:
         Returns:
             str: A random male name prefix.
         """
-        prefixes = ["Mr.", "Master", "Mister"]
+        prefixes = [
+            "Mr.",
+            "Master",
+            "Mister",
+            "Chief",
+            "Oba",
+            "Otunba",
+            "Prince",
+            "Prof.",
+            "Dr.",
+            "Alhaji",
+            "Engr.",
+            "Tpl",
+            "Barrister",
+        ]
         return random.choice(prefixes)
 
     def female_prefix(self) -> str:
@@ -152,8 +189,48 @@ class Faker:
         Returns:
             str: A random female name prefix.
         """
-        prefixes = ["Mrs.", "Miss", "Madam"]
+        prefixes = [
+            "Mrs.",
+            "Miss",
+            "Madam",
+            "Chief",
+            "Lady",
+            "Princess",
+            "Erelu",
+            "Prof.",
+            "Dr. (Mrs.)",
+            "Hajia",
+            "Lady (Mrs.)",
+            "Alhaja",
+        ]
         return random.choice(prefixes)
+
+    def traditional_male_title(self) -> str:
+        """Generates a random traditional male title or honorific.
+
+        Returns:
+            str: A random traditional male title or honorific.
+        """
+        titles = ["Chief", "Oba", "Otunba", "Prince", "Alhaji"]
+        return random.choice(titles)
+
+    def traditional_female_title(self) -> str:
+        """Generates a random traditional female title or honorific.
+
+        Returns:
+            str: A random traditional female title or honorific.
+        """
+        titles = ["Chief", "Erelu", "Princess", "Lady (Mrs.)", "Hajia", "Alhaja"]
+        return random.choice(titles)
+
+    def professional_title(self) -> str:
+        """Generates a random professional title.
+
+        Returns:
+            str: A random professional title.
+        """
+        titles = ["Dr.", "Engr.", "Tpl", "Barrister", "Prof."]
+        return random.choice(titles)
 
     def state(self, shortcode: bool = False, region_initial: str | None = None) -> str:
         """Get a random state.
