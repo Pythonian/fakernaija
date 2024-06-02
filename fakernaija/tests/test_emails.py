@@ -6,7 +6,7 @@ methods return the expected names based on tribes and given domains.
 """
 
 import unittest
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, patch
 
 from fakernaija.providers.emails import EmailProvider
 from fakernaija.providers.names import NameProvider
@@ -123,3 +123,161 @@ class TestEmailProvider(unittest.TestCase):
 
         for email in invalid_emails:
             self.assertFalse(self.email_provider.validate_email(email))
+
+
+class TestGenerateEmailMethod(unittest.TestCase):
+    """Unit tests for the generate_email method of the EmailProvider class."""
+
+    def setUp(self) -> None:
+        """Set up the test case."""
+        self.email_provider = EmailProvider()
+
+    @patch("fakernaija.providers.emails.EmailProvider.get_names_by_tribe")
+    @patch("fakernaija.providers.emails.EmailProvider.validate_domain")
+    @patch("fakernaija.providers.emails.EmailProvider.validate_email")
+    def test_generate_email_valid(
+        self,
+        mock_validate_email: MagicMock,
+        mock_validate_domain: MagicMock,
+        mock_get_names_by_tribe: MagicMock,
+    ) -> None:
+        """Test generating a valid email address."""
+        mock_validate_email.return_value = True
+        mock_validate_domain.return_value = True
+        mock_get_names_by_tribe.return_value = (["Ade"], ["Ogunleye"])
+
+        email = self.email_provider.generate_email("yoruba", "male", "example.com")
+        self.assertIsNotNone(email)
+        if email is not None:
+            self.assertIn("@example.com", email)
+
+    @patch("fakernaija.providers.emails.EmailProvider.validate_domain")
+    def test_generate_email_invalid_domain(
+        self,
+        mock_validate_domain: MagicMock,
+    ) -> None:
+        """Test generating an email with an invalid domain."""
+        mock_validate_domain.return_value = False
+
+        email = self.email_provider.generate_email(domain="invalid_domain")
+        self.assertIsNone(email)
+
+    @patch("fakernaija.providers.emails.EmailProvider.get_names_by_tribe")
+    @patch("fakernaija.providers.emails.EmailProvider.validate_domain")
+    @patch("fakernaija.providers.emails.EmailProvider.validate_email")
+    def test_generate_email_with_missing_names(
+        self,
+        mock_validate_email: MagicMock,
+        mock_validate_domain: MagicMock,
+        mock_get_names_by_tribe: MagicMock,
+    ) -> None:
+        """Test generating an email when no names are available."""
+        mock_validate_email.return_value = True
+        mock_validate_domain.return_value = True
+        mock_get_names_by_tribe.return_value = ([], [])
+
+        email = self.email_provider.generate_email("yoruba", "male", "example.com")
+        self.assertIsNone(email)
+
+    @patch("fakernaija.providers.emails.EmailProvider.get_names_by_tribe")
+    @patch("fakernaija.providers.emails.EmailProvider.validate_domain")
+    @patch("fakernaija.providers.emails.EmailProvider.validate_email")
+    def test_generate_email_random_domain(
+        self,
+        mock_validate_email: MagicMock,
+        mock_validate_domain: MagicMock,
+        mock_get_names_by_tribe: MagicMock,
+    ) -> None:
+        """Test generating an email with a random domain."""
+        mock_validate_email.return_value = True
+        mock_validate_domain.return_value = True
+        mock_get_names_by_tribe.return_value = (["Ade"], ["Ogunleye"])
+
+        email = self.email_provider.generate_email("yoruba", "male")
+        self.assertIsNotNone(email)
+        if email is not None:
+            self.assertTrue(
+                any(
+                    email.endswith(f"@{domain}")
+                    for domain in self.email_provider.default_domains
+                ),
+            )
+
+    @patch("fakernaija.providers.emails.EmailProvider.get_names_by_tribe")
+    @patch("fakernaija.providers.emails.EmailProvider.validate_domain")
+    @patch("fakernaija.providers.emails.EmailProvider.validate_email")
+    def test_generate_email_random_tribe(
+        self,
+        mock_validate_email: MagicMock,
+        mock_validate_domain: MagicMock,
+        mock_get_names_by_tribe: MagicMock,
+    ) -> None:
+        """Test generating an email with a random tribe."""
+        mock_validate_email.return_value = True
+        mock_validate_domain.return_value = True
+        mock_get_names_by_tribe.side_effect = lambda tribe, _: (
+            ["Ade"] if tribe == "yoruba" else ["Ugochi"],
+            ["Ogunleye"] if tribe == "yoruba" else ["Okafor"],
+        )
+
+        email = self.email_provider.generate_email()
+        self.assertIsNotNone(email)
+
+    @patch("fakernaija.providers.emails.EmailProvider.get_names_by_tribe")
+    @patch("fakernaija.providers.emails.EmailProvider.validate_domain")
+    @patch("fakernaija.providers.emails.EmailProvider.validate_email")
+    def test_generate_email_with_suffix(
+        self,
+        mock_validate_email: MagicMock,
+        mock_validate_domain: MagicMock,
+        mock_get_names_by_tribe: MagicMock,
+    ) -> None:
+        """Test generating an email with a random number suffix."""
+        mock_validate_email.return_value = True
+        mock_validate_domain.return_value = True
+        mock_get_names_by_tribe.return_value = (["Ade"], ["Ogunleye"])
+
+        # Patch random.random to return a value less than 0.5 to ensure suffix is added
+        with patch("random.random", return_value=0.4):
+            email = self.email_provider.generate_email("yoruba", "male", "example.com")
+            self.assertIsNotNone(email)
+            if email is not None:
+                self.assertRegex(email, r"[a-zA-Z]+[.]?[a-zA-Z]*[0-9]+@example\.com")
+
+    @patch("fakernaija.providers.emails.EmailProvider.get_names_by_tribe")
+    @patch("fakernaija.providers.emails.EmailProvider.validate_domain")
+    @patch("fakernaija.providers.emails.EmailProvider.validate_email")
+    def test_generate_email_without_suffix(
+        self,
+        mock_validate_email: MagicMock,
+        mock_validate_domain: MagicMock,
+        mock_get_names_by_tribe: MagicMock,
+    ) -> None:
+        """Test generating an email without a random number suffix."""
+        mock_validate_email.return_value = True
+        mock_validate_domain.return_value = True
+        mock_get_names_by_tribe.return_value = (["Ade"], ["Ogunleye"])
+
+        # Patch random.random to return a value greater than 0.5 to ensure no suffix is added
+        with patch("random.random", return_value=0.6):
+            email = self.email_provider.generate_email("yoruba", "male", "example.com")
+            self.assertIsNotNone(email)
+            if email is not None:
+                self.assertNotRegex(email, r"[0-9]+@example\.com")
+
+    @patch("fakernaija.providers.emails.EmailProvider.get_names_by_tribe")
+    @patch("fakernaija.providers.emails.EmailProvider.validate_domain")
+    @patch("fakernaija.providers.emails.EmailProvider.validate_email")
+    def test_generate_email_invalid_email(
+        self,
+        mock_validate_email: MagicMock,
+        mock_validate_domain: MagicMock,
+        mock_get_names_by_tribe: MagicMock,
+    ) -> None:
+        """Test generating an email when the email validation fails."""
+        mock_validate_email.return_value = False
+        mock_validate_domain.return_value = True
+        mock_get_names_by_tribe.return_value = (["Ade"], ["Ogunleye"])
+
+        email = self.email_provider.generate_email("yoruba", "male", "example.com")
+        self.assertIsNone(email)

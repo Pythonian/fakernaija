@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [0.0.14] - 2024-06-02
 
 - Added unittests for the `utils.py` file
+- Added unittests for the `generate_email` method in the `EmailProvider` class
 
 ## [0.0.13] - 2024-06-01
 
