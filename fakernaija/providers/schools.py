@@ -1,76 +1,31 @@
 """This module provides a SchoolProvider class for accessing information about schools in Nigeria from a JSON file."""
 
-import json
 from pathlib import Path
 from typing import Any
+
+from fakernaija.utils import load_json
 
 
 class SchoolProvider:
     """A class to provide information about Schools in Nigeria."""
 
     def __init__(self) -> None:
-        """Initializes the SchoolProvider instance by loading schools data from a JSON file."""
+        """Initializes the SchoolProvider.
+
+        Sets the path to the directory containing schools data.
+        """
         self.data_path = Path(__file__).parent / "data" / "schools.json"
-        self.schools_data = self.load_json(self.data_path)
-
-    def load_json(self, file_path: str | Path) -> dict[str, Any]:
-        """Load JSON data from a file.
-
-        Args:
-            file_path (str | Path): The path to the JSON file.
-
-        Returns:
-            dict[str, Any]: The loaded JSON data.
-
-        Raises:
-            FileNotFoundError: If the JSON file is not found.
-            ValueError: If the JSON data is invalid.
-        """
-        try:
-            with Path(file_path).open(encoding="utf-8") as file:
-                data = json.load(file)
-                if not self.validate_schools_data(data):
-                    msg = "Invalid data format: 'schools' key missing or invalid."
-                    raise ValueError(msg)
-                return data
-        except FileNotFoundError:
-            msg = f"File not found: {file_path}"
-            raise FileNotFoundError(msg) from None
-        except json.JSONDecodeError as exc:
-            msg = f"Error decoding JSON from file: {file_path}"
-            raise ValueError(msg) from exc
-
-    def validate_schools_data(self, data: dict[str, Any]) -> bool:
-        """Validate that the data contains a valid 'schools' key.
-
-        Args:
-            data (dict[str, Any]): The data to validate.
-
-        Returns:
-            bool: True if valid, False otherwise.
-        """
-        if "schools" not in data or not isinstance(data["schools"], list):
-            return False
-        return all(self.validate_school_data(school) for school in data["schools"])
-
-    def validate_school_data(self, school: dict[str, Any]) -> bool:
-        """Validate that the school data contains only the required keys.
-
-        Args:
-            school (dict[str, Any]): The school data to validate.
-
-        Returns:
-            bool: True if valid, False otherwise.
-        """
-        required_keys = {
-            "name",
-            "acronym",
-            "location",
-            "type",
-            "ownership",
-            "year_founded",
-        }
-        return set(school.keys()) == required_keys
+        self.schools_data = load_json(
+            self.data_path,
+            [
+                "name",
+                "acronym",
+                "location",
+                "type",
+                "ownership",
+                "year_founded",
+            ],
+        )
 
     def get_schools(self) -> list[str]:
         """Get a list of all the schools' names.
@@ -78,7 +33,7 @@ class SchoolProvider:
         Returns:
             list[str]: A list of school names.
         """
-        return [school["name"] for school in self.schools_data["schools"]]
+        return [school["name"] for school in self.schools_data]
 
     def get_school_by_name(self, name: str) -> dict[str, Any] | None:
         """Get information about a school by its name.
@@ -89,7 +44,7 @@ class SchoolProvider:
         Returns:
             dict[str, Any] | None: Information about the school or None if not found.
         """
-        for school in self.schools_data["schools"]:
+        for school in self.schools_data:
             if school["name"] == name:
                 return school
         return None
@@ -103,7 +58,7 @@ class SchoolProvider:
         Returns:
             list[dict[str, Any]]: A list of filtered schools.
         """
-        results = self.schools_data["schools"]
+        results = self.schools_data
         for key, value in filters.items():
             results = [school for school in results if school.get(key) == value]
         return results
@@ -114,7 +69,7 @@ class SchoolProvider:
         Returns:
             list[str]: A list of school acronyms.
         """
-        return [school["acronym"] for school in self.schools_data["schools"]]
+        return [school["acronym"] for school in self.schools_data]
 
     def get_schools_by_location(self, location: str) -> list[dict[str, Any]]:
         """Get a list of schools located at the specified location.
@@ -282,3 +237,69 @@ class SchoolProvider:
             list[dict[str, Any]]: A list of dictionaries of private colleges of education.
         """
         return self._filter_schools(type="College of Education", ownership="Private")
+
+
+class DegreeProvider:
+    """A class to provide information about Degrees awarded in Nigerian schools."""
+
+    def __init__(self) -> None:
+        """Initializes the DegreeProvider.
+
+        Sets the path to the directory containing degrees data.
+        """
+        self.data_path = Path(__file__).parent / "data" / "degrees.json"
+        self.degrees_data = load_json(
+            self.data_path,
+            [
+                "name",
+                "degree_type",
+                "initials",
+            ],
+        )
+
+    def get_degrees(self) -> list[str]:
+        """Get a list of all the degrees.
+
+        Returns:
+            list[str]: A list of degrees.
+        """
+        return [degree["name"] for degree in self.degrees_data]
+
+    def _get_degrees_by_type(self, degree_type: str) -> list[str]:
+        """Filter degrees based on degree type.
+
+        Args:
+            degree_type (str): The degree type value to filter by.
+
+        Returns:
+            list[str]: A list of filtered degrees.
+        """
+        return [
+            degree["name"]
+            for degree in self.degrees_data
+            if degree["degree_type"] == degree_type
+        ]
+
+    def get_undergraduate_degrees(self) -> list[str]:
+        """Get a list of all undergraduate degrees.
+
+        Returns:
+            list[str]: A list of undergraduate degrees.
+        """
+        return self._get_degrees_by_type(degree_type="undergraduate")
+
+    def get_masters_degrees(self) -> list[str]:
+        """Get a list of all masters degrees.
+
+        Returns:
+            list[str]: A list of masters degrees.
+        """
+        return self._get_degrees_by_type(degree_type="masters")
+
+    def get_doctorate_degrees(self) -> list[str]:
+        """Get a list of all doctorate degrees.
+
+        Returns:
+            list[str]: A list of doctorate degrees.
+        """
+        return self._get_degrees_by_type(degree_type="doctorate")

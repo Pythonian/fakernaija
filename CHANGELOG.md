@@ -8,9 +8,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [0.0.14] - 2024-06-02
 
+### Added
+
+- Added a `DegreeProvider` feature
+- Added a new `degrees.json` file
+- Added the `TestFakerDegreeProvider` unittests for the `DegreeProvider` class
 - Added unittests for the `utils.py` file
 - Added unittests for the `generate_email` method in the `EmailProvider` class
 - Added more name prefix variants to the `Faker` class with unittest cases
+
+### Refactor
+
+- Used the json data loading util functionality for the `SchoolProvider` class
+- Changed the data structure format of `schools.json`
+
+### Removed
+
+- Removed the validate_ methods from the `SchoolProvider` class
+- Removed the validate_ unittests of `SchoolProvider` from `test_schools.py` file
 
 ## [0.0.13] - 2024-06-01
 

@@ -2164,7 +2164,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         self.assertIsNone(result)
 
 
-class TestFakerName(unittest.TestCase):
+class TestFakerNameProvider(unittest.TestCase):
     """Unit tests for the Faker method from the NameProvider."""
 
     def setUp(self) -> None:
@@ -2453,3 +2453,31 @@ class TestFakerPhoneNumberProvider(unittest.TestCase):
         """Test that phone_number raises ValueError for an invalid network."""
         with self.assertRaises(ValueError):
             self.faker.phone_number(network="invalid_network")
+
+
+class TestFakerDegreeProvider(unittest.TestCase):
+    """Unit tests for the Faker method from the DegreeProvider."""
+
+    def setUp(self) -> None:
+        """Set up the test case environment."""
+        self.faker = Faker()
+
+    def test_degree(self) -> None:
+        """Test that degree returns a string."""
+        name = self.faker.degree()
+        self.assertIsInstance(name, str)
+
+    def test_undergraduate_degree(self) -> None:
+        """Test that undergraduate_degree returns a string."""
+        name = self.faker.undergraduate_degree()
+        self.assertIsInstance(name, str)
+
+    def test_masters_degree(self) -> None:
+        """Test that masters_degree returns a string."""
+        name = self.faker.masters_degree()
+        self.assertIsInstance(name, str)
+
+    def test_doctorate_degree(self) -> None:
+        """Test that doctorate_degree returns a string."""
+        name = self.faker.doctorate_degree()
+        self.assertIsInstance(name, str)

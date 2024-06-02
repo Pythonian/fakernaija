@@ -1,7 +1,7 @@
 """The providers subpackage contains various data providers for generating Nigerian-specific fake data.
 
 Each provider class is responsible for generating a specific type of data, such as names,
-emails, phone numbers, schools, and states. These classes are used by the main Faker class to
+emails, phone numbers, schools, states etc. These classes are used by the main Faker class to
 produce randomized data that is useful for testing and development purposes.
 
 Modules:

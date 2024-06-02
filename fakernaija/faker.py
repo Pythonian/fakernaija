@@ -8,7 +8,7 @@ import random
 from fakernaija.providers.emails import EmailProvider
 from fakernaija.providers.names import NameProvider
 from fakernaija.providers.phonenumbers import PhoneNumberProvider
-from fakernaija.providers.schools import SchoolProvider
+from fakernaija.providers.schools import DegreeProvider, SchoolProvider
 from fakernaija.providers.states import StateProvider
 
 
@@ -20,6 +20,7 @@ class Faker:
 
         Creates an instance of each of the Provider classes.
         """
+        self.degree_provider = DegreeProvider()
         self.email_provider = EmailProvider()
         self.name_provider = NameProvider()
         self.state_provider = StateProvider()
@@ -958,3 +959,39 @@ class Faker:
                         is found or the domain is invalid.
         """
         return self.email_provider.generate_email(tribe, gender, domain)
+
+    def degree(self) -> str:
+        """Generates a random degree.
+
+        Returns:
+            str: A random degree.
+        """
+        degrees = self.degree_provider.get_degrees()
+        return random.choice(degrees)
+
+    def undergraduate_degree(self) -> str:
+        """Generates a random undergraduate degree.
+
+        Returns:
+            str: A random undergraduate degree.
+        """
+        degrees = self.degree_provider.get_undergraduate_degrees()
+        return random.choice(degrees)
+
+    def masters_degree(self) -> str:
+        """Generates a random masters degree.
+
+        Returns:
+            str: A random masters degree.
+        """
+        degrees = self.degree_provider.get_masters_degrees()
+        return random.choice(degrees)
+
+    def doctorate_degree(self) -> str:
+        """Generates a random doctorate degree.
+
+        Returns:
+            str: A random doctorate degree.
+        """
+        degrees = self.degree_provider.get_doctorate_degrees()
+        return random.choice(degrees)

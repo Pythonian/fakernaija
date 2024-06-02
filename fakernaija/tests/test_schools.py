@@ -5,10 +5,7 @@ for generating random Nigerian educational institutions. The tests ensure that t
 methods return the expected school type and ownership.
 """
 
-import json
 import unittest
-from typing import Any
-from unittest.mock import mock_open, patch
 
 from fakernaija.providers.schools import SchoolProvider
 
@@ -46,76 +43,6 @@ class TestSchoolProvider(unittest.TestCase):
             "location": "Lagos",
             "type": "University",
         }
-
-    @patch(
-        "pathlib.Path.open",
-        new_callable=mock_open,
-        read_data=json.dumps({"schools": []}),
-    )
-    def test_load_json_success(self, mock_file: Any) -> None:  # noqa: ARG002, ANN401
-        """Test loading JSON data successfully."""
-        data = self.school_provider.load_json(self.school_provider.data_path)
-        self.assertIn("schools", data)
-        self.assertIsInstance(data["schools"], list)
-
-    @patch("pathlib.Path.open", new_callable=mock_open)
-    def test_load_json_file_not_found(self, mock_file: Any) -> None:  # noqa: ANN401
-        """Test handling of file not found error."""
-        mock_file.side_effect = FileNotFoundError
-        with self.assertRaises(FileNotFoundError):
-            self.school_provider.load_json("none.json")
-
-    @patch(
-        "pathlib.Path.open",
-        new_callable=mock_open,
-        read_data="{invalid_json",
-    )
-    def test_load_json_invalid_json(
-        self,
-        mock_file: Any,  # noqa: ARG002, ANN401
-    ) -> None:
-        """Test handling of invalid JSON format."""
-        with self.assertRaises(ValueError) as context:
-            self.school_provider.load_json(self.school_provider.data_path)
-        self.assertIn("Error decoding JSON", str(context.exception))
-
-    @patch(
-        "pathlib.Path.open",
-        new_callable=mock_open,
-        read_data=json.dumps({"invalid_key": []}),
-    )
-    def test_load_json_invalid_data_structure(
-        self,
-        mock_file: Any,  # noqa: ARG002, ANN401
-    ) -> None:
-        """Test handling of invalid data structure."""
-        with self.assertRaises(ValueError) as context:
-            self.school_provider.load_json(self.school_provider.data_path)
-        self.assertIn("Invalid data format", str(context.exception))
-
-    @patch(
-        "pathlib.Path.open",
-        new_callable=mock_open,
-        read_data=json.dumps({"schools": [{"name": "Test School"}]}),
-    )
-    def test_load_json_missing_keys_in_school(
-        self,
-        mock_file: Any,  # noqa: ARG002, ANN401
-    ) -> None:
-        """Test handling of missing required keys in school data."""
-        with self.assertRaises(ValueError) as context:
-            self.school_provider.load_json(self.school_provider.data_path)
-        self.assertIn("Invalid data format", str(context.exception))
-
-    def test_validate_schools_data(self) -> None:
-        """Test validating the schools data."""
-        self.assertTrue(self.school_provider.validate_schools_data(self.valid_data))
-        self.assertFalse(self.school_provider.validate_schools_data(self.invalid_data))
-
-    def test_validate_school_data(self) -> None:
-        """Test validating individual school data."""
-        self.assertTrue(self.school_provider.validate_school_data(self.valid_school))
-        self.assertFalse(self.school_provider.validate_school_data(self.invalid_school))
 
     def test_get_schools(self) -> None:
         """Test getting a list of all schools' names."""

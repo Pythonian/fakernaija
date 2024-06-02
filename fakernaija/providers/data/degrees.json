@@ -1,0 +1,177 @@
+[
+    {
+        "name": "Ordinary National Diploma",
+        "degree_type": "undergraduate",
+        "initials": "OND"
+    },
+    {
+        "name": "Higher National Diploma",
+        "degree_type": "undergraduate",
+        "initials": "HND"
+    },
+    {
+        "name": "Bachelor of Arts",
+        "degree_type": "undergraduate",
+        "initials": "B.A."
+    },
+    {
+        "name": "Bachelor of Science",
+        "degree_type": "undergraduate",
+        "initials": "B.Sc."
+    },
+    {
+        "name": "Bachelor of Education",
+        "degree_type": "undergraduate",
+        "initials": "B.Ed."
+    },
+    {
+        "name": "Bachelor of Engineering",
+        "degree_type": "undergraduate",
+        "initials": "B.Eng."
+    },
+    {
+        "name": "Bachelor of Technology",
+        "degree_type": "undergraduate",
+        "initials": "B.Tech."
+    },
+    {
+        "name": "Bachelor of Agriculture",
+        "degree_type": "undergraduate",
+        "initials": "B.Agric."
+    },
+    {
+        "name": "Bachelor of Medicine, Bachelor of Surgery",
+        "degree_type": "undergraduate",
+        "initials": "MBBS"
+    },
+    {
+        "name": "Bachelor of Law",
+        "degree_type": "undergraduate",
+        "initials": "LL.B."
+    },
+    {
+        "name": "Bachelor of Pharmacy",
+        "degree_type": "undergraduate",
+        "initials": "B.Pharm."
+    },
+    {
+        "name": "Bachelor of Nursing Science",
+        "degree_type": "undergraduate",
+        "initials": "B.N.Sc."
+    },
+    {
+        "name": "Bachelor of Fine Arts",
+        "degree_type": "undergraduate",
+        "initials": "B.F.A."
+    },
+    {
+        "name": "Bachelor of Veterinary Medicine",
+        "degree_type": "undergraduate",
+        "initials": "DVM"
+    },
+    {
+        "name": "Master of Science",
+        "degree_type": "masters",
+        "initials": "M.Sc."
+    },
+    {
+        "name": "Master of Arts",
+        "degree_type": "masters",
+        "initials": "M.A."
+    },
+    {
+        "name": "Master of Education",
+        "degree_type": "masters",
+        "initials": "M.Ed."
+    },
+    {
+        "name": "Master of Engineering",
+        "degree_type": "masters",
+        "initials": "M.Eng."
+    },
+    {
+        "name": "Master of Technology",
+        "degree_type": "masters",
+        "initials": "M.Tech."
+    },
+    {
+        "name": "Master of Agriculture",
+        "degree_type": "masters",
+        "initials": "M.Agric."
+    },
+    {
+        "name": "Master of Business Administration",
+        "degree_type": "masters",
+        "initials": "MBA"
+    },
+    {
+        "name": "Master of Public Administration",
+        "degree_type": "masters",
+        "initials": "MPA"
+    },
+    {
+        "name": "Master of Laws",
+        "degree_type": "masters",
+        "initials": "LL.M."
+    },
+    {
+        "name": "Master of Philosophy",
+        "degree_type": "masters",
+        "initials": "M.Phil."
+    },
+    {
+        "name": "Master of Public Health",
+        "degree_type": "masters",
+        "initials": "MPH"
+    },
+    {
+        "name": "Master of Fine Arts",
+        "degree_type": "masters",
+        "initials": "M.F.A."
+    },
+    {
+        "name": "Master of Social Work",
+        "degree_type": "masters",
+        "initials": "MSW"
+    },
+    {
+        "name": "Master of Urban and Regional Planning",
+        "degree_type": "masters",
+        "initials": "MURP"
+    },
+    {
+        "name": "Doctor of Philosophy",
+        "degree_type": "doctorate",
+        "initials": "Ph.D."
+    },
+    {
+        "name": "Doctor of Medicine",
+        "degree_type": "doctorate",
+        "initials": "MD"
+    },
+    {
+        "name": "Doctor of Laws",
+        "degree_type": "doctorate",
+        "initials": "LL.D."
+    },
+    {
+        "name": "Doctor of Education",
+        "degree_type": "doctorate",
+        "initials": "Ed.D."
+    },
+    {
+        "name": "Doctor of Science",
+        "degree_type": "doctorate",
+        "initials": "D.Sc."
+    },
+    {
+        "name": "Doctor of Engineering",
+        "degree_type": "doctorate",
+        "initials": "D.Eng."
+    },
+    {
+        "name": "Doctor of Veterinary Medicine",
+        "degree_type": "doctorate",
+        "initials": "DVM"
+    }
+]
