@@ -295,10 +295,7 @@ class Faker:
         regions = self.state_provider.get_regions()
         if initial:
             return random.choice(
-                [
-                    state["region_initial"]
-                    for state in self.state_provider.states_data["states"]
-                ],
+                [state["region_initial"] for state in self.state_provider.states_data],
             )
         return random.choice(regions)
 

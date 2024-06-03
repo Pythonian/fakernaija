@@ -5,10 +5,7 @@ for accessing and validating information about Nigerian states. The tests ensure
 that the methods return the expected results and handle various inputs correctly.
 """
 
-import json
 import unittest
-from typing import Any
-from unittest.mock import mock_open, patch
 
 from fakernaija.providers.states import StateProvider
 
@@ -19,117 +16,6 @@ class TestStateProvider(unittest.TestCase):
     def setUp(self) -> None:
         """Set up the test case environment by initializing a StateProvider instance."""
         self.state_provider = StateProvider()
-
-    @patch(
-        "pathlib.Path.open",
-        new_callable=mock_open,
-        read_data=json.dumps({"states": []}),
-    )
-    def test_load_json_success(self, mock_file: Any) -> None:  # noqa: ARG002, ANN401
-        """Test loading JSON data successfully."""
-        data = self.state_provider.load_json(self.state_provider.data_path)
-        self.assertIn("states", data)
-        self.assertIsInstance(data, dict)
-
-    @patch("pathlib.Path.open", new_callable=mock_open)
-    def test_load_json_file_not_found(self, mock_file: Any) -> None:  # noqa: ANN401
-        """Test handling of file not found error."""
-        mock_file.side_effect = FileNotFoundError
-        with self.assertRaises(FileNotFoundError):
-            self.state_provider.load_json("none.json")
-
-    @patch(
-        "pathlib.Path.open",
-        new_callable=mock_open,
-        read_data="{invalid_json",
-    )
-    def test_load_json_invalid_json(
-        self,
-        mock_file: Any,  # noqa: ARG002, ANN401
-    ) -> None:
-        """Test handling of invalid JSON format."""
-        with self.assertRaises(ValueError) as context:
-            self.state_provider.load_json(self.state_provider.data_path)
-        self.assertIn("Error decoding JSON", str(context.exception))
-
-    @patch(
-        "pathlib.Path.open",
-        new_callable=mock_open,
-        read_data=json.dumps({"invalid_key": []}),
-    )
-    def test_load_json_invalid_data_structure(
-        self,
-        mock_file: Any,  # noqa: ARG002, ANN401
-    ) -> None:
-        """Test handling of invalid data structure."""
-        with self.assertRaises(ValueError) as context:
-            self.state_provider.load_json(self.state_provider.data_path)
-        self.assertIn("Invalid data format", str(context.exception))
-
-    @patch(
-        "pathlib.Path.open",
-        new_callable=mock_open,
-        read_data=json.dumps({"states": [{"name": "Lagos"}]}),
-    )
-    def test_load_json_missing_keys_in_state(
-        self,
-        mock_file: Any,  # noqa: ARG002, ANN401
-    ) -> None:
-        """Test handling of missing required keys in state data."""
-        with self.assertRaises(ValueError) as context:
-            self.state_provider.load_json(self.state_provider.data_path)
-        self.assertIn("Invalid data format", str(context.exception))
-
-    def test_validate_states_data(self) -> None:
-        """Test validation of state data."""
-        valid_data = {
-            "states": [
-                {
-                    "code": "FC",
-                    "name": "FCT",
-                    "capital": "Abuja",
-                    "region": "North Central",
-                    "region_initial": "NC",
-                    "postal_code": "900001",
-                    "lgas": ["Abuja", "Kwali", "Kuje", "Gwagwalada", "Bwari", "Abaji"],
-                },
-            ],
-        }
-        invalid_data = {
-            "states": [
-                {
-                    "code": "FC",
-                    "name": "FCT",
-                    "capital": "Abuja",
-                    "region": "North Central",
-                    "region_initial": "NC",
-                },
-            ],
-        }
-        self.assertTrue(self.state_provider.validate_states_data(valid_data))
-        self.assertFalse(self.state_provider.validate_states_data(invalid_data))
-
-    def test_validate_state_data(self) -> None:
-        """Test validation of individual state data."""
-        valid_state = {
-            "name": "Lagos",
-            "code": "LA",
-            "capital": "Ikeja",
-            "lgas": ["Agege", "Ajeromi-Ifelodun", "Alimosho", "Amuwo-Odofin"],
-            "region": "South West",
-            "region_initial": "SW",
-            "postal_code": "100001",
-        }
-        invalid_state = {
-            "name": "Lagos",
-            "code": "LA",
-            "capital": "Ikeja",
-            "region": "South West",
-            "region_initial": "SW",
-            "postal_code": "100001",
-        }
-        self.assertTrue(self.state_provider.validate_state_data(valid_state))
-        self.assertFalse(self.state_provider.validate_state_data(invalid_state))
 
     def test_get_states(self) -> None:
         """Test getting all state names."""

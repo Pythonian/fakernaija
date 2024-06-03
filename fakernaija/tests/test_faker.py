@@ -132,9 +132,10 @@ class TestFakerStateProvider(unittest.TestCase):
     ) -> None:
         """Test region method with initial parameter."""
         mock_get_regions.return_value = ["South West", "South East"]
-        self.faker.state_provider.states_data = {
-            "states": [{"region_initial": "SW"}, {"region_initial": "SE"}],
-        }
+        self.faker.state_provider.states_data = [
+            {"region_initial": "SW"},
+            {"region_initial": "SE"},
+        ]
         mock_choice.return_value = "SW"
 
         result = self.faker.region(initial=True)

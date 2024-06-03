@@ -6,6 +6,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [0.0.15] - 2024-06-03
+
+### Refactor
+
+- Changed the data structure of `states.json`
+- Updated the states code generation and test cases to use the new data structure
+- Utilized the `load_json` util function to load states data
+
+### Removed
+
+- Removed the previous `load_json` and `validate_` methods of `StatesProvider` class
+- Removed the test cases for the `load_json` and `validate_` methods of `StatesProvider` class
+
 ## [0.0.14] - 2024-06-02
 
 ### Added
