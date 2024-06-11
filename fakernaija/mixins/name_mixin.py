@@ -363,7 +363,7 @@ class Name:
                 >>> print(f"Random traditional male title: {male_title}")
                 'Random traditional male title: Otunba'
         """
-        titles = ["Chief", "Oba", "Otunba", "Prince", "Alhaji"]
+        titles = ["Chief", "Oba", "Otunba", "Prince", "Alhaji", "Igwe"]
         return random.choice(titles)
 
     def traditional_female_title(self) -> str:

@@ -2,7 +2,7 @@
 
 import random
 
-from fakernaija.providers.education import SchoolProvider
+from fakernaija.providers.schools import SchoolProvider
 
 
 class School:

@@ -1,15 +1,5 @@
 [
     {
-        "name": "Ordinary National Diploma",
-        "degree_type": "undergraduate",
-        "initials": "OND"
-    },
-    {
-        "name": "Higher National Diploma",
-        "degree_type": "undergraduate",
-        "initials": "HND"
-    },
-    {
         "name": "Bachelor of Arts",
         "degree_type": "undergraduate",
         "initials": "B.A."

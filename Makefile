@@ -55,6 +55,7 @@ docs: ## Build sphinx documentation
 	$(PIP) install sphinx==7.3.7 sphinx-rtd-theme==2.0.0
 	$(PIP) install -e .
 	@sphinx-build -M html docs/source/ docs/build/
+	@echo "Project documentation successfully built."
 
 tox: ## Run all checks using tox
 	$(TOX)
