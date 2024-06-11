@@ -7,7 +7,7 @@ methods return the expected school type and ownership.
 
 import unittest
 
-from fakernaija.providers.schools import SchoolProvider
+from fakernaija.providers.education import SchoolProvider
 
 
 class TestSchoolProvider(unittest.TestCase):

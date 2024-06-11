@@ -8,6 +8,6 @@ Modules:
 - emails: Provides functionality for generating email addresses with Nigerian names.
 - names: Provides functionality for generating Nigerian names.
 - phonenumbers: Provides functionality for generating Nigerian phone numbers.
-- schools: Provides functionality for generating information about Nigerian educational institutions.
+- education: Provides functionality for generating information about Nigerian educational institutions, degrees and courses.
 - states: Provides functionality for generating information about Nigerian states.
 """

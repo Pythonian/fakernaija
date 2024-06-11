@@ -188,7 +188,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         """Set up the test case environment."""
         self.faker = Faker()
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_schools_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_schools_by_location")
     @patch("random.choice")
     def test_school_with_location(
         self,
@@ -221,7 +221,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             result = self.faker.school(acronym=True, location="Lagos")
             self.assertEqual(result, "UNILAG")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_schools")
+    @patch("fakernaija.providers.education.SchoolProvider.get_schools")
     @patch("random.choice")
     def test_school_without_location(
         self,
@@ -254,7 +254,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             result = self.faker.school(acronym=True)
             self.assertEqual(result, "CU")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_schools_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_schools_by_location")
     def test_school_with_location_no_schools(
         self,
         mock_get_schools_by_location: MagicMock,
@@ -265,7 +265,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.school(location="NonExistentLocation")
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_schools")
+    @patch("fakernaija.providers.education.SchoolProvider.get_schools")
     def test_school_no_schools_available(self, mock_get_schools: MagicMock) -> None:
         """Test school method with no schools available."""
         mock_get_schools.return_value = []
@@ -273,7 +273,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.school()
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_school_acronyms")
+    @patch("fakernaija.providers.education.SchoolProvider.get_school_acronyms")
     @patch("random.choice")
     def test_school_with_acronym(
         self,
@@ -287,7 +287,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.school(acronym=True)
         self.assertEqual(result, "UNILAG")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_schools")
+    @patch("fakernaija.providers.education.SchoolProvider.get_schools")
     @patch("random.choice")
     def test_school_without_acronym_or_location(
         self,
@@ -304,7 +304,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.school()
         self.assertEqual(result, "University of Lagos")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_schools_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_schools_by_location")
     @patch("random.choice")
     def test_federal_school_with_location(
         self,
@@ -352,7 +352,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             result = self.faker.federal_school(acronym=True, location="Lagos")
             self.assertEqual(result, "UNILAG")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_federal_schools")
+    @patch("fakernaija.providers.education.SchoolProvider.get_federal_schools")
     @patch("random.choice")
     def test_federal_school_without_location(
         self,
@@ -392,7 +392,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             result = self.faker.federal_school(acronym=True)
             self.assertEqual(result, "UNILAG")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_schools_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_schools_by_location")
     def test_federal_school_with_location_no_schools(
         self,
         mock_get_schools_by_location: MagicMock,
@@ -403,7 +403,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.federal_school(location="NonExistentLocation")
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_schools_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_schools_by_location")
     def test_federal_school_with_location_no_federal_schools(
         self,
         mock_get_schools_by_location: MagicMock,
@@ -416,7 +416,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.federal_school(location="Lagos")
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_federal_schools")
+    @patch("fakernaija.providers.education.SchoolProvider.get_federal_schools")
     def test_federal_school_no_schools_available(
         self,
         mock_get_federal_schools: MagicMock,
@@ -427,7 +427,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.federal_school()
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_schools_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_schools_by_location")
     @patch("random.choice")
     def test_state_school_with_location(
         self,
@@ -478,7 +478,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             result = self.faker.state_school(acronym=True, location="Lagos")
             self.assertEqual(result, "LASU")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_state_schools")
+    @patch("fakernaija.providers.education.SchoolProvider.get_state_schools")
     @patch("random.choice")
     def test_state_school_without_location(
         self,
@@ -517,7 +517,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             result = self.faker.state_school(acronym=True)
             self.assertEqual(result, "LASU")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_schools_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_schools_by_location")
     def test_state_school_with_location_no_schools(
         self,
         mock_get_schools_by_location: MagicMock,
@@ -528,7 +528,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.state_school(location="NonExistentLocation")
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_schools_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_schools_by_location")
     def test_state_school_with_location_no_state_schools(
         self,
         mock_get_schools_by_location: MagicMock,
@@ -545,7 +545,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.state_school(location="Lagos")
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_state_schools")
+    @patch("fakernaija.providers.education.SchoolProvider.get_state_schools")
     def test_state_school_no_schools_available(
         self,
         mock_get_state_schools: MagicMock,
@@ -556,7 +556,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.state_school()
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_schools_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_schools_by_location")
     @patch("random.choice")
     def test_private_school_with_location(
         self,
@@ -609,7 +609,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             result = self.faker.private_school(acronym=True, location="Ogun")
             self.assertEqual(result, "CU")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_private_schools")
+    @patch("fakernaija.providers.education.SchoolProvider.get_private_schools")
     @patch("random.choice")
     def test_private_school_without_location(
         self,
@@ -660,7 +660,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             result = self.faker.private_school(acronym=True)
             self.assertEqual(result, "CU")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_schools_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_schools_by_location")
     def test_private_school_with_location_no_schools(
         self,
         mock_get_schools_by_location: MagicMock,
@@ -671,7 +671,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.private_school(location="NonExistentLocation")
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_schools_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_schools_by_location")
     def test_private_school_with_location_no_private_schools(
         self,
         mock_get_schools_by_location: MagicMock,
@@ -684,7 +684,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.private_school(location="Lagos")
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_private_schools")
+    @patch("fakernaija.providers.education.SchoolProvider.get_private_schools")
     def test_private_school_no_schools_available(
         self,
         mock_get_private_schools: MagicMock,
@@ -695,7 +695,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.private_school()
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_universities_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_universities_by_location")
     @patch("random.choice")
     def test_university_with_location(
         self,
@@ -746,7 +746,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             result = self.faker.university(acronym=True, location="Lagos")
             self.assertEqual(result, "LASU")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_universities")
+    @patch("fakernaija.providers.education.SchoolProvider.get_universities")
     @patch("random.choice")
     def test_university_without_location(
         self,
@@ -797,7 +797,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             result = self.faker.university(acronym=True)
             self.assertEqual(result, "LASU")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_universities_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_universities_by_location")
     def test_university_with_location_no_universities(
         self,
         mock_get_universities_by_location: MagicMock,
@@ -808,7 +808,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.university(location="NonExistentLocation")
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_universities")
+    @patch("fakernaija.providers.education.SchoolProvider.get_universities")
     def test_university_no_universities_available(
         self,
         mock_get_universities: MagicMock,
@@ -819,7 +819,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.university()
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_polytechnics_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_polytechnics_by_location")
     @patch("random.choice")
     def test_polytechnic_with_location(
         self,
@@ -865,7 +865,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             result = self.faker.polytechnic(acronym=True, location="Lagos")
             self.assertEqual(result, "LASPOTECH")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_polytechnics")
+    @patch("fakernaija.providers.education.SchoolProvider.get_polytechnics")
     @patch("random.choice")
     def test_polytechnic_without_location(
         self,
@@ -911,7 +911,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             result = self.faker.polytechnic(acronym=True)
             self.assertEqual(result, "LASPOTECH")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_polytechnics_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_polytechnics_by_location")
     def test_polytechnic_with_location_no_polytechnics(
         self,
         mock_get_polytechnics_by_location: MagicMock,
@@ -922,7 +922,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.polytechnic(location="NonExistentLocation")
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_polytechnics")
+    @patch("fakernaija.providers.education.SchoolProvider.get_polytechnics")
     def test_polytechnic_no_polytechnics_available(
         self,
         mock_get_polytechnics: MagicMock,
@@ -934,7 +934,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         self.assertIsNone(result)
 
     @patch(
-        "fakernaija.providers.schools.SchoolProvider.get_colleges_of_education_by_location",
+        "fakernaija.providers.education.SchoolProvider.get_colleges_of_education_by_location",
     )
     @patch("random.choice")
     def test_college_of_education_with_location(
@@ -981,7 +981,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             result = self.faker.college_of_education(acronym=True, location="Lagos")
             self.assertEqual(result, "CCED")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_colleges_of_education")
+    @patch("fakernaija.providers.education.SchoolProvider.get_colleges_of_education")
     @patch("random.choice")
     def test_college_of_education_without_location(
         self,
@@ -1028,7 +1028,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             self.assertEqual(result, "CCED")
 
     @patch(
-        "fakernaija.providers.schools.SchoolProvider.get_colleges_of_education_by_location",
+        "fakernaija.providers.education.SchoolProvider.get_colleges_of_education_by_location",
     )
     def test_college_of_education_with_location_no_colleges_of_education(
         self,
@@ -1040,7 +1040,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.college_of_education(location="NonExistentLocation")
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_colleges_of_education")
+    @patch("fakernaija.providers.education.SchoolProvider.get_colleges_of_education")
     def test_college_of_education_no_colleges_of_education_available(
         self,
         mock_get_colleges_of_education: MagicMock,
@@ -1051,7 +1051,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.college_of_education()
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_universities_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_universities_by_location")
     @patch("random.choice")
     def test_federal_university_with_location(
         self,
@@ -1100,7 +1100,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             result = self.faker.federal_university(acronym=True, location="Lagos")
             self.assertEqual(result, "UNILAG")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_federal_universities")
+    @patch("fakernaija.providers.education.SchoolProvider.get_federal_universities")
     @patch("random.choice")
     def test_federal_university_without_location(
         self,
@@ -1149,7 +1149,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             result = self.faker.federal_university(acronym=True)
             self.assertEqual(result, "UNILAG")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_universities_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_universities_by_location")
     def test_federal_university_with_location_no_universities(
         self,
         mock_get_federal_universities_by_location: MagicMock,
@@ -1160,7 +1160,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.federal_university(location="NonExistentLocation")
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_federal_universities")
+    @patch("fakernaija.providers.education.SchoolProvider.get_federal_universities")
     def test_federal_university_no_universities_available(
         self,
         mock_get_universities: MagicMock,
@@ -1171,7 +1171,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.federal_university()
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_polytechnics_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_polytechnics_by_location")
     @patch("random.choice")
     def test_federal_polytechnic_with_location(
         self,
@@ -1220,7 +1220,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             result = self.faker.federal_polytechnic(acronym=True, location="Ekiti")
             self.assertEqual(result, "FEDPOLYADO")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_federal_polytechnics")
+    @patch("fakernaija.providers.education.SchoolProvider.get_federal_polytechnics")
     @patch("random.choice")
     def test_federal_polytechnic_without_location(
         self,
@@ -1269,7 +1269,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             result = self.faker.federal_polytechnic(acronym=True)
             self.assertEqual(result, "FEDPOLYADO")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_polytechnics_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_polytechnics_by_location")
     def test_federal_polytechnic_with_location_no_polytechnics(
         self,
         mock_get_federal_polytechnics_by_location: MagicMock,
@@ -1280,7 +1280,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.federal_polytechnic(location="NonExistentLocation")
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_federal_polytechnics")
+    @patch("fakernaija.providers.education.SchoolProvider.get_federal_polytechnics")
     def test_federal_polytechnic_no_polytechnics_available(
         self,
         mock_get_federal_polytechnics: MagicMock,
@@ -1292,7 +1292,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         self.assertIsNone(result)
 
     @patch(
-        "fakernaija.providers.schools.SchoolProvider.get_colleges_of_education_by_location",
+        "fakernaija.providers.education.SchoolProvider.get_colleges_of_education_by_location",
     )
     @patch("random.choice")
     def test_federal_college_of_education_with_location(
@@ -1346,7 +1346,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             self.assertEqual(result, "FCEZARIA")
 
     @patch(
-        "fakernaija.providers.schools.SchoolProvider.get_federal_colleges_of_education",
+        "fakernaija.providers.education.SchoolProvider.get_federal_colleges_of_education",
     )
     @patch("random.choice")
     def test_federal_college_of_education_without_location(
@@ -1397,7 +1397,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             self.assertEqual(result, "FCEZARIA")
 
     @patch(
-        "fakernaija.providers.schools.SchoolProvider.get_colleges_of_education_by_location",
+        "fakernaija.providers.education.SchoolProvider.get_colleges_of_education_by_location",
     )
     def test_federal_college_of_education_with_location_no_colleges(
         self,
@@ -1410,7 +1410,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         self.assertIsNone(result)
 
     @patch(
-        "fakernaija.providers.schools.SchoolProvider.get_federal_colleges_of_education",
+        "fakernaija.providers.education.SchoolProvider.get_federal_colleges_of_education",
     )
     def test_federal_college_of_education_no_colleges_available(
         self,
@@ -1422,7 +1422,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.federal_college_of_education()
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_universities_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_universities_by_location")
     @patch("random.choice")
     def test_state_university_with_location(
         self,
@@ -1471,7 +1471,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             result = self.faker.state_university(acronym=True, location="Lagos")
             self.assertEqual(result, "LASU")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_state_universities")
+    @patch("fakernaija.providers.education.SchoolProvider.get_state_universities")
     @patch("random.choice")
     def test_state_university_without_location(
         self,
@@ -1520,7 +1520,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             result = self.faker.state_university(acronym=True)
             self.assertEqual(result, "LASU")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_universities_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_universities_by_location")
     def test_state_university_with_location_no_universities(
         self,
         mock_get_state_universities_by_location: MagicMock,
@@ -1531,7 +1531,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.state_university(location="NonExistentLocation")
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_state_universities")
+    @patch("fakernaija.providers.education.SchoolProvider.get_state_universities")
     def test_state_university_no_universities_available(
         self,
         mock_get_universities: MagicMock,
@@ -1542,7 +1542,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.state_university()
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_polytechnics_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_polytechnics_by_location")
     @patch("random.choice")
     def test_state_polytechnic_with_location(
         self,
@@ -1591,7 +1591,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             result = self.faker.state_polytechnic(acronym=True, location="Akwa Ibom")
             self.assertEqual(result, "AKWAPOLY")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_state_polytechnics")
+    @patch("fakernaija.providers.education.SchoolProvider.get_state_polytechnics")
     @patch("random.choice")
     def test_state_polytechnic_without_location(
         self,
@@ -1640,7 +1640,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             result = self.faker.state_polytechnic(acronym=True)
             self.assertEqual(result, "AKWAPOLY")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_polytechnics_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_polytechnics_by_location")
     def test_state_polytechnic_with_location_no_polytechnics(
         self,
         mock_get_state_polytechnics_by_location: MagicMock,
@@ -1651,7 +1651,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.state_polytechnic(location="NonExistentLocation")
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_state_polytechnics")
+    @patch("fakernaija.providers.education.SchoolProvider.get_state_polytechnics")
     def test_state_polytechnic_no_polytechnics_available(
         self,
         mock_get_state_polytechnics: MagicMock,
@@ -1663,7 +1663,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         self.assertIsNone(result)
 
     @patch(
-        "fakernaija.providers.schools.SchoolProvider.get_colleges_of_education_by_location",
+        "fakernaija.providers.education.SchoolProvider.get_colleges_of_education_by_location",
     )
     @patch("random.choice")
     def test_state_college_of_education_with_location(
@@ -1717,7 +1717,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             self.assertEqual(result, "COEIKERE")
 
     @patch(
-        "fakernaija.providers.schools.SchoolProvider.get_state_colleges_of_education",
+        "fakernaija.providers.education.SchoolProvider.get_state_colleges_of_education",
     )
     @patch("random.choice")
     def test_state_college_of_education_without_location(
@@ -1768,7 +1768,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             self.assertEqual(result, "COEIKERE")
 
     @patch(
-        "fakernaija.providers.schools.SchoolProvider.get_colleges_of_education_by_location",
+        "fakernaija.providers.education.SchoolProvider.get_colleges_of_education_by_location",
     )
     def test_state_college_of_education_with_location_no_colleges(
         self,
@@ -1781,7 +1781,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         self.assertIsNone(result)
 
     @patch(
-        "fakernaija.providers.schools.SchoolProvider.get_state_colleges_of_education",
+        "fakernaija.providers.education.SchoolProvider.get_state_colleges_of_education",
     )
     def test_state_college_of_education_no_colleges_available(
         self,
@@ -1793,7 +1793,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.state_college_of_education()
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_universities_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_universities_by_location")
     @patch("random.choice")
     def test_private_university_with_location(
         self,
@@ -1842,7 +1842,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             result = self.faker.private_university(acronym=True, location="Lagos")
             self.assertEqual(result, "PAU")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_state_universities")
+    @patch("fakernaija.providers.education.SchoolProvider.get_state_universities")
     @patch("random.choice")
     def test_private_university_without_location(
         self,
@@ -1891,7 +1891,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             result = self.faker.private_university(acronym=True)
             self.assertEqual(result, "PAU")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_universities_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_universities_by_location")
     def test_private_university_with_location_no_universities(
         self,
         mock_get_private_universities_by_location: MagicMock,
@@ -1902,7 +1902,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.private_university(location="NonExistentLocation")
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_private_universities")
+    @patch("fakernaija.providers.education.SchoolProvider.get_private_universities")
     def test_private_university_no_universities_available(
         self,
         mock_get_universities: MagicMock,
@@ -1913,7 +1913,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.private_university()
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_polytechnics_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_polytechnics_by_location")
     @patch("random.choice")
     def test_private_polytechnic_with_location(
         self,
@@ -1962,7 +1962,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             result = self.faker.private_polytechnic(acronym=True, location="Ekiti")
             self.assertEqual(result, "CROWNPOLY")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_private_polytechnics")
+    @patch("fakernaija.providers.education.SchoolProvider.get_private_polytechnics")
     @patch("random.choice")
     def test_private_polytechnic_without_location(
         self,
@@ -2011,7 +2011,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             result = self.faker.private_polytechnic(acronym=True)
             self.assertEqual(result, "CROWNPOLY")
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_polytechnics_by_location")
+    @patch("fakernaija.providers.education.SchoolProvider.get_polytechnics_by_location")
     def test_private_polytechnic_with_location_no_polytechnics(
         self,
         mock_get_private_polytechnics_by_location: MagicMock,
@@ -2022,7 +2022,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         result = self.faker.private_polytechnic(location="NonExistentLocation")
         self.assertIsNone(result)
 
-    @patch("fakernaija.providers.schools.SchoolProvider.get_private_polytechnics")
+    @patch("fakernaija.providers.education.SchoolProvider.get_private_polytechnics")
     def test_private_polytechnic_no_polytechnics_available(
         self,
         mock_get_private_polytechnics: MagicMock,
@@ -2034,7 +2034,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         self.assertIsNone(result)
 
     @patch(
-        "fakernaija.providers.schools.SchoolProvider.get_colleges_of_education_by_location",
+        "fakernaija.providers.education.SchoolProvider.get_colleges_of_education_by_location",
     )
     @patch("random.choice")
     def test_private_college_of_education_with_location(
@@ -2088,7 +2088,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             self.assertEqual(result, "BESTLEGACY")
 
     @patch(
-        "fakernaija.providers.schools.SchoolProvider.get_private_colleges_of_education",
+        "fakernaija.providers.education.SchoolProvider.get_private_colleges_of_education",
     )
     @patch("random.choice")
     def test_private_college_of_education_without_location(
@@ -2139,7 +2139,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
             self.assertEqual(result, "BESTLEGACY")
 
     @patch(
-        "fakernaija.providers.schools.SchoolProvider.get_colleges_of_education_by_location",
+        "fakernaija.providers.education.SchoolProvider.get_colleges_of_education_by_location",
     )
     def test_private_college_of_education_with_location_no_colleges(
         self,
@@ -2152,7 +2152,7 @@ class TestFakerSchoolProvider(unittest.TestCase):
         self.assertIsNone(result)
 
     @patch(
-        "fakernaija.providers.schools.SchoolProvider.get_private_colleges_of_education",
+        "fakernaija.providers.education.SchoolProvider.get_private_colleges_of_education",
     )
     def test_private_college_of_education_no_colleges_available(
         self,

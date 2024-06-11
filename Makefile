@@ -3,7 +3,7 @@
 .DEFAULT_GOAL=help
 
 # Define commands to be explicitly invoked
-.PHONY: all venv install tox clean help hello
+.PHONY: all venv install tox clean help hello docs
 
 # Define the name of the virtual environment directory
 VENV_DIR = .venv
@@ -30,27 +30,33 @@ help: ## Show this help
 	@echo "  install            Install development packages and pre-commit hooks"
 	@echo "  tox                Run all checks using tox"
 	@echo "  clean              Clean the project of unneeded files"
+	@echo "  docs				Build sphinx documentation"
 	@echo "  hello              Read our welcome note"
 	@echo "  help               Show this help message"
 
 hello: ## Read our welcome note
 	@echo "Welcome to FakerNaija! Let's make Nigeria proud with awesome fake data. Enjoy your coding journey!"
 
-# Create and set up the virtual environment, install dependencies then run tox
-all: venv install tox
+# Setup the development environment
+all: venv install tox docs
 
 venv: ## Create a virtual environment
 	$(PYTHON) -m venv $(VENV_DIR)
 	@echo "Virtual environment created."
 	@echo "Activate with the command 'source .venv/bin/activate'"
 
-install: venv ## Install development packages
+install: ## Install development packages
 	$(PIP) install --upgrade pip
 	$(PIP) install tox==4.15.0 pre-commit==3.7.1
 	$(PRE_COMMIT) install
 	@echo "Development packages and pre-commit hooks installed"
 
-tox: install ## Run all checks using tox
+docs: ## Build sphinx documentation
+	$(PIP) install sphinx==7.3.7 sphinx-rtd-theme==2.0.0
+	$(PIP) install -e .
+	@sphinx-build -M html docs/source/ docs/build/
+
+tox: ## Run all checks using tox
 	$(TOX)
 	@echo "All checks passed"
 

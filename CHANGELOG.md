@@ -6,6 +6,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [0.0.16] - 2024-06-11
+
+### Added
+
+- Added a `setup.py` file
+- Added a new `docs` command in `Makefile`
+- Added a **mixins** package to decouple Faker method calls
+
+### Refactor
+
+- Updated the ruff command in `tox.ini` file
+- Updated `ruff-pre-commit` version
+- Updated test cases in `test_utils.py` and `test_faker.py`
+- Renamed `test_schools.py` to `test_education.py`
+
 ## [0.0.15] - 2024-06-03
 
 ### Refactor
