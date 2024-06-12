@@ -16,9 +16,9 @@ class TestDegreeMixin(unittest.TestCase):
     def setUp(self) -> None:
         """Set up the test case environment."""
         self.faker = Faker()
-        self.degree_provider = DegreeProvider()
-        self.all_degrees = self.degree_provider.get_degrees()
-        self.all_initials = self.degree_provider.get_degree_initials()
+        self.provider = DegreeProvider()
+        self.all_degrees = self.provider.get_degrees()
+        self.all_initials = self.provider.get_degree_initials()
 
     def test_degree(self) -> None:
         """Test that degree returns a full name string."""

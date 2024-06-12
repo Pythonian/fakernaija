@@ -31,18 +31,18 @@ class PhoneNumberProvider:
             prefix for prefixes in self.network_prefixes.values() for prefix in prefixes
         ]
 
-    def generate_phone_number(self, prefix: str) -> str:
-        """Generates a phone number with the given prefix.
+    def generate_random_phone_number(self, prefix: str) -> str:
+        """Generates a random phone number with the given prefix.
 
         Args:
             prefix (str): The prefix of the phone number.
 
         Returns:
-            str: A valid Nigerian phone number with the specified prefix.
+            str: A random phone number with the specified prefix.
         """
         return prefix + "".join(random.choices("0123456789", k=7))
 
-    def phone_number(
+    def generate_phone_number(
         self,
         network: str | None = None,
         prefix: str | None = None,
@@ -52,9 +52,7 @@ class PhoneNumberProvider:
         The phone number is either random or based on the specified network or prefix.
 
         Args:
-            network (str | None, optional):
-                The name of the network ('mtn', 'glo', 'airtel', 'etisalat').
-                Defaults to None.
+            network (str | None, optional): The name of the network. Defaults to None.
             prefix (str | None, optional): The prefix of the phone number. Defaults to None.
 
         Returns:
@@ -72,7 +70,7 @@ class PhoneNumberProvider:
 
         if prefix:
             if prefix in self.all_prefixes:
-                return self.generate_phone_number(prefix)
+                return self.generate_random_phone_number(prefix)
             msg = (
                 f"Prefix '{prefix}' is not recognized. "
                 f"Please use one of the following: {self.all_prefixes}"
@@ -82,7 +80,7 @@ class PhoneNumberProvider:
         if network:
             if network.lower() in self.network_prefixes:
                 prefix = random.choice(self.network_prefixes[network.lower()])
-                return self.generate_phone_number(prefix)
+                return self.generate_random_phone_number(prefix)
             msg = (
                 f"Network '{network}' is not recognized. "
                 f"Please use one of the following: {list(self.network_prefixes.keys())}"
@@ -90,4 +88,4 @@ class PhoneNumberProvider:
             raise ValueError(msg)
 
         prefix = random.choice(self.all_prefixes)
-        return self.generate_phone_number(prefix)
+        return self.generate_random_phone_number(prefix)
