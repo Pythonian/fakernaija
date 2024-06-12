@@ -1,6 +1,6 @@
 """EmailMixin to group related methods for the EmailProvider."""
 
-from fakernaija.providers.emails import EmailProvider
+from fakernaija.providers.email_provider import EmailProvider
 
 
 class Email:
@@ -27,10 +27,11 @@ class Email:
             str | None: The generated email address or None if no matching data is found or the domain is invalid.
 
         Note:
-            The two genders supported are: male, female.
+            - Supported genders: male, female
+            - Supported tribes: yoruba, igbo, hausa, edo, fulani, ijaw
 
         Caution:
-            Entering a gender or an ethnic group which is not (yet) supported will return None.
+            Entering a gender or an ethnic group which is not (yet) supported or an invalid domain will return None.
 
         Example:
             .. code-block:: python
