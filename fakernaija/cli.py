@@ -2,6 +2,7 @@
 
 import click
 
+from fakernaija.commands.course_cli import course
 from fakernaija.commands.degree_cli import degree
 from fakernaija.commands.email_cli import email
 from fakernaija.commands.faculty_cli import department, faculty
@@ -13,6 +14,7 @@ def cli() -> None:
     """A CLI for generating random Nigerian data."""
 
 
+cli.add_command(course, name="course")
 cli.add_command(degree, name="degree")
 cli.add_command(department, name="department")
 cli.add_command(email, name="email")

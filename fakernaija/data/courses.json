@@ -1,0 +1,1102 @@
+[
+    {
+        "name": "Introduction to Computer Science",
+        "code": "COS101"
+    },
+    {
+        "name": "Introduction to Computer Systems",
+        "code": "COS102"
+    },
+    {
+        "name": "Computing Practice",
+        "code": "COS104"
+    },
+    {
+        "name": "Computer Programming I",
+        "code": "COS201"
+    },
+    {
+        "name": "Assembly Language Programming",
+        "code": "COS251"
+    },
+    {
+        "name": "Computer Programming II",
+        "code": "COS202"
+    },
+    {
+        "name": "Introduction to File Processing",
+        "code": "COS222"
+    },
+    {
+        "name": "Introduction to Digital Design",
+        "code": "COS301"
+    },
+    {
+        "name": "Introduction to Microcomputer Systems",
+        "code": "COS303"
+    },
+    {
+        "name": "Numerical Methods I",
+        "code": "COS311"
+    },
+    {
+        "name": "Compiler Construction I",
+        "code": "COS331"
+    },
+    {
+        "name": "Operating System I",
+        "code": "COS333"
+    },
+    {
+        "name": "Computer Architecture I",
+        "code": "COS341"
+    },
+    {
+        "name": "Switching Algebra & Discrete Structures I",
+        "code": "COS313"
+    },
+    {
+        "name": "Operation Research I",
+        "code": "COS314"
+    },
+    {
+        "name": "Data Base Design & Management I",
+        "code": "COS321"
+    },
+    {
+        "name": "System Analysis & Design",
+        "code": "COS335"
+    },
+    {
+        "name": "Data Structures",
+        "code": "COS352"
+    },
+    {
+        "name": "Laboratory for Digital Design",
+        "code": "COS372"
+    },
+    {
+        "name": "Switching Algebra & Discrete Structures II",
+        "code": "COS314"
+    },
+    {
+        "name": "Automata Theory & Formal Languages",
+        "code": "COS316"
+    },
+    {
+        "name": "Computer Application",
+        "code": "COS304"
+    },
+    {
+        "name": "Data Base Design & Management II",
+        "code": "COS322"
+    },
+    {
+        "name": "Operating Systems II",
+        "code": "COS334"
+    },
+    {
+        "name": "Computer Architecture II",
+        "code": "COS342"
+    },
+    {
+        "name": "Algorithms",
+        "code": "COS451"
+    },
+    {
+        "name": "Organization of Programming Languages",
+        "code": "COS461"
+    },
+    {
+        "name": "Numerical Methods II",
+        "code": "COS411"
+    },
+    {
+        "name": "System Modelling and Simulation",
+        "code": "COS415"
+    },
+    {
+        "name": "Queuing Theory",
+        "code": "COS413"
+    },
+    {
+        "name": "Software Design & Management",
+        "code": "COS431"
+    },
+    {
+        "name": "Computer Process Control",
+        "code": "COS453"
+    },
+    {
+        "name": "Data Communication & Networks I",
+        "code": "COS455"
+    },
+    {
+        "name": "Computer Graphics",
+        "code": "COS457"
+    },
+    {
+        "name": "Computer Centre Management",
+        "code": "COS452"
+    },
+    {
+        "name": "Structured Programming",
+        "code": "COS462"
+    },
+    {
+        "name": "Operations Research II",
+        "code": "COS414"
+    },
+    {
+        "name": "Computer Performance Evaluation",
+        "code": "COS412"
+    },
+    {
+        "name": "Compiler Constructions II",
+        "code": "COS432"
+    },
+    {
+        "name": "Artificial Intelligence",
+        "code": "COS454"
+    },
+    {
+        "name": "Data Communication & Networks II",
+        "code": "COS456"
+    },
+    {
+        "name": "Expert Systems",
+        "code": "COS458"
+    },
+    {
+        "name": "Concurrent Programming",
+        "code": "COS464"
+    },
+    {
+        "name": "Advanced Digital Laboratory",
+        "code": "COS472"
+    },
+    {
+        "name": "Elementary Mathematics I",
+        "code": "MTH111"
+    },
+    {
+        "name": "Elementary Mathematics II",
+        "code": "MTH121"
+    },
+    {
+        "name": "Elementary Mathematics III",
+        "code": "MTH122"
+    },
+    {
+        "name": "Elementary Mechanics I",
+        "code": "MTH131"
+    },
+    {
+        "name": "Set, Logic and Algebra",
+        "code": "MTH211"
+    },
+    {
+        "name": "Linear Algebra I",
+        "code": "MTH215"
+    },
+    {
+        "name": "Real Analysis I",
+        "code": "MTH221"
+    },
+    {
+        "name": "Elementary Mechanics II",
+        "code": "MTH231"
+    },
+    {
+        "name": "Three-dimensional Analytic Geometry",
+        "code": "MTH218"
+    },
+    {
+        "name": "Linear Algebra II",
+        "code": "MTH216"
+    },
+    {
+        "name": "Introduction to Numerical Analysis",
+        "code": "MTH224"
+    },
+    {
+        "name": "Elementary Differential Equations I",
+        "code": "MTH222"
+    },
+    {
+        "name": "Mathematical Methods I",
+        "code": "MTH242"
+    },
+    {
+        "name": "Abstract Algebra I",
+        "code": "MTH311"
+    },
+    {
+        "name": "Metric Space Topology",
+        "code": "MTH321"
+    },
+    {
+        "name": "Elementary Differential Equations II",
+        "code": "MTH322"
+    },
+    {
+        "name": "Complex Analysis I",
+        "code": "MTH325"
+    },
+    {
+        "name": "Introductions to Mathematical Modelling",
+        "code": "MTH331"
+    },
+    {
+        "name": "Geometry I",
+        "code": "MTH313"
+    },
+    {
+        "name": "Optimization to Operation Research",
+        "code": "MTH332"
+    },
+    {
+        "name": "Analytic Dynamics",
+        "code": "MTH334"
+    },
+    {
+        "name": "Introduction to Operations Research",
+        "code": "MTH336"
+    },
+    {
+        "name": "Discrete Mathematics I",
+        "code": "MTH341"
+    },
+    {
+        "name": "Abstract Algebra II",
+        "code": "MTH312"
+    },
+    {
+        "name": "Vector and Tensor Analysis",
+        "code": "MTH324"
+    },
+    {
+        "name": "Complex Analysis II",
+        "code": "MTH328"
+    },
+    {
+        "name": "Real Analysis II",
+        "code": "MTH326"
+    },
+    {
+        "name": "Geometry II",
+        "code": "MTH314"
+    },
+    {
+        "name": "Differential Geometry",
+        "code": "MTH316"
+    },
+    {
+        "name": "Optimisation Theory II",
+        "code": "MTH338"
+    },
+    {
+        "name": "Dynamics of Rigid Bodies",
+        "code": "MTH336"
+    },
+    {
+        "name": "Special Theory of Relativity",
+        "code": "MTH338"
+    },
+    {
+        "name": "Discrete Mathematics II",
+        "code": "MTH342"
+    },
+    {
+        "name": "Numerical Analysis I",
+        "code": "MTH344"
+    },
+    {
+        "name": "Ordinary Differential Equations",
+        "code": "MTH421"
+    },
+    {
+        "name": "Functional Analysis",
+        "code": "MTH429"
+    },
+    {
+        "name": "Lebesgue Measure and Integration",
+        "code": "MTH425"
+    },
+    {
+        "name": "Field Theory in Mathematical Physics",
+        "code": "MTH427"
+    },
+    {
+        "name": "Analytical Dynamics II",
+        "code": "MTH439"
+    },
+    {
+        "name": "Systems Theory",
+        "code": "MTH437"
+    },
+    {
+        "name": "Numerical Analysis II",
+        "code": "MTH443"
+    },
+    {
+        "name": "Mathematical Methods II",
+        "code": "MTH441"
+    },
+    {
+        "name": "Partial Differential Equations",
+        "code": "MTH428"
+    },
+    {
+        "name": "General Topology",
+        "code": "MTH424"
+    },
+    {
+        "name": "Abstract Algebra III",
+        "code": "MTH412"
+    },
+    {
+        "name": "General Theory of Relativity",
+        "code": "MTH432"
+    },
+    {
+        "name": "Electromagnetism",
+        "code": "MTH438"
+    },
+    {
+        "name": "Fluid Dynamics",
+        "code": "MTH436"
+    },
+    {
+        "name": "Numerical Analysis II",
+        "code": "MTH444"
+    },
+    {
+        "name": "Elasticity",
+        "code": "MTH434"
+    },
+    {
+        "name": "Probability I",
+        "code": "STA111"
+    },
+    {
+        "name": "Inference I",
+        "code": "STA131"
+    },
+    {
+        "name": "Probability II",
+        "code": "STA112"
+    },
+    {
+        "name": "Inference II",
+        "code": "STA132"
+    },
+    {
+        "name": "Statistical Computing I",
+        "code": "STA172"
+    },
+    {
+        "name": "Probability IV",
+        "code": "STA212"
+    },
+    {
+        "name": "Probability III",
+        "code": "STA211"
+    },
+    {
+        "name": "Inference III",
+        "code": "STA231"
+    },
+    {
+        "name": "Statistical Computing II",
+        "code": "STA272"
+    },
+    {
+        "name": "Distribution Theory",
+        "code": "STA321"
+    },
+    {
+        "name": "Regression Analysis I",
+        "code": "STA322"
+    },
+    {
+        "name": "Sampling Theory and Survey Methods I",
+        "code": "STA341"
+    },
+    {
+        "name": "Algebraic Basis for Statistics",
+        "code": "STA361"
+    },
+    {
+        "name": "Laboratory for Inference III",
+        "code": "STA333"
+    },
+    {
+        "name": "Sampling Theory and Survey Methods II",
+        "code": "STA342"
+    },
+    {
+        "name": "Laboratory Field Work for Sampling Theory and Survey Methods I",
+        "code": "STA343"
+    },
+    {
+        "name": "Analysis of Variance I",
+        "code": "STA323"
+    },
+    {
+        "name": "Biometrics I",
+        "code": "STA324"
+    },
+    {
+        "name": "Biometrics II",
+        "code": "STA325"
+    },
+    {
+        "name": "Statistical Quality Control I",
+        "code": "STA344"
+    },
+    {
+        "name": "Statistical Quality Control II",
+        "code": "STA345"
+    },
+    {
+        "name": "Laboratory and Field Work for Quality Control",
+        "code": "STA346"
+    },
+    {
+        "name": "Demography I",
+        "code": "STA351"
+    },
+    {
+        "name": "Demography II",
+        "code": "STA352"
+    },
+    {
+        "name": "Laboratory and Field Work for Demography",
+        "code": "STA353"
+    },
+    {
+        "name": "Operations Research I",
+        "code": "STA362"
+    },
+    {
+        "name": "Operations Research II",
+        "code": "STA363"
+    },
+    {
+        "name": "Laboratory for Operations Research I",
+        "code": "STA364"
+    },
+    {
+        "name": "Stochastic Processes I",
+        "code": "STA413"
+    },
+    {
+        "name": "Time Series Analysis I",
+        "code": "STA415"
+    },
+    {
+        "name": "Design and Analysis of Experiments I",
+        "code": "STA421"
+    },
+    {
+        "name": "Regression Analysis II",
+        "code": "STA423"
+    },
+    {
+        "name": "Stochastic Processes II",
+        "code": "STA414"
+    },
+    {
+        "name": "Time Series Analysis II",
+        "code": "STA416"
+    },
+    {
+        "name": "Design and Analysis of Experiments II",
+        "code": "STA422"
+    },
+    {
+        "name": "Probability VII",
+        "code": "STA411"
+    },
+    {
+        "name": "Biometrics III",
+        "code": "STA426"
+    },
+    {
+        "name": "Bayesian Inference I",
+        "code": "STA431"
+    },
+    {
+        "name": "Non-Parametric Methods I",
+        "code": "STA432"
+    },
+    {
+        "name": "Multivariate Analysis",
+        "code": "STA433"
+    },
+    {
+        "name": "Sampling Theory and Survey Methods III",
+        "code": "STA441"
+    },
+    {
+        "name": "Operations Research III",
+        "code": "STA461"
+    },
+    {
+        "name": "Decision Theory I",
+        "code": "STA462"
+    },
+    {
+        "name": "Probability VIII",
+        "code": "STA416"
+    },
+    {
+        "name": "Biometrics IV",
+        "code": "STA427"
+    },
+    {
+        "name": "Bayesian Inference II",
+        "code": "STA435"
+    },
+    {
+        "name": "Non-Parametric Methods II",
+        "code": "STA438"
+    },
+    {
+        "name": "Multivariate Analysis II",
+        "code": "STA437"
+    },
+    {
+        "name": "Psychometrics II",
+        "code": "STA438"
+    },
+    {
+        "name": "Sampling Theory and Survey Methods IV",
+        "code": "STA442"
+    },
+    {
+        "name": "Operations Research IV",
+        "code": "STA463"
+    },
+    {
+        "name": "Laboratory for Operations Research II",
+        "code": "STA465"
+    },
+    {
+        "name": "Fundamentals of Physics I",
+        "code": "PHY121"
+    },
+    {
+        "name": "Practical Physics II",
+        "code": "PHY195"
+    },
+    {
+        "name": "Fundamentals of Physics II",
+        "code": "PHY122"
+    },
+    {
+        "name": "Fundamentals of Physics III",
+        "code": "PHY124"
+    },
+    {
+        "name": "Practical Physics III",
+        "code": "PHY196"
+    },
+    {
+        "name": "Structure of Matter",
+        "code": "PHY211"
+    },
+    {
+        "name": "Mechanics",
+        "code": "PHY221"
+    },
+    {
+        "name": "Waves",
+        "code": "PHY241"
+    },
+    {
+        "name": "Electromagnetism",
+        "code": "PHY251"
+    },
+    {
+        "name": "Physical Optics",
+        "code": "PHY242"
+    },
+    {
+        "name": "Introduction to Atomic and Nuclear Physics",
+        "code": "PHY262"
+    },
+    {
+        "name": "Practical Physics IV",
+        "code": "PHY292"
+    },
+    {
+        "name": "Methods of Theoretical Physics I",
+        "code": "PHY301"
+    },
+    {
+        "name": "Solid State Physics I",
+        "code": "PHY311"
+    },
+    {
+        "name": "Relativity Physics",
+        "code": "PHY321"
+    },
+    {
+        "name": "Thermal Physics",
+        "code": "PHY331"
+    },
+    {
+        "name": "Electronics",
+        "code": "PHY351"
+    },
+    {
+        "name": "Workshop Course I (Mechanical)",
+        "code": "PHY393"
+    },
+    {
+        "name": "Practical Physics V",
+        "code": "PHY391"
+    },
+    {
+        "name": "Methods of Theoretical Physics II",
+        "code": "PHY302"
+    },
+    {
+        "name": "Quantum Mechanics I",
+        "code": "PHY362"
+    },
+    {
+        "name": "Introduction to Astronomy",
+        "code": "PHY382"
+    },
+    {
+        "name": "Practical Physics VI",
+        "code": "PHY392"
+    },
+    {
+        "name": "Workshop Course II (Electronics)",
+        "code": "PHY394"
+    },
+    {
+        "name": "Measurement and Instrumentations",
+        "code": "PHY395"
+    },
+    {
+        "name": "Computational Physics",
+        "code": "PHY401"
+    },
+    {
+        "name": "General Physics",
+        "code": "PHY402"
+    },
+    {
+        "name": "Analytical Mechanics",
+        "code": "PHY421"
+    },
+    {
+        "name": "Electromagnetic Theory",
+        "code": "PHY451"
+    },
+    {
+        "name": "Quantum Mechanics II",
+        "code": "PHY461"
+    },
+    {
+        "name": "Galaxies",
+        "code": "PHY482"
+    },
+    {
+        "name": "High Energy Astrophysics",
+        "code": "PHY484"
+    },
+    {
+        "name": "Meteorology",
+        "code": "PHY471"
+    },
+    {
+        "name": "Industrial Geophysics",
+        "code": "PHY474"
+    },
+    {
+        "name": "Science of Materials",
+        "code": "PHY412"
+    },
+    {
+        "name": "Industrial Electronics",
+        "code": "PHY453"
+    },
+    {
+        "name": "Interaction of Radiation with Matter",
+        "code": "PHY467"
+    },
+    {
+        "name": "Radiation Instrumentation",
+        "code": "PHY468"
+    },
+    {
+        "name": "Biophysics I",
+        "code": "PHY454"
+    },
+    {
+        "name": "Solar Energy I",
+        "code": "PHY432"
+    },
+    {
+        "name": "Biomass Energy I",
+        "code": "PHY434"
+    },
+    {
+        "name": "Nuclear Energy I",
+        "code": "PHY436"
+    },
+    {
+        "name": "Symmetries in Physics",
+        "code": "PHY464"
+    },
+    {
+        "name": "Classical Electrodynamics and Plasma Physics",
+        "code": "PHY452"
+    },
+    {
+        "name": "Solid State Physics II",
+        "code": "PHY416"
+    },
+    {
+        "name": "Statistical Physics",
+        "code": "PHY438"
+    },
+    {
+        "name": "Nuclear Physics II",
+        "code": "PHY462"
+    },
+    {
+        "name": "Practical Physics VIII",
+        "code": "PHY492"
+    },
+    {
+        "name": "Stellar Structure and Evolution",
+        "code": "PHY486"
+    },
+    {
+        "name": "Modern Cosmology",
+        "code": "PHY488"
+    },
+    {
+        "name": "Aegronomy",
+        "code": "PHY472"
+    },
+    {
+        "name": "Physics of the Earth’s Interior",
+        "code": "PHY478"
+    },
+    {
+        "name": "Physical Metallurgy",
+        "code": "PHY413"
+    },
+    {
+        "name": "Introductions to Industrial Processing",
+        "code": "PHY414"
+    },
+    {
+        "name": "Industrial Electronics",
+        "code": "PHY456"
+    },
+    {
+        "name": "Radiation Protection and Dosimetry",
+        "code": "PHY466"
+    },
+    {
+        "name": "Medical Nuclear Physics",
+        "code": "PHY463"
+    },
+    {
+        "name": "Biophysics II",
+        "code": "PHY455"
+    },
+    {
+        "name": "Solar Energy II",
+        "code": "PHY442"
+    },
+    {
+        "name": "Fossil Energy",
+        "code": "PHY435"
+    },
+    {
+        "name": "Nuclear Energy II",
+        "code": "PHY437"
+    },
+    {
+        "name": "Advanced Quantum Mechanics",
+        "code": "PHY463"
+    },
+    {
+        "name": "Introduction to Elementary Particles Physics",
+        "code": "PHY465"
+    },
+    {
+        "name": "Modern Cosmology",
+        "code": "PHY483"
+    },
+    {
+        "name": "Basic Principle of Chemistry I",
+        "code": "CHM101"
+    },
+    {
+        "name": "Basic Principles of Chemistry II",
+        "code": "CHM111"
+    },
+    {
+        "name": "General Inorganic Chemistry",
+        "code": "CHM201"
+    },
+    {
+        "name": "General Physical Chemistry",
+        "code": "CHM211"
+    },
+    {
+        "name": "General Organic Chemistry I",
+        "code": "CHM221"
+    },
+    {
+        "name": "Practical Organic Chemistry I",
+        "code": "CHM273"
+    },
+    {
+        "name": "General Organic Chemistry II",
+        "code": "CHM222"
+    },
+    {
+        "name": "Analytical Chemistry",
+        "code": "CHM232"
+    },
+    {
+        "name": "Chemical Process Principles",
+        "code": "CHM252"
+    },
+    {
+        "name": "Practical Physical Chemistry I",
+        "code": "CHM272"
+    },
+    {
+        "name": "Practical Inorganic Chemistry I",
+        "code": "CHM274"
+    },
+    {
+        "name": "Chemical Process Principles",
+        "code": "CHM251"
+    },
+    {
+        "name": "Inorganic Chemistry I",
+        "code": "CHM301"
+    },
+    {
+        "name": "Physical and Structured Chemistry",
+        "code": "CHM311"
+    },
+    {
+        "name": "Organic Chemistry I",
+        "code": "CHM321"
+    },
+    {
+        "name": "Chemical Process Calculations",
+        "code": "CHM351"
+    },
+    {
+        "name": "Practical Inorganic Chemistry II",
+        "code": "CHM371"
+    },
+    {
+        "name": "Practical Organic Chemistry II",
+        "code": "CHM373"
+    },
+    {
+        "name": "Chemical Industry and Environment",
+        "code": "CHM391"
+    },
+    {
+        "name": "Organic Chemistry II",
+        "code": "CHM323"
+    },
+    {
+        "name": "Polymer Chemistry",
+        "code": "CHM383"
+    },
+    {
+        "name": "Inorganic Chemistry II",
+        "code": "CHM302"
+    },
+    {
+        "name": "Physical & Structural Chemistry II",
+        "code": "CHM312"
+    },
+    {
+        "name": "Physical & Structural Chemistry III",
+        "code": "CHM314"
+    },
+    {
+        "name": "Organic Chemistry III",
+        "code": "CHM324"
+    },
+    {
+        "name": "Organic Chemistry IV",
+        "code": "CHM324"
+    },
+    {
+        "name": "Chemical Process Technology I",
+        "code": "CHM352"
+    },
+    {
+        "name": "Physical Chemistry II",
+        "code": "CHM372"
+    },
+    {
+        "name": "Chemical Process Technology I",
+        "code": "CHM351"
+    },
+    {
+        "name": "Chemical Process Calculations",
+        "code": "CHM352"
+    },
+    {
+        "name": "Advanced Inorganic Chemistry I",
+        "code": "CHM401"
+    },
+    {
+        "name": "Advanced Physical Chemistry I",
+        "code": "CHM411"
+    },
+    {
+        "name": "Advanced Organic Chemistry I",
+        "code": "CHM421"
+    },
+    {
+        "name": "Modern Analytical Techniques",
+        "code": "CHM431"
+    },
+    {
+        "name": "Practical Industrial Chemistry",
+        "code": "CHM471"
+    },
+    {
+        "name": "Colour Chemistry and Technology I",
+        "code": "CHM483"
+    },
+    {
+        "name": "Cement and Fertilizer Industry",
+        "code": "CHM485"
+    },
+    {
+        "name": "Modern Synthetic Methods in Inorganic Chemistry",
+        "code": "CHM403"
+    },
+    {
+        "name": "Modern Synthetic Methods in Organic Chemistry",
+        "code": "CHM423"
+    },
+    {
+        "name": "Pharmaceutical Industry",
+        "code": "CHM487"
+    },
+    {
+        "name": "Paper and Pulp Industry",
+        "code": "CHM483"
+    },
+    {
+        "name": "Oils, Fats, Detergents and Chloro-Alkali Industries",
+        "code": "CHM489"
+    },
+    {
+        "name": "Polymer Chemistry",
+        "code": "CHM392"
+    },
+    {
+        "name": "Colour Chemistry",
+        "code": "CHM490"
+    },
+    {
+        "name": "Pharmaceutical Industry",
+        "code": "CHM494"
+    },
+    {
+        "name": "Chemical Process Technology II",
+        "code": "CHM451"
+    },
+    {
+        "name": "Chemical Process Technology III",
+        "code": "CHM452"
+    },
+    {
+        "name": "Chemical Process Technology IV",
+        "code": "CHM453"
+    },
+    {
+        "name": "Chemistry of Petroleum & Coal Production",
+        "code": "CHM481"
+    },
+    {
+        "name": "Polymer Chemistry and Technology",
+        "code": "CHM492"
+    },
+    {
+        "name": "Colour Chemistry and Technology II",
+        "code": "CHM493"
+    },
+    {
+        "name": "Cement and Fertilizer Industry",
+        "code": "CHM495"
+    },
+    {
+        "name": "Paper and Pulp Industries",
+        "code": "CHM496"
+    },
+    {
+        "name": "Sugar and Fermentation Industry",
+        "code": "CHM498"
+    },
+    {
+        "name": "Oils, Fats, Detergents and Chloro-Alkali Industries",
+        "code": "CHM499"
+    },
+    {
+        "name": "Advanced Inorganic Chemistry II",
+        "code": "CHM402"
+    },
+    {
+        "name": "Advanced Physical Chemistry II",
+        "code": "CHM412"
+    },
+    {
+        "name": "Advanced Organic Chemistry II",
+        "code": "CHM422"
+    },
+    {
+        "name": "Chemical Process Technology III",
+        "code": "CHM452"
+    },
+    {
+        "name": "Chemistry of Natural Products II",
+        "code": "CHM424"
+    },
+    {
+        "name": "Polymer Chemistry and Technology",
+        "code": "CHM454"
+    },
+    {
+        "name": "Chemistry of Coal and Coal Products",
+        "code": "CHM486"
+    },
+    {
+        "name": "Colour Chemistry and Technology II",
+        "code": "CHM482"
+    },
+    {
+        "name": "Extraction Metallurgy",
+        "code": "CHM484"
+    },
+    {
+        "name": "Sugar and Fermentation Industry",
+        "code": "CHM484"
+    }
+]
