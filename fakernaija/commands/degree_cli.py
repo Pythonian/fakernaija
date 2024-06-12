@@ -25,7 +25,7 @@ naija = Faker()
     "--degree-type",
     "-t",
     default=None,
-    help="Type of degree to generate (undergraduate, masters, doctorate).",
+    help="Type of degree to generate.",
     type=click.Choice(["undergraduate", "masters", "doctorate"]),
 )
 def degree(repeat: int, initial: bool, degree_type: str) -> None:
@@ -40,19 +40,16 @@ def degree(repeat: int, initial: bool, degree_type: str) -> None:
 
     Examples:
         $ naija degree
-        $ naija degree -r 3
         $ naija degree --repeat 3
         $ naija degree --initial
-        $ naija degree -r 3 --initial
         $ naija degree --degree-type masters
+        $ naija degree --repeat 3 --initial --degree-type undergraduate
     """
     if repeat < 1:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
         return
 
     if degree_type:
-        # Convert degree_type input to lowercase
-        degree_type = degree_type.lower()
         if degree_type == "undergraduate":
             degrees = [
                 naija.undergraduate_degree(initial=initial) for _ in range(repeat)
