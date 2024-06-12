@@ -1,0 +1,294 @@
+[
+    {
+        "name": "Administration and Management",
+        "departments": [
+            "Accounting",
+            "Actuarial Science",
+            "Aviation Management",
+            "Finance",
+            "Business Administration",
+            "Business Information Technology",
+            "Co-operative and Rural Development",
+            "Employment and Human Resource Management",
+            "Entrepreneurship",
+            "Hospitality and Tourism Management",
+            "Information Resource Management",
+            "Insurance",
+            "Local Government and Development Studies",
+            "Logistics and Supply Chain Management",
+            "Marketing",
+            "Office and Information Management",
+            "Petroleum Information Management",
+            "Procurement Management",
+            "Project Management",
+            "Public Administration",
+            "Security and Investment",
+            "Taxation",
+            "Transport Management"
+        ]
+    },
+    {
+        "name": "Agriculture",
+        "departments": [
+            "Agribusiness",
+            "Agricultural Science",
+            "Agricultural Economics",
+            "Agricultural Extension",
+            "Animal Science",
+            "Crop Science",
+            "Family and Consumer Sciences",
+            "Fisheries and Aquaculture",
+            "Food Science and Technology",
+            "Forest Resources and Wildlife Management",
+            "Horticulture and Landscape Management",
+            "Soil Science",
+            "Water Resources Management and Agro-meteorology"
+        ]
+    },
+    {
+        "name": "Allied Health Sciences",
+        "departments": [
+            "Audiology",
+            "Complementary and Alternative Medicine",
+            "Dental Technology",
+            "Dental Therapy",
+            "Environmental Health Science",
+            "Health Care Administration and Hospital Management",
+            "Health Information Management",
+            "Information Technology and Health Informatics",
+            "Medical Laboratory Science",
+            "Nursing Sciences",
+            "Human Nutrition and Dietetics",
+            "Occupational Therapy",
+            "Optometry",
+            "Pharmacology",
+            "Physiotherapy",
+            "Prosthetics and Orthotics",
+            "Public Health",
+            "Radiography",
+            "Speech-Language Therapy"
+        ]
+    },
+    {
+        "name": "Architecture",
+        "departments": [
+            "Architecture",
+            "Architectural Technology",
+            "Furniture Design",
+            "Interior Architecture Design",
+            "Landscape Architecture",
+            "Naval Architecture"
+        ]
+    },
+    {
+        "name": "Arts",
+        "departments": [
+            "Folklore",
+            "Film Production",
+            "African Languages and Literature Efik",
+            "African Languages and Literature Hausa",
+            "African Languages and Literature Ibibio",
+            "African Languages and Literature Igbo",
+            "African Languages and Literature Yoruba",
+            "African Traditional Religion",
+            "Arabic",
+            "Archaeology",
+            "Chinese Language",
+            "Christian Religious Studies",
+            "Christian Theology",
+            "Classics",
+            "English Language and Literature in English",
+            "History and Diplomatic Studies",
+            "History",
+            "Islamic Studies",
+            "Linguistics",
+            "Modern European Languages French",
+            "Modern European Languages German",
+            "Modern European Languages Russia",
+            "Music",
+            "Philosophy",
+            "Religious Studies",
+            "Theatre Arts"
+        ]
+    },
+    {
+        "name": "Basic Medical Sciences",
+        "departments": [
+            "Human Anatomy",
+            "Physiology"
+        ]
+    },
+    {
+        "name": "Communications and Media Studies",
+        "departments": [
+            "Strategic Communications",
+            "Advertising",
+            "Broadcasting",
+            "Development Communications Studies",
+            "Film and Multimedia",
+            "Information and Media Studies",
+            "Journalism and Media Studies",
+            "Mass Communications",
+            "Public Relations"
+        ]
+    },
+    {
+        "name": "Computing",
+        "departments": [
+            "Cybersecurity",
+            "Software Engineering",
+            "Data Science",
+            "Information and Communications Technology",
+            "Information Technology",
+            "Information System",
+            "Computer Science"
+        ]
+    },
+    {
+        "name": "Education",
+        "departments": [
+            "Adult and Continuing Education",
+            "Agricultural Education",
+            "Arabic",
+            "Biology",
+            "Business Education",
+            "Chemistry",
+            "Christian Religious Studies",
+            "Computer Science",
+            "Creative Arts Education",
+            "Early Childhood Education",
+            "Economics",
+            "Educational Management",
+            "Efik-Ibibio Education",
+            "English Language/Literature-in-English",
+            "Entrepreneurship Education",
+            "Environmental Education",
+            "French",
+            "Geography",
+            "Guidance and Counseling",
+            "Hausa",
+            "Health Education",
+            "History",
+            "Home Economics",
+            "Human Kinetics/Physical Education",
+            "Igbo",
+            "Integrated Science",
+            "Islamic Studies",
+            "Language Arts and Communication",
+            "Library and Information Science",
+            "Mathematics",
+            "Music",
+            "Physics",
+            "Political Science",
+            "Primary Education",
+            "Social Studies and Civic Education",
+            "Special Needs Education",
+            "Sustainable Development Studies",
+            "Technology Education",
+            "Yoruba"
+        ]
+    },
+    {
+        "name": "Engineering",
+        "departments": [
+            "Aerospace Engineering",
+            "Agricultural and Biosystems Engineering",
+            "Automotive Engineering",
+            "Biomedical Engineering",
+            "Chemical Engineering",
+            "Civil Engineering",
+            "Computer Engineering",
+            "Electrical Engineering",
+            "Electrical and Electronic Engineering",
+            "Electronic Engineering",
+            "Environmental Engineering",
+            "Food Science and Engineering/Technology",
+            "Industrial and Production Engineering",
+            "Information and Communication Engineering",
+            "Marine Engineering",
+            "Materials and Metallurgical Engineering",
+            "Mechanical Engineering",
+            "Mechatronics Engineering",
+            "Metallurgical Engineering",
+            "Mining Engineering",
+            "Natural Gas Engineering",
+            "Petrochemical Engineering",
+            "Petroleum Engineering",
+            "Petroleum and Gas Engineering",
+            "Structural Engineering",
+            "Systems Engineering",
+            "Telecommunications Engineering",
+            "Water Resources Engineering",
+            "Wood Products Engineering"
+        ]
+    },
+    {
+        "name": "Law",
+        "departments": [
+            "Common Law",
+            "Combined Law"
+        ]
+    },
+    {
+        "name": "Medicine and Dentistry",
+        "departments": [
+            "Bachelor of Medicine and Bachelor of Surgery",
+            "Dentistry"
+        ]
+    },
+    {
+        "name": "Sciences",
+        "departments": [
+            "Applied Geophysics",
+            "Biochemistry",
+            "Biology",
+            "Biotechnology",
+            "Botany",
+            "Brewing Science and Technology",
+            "Chemistry",
+            "Environmental Management and Toxicology",
+            "Forensic Science",
+            "Geology",
+            "Industrial Chemistry",
+            "Industrial Mathematics",
+            "Industrial Physics",
+            "Marine Science",
+            "Maritime Science",
+            "Mathematics",
+            "Medical Physics",
+            "Medicinal Chemistry",
+            "Meteorology",
+            "Microbiology",
+            "Petroleum Chemistry",
+            "Physics with Electronics",
+            "Physics",
+            "Science Laboratory Technology",
+            "Statistics",
+            "Zoology"
+        ]
+    },
+    {
+        "name": "Social Sciences",
+        "departments": [
+            "Criminology and Security Studies",
+            "Demography and Social Statistics",
+            "Development Studies",
+            "Economics",
+            "International Relations",
+            "Peace and Conflict Resolution",
+            "Petroleum Economics and Policy Studies",
+            "Political Science",
+            "Politics, Philosophy and Economics",
+            "Psychology",
+            "Social Standards",
+            "Social Work",
+            "Sociology"
+        ]
+    },
+    {
+        "name": "Veterinary Medicine",
+        "departments": [
+            "Doctor of Veterinary Medicine"
+        ]
+    }
+]
