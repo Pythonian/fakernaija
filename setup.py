@@ -42,6 +42,14 @@ setup(
     keywords="faker data generator mock nigeria naija test",
     packages=find_packages(),
     package_data={"": ["*.json"]},
+    install_requires=[
+        "click==8.1.7",
+    ],
+    entry_points={
+        "console_scripts": [
+            "naija=fakernaija.cli:cli",
+        ],
+    },
     python_requires=">=3.10, <4",
     project_urls={
         "Bug Reports": "https://github.com/Pythonian/fakernaija/issues",
