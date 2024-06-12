@@ -3,6 +3,7 @@
 import click
 
 from fakernaija.commands.degree_cli import degree
+from fakernaija.commands.email_cli import email
 from fakernaija.commands.phonenumber_cli import phonenumber
 
 
@@ -12,6 +13,7 @@ def cli() -> None:
 
 
 cli.add_command(degree, name="degree")
+cli.add_command(email, name="email")
 cli.add_command(phonenumber, name="phonenumber")
 
 if __name__ == "__main__":
