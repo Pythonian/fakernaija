@@ -13,7 +13,7 @@ class DegreeProvider:
 
         Sets the path to the directory containing degrees data.
         """
-        self.data_path = Path(__file__).parent / "data" / "degrees.json"
+        self.data_path = Path(__file__).parent.parent / "data" / "degrees.json"
         self.degrees_data = load_json(
             self.data_path,
             [

@@ -11,7 +11,7 @@ class StateProvider:
 
     def __init__(self) -> None:
         """Initializes the StateProvider instance by loading state data from a JSON file."""
-        self.data_path = Path(__file__).parent / "data" / "states.json"
+        self.data_path = Path(__file__).parent.parent / "data" / "states.json"
         self.states_data = load_json(
             self.data_path,
             [

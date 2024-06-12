@@ -13,7 +13,7 @@ class CourseProvider:
 
         Sets the path to the directory containing Courses data.
         """
-        self.data_path = Path(__file__).parent / "data" / "courses.json"
+        self.data_path = Path(__file__).parent.parent / "data" / "courses.json"
         self.courses_data = load_json(
             self.data_path,
             [

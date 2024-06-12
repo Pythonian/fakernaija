@@ -14,7 +14,7 @@ class NameProvider:
 
         Sets the path to the directory containing name data files.
         """
-        self.data_path = Path(__file__).parent / "data" / "names"
+        self.data_path = Path(__file__).parent.parent / "data" / "names"
         self.first_names = load_json(
             self.data_path / "first_names.json",
             ["tribe", "gender", "name"],

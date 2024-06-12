@@ -14,7 +14,7 @@ class SchoolProvider:
 
         Sets the path to the directory containing schools data.
         """
-        self.data_path = Path(__file__).parent / "data" / "schools.json"
+        self.data_path = Path(__file__).parent.parent / "data" / "schools.json"
         self.schools_data = load_json(
             self.data_path,
             [
