@@ -6,6 +6,7 @@ from fakernaija.commands.course_cli import course
 from fakernaija.commands.degree_cli import degree
 from fakernaija.commands.email_cli import email
 from fakernaija.commands.faculty_cli import department, faculty
+from fakernaija.commands.name_cli import firstname, fullname, lastname, prefix
 from fakernaija.commands.phonenumber_cli import phonenumber
 
 
@@ -19,6 +20,10 @@ cli.add_command(degree, name="degree")
 cli.add_command(department, name="department")
 cli.add_command(email, name="email")
 cli.add_command(faculty, name="faculty")
+cli.add_command(firstname, name="firstname")
+cli.add_command(fullname, name="fullname")
+cli.add_command(lastname, name="lastname")
+cli.add_command(prefix, name="prefix")
 cli.add_command(phonenumber, name="phonenumber")
 
 if __name__ == "__main__":

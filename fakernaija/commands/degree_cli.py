@@ -67,4 +67,7 @@ def degree(repeat: int, initial: bool, degree_type: str) -> None:
         degrees = [naija.degree(initial=initial) for _ in range(repeat)]
 
     for degree in degrees:
-        click.echo(degree)
+        if degree:
+            click.echo(degree)
+        else:
+            click.echo("Error: Failed to generate degree.", err=True)

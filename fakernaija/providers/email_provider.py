@@ -3,7 +3,7 @@
 import random
 import re
 
-from fakernaija.providers.names import NameProvider
+from fakernaija.providers.name_provider import NameProvider
 
 
 class EmailProvider:

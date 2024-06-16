@@ -23,6 +23,7 @@ class NameProvider:
             self.data_path / "last_names.json",
             ["tribe", "name"],
         )
+        self.tribes = list({name["tribe"] for name in self.first_names})
 
     def normalize_input(self, value: str | None) -> str | None:
         """Normalize input value to lowercase.
@@ -52,6 +53,9 @@ class NameProvider:
         tribe = self.normalize_input(tribe)
         gender = self.normalize_input(gender)
 
+        if tribe and tribe not in self.tribes:
+            return []
+
         names = self.first_names
         if tribe:
             names = [name for name in names if name["tribe"] == tribe]
@@ -70,6 +74,9 @@ class NameProvider:
         """
         tribe = self.normalize_input(tribe)
 
+        if tribe and tribe not in self.tribes:
+            return []
+
         if tribe:
             return [name for name in self.last_names if name["tribe"] == tribe]
         return self.last_names
@@ -78,7 +85,7 @@ class NameProvider:
         self,
         tribe: str | None = None,
         gender: str | None = None,
-    ) -> str:
+    ) -> str | None:
         """Generate a random first name optionally from a specific ethnic group and gender.
 
         Args:
@@ -86,29 +93,29 @@ class NameProvider:
             gender (str | None, optional): The gender of the name. Defaults to None.
 
         Returns:
-            str: A random first name.
+            str | None: A random first name, or None if no names are available.
         """
         first_names = self.get_first_names(tribe, gender)
-        return random.choice(first_names)["name"]
+        return random.choice(first_names)["name"] if first_names else None
 
-    def generate_last_name(self, tribe: str | None = None) -> str:
+    def generate_last_name(self, tribe: str | None = None) -> str | None:
         """Generate a random last name optionally from a specific ethnic group.
 
         Args:
             tribe (str | None, optional): The ethnic group of the name. Defaults to None.
 
         Returns:
-            str: A random last name.
+            str | None: A random last name, or None if no names are available.
         """
         last_names = self.get_last_names(tribe)
-        return random.choice(last_names)["name"]
+        return random.choice(last_names)["name"] if last_names else None
 
     def generate_full_name(
         self,
         tribe: str | None = None,
         gender: str | None = None,
         middle_name: bool = False,
-    ) -> str:
+    ) -> str | None:
         """Generate a random full name optionally from a specific ethnic group, gender, and with a middle name.
 
         Args:
@@ -117,8 +124,13 @@ class NameProvider:
             middle_name (bool, optional): Whether to include a middle name. Defaults to False.
 
         Returns:
-            str: A random full name.
+            str | None: A random full name, or None if the specified tribe is not found.
         """
+        if tribe is None:
+            tribe = random.choice(self.tribes)
+        elif tribe not in self.tribes:
+            return None
+
         first_name = self.generate_first_name(tribe, gender)
         last_name = self.generate_last_name(tribe)
         if middle_name:

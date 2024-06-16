@@ -2177,29 +2177,9 @@ class TestFakerNameProvider(unittest.TestCase):
         name = self.faker.full_name()
         self.assertIsInstance(name, str)
 
-    def test_male_full_name(self) -> None:
-        """Test that male_full_name returns a string."""
-        name = self.faker.male_full_name()
-        self.assertIsInstance(name, str)
-
-    def test_female_full_name(self) -> None:
-        """Test that female_full_name returns a string."""
-        name = self.faker.female_full_name()
-        self.assertIsInstance(name, str)
-
     def test_first_name(self) -> None:
         """Test that first_name returns a string."""
         name = self.faker.first_name()
-        self.assertIsInstance(name, str)
-
-    def test_male_first_name(self) -> None:
-        """Test that male_first_name returns a string."""
-        name = self.faker.male_first_name()
-        self.assertIsInstance(name, str)
-
-    def test_female_first_name(self) -> None:
-        """Test that female_first_name returns a string."""
-        name = self.faker.female_first_name()
         self.assertIsInstance(name, str)
 
     def test_last_name(self) -> None:

@@ -51,7 +51,10 @@ def phonenumber(repeat: int, network: str, prefix: str) -> None:
 
     try:
         for _ in range(repeat):
-            phone = naija.phone_number(network=network, prefix=prefix)
-            click.echo(phone)
+            phonenumber = naija.phone_number(network=network, prefix=prefix)
+            if phonenumber:
+                click.echo(phonenumber)
+            else:
+                click.echo("Error: Failed to generate phonenumber.", err=True)
     except ValueError as e:
         click.echo(f"Error: {e}", err=True)

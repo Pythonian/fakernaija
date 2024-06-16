@@ -47,12 +47,11 @@ venv: ## Create a virtual environment
 
 install: ## Install development packages
 	$(PIP) install --upgrade pip
-	$(PIP) install tox==4.15.0 pre-commit==3.7.1
+	$(PIP) install -r requirements.txt
 	$(PRE_COMMIT) install
 	@echo "Development packages and pre-commit hooks installed"
 
 docs: ## Build sphinx documentation
-	$(PIP) install sphinx==7.3.7 sphinx-rtd-theme==2.0.0
 	$(PIP) install -e .
 	@sphinx-build -M html docs/source/ docs/build/
 	@echo "Project documentation successfully built."

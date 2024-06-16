@@ -62,4 +62,7 @@ def department(repeat: int) -> None:
 
     for _ in range(repeat):
         department = naija.department()
-        click.echo(department)
+        if department:
+            click.echo(department)
+        else:
+            click.echo("Error: Failed to generate department.", err=True)

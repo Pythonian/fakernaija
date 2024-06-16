@@ -9,7 +9,7 @@ import unittest
 from unittest.mock import MagicMock, patch
 
 from fakernaija.providers.email_provider import EmailProvider
-from fakernaija.providers.names import NameProvider
+from fakernaija.providers.name_provider import NameProvider
 
 
 class TestEmailProvider(unittest.TestCase):

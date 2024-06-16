@@ -42,4 +42,7 @@ def course(repeat: int, code: bool) -> None:
 
     for _ in range(repeat):
         course = naija.course(code=code)
-        click.echo(course)
+        if course:
+            click.echo(course)
+        else:
+            click.echo("Error: Failed to generate course.", err=True)

@@ -3,14 +3,14 @@
 import unittest
 from unittest.mock import MagicMock, mock_open, patch
 
-from fakernaija.providers.names import NameProvider
+from fakernaija.providers.name_provider import NameProvider
 from fakernaija.utils import load_json, validate_json_structure
 
 
 class NameProviderLoadJSONFirstNames(unittest.TestCase):
     """Unit tests for loading the JSON data of the NameProvider."""
 
-    @patch("fakernaija.providers.names.load_json")
+    @patch("fakernaija.providers.name_provider.load_json")
     def setUp(self, mock_load_json: MagicMock) -> None:  # noqa: ARG002
         """Set up the test case with mock data."""
         self.valid_data: list[dict[str, str]] = [
@@ -82,7 +82,7 @@ class NameProviderLoadJSONFirstNames(unittest.TestCase):
 class NameProviderLoadJSONLastNames(unittest.TestCase):
     """Unit tests for loading the JSON data of the NameProvider."""
 
-    @patch("fakernaija.providers.names.load_json")
+    @patch("fakernaija.providers.name_provider.load_json")
     def setUp(self, mock_load_json: MagicMock) -> None:  # noqa: ARG002
         """Set up the test case with mock data."""
         self.valid_data: list[dict[str, str]] = [
