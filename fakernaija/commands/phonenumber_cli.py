@@ -58,3 +58,19 @@ def phonenumber(repeat: int, network: str, prefix: str) -> None:
                 click.echo("Error: Failed to generate phonenumber.", err=True)
     except ValueError as e:
         click.echo(f"Error: {e}", err=True)
+
+
+@click.command()
+def calling_code() -> None:
+    """Return Nigeria's calling code.
+
+    This command simply returns Nigeria's calling code.
+
+    Examples:
+        $ naija calling_code
+    """
+    calling_code = naija.calling_code()
+    if calling_code:
+        click.echo(calling_code)
+    else:
+        click.echo("Error: Failed to generate calling code.", err=True)

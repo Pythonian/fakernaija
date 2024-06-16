@@ -10,6 +10,24 @@ class PhoneNumber:
         """Initializes the PhoneNumber mixin and its provider."""
         self.phonenumber_provider = PhoneNumberProvider()
 
+    def calling_code(self) -> str:
+        """Return Nigeria's call code.
+
+        Returns:
+            str: Nigeria's call code.
+
+        Example:
+            .. code-block:: python
+
+                >>> from fakernaija.faker import Faker
+                >>> naija = Faker()
+
+                >>> calling_code = naija.calling_code()
+                >>> print(f"Nigeria's calling code: {calling_code}")
+                'Nigeria's calling code: +234'
+        """
+        return self.phonenumber_provider.get_nigeria_call_code()
+
     def phone_number(
         self,
         network: str | None = None,

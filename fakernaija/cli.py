@@ -14,7 +14,7 @@ from fakernaija.commands.degree_cli import degree
 from fakernaija.commands.email_cli import email
 from fakernaija.commands.faculty_cli import department, faculty
 from fakernaija.commands.name_cli import firstname, fullname, lastname, prefix
-from fakernaija.commands.phonenumber_cli import phonenumber
+from fakernaija.commands.phonenumber_cli import calling_code, phonenumber
 
 
 @click.group()
@@ -22,6 +22,7 @@ def cli() -> None:
     """A CLI for generating random Nigerian data."""
 
 
+cli.add_command(calling_code, name="calling_code")
 cli.add_command(course, name="course")
 cli.add_command(currency, name="currency")
 cli.add_command(currency_code, name="currency_code")
