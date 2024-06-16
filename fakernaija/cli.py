@@ -3,6 +3,13 @@
 import click
 
 from fakernaija.commands.course_cli import course
+from fakernaija.commands.currency_cli import (
+    currency,
+    currency_code,
+    currency_name,
+    currency_symbol,
+    pricetag,
+)
 from fakernaija.commands.degree_cli import degree
 from fakernaija.commands.email_cli import email
 from fakernaija.commands.faculty_cli import department, faculty
@@ -16,6 +23,11 @@ def cli() -> None:
 
 
 cli.add_command(course, name="course")
+cli.add_command(currency, name="currency")
+cli.add_command(currency_code, name="currency_code")
+cli.add_command(currency_name, name="currency_name")
+cli.add_command(currency_symbol, name="currency_symbol")
+cli.add_command(pricetag, name="pricetag")
 cli.add_command(degree, name="degree")
 cli.add_command(department, name="department")
 cli.add_command(email, name="email")

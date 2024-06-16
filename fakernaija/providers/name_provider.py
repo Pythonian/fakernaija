@@ -24,6 +24,7 @@ class NameProvider:
             ["tribe", "name"],
         )
         self.tribes = list({name["tribe"] for name in self.first_names})
+        self.genders = list({name["gender"] for name in self.first_names})
 
     def normalize_input(self, value: str | None) -> str | None:
         """Normalize input value to lowercase.
@@ -124,8 +125,11 @@ class NameProvider:
             middle_name (bool, optional): Whether to include a middle name. Defaults to False.
 
         Returns:
-            str | None: A random full name, or None if the specified tribe is not found.
+            str | None: A random full name, or None if the specified tribe is not found or the gender is unsupported.
         """
+        if gender and gender not in self.genders:
+            return None
+
         if tribe is None:
             tribe = random.choice(self.tribes)
         elif tribe not in self.tribes:
@@ -133,6 +137,9 @@ class NameProvider:
 
         first_name = self.generate_first_name(tribe, gender)
         last_name = self.generate_last_name(tribe)
+        if first_name is None or last_name is None:
+            return None
+
         if middle_name:
             optional_middle_name = self.generate_first_name(tribe, gender)
             return f"{first_name} {optional_middle_name} {last_name}"
