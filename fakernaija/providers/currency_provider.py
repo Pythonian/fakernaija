@@ -10,13 +10,16 @@ class CurrencyProvider:
         self.currency_name = "Nigerian naira"
         self.currency_symbol = "₦"
 
-    def get_currency(self) -> tuple[str, str]:
-        """Returns the currency code and name as a tuple.
+    def get_currency(self) -> dict[str, str]:
+        """Returns the currency code and name as a dictionary.
 
         Returns:
-            tuple[str, str]: The currency code and currency name.
+            dict[str, str]: The currency code and currency name.
         """
-        return self.currency_code, self.currency_name
+        return {
+            "code": self.currency_code,
+            "name": self.currency_name,
+        }
 
     def get_currency_code(self) -> str:
         """Returns the currency code.
@@ -41,14 +44,3 @@ class CurrencyProvider:
             str: The currency symbol.
         """
         return self.currency_symbol
-
-    def get_pricetag(self, amount: float) -> str:
-        """Get a formatted pricetag with the currency symbol.
-
-        Args:
-            amount (float): The amount to format.
-
-        Returns:
-            str: The formatted pricetag.
-        """
-        return f"{self.currency_symbol}{amount:,.2f}"

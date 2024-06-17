@@ -23,8 +23,8 @@ class PhoneNumber:
                 >>> naija = Faker()
 
                 >>> calling_code = naija.calling_code()
-                >>> print(f"Nigeria's calling code: {calling_code}")
-                'Nigeria's calling code: +234'
+                >>> print(f"Nigeria's calling code: ({calling_code})")
+                'Nigeria's calling code: (+234)'
         """
         return self.phonenumber_provider.get_nigeria_call_code()
 

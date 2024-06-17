@@ -1,7 +1,5 @@
 """Currency mixin to group related methods for the CurrencyProvider."""
 
-import random
-
 from fakernaija.providers.currency_provider import CurrencyProvider
 
 
@@ -12,11 +10,11 @@ class Currency:
         """Initializes the Currency mixin and its provider."""
         self.currency_provider = CurrencyProvider()
 
-    def currency(self) -> tuple[str, str]:
+    def currency(self) -> dict[str, str]:
         """Generates the currency code and name.
 
         Returns:
-            tuple[str, str]: The currency code and name.
+            dict[str, str]: The currency code and name.
 
         Examples:
             .. code-block:: python
@@ -26,7 +24,7 @@ class Currency:
 
                 >>> currency = naija.currency()
                 >>> print(f"Nigerian currency: {currency}")
-                'Nigerian currency: ("NGN", "Nigerian naira")'
+                "Nigerian currency: {'code': 'NGN', 'name': 'Nigerian naira'}"
         """
         return self.currency_provider.get_currency()
 
@@ -83,32 +81,3 @@ class Currency:
                 'Nigerian currency symbol: ₦'
         """
         return self.currency_provider.get_currency_symbol()
-
-    def pricetag(self) -> str:
-        """Generates a random price tag with the Nigerian currency.
-
-        Returns:
-            str: The formatted price tag.
-
-        Examples:
-            .. code-block:: python
-
-                >>> from fakernaija.faker import Faker
-                >>> naija = Faker()
-
-                >>> pricetag = naija.pricetag()
-                >>> print(f"Pricetag: {pricetag}")
-                'Pricetag: ₦2,235.00'
-        """
-        amount = random.uniform(1, 100000)
-
-        # Decide if the amount should be rounded to the nearest hundred with 30% probability
-        if random.random() < 0.3:  # noqa: PLR2004
-            amount = round(amount / 100) * 100
-
-        # Decide if there should be a kobo value or .00
-        include_kobo = random.choice([True, False])
-
-        if include_kobo:
-            return self.currency_provider.get_pricetag(amount)
-        return self.currency_provider.get_pricetag(amount).split(".")[0] + ".00"

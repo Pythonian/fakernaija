@@ -19,7 +19,10 @@ class TestCurrency(unittest.TestCase):
 
     def test_currency(self) -> None:
         """Test the currency method for returning the currency code and name."""
-        self.assertEqual(self.currency.currency(), ("NGN", "Nigerian naira"))
+        self.assertEqual(
+            self.currency.currency(),
+            {"code": "NGN", "name": "Nigerian naira"},
+        )
 
     def test_currency_code(self) -> None:
         """Test the currency_code method for returning the currency code."""
@@ -32,9 +35,3 @@ class TestCurrency(unittest.TestCase):
     def test_currency_symbol(self) -> None:
         """Test the currency_symbol method for returning the currency symbol."""
         self.assertEqual(self.currency.currency_symbol(), "₦")
-
-    def test_pricetag(self) -> None:
-        """Test the pricetag method for generating a formatted price tag."""
-        pricetag = self.currency.pricetag()
-        self.assertTrue(pricetag.startswith("₦"))
-        self.assertTrue(pricetag.endswith(".00") or pricetag[-3] == ".")

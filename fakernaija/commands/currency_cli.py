@@ -69,35 +69,3 @@ def currency_symbol() -> None:
         click.echo(currency_symbol)
     else:
         click.echo("Error: Failed to generate currency symbol.", err=True)
-
-
-@click.command()
-@click.option(
-    "--repeat",
-    "-r",
-    default=1,
-    help="Number of random pricetags to return. Defaults to 1.",
-    type=int,
-)
-def pricetag(repeat: int) -> None:
-    """Return a Naira pricetag.
-
-    This command generates a pricetag in Naira.
-
-    Args:
-        repeat (int): The number of random pricetags to return.
-
-    Examples:
-        $ naija pricetag
-        $ naija pricetag --repeat 3
-    """
-    if repeat < 1:
-        click.echo("Error: Repeat count must be a positive integer.", err=True)
-        return
-
-    for _ in range(repeat):
-        pricetag = naija.pricetag()
-        if pricetag:
-            click.echo(pricetag)
-        else:
-            click.echo("Error: Failed to generate pricetag.", err=True)
