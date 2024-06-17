@@ -17,7 +17,7 @@ class Name:
         tribe: str | None = None,
         gender: str | None = None,
         middle_name: bool = False,
-    ) -> str | None:
+    ) -> str:
         """Generate a random full name.
 
         Args:
@@ -32,8 +32,8 @@ class Name:
             - Supported genders: male, female
             - Supported tribes: yoruba, igbo, hausa, edo, fulani, ijaw
 
-        Caution:
-            Entering a gender or an ethnic group which is not (yet) supported will return None.
+        Raises:
+            ValueError: If the specified tribe or gender is not supported or if no names are available.
 
         Example:
             .. code-block:: python
@@ -67,7 +67,7 @@ class Name:
         self,
         tribe: str | None = None,
         gender: str | None = None,
-    ) -> str | None:
+    ) -> str:
         """Generate a random first name.
 
         Args:
@@ -81,8 +81,8 @@ class Name:
             - Supported genders: male, female
             - Supported tribes: yoruba, igbo, hausa, edo, fulani, ijaw
 
-        Caution:
-            Entering a gender or an ethnic group which is not (yet) supported will return None.
+        Raises:
+            ValueError: If the specified tribe or gender is not supported or if no names are available.
 
         Example:
             .. code-block:: python
@@ -108,7 +108,7 @@ class Name:
         """
         return self.name_provider.generate_first_name(tribe, gender)
 
-    def last_name(self, tribe: str | None = None) -> str | None:
+    def last_name(self, tribe: str | None = None) -> str:
         """Generate a random last name.
 
         Args:
@@ -120,8 +120,8 @@ class Name:
         Note:
             - Supported tribes: yoruba, igbo, hausa, edo, fulani, ijaw
 
-        Caution:
-            Entering an ethnic group which is not (yet) supported will return None.
+        Raises:
+            ValueError: If the specified tribe is not supported or if no names are available.
 
         Example:
             .. code-block:: python

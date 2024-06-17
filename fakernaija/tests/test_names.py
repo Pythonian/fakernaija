@@ -63,8 +63,15 @@ class TestNameProvider(unittest.TestCase):
 
     def test_get_first_names_no_match(self) -> None:
         """Test getting first names with no match found."""
-        first_names = self.name_provider.get_first_names(tribe="hausa", gender="male")
-        self.assertEqual(first_names, [])
+        with self.assertRaises(ValueError) as context:
+            self.name_provider.get_first_names(tribe="hausa", gender="male")
+        self.assertIn("Unsupported tribe: hausa", str(context.exception))
+
+    def test_get_first_names_invalid_gender(self) -> None:
+        """Test getting first names with unsupported gender."""
+        with self.assertRaises(ValueError) as context:
+            self.name_provider.get_first_names(tribe="igbo", gender="invalid")
+        self.assertIn("Unsupported gender: invalid", str(context.exception))
 
     def test_get_last_names_no_filters(self) -> None:
         """Test retrieving last names without filters."""
@@ -79,8 +86,9 @@ class TestNameProvider(unittest.TestCase):
 
     def test_get_last_names_no_match(self) -> None:
         """Test getting last names with no match found."""
-        last_names = self.name_provider.get_last_names(tribe="hausa")
-        self.assertEqual(last_names, [])
+        with self.assertRaises(ValueError) as context:
+            self.name_provider.get_last_names(tribe="hausa")
+        self.assertIn("Unsupported tribe: hausa", str(context.exception))
 
     @patch(
         "random.choice",
