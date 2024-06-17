@@ -33,37 +33,37 @@ class TestDegreeMixin(unittest.TestCase):
         self.assertIn(initial, self.all_initials)
 
     def test_undergraduate_degree(self) -> None:
-        """Test that undergraduate_degree returns a full name string."""
-        name = self.faker.undergraduate_degree()
+        """Test that undergraduate degree returns a full name string."""
+        name = self.faker.degree(degree_type="undergraduate")
         self.assertIsInstance(name, str)
         self.assertIn(name, self.all_degrees)
 
     def test_undergraduate_degree_initial(self) -> None:
-        """Test that undergraduate_degree with initial=True returns an initial string."""
-        initial = self.faker.undergraduate_degree(initial=True)
+        """Test that undergraduate degree with initial=True returns an initial string."""
+        initial = self.faker.degree(degree_type="undergraduate", initial=True)
         self.assertIsInstance(initial, str)
         self.assertIn(initial, self.all_initials)
 
     def test_masters_degree(self) -> None:
-        """Test that masters_degree returns a full name string."""
-        name = self.faker.masters_degree()
+        """Test that masters degree returns a full name string."""
+        name = self.faker.degree(degree_type="masters")
         self.assertIsInstance(name, str)
         self.assertIn(name, self.all_degrees)
 
     def test_masters_degree_initial(self) -> None:
-        """Test that masters_degree with initial=True returns an initial string."""
-        initial = self.faker.masters_degree(initial=True)
+        """Test that masters degree with initial=True returns an initial string."""
+        initial = self.faker.degree(initial=True, degree_type="masters")
         self.assertIsInstance(initial, str)
         self.assertIn(initial, self.all_initials)
 
     def test_doctorate_degree(self) -> None:
-        """Test that doctorate_degree returns a full name string."""
-        name = self.faker.doctorate_degree()
+        """Test that doctorate degree returns a full name string."""
+        name = self.faker.degree(degree_type="doctorate")
         self.assertIsInstance(name, str)
         self.assertIn(name, self.all_degrees)
 
     def test_doctorate_degree_initial(self) -> None:
-        """Test that doctorate_degree with initial=True returns an initial string."""
-        initial = self.faker.doctorate_degree(initial=True)
+        """Test that doctorate degree with initial=True returns an initial string."""
+        initial = self.faker.degree(initial=True, degree_type="doctorate")
         self.assertIsInstance(initial, str)
         self.assertIn(initial, self.all_initials)

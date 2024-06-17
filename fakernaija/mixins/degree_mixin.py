@@ -19,15 +19,15 @@ class Degree:
         """Initializes the Degree mixin and its provider."""
         self.degree_provider = DegreeProvider()
         self._used_degrees: set[str] = set()
-        self._used_undergraduate_degrees: set[str] = set()
-        self._used_masters_degrees: set[str] = set()
-        self._used_doctorate_degrees: set[str] = set()
 
-    def degree(self, initial: bool = False) -> str:
+    def degree(self, degree_type: str | None = None, initial: bool = False) -> str:
         """Generates a random degree or degree initial.
 
         Args:
-            initial (bool): If True, returns the degree initial instead of the full name. Defaults to False.
+            degree_type (str | None, optional): The type of degree to generate.
+                                                Defaults to None (any degree type).
+            initial (bool, optional): If True, returns the degree initial instead of the full name.
+                                      Defaults to False.
 
         Returns:
             str: A random degree or degree initial.
@@ -45,102 +45,34 @@ class Degree:
                 >>> degree_initial = naija.degree(initial=True)
                 >>> print(f"Random degree: {degree_initial}")
                 'Random degree: B.Sc.'
+
+                >>> degree = naija.degree(degree_type="undergraduate")
+                >>> print(f"Random degree: {degree}")
+                'Random degree: Bachelor of Science'
+
+                >>> degree = naija.degree(degree_type="masters", initial=True)
+                >>> print(f"Random degree: {degree}")
+                'Random degree: M. Sc.'
+
         """
-        degrees = (
-            self.degree_provider.get_degree_initials()
-            if initial
-            else self.degree_provider.get_degrees()
-        )
+        if degree_type and degree_type not in ["undergraduate", "masters", "doctorate"]:
+            msg = "Invalid degree_type. Must be one of 'undergraduate', 'masters', or 'doctorate'."
+            raise ValueError(msg)
+
+        if initial:
+            degrees = self.degree_provider.get_degree_initials(degree_type)
+        else:
+            degrees = self.degree_provider.get_degrees(degree_type)
         degree = self._get_unique_value(degrees, self._used_degrees)
         self._used_degrees.add(degree)
         return degree
 
-    def undergraduate_degree(self, initial: bool = False) -> str:
-        """Generates a random undergraduate degree or degree initial.
-
-        Args:
-            initial (bool): If True, returns the degree initial instead of the full name. Defaults to False.
-
-        Returns:
-            str: A random undergraduate degree or degree initial.
-
-        Example:
-            .. code-block:: python
-
-                >>> from fakernaija.faker import Faker
-                >>> naija = Faker()
-
-                >>> undergraduate_degree = naija.undergraduate_degree()
-                >>> print(f"Random undergraduate degree: {undergraduate_degree}")
-                'Random undergraduate degree: Bachelor of Arts'
-
-                >>> undergraduate_degree = naija.undergraduate_degree(initial=True)
-                >>> print(f"Random undergraduate degree: {undergraduate_degree}")
-                'Random undergraduate degree: B.A.'
-        """
-        degrees = self.degree_provider.get_undergraduate_degrees(initial)
-        degree = self._get_unique_value(degrees, self._used_undergraduate_degrees)
-        self._used_undergraduate_degrees.add(degree)
-        return degree
-
-    def masters_degree(self, initial: bool = False) -> str:
-        """Generates a random masters degree or degree initial.
-
-        Args:
-            initial (bool): If True, returns the degree initial instead of the full name. Defaults to False.
-
-        Returns:
-            str: A random masters degree or degree initial.
-
-        Example:
-            .. code-block:: python
-
-                >>> from fakernaija.faker import Faker
-                >>> naija = Faker()
-
-                >>> masters_degree = naija.masters_degree()
-                >>> print(f"Random masters degree: {masters_degree}")
-                'Random masters degree: Master of Science'
-
-                >>> masters_degree = naija.masters_degree(initial=True)
-                >>> print(f"Random masters degree: {masters_degree}")
-                'Random masters degree: M.Sc.'
-        """
-        degrees = self.degree_provider.get_masters_degrees(initial)
-        degree = self._get_unique_value(degrees, self._used_masters_degrees)
-        self._used_masters_degrees.add(degree)
-        return degree
-
-    def doctorate_degree(self, initial: bool = False) -> str:
-        """Generates a random doctorate degree or degree initial.
-
-        Args:
-            initial (bool): If True, returns the degree initial instead of the full name. Defaults to False.
-
-        Returns:
-            str: A random doctorate degree or degree initial.
-
-        Example:
-            .. code-block:: python
-
-                >>> from fakernaija.faker import Faker
-                >>> naija = Faker()
-
-                >>> doctorate_degree = naija.doctorate_degree()
-                >>> print(f"Random doctorate degree: {doctorate_degree}")
-                'Random doctorate degree: Doctor of Philosophy'
-
-                >>> doctorate_degree = naija.doctorate_degree(initial=True)
-                >>> print(f"Random doctorate degree: {doctorate_degree}")
-                'Random doctorate degree: Ph.D.'
-        """
-        degrees = self.degree_provider.get_doctorate_degrees(initial)
-        degree = self._get_unique_value(degrees, self._used_doctorate_degrees)
-        self._used_doctorate_degrees.add(degree)
-        return degree
-
     def _get_unique_value(self, values: list[str], used_values: set[str]) -> str:
         """Helper method to get a unique value from a list of values.
+
+        Ensures the generated value is unique within the session by:
+        * Checking available values against used values.
+        * Resetting used values if all options are exhausted.
 
         Args:
             values (list[str]): The list of possible values.
@@ -149,9 +81,13 @@ class Degree:
         Returns:
             str: A unique value from the list.
         """
+        # Calculate the set difference to find values that have not been used
         available_values = set(values) - used_values
+
+        # If no values are available, reset the used values set
         if not available_values:
-            # If all values have been used, reset the used values set
             used_values.clear()
             available_values = set(values)
+
+        # Return a randomly chosen value from the available values
         return random.choice(list(available_values))

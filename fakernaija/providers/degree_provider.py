@@ -23,68 +23,36 @@ class DegreeProvider:
             ],
         )
 
-    def get_degrees(self) -> list[str]:
-        """Get a list of all the degrees.
+    def get_degrees(
+        self,
+        degree_type: str | None = None,
+        initials: bool = False,
+    ) -> list[str]:
+        """Get a list of degrees optionally filtered by type and whether to get initials.
+
+        Args:
+            degree_type (str | None, optional): The type of degree to filter by. Defaults to None (returns all degrees).
+            initials (bool, optional): Whether to get initials instead of full degree names. Defaults to False.
 
         Returns:
-            list[str]: A list of degrees.
+            list[str]: A list of degrees or degree initials based on the filters.
         """
-        return [degree["name"] for degree in self.degrees_data]
+        degrees = self.degrees_data
+        if degree_type:
+            degrees = [
+                degree for degree in degrees if degree["degree_type"] == degree_type
+            ]
+        return [
+            degree["initials"] if initials else degree["name"] for degree in degrees
+        ]
 
-    def get_degree_initials(self) -> list[str]:
-        """Get a list of all the degree initials.
+    def get_degree_initials(self, degree_type: str | None = None) -> list[str]:
+        """Get a list of degree initials optionally filtered by degree type.
+
+        Args:
+            degree_type (str | None, optional): The type of degree to filter by. Defaults to None.
 
         Returns:
             list[str]: A list of degree initials.
         """
-        return [degree["initials"] for degree in self.degrees_data]
-
-    def _get_degrees_by_type(self, degree_type: str, initials: bool) -> list[str]:
-        """Filter degrees based on degree type and whether to get initials.
-
-        Args:
-            degree_type (str): The degree type value to filter by.
-            initials (bool): Whether to get initials instead of full degree names.
-
-        Returns:
-            list[str]: A list of filtered degrees.
-        """
-        key = "initials" if initials else "name"
-        return [
-            degree[key]
-            for degree in self.degrees_data
-            if degree["degree_type"] == degree_type
-        ]
-
-    def get_undergraduate_degrees(self, initials: bool = False) -> list[str]:
-        """Get a list of all undergraduate degrees.
-
-        Args:
-            initials (bool): Whether to get initials instead of full degree names.
-
-        Returns:
-            list[str]: A list of undergraduate degrees.
-        """
-        return self._get_degrees_by_type("undergraduate", initials)
-
-    def get_masters_degrees(self, initials: bool = False) -> list[str]:
-        """Get a list of all masters degrees.
-
-        Args:
-            initials (bool): Whether to get initials instead of full degree names.
-
-        Returns:
-            list[str]: A list of masters degrees.
-        """
-        return self._get_degrees_by_type("masters", initials)
-
-    def get_doctorate_degrees(self, initials: bool = False) -> list[str]:
-        """Get a list of all doctorate degrees.
-
-        Args:
-            initials (bool): Whether to get initials instead of full degree names.
-
-        Returns:
-            list[str]: A list of doctorate degrees.
-        """
-        return self._get_degrees_by_type("doctorate", initials)
+        return self.get_degrees(degree_type, initials=True)

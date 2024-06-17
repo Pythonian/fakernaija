@@ -49,25 +49,34 @@ def degree(repeat: int, initial: bool, degree_type: str) -> None:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
         return
 
-    if degree_type:
-        if degree_type == "undergraduate":
-            degrees = [
-                naija.undergraduate_degree(initial=initial) for _ in range(repeat)
-            ]
-        elif degree_type == "masters":
-            degrees = [naija.masters_degree(initial=initial) for _ in range(repeat)]
-        elif degree_type == "doctorate":
-            degrees = [naija.doctorate_degree(initial=initial) for _ in range(repeat)]
+    try:
+        if degree_type:
+            if degree_type == "undergraduate":
+                degrees = [
+                    naija.degree(degree_type="undergraduate", initial=initial)
+                    for _ in range(repeat)
+                ]
+            elif degree_type == "masters":
+                degrees = [
+                    naija.degree(degree_type="masters", initial=initial)
+                    for _ in range(repeat)
+                ]
+            elif degree_type == "doctorate":
+                degrees = [
+                    naija.degree(degree_type="doctorate", initial=initial)
+                    for _ in range(repeat)
+                ]
+            else:
+                click.echo(
+                    "Error: Invalid type. Must be one of 'undergraduate', 'masters', or 'doctorate'.",
+                    err=True,
+                )
+                return
         else:
-            click.echo(
-                "Error: Invalid type. Must be one of 'undergraduate', 'masters', or 'doctorate'.",
-            )
-    else:
-        # Get a random degree type if not specified
-        degrees = [naija.degree(initial=initial) for _ in range(repeat)]
+            degrees = [naija.degree(initial=initial) for _ in range(repeat)]
 
-    for degree in degrees:
-        if degree:
+        for degree in degrees:
             click.echo(degree)
-        else:
-            click.echo("Error: Failed to generate degree.", err=True)
+
+    except ValueError as e:
+        click.echo(f"Error: {e}", err=True)
