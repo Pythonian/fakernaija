@@ -17,19 +17,13 @@ class CourseProvider:
         Sets the path to the directory containing Courses data.
         """
         self.data_path = Path(__file__).parent.parent / "data" / "courses.json"
-        self.courses_data = load_json(
-            self.data_path,
-            [
-                "name",
-                "code",
-            ],
-        )
+        self.courses_data = load_json(self.data_path, ["name", "code"])
 
     def get_courses(self) -> list[str]:
-        """Get a list of all the courses.
+        """Get a list of all course names.
 
         Returns:
-            list[str]: A list of courses.
+            list[str]: A list of course names.
         """
         return [course["name"] for course in self.courses_data]
 
@@ -40,3 +34,11 @@ class CourseProvider:
             list[str]: A list of courses code.
         """
         return [course["code"] for course in self.courses_data]
+
+    def get_course_data(self) -> list[dict[str, str]]:
+        """Get a list of all courses with their names and codes.
+
+        Returns:
+            list[dict[str, str]]: A list of courses with their names and codes.
+        """
+        return self.courses_data

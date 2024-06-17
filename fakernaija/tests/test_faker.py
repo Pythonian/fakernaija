@@ -2388,6 +2388,12 @@ class TestFakerPhoneNumberProvider(unittest.TestCase):
         """Set up the test case environment."""
         self.faker = Faker()
 
+    def test_calling_code(self) -> None:
+        """Test that calling_code returns the +234 str."""
+        call_code = self.faker.calling_code()
+        self.assertIsInstance(call_code, str)
+        self.assertEqual(call_code, "+234")
+
     def test_phone_number(self) -> None:
         """Test that phone_number returns a valid Nigerian phone number."""
         number = self.faker.phone_number()

@@ -26,6 +26,11 @@ class TestPhoneNumberProvider(unittest.TestCase):
         self.assertTrue(phone_number.startswith(prefix))
         self.assertEqual(len(phone_number), PHONE_NUMBER_LENGTH)
 
+    def test_get_nigeria_call_code(self) -> None:
+        """Test that get_nigeria_call_code returns the +234 str."""
+        call_code = self.provider.get_nigeria_call_code()
+        self.assertEqual(call_code, "+234")
+
     def test_phone_number_random(self) -> None:
         """Test that phone_number generates a valid random phone number."""
         phone_number = self.provider.generate_phone_number()

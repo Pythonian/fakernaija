@@ -2,7 +2,7 @@
 
 import click
 
-from fakernaija.commands.course_cli import course
+from fakernaija.commands.course_cli import course, course_code, course_name
 from fakernaija.commands.currency_cli import (
     currency,
     currency_code,
@@ -23,6 +23,8 @@ def cli() -> None:
 
 cli.add_command(calling_code, name="calling_code")
 cli.add_command(course, name="course")
+cli.add_command(course_code, name="course_code")
+cli.add_command(course_name, name="course_name")
 cli.add_command(currency, name="currency")
 cli.add_command(currency_code, name="currency_code")
 cli.add_command(currency_name, name="currency_name")
