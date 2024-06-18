@@ -11,14 +11,12 @@ class Faculty:
     def __init__(self) -> None:
         """Initializes the Faculty mixin and its provider."""
         self.faculty_provider = FacultyProvider()
-        self._used_faculties: set[str] = set()
-        self._used_departments: set[str] = set()
 
-    def faculty(self) -> str:
-        """Get a random faculty.
+    def faculty(self) -> dict[str, list[str]]:
+        """Get a random faculty with its departments.
 
         Returns:
-            str: A random faculty.
+            dict[str, list[str]]: A dictionary with faculty name and list of departments.
 
         Example:
             .. code-block:: python
@@ -28,12 +26,29 @@ class Faculty:
 
                 >>> faculty = naija.faculty()
                 >>> print(f"Random faculty: {faculty}")
-                'Random faculty: Architecture'
+                "Random faculty: {'name': 'Basic Medical Sciences', 'departments': ['Human Anatomy', 'Physiology']}"
+        """
+        faculty = random.choice(self.faculty_provider.faculties_data)
+        return {"faculty_name": faculty["name"], "departments": faculty["departments"]}
+
+    def faculty_name(self) -> str:
+        """Get a random faculty name.
+
+        Returns:
+            str: A random faculty name.
+
+        Example:
+            .. code-block:: python
+
+                >>> from fakernaija.faker import Faker
+                >>> naija = Faker()
+
+                >>> faculty_name = naija.faculty_name()
+                >>> print(f"Random faculty name: {faculty_name}")
+                'Random faculty name: Basic Medical Sciences'
         """
         faculties = self.faculty_provider.get_faculties()
-        faculty = self._get_unique_value(faculties, self._used_faculties)
-        self._used_faculties.add(faculty)
-        return faculty
+        return random.choice(faculties)
 
     def department(self) -> str:
         """Get a random department.
@@ -52,23 +67,29 @@ class Faculty:
                 'Random department: Accounting'
         """
         departments = self.faculty_provider.get_departments()
-        department = self._get_unique_value(departments, self._used_departments)
-        self._used_departments.add(department)
-        return department
+        return random.choice(departments)
 
-    def _get_unique_value(self, values: list[str], used_values: set[str]) -> str:
-        """Helper method to get a unique value from a list of values.
+    def department_by_faculty(self, faculty: str) -> str:
+        """Get a random department by a given faculty.
 
         Args:
-            values (list[str]): The list of possible values.
-            used_values (set[str]): The set of values that have already been used.
+            faculty (str): The name of the faculty.
 
         Returns:
-            str: A unique value from the list.
+            str: A random department from the specified faculty.
+
+        Example:
+            .. code-block:: python
+
+                >>> from fakernaija.faker import Faker
+                >>> naija = Faker()
+
+                >>> department = naija.department_by_faculty('Basic Medical Sciences')
+                >>> print(f"Random department: {department}")
+                'Random department: Human Anatomy'
         """
-        available_values = set(values) - used_values
-        if not available_values:
-            # If all values have been used, reset the used values set
-            used_values.clear()
-            available_values = set(values)
-        return random.choice(list(available_values))
+        for fac in self.faculty_provider.faculties_data:
+            if fac["name"].lower() == faculty.lower():
+                return random.choice(fac["departments"])
+        msg = f"Faculty '{faculty}' not found"
+        raise ValueError(msg)
