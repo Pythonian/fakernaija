@@ -43,7 +43,7 @@ def phonenumber(repeat: int, network: str, prefix: str) -> None:
         $ naija phonenumber --repeat 3
         $ naija phonenumber --network mtn
         $ naija phonenumber --prefix 0703
-        $ naija phonenumber --repeat 3 --network glo --prefix 0805
+        $ naija phonenumber -r 3 --network glo --prefix 0805
     """
     if repeat < 1:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
