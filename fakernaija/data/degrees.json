@@ -2,166 +2,166 @@
     {
         "name": "Bachelor of Arts",
         "degree_type": "undergraduate",
-        "initials": "B.A."
+        "abbr": "B.A."
     },
     {
         "name": "Bachelor of Science",
         "degree_type": "undergraduate",
-        "initials": "B.Sc."
+        "abbr": "B.Sc."
     },
     {
         "name": "Bachelor of Education",
         "degree_type": "undergraduate",
-        "initials": "B.Ed."
+        "abbr": "B.Ed."
     },
     {
         "name": "Bachelor of Engineering",
         "degree_type": "undergraduate",
-        "initials": "B.Eng."
+        "abbr": "B.Eng."
     },
     {
         "name": "Bachelor of Technology",
         "degree_type": "undergraduate",
-        "initials": "B.Tech."
+        "abbr": "B.Tech."
     },
     {
         "name": "Bachelor of Agriculture",
         "degree_type": "undergraduate",
-        "initials": "B.Agric."
+        "abbr": "B.Agric."
     },
     {
         "name": "Bachelor of Medicine, Bachelor of Surgery",
         "degree_type": "undergraduate",
-        "initials": "MBBS"
+        "abbr": "MBBS"
     },
     {
         "name": "Bachelor of Law",
         "degree_type": "undergraduate",
-        "initials": "LL.B."
+        "abbr": "LL.B."
     },
     {
         "name": "Bachelor of Pharmacy",
         "degree_type": "undergraduate",
-        "initials": "B.Pharm."
+        "abbr": "B.Pharm."
     },
     {
         "name": "Bachelor of Nursing Science",
         "degree_type": "undergraduate",
-        "initials": "B.N.Sc."
+        "abbr": "B.N.Sc."
     },
     {
         "name": "Bachelor of Fine Arts",
         "degree_type": "undergraduate",
-        "initials": "B.F.A."
+        "abbr": "B.F.A."
     },
     {
         "name": "Bachelor of Veterinary Medicine",
         "degree_type": "undergraduate",
-        "initials": "DVM"
+        "abbr": "DVM"
     },
     {
         "name": "Master of Science",
         "degree_type": "masters",
-        "initials": "M.Sc."
+        "abbr": "M.Sc."
     },
     {
         "name": "Master of Arts",
         "degree_type": "masters",
-        "initials": "M.A."
+        "abbr": "M.A."
     },
     {
         "name": "Master of Education",
         "degree_type": "masters",
-        "initials": "M.Ed."
+        "abbr": "M.Ed."
     },
     {
         "name": "Master of Engineering",
         "degree_type": "masters",
-        "initials": "M.Eng."
+        "abbr": "M.Eng."
     },
     {
         "name": "Master of Technology",
         "degree_type": "masters",
-        "initials": "M.Tech."
+        "abbr": "M.Tech."
     },
     {
         "name": "Master of Agriculture",
         "degree_type": "masters",
-        "initials": "M.Agric."
+        "abbr": "M.Agric."
     },
     {
         "name": "Master of Business Administration",
         "degree_type": "masters",
-        "initials": "MBA"
+        "abbr": "MBA"
     },
     {
         "name": "Master of Public Administration",
         "degree_type": "masters",
-        "initials": "MPA"
+        "abbr": "MPA"
     },
     {
         "name": "Master of Laws",
         "degree_type": "masters",
-        "initials": "LL.M."
+        "abbr": "LL.M."
     },
     {
         "name": "Master of Philosophy",
         "degree_type": "masters",
-        "initials": "M.Phil."
+        "abbr": "M.Phil."
     },
     {
         "name": "Master of Public Health",
         "degree_type": "masters",
-        "initials": "MPH"
+        "abbr": "MPH"
     },
     {
         "name": "Master of Fine Arts",
         "degree_type": "masters",
-        "initials": "M.F.A."
+        "abbr": "M.F.A."
     },
     {
         "name": "Master of Social Work",
         "degree_type": "masters",
-        "initials": "MSW"
+        "abbr": "MSW"
     },
     {
         "name": "Master of Urban and Regional Planning",
         "degree_type": "masters",
-        "initials": "MURP"
+        "abbr": "MURP"
     },
     {
         "name": "Doctor of Philosophy",
         "degree_type": "doctorate",
-        "initials": "Ph.D."
+        "abbr": "Ph.D."
     },
     {
         "name": "Doctor of Medicine",
         "degree_type": "doctorate",
-        "initials": "MD"
+        "abbr": "MD"
     },
     {
         "name": "Doctor of Laws",
         "degree_type": "doctorate",
-        "initials": "LL.D."
+        "abbr": "LL.D."
     },
     {
         "name": "Doctor of Education",
         "degree_type": "doctorate",
-        "initials": "Ed.D."
+        "abbr": "Ed.D."
     },
     {
         "name": "Doctor of Science",
         "degree_type": "doctorate",
-        "initials": "D.Sc."
+        "abbr": "D.Sc."
     },
     {
         "name": "Doctor of Engineering",
         "degree_type": "doctorate",
-        "initials": "D.Eng."
+        "abbr": "D.Eng."
     },
     {
         "name": "Doctor of Veterinary Medicine",
         "degree_type": "doctorate",
-        "initials": "DVM"
+        "abbr": "DVM"
     }
 ]

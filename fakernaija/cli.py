@@ -9,7 +9,7 @@ from fakernaija.commands.currency_cli import (
     currency_name,
     currency_symbol,
 )
-from fakernaija.commands.degree_cli import degree
+from fakernaija.commands.degree_cli import degree, degree_abbr, degree_name
 from fakernaija.commands.email_cli import email
 from fakernaija.commands.faculty_cli import department, faculty
 from fakernaija.commands.name_cli import firstname, fullname, lastname, prefix
@@ -30,6 +30,8 @@ cli.add_command(currency_code, name="currency_code")
 cli.add_command(currency_name, name="currency_name")
 cli.add_command(currency_symbol, name="currency_symbol")
 cli.add_command(degree, name="degree")
+cli.add_command(degree_abbr, name="degree_abbr")
+cli.add_command(degree_name, name="degree_name")
 cli.add_command(department, name="department")
 cli.add_command(email, name="email")
 cli.add_command(faculty, name="faculty")

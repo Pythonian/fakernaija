@@ -6,12 +6,12 @@ from fakernaija.utils import load_json
 
 
 class DegreeProvider:
-    """A class to provide information about Degrees awarded in Nigerian schools."""
+    """A class to provide information about Degrees in Nigerian schools."""
 
     def __init__(self) -> None:
         """Initializes the DegreeProvider.
 
-        Sets the path to the directory containing degrees data.
+        Sets the path to the directory containing Degrees data.
         """
         self.data_path = Path(__file__).parent.parent / "data" / "degrees.json"
         self.degrees_data = load_json(
@@ -19,40 +19,48 @@ class DegreeProvider:
             [
                 "name",
                 "degree_type",
-                "initials",
+                "abbr",
             ],
         )
 
-    def get_degrees(
-        self,
-        degree_type: str | None = None,
-        initials: bool = False,
-    ) -> list[str]:
-        """Get a list of degrees optionally filtered by type and whether to get initials.
+    def get_degrees(self, degree_type: str | None = None) -> list[dict]:
+        """Get a list of degrees filtered by degree type if specified.
 
         Args:
-            degree_type (str | None, optional): The type of degree to filter by. Defaults to None (returns all degrees).
-            initials (bool, optional): Whether to get initials instead of full degree names. Defaults to False.
+            degree_type (str | None, optional): The type of degree to filter by.
+                                                Defaults to None (any degree type).
 
         Returns:
-            list[str]: A list of degrees or degree initials based on the filters.
+            list[dict]: A list of degree dictionaries.
         """
-        degrees = self.degrees_data
         if degree_type:
-            degrees = [
-                degree for degree in degrees if degree["degree_type"] == degree_type
+            return [
+                degree
+                for degree in self.degrees_data
+                if degree["degree_type"] == degree_type
             ]
-        return [
-            degree["initials"] if initials else degree["name"] for degree in degrees
-        ]
+        return self.degrees_data
 
-    def get_degree_initials(self, degree_type: str | None = None) -> list[str]:
-        """Get a list of degree initials optionally filtered by degree type.
+    def get_degree_names(self, degree_type: str | None = None) -> list[str]:
+        """Get a list of degree names filtered by degree type if specified.
 
         Args:
-            degree_type (str | None, optional): The type of degree to filter by. Defaults to None.
+            degree_type (str | None, optional): The type of degree to filter by.
+                                                Defaults to None (any degree type).
 
         Returns:
-            list[str]: A list of degree initials.
+            list[str]: A list of degree names.
         """
-        return self.get_degrees(degree_type, initials=True)
+        return [degree["name"] for degree in self.get_degrees(degree_type)]
+
+    def get_degree_abbrs(self, degree_type: str | None = None) -> list[str]:
+        """Get a list of degree abbreviations filtered by degree type if specified.
+
+        Args:
+            degree_type (str | None, optional): The type of degree to filter by.
+                                                Defaults to None (any degree type).
+
+        Returns:
+            list[str]: A list of degree abbreviations.
+        """
+        return [degree["abbr"] for degree in self.get_degrees(degree_type)]

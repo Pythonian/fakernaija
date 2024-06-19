@@ -11,19 +11,13 @@ class Degree:
     def __init__(self) -> None:
         """Initializes the Degree mixin and its provider."""
         self.degree_provider = DegreeProvider()
-        self._used_degrees: set[str] = set()
+        self.valid_degree_types = ["undergraduate", "masters", "doctorate"]
 
-    def degree(self, degree_type: str | None = None, initial: bool = False) -> str:
-        """Generates a random degree or degree initial.
-
-        Args:
-            degree_type (str | None, optional): The type of degree to generate.
-                                                Defaults to None (any degree type).
-            initial (bool, optional): If True, returns the degree initial instead of the full name.
-                                      Defaults to False.
+    def degree(self) -> dict:
+        """Generates a random degree.
 
         Returns:
-            str: A random degree or degree initial.
+            dict: A random degree dictionary.
 
         Example:
             .. code-block:: python
@@ -33,54 +27,97 @@ class Degree:
 
                 >>> degree = naija.degree()
                 >>> print(f"Random degree: {degree}")
-                'Random degree: Bachelor of Science'
-
-                >>> degree_initial = naija.degree(initial=True)
-                >>> print(f"Random degree: {degree_initial}")
-                'Random degree: B.Sc.'
-
-                >>> degree = naija.degree(degree_type="undergraduate")
-                >>> print(f"Random degree: {degree}")
-                'Random degree: Bachelor of Science'
-
-                >>> degree = naija.degree(degree_type="masters", initial=True)
-                >>> print(f"Random degree: {degree}")
-                'Random degree: M. Sc.'
-
+                'Random degree: {'name': 'Bachelor of Science', 'degree_type': 'undergraduate', 'abbr': 'B.Sc.'}'
         """
-        if degree_type and degree_type not in ["undergraduate", "masters", "doctorate"]:
+        degrees = self.degree_provider.get_degrees()
+        return random.choice(degrees)
+
+    def degree_name(self) -> str:
+        """Generates a random degree name.
+
+        Returns:
+            str: A random degree name.
+
+        Example:
+            .. code-block:: python
+
+                >>> from fakernaija.faker import Faker
+                >>> naija = Faker()
+
+                >>> degree_name = naija.degree_name()
+                >>> print(f"Random degree name: {degree_name}")
+                'Random degree name: Bachelor of Science'
+        """
+        degree_names = self.degree_provider.get_degree_names()
+        return random.choice(degree_names)
+
+    def degree_abbr(self) -> str:
+        """Generates a random degree abbreviation.
+
+        Returns:
+            str: A random degree abbreviation.
+
+        Example:
+            .. code-block:: python
+
+                >>> from fakernaija.faker import Faker
+                >>> naija = Faker()
+
+                >>> degree_abbr = naija.degree_abbr()
+                >>> print(f"Random degree abbreviation: {degree_abbr}")
+                'Random degree abbreviation: B.Sc.'
+        """
+        degree_abbrs = self.degree_provider.get_degree_abbrs()
+        return random.choice(degree_abbrs)
+
+    def degree_name_by_type(self, degree_type: str) -> str:
+        """Generates a random degree name filtered by degree type.
+
+        Args:
+            degree_type (str): The type of degree to filter by.
+
+        Returns:
+            str: A random degree name filtered by type.
+
+        Example:
+            .. code-block:: python
+
+                >>> from fakernaija.faker import Faker
+                >>> naija = Faker()
+
+                >>> degree_name = naija.degree_name_by_type("undergraduate")
+                >>> print(f"Random undergraduate degree name: {degree_name}")
+                'Random undergraduate degree name: Bachelor of Science'
+        """
+        if degree_type and degree_type not in self.valid_degree_types:
             msg = "Invalid degree_type. Must be one of 'undergraduate', 'masters', or 'doctorate'."
             raise ValueError(msg)
 
-        if initial:
-            degrees = self.degree_provider.get_degree_initials(degree_type)
-        else:
-            degrees = self.degree_provider.get_degrees(degree_type)
-        degree = self._get_unique_value(degrees, self._used_degrees)
-        self._used_degrees.add(degree)
-        return degree
+        degree_names = self.degree_provider.get_degree_names(degree_type)
+        return random.choice(degree_names)
 
-    def _get_unique_value(self, values: list[str], used_values: set[str]) -> str:
-        """Helper method to get a unique value from a list of values.
-
-        Ensures the generated value is unique within the session by:
-        * Checking available values against used values.
-        * Resetting used values if all options are exhausted.
+    def degree_abbr_by_type(self, degree_type: str) -> str:
+        """Generates a random degree abbreviation filtered by degree type.
 
         Args:
-            values (list[str]): The list of possible values.
-            used_values (set[str]): The set of values that have already been used.
+            degree_type (str): The type of degree to filter by.
 
         Returns:
-            str: A unique value from the list.
+            str: A random degree abbreviation filtered by type.
+
+        Example:
+            .. code-block:: python
+
+                >>> from fakernaija.faker import Faker
+                >>> naija = Faker()
+
+                >>> degree_abbr = naija.degree_abbr_by_type("undergraduate")
+                >>> print(f"Random undergraduate degree abbreviation: {degree_abbr}")
+                'Random undergraduate degree abbreviation: B.Sc.'
         """
-        # Calculate the set difference to find values that have not been used
-        available_values = set(values) - used_values
+        if degree_type and degree_type not in self.valid_degree_types:
+            msg = "Invalid degree_type. Must be one of 'undergraduate', 'masters', or 'doctorate'."
+            raise ValueError(msg)
 
-        # If no values are available, reset the used values set
-        if not available_values:
-            used_values.clear()
-            available_values = set(values)
-
-        # Return a randomly chosen value from the available values
-        return random.choice(list(available_values))
+        degree_abbrs = self.degree_provider.get_degree_abbrs(degree_type)
+        return random.choice(degree_abbrs)
