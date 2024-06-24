@@ -7,7 +7,7 @@ that the methods return the expected results and handle various inputs correctly
 
 import unittest
 
-from fakernaija.providers.states import StateProvider
+from fakernaija.providers.state_provider import StateProvider
 
 
 class TestStateProvider(unittest.TestCase):

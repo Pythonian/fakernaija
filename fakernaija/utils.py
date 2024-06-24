@@ -1,6 +1,7 @@
 """Utility file that provides functions to load json files and validate its data structure."""
 
 import json
+import random
 from pathlib import Path
 from typing import Any
 
@@ -58,3 +59,29 @@ def validate_json_structure(
         if invalid_keys:
             msg = f"Invalid keys {invalid_keys} in entry: {entry}"
             raise ValueError(msg)
+
+
+def get_unique_value(values: list[str], used_values: set[str]) -> str:
+    """Helper method to get a unique value from a list of values.
+
+    Ensures the generated value is unique within the session by:
+        * Checking available values against used values.
+        * Resetting used values if all options are exhausted.
+
+    Args:
+        values (list[str]): The list of possible values.
+        used_values (set[str]): The set of values that have already been used.
+
+    Returns:
+        str: A unique value from the list.
+    """
+    # Calculate the set difference to find values that have not been used
+    available_values = set(values) - used_values
+
+    # If no values are available, reset the used values set
+    if not available_values:
+        used_values.clear()
+        available_values = set(values)
+
+    # Return a randomly chosen value from the available values
+    return random.choice(list(available_values))

@@ -3,6 +3,7 @@
 import random
 
 from fakernaija.providers.course_provider import CourseProvider
+from fakernaija.utils import get_unique_value
 
 
 class Course:
@@ -11,6 +12,8 @@ class Course:
     def __init__(self) -> None:
         """Initializes the Course mixin and its provider."""
         self.course_provider = CourseProvider()
+        self._used_course_names: set[str] = set()
+        self._used_course_codes: set[str] = set()
 
     def course(self) -> dict[str, str]:
         """Get a random course with its code.
@@ -48,7 +51,9 @@ class Course:
                 "Random course: Introduction to Computer Science"
         """
         course_names = self.course_provider.get_courses()
-        return random.choice(course_names)
+        course = get_unique_value(course_names, self._used_course_names)
+        self._used_course_names.add(course)
+        return course
 
     def course_code(self) -> str:
         """Get a random course code.
@@ -67,4 +72,6 @@ class Course:
                 "Random course: COS101"
         """
         course_codes = self.course_provider.get_courses_code()
-        return random.choice(course_codes)
+        course = get_unique_value(course_codes, self._used_course_codes)
+        self._used_course_codes.add(course)
+        return course

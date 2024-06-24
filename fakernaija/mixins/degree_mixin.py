@@ -3,6 +3,7 @@
 import random
 
 from fakernaija.providers.degree_provider import DegreeProvider
+from fakernaija.utils import get_unique_value
 
 
 class Degree:
@@ -12,6 +13,10 @@ class Degree:
         """Initializes the Degree mixin and its provider."""
         self.degree_provider = DegreeProvider()
         self.valid_degree_types = ["undergraduate", "masters", "doctorate"]
+        self._used_degree_names: set[str] = set()
+        self._used_degree_abbrs: set[str] = set()
+        self._used_degree_name_by_types: set[str] = set()
+        self._used_degree_abbr_by_types: set[str] = set()
 
     def degree(self) -> dict:
         """Generates a random degree.
@@ -49,7 +54,9 @@ class Degree:
                 'Random degree name: Bachelor of Science'
         """
         degree_names = self.degree_provider.get_degree_names()
-        return random.choice(degree_names)
+        degree_name = get_unique_value(degree_names, self._used_degree_names)
+        self._used_degree_names.add(degree_name)
+        return degree_name
 
     def degree_abbr(self) -> str:
         """Generates a random degree abbreviation.
@@ -68,7 +75,9 @@ class Degree:
                 'Random degree abbreviation: B.Sc.'
         """
         degree_abbrs = self.degree_provider.get_degree_abbrs()
-        return random.choice(degree_abbrs)
+        degree_abbr = get_unique_value(degree_abbrs, self._used_degree_abbrs)
+        self._used_degree_abbrs.add(degree_abbr)
+        return degree_abbr
 
     def degree_name_by_type(self, degree_type: str) -> str:
         """Generates a random degree name filtered by degree type.
@@ -89,12 +98,16 @@ class Degree:
                 >>> print(f"Random undergraduate degree name: {degree_name}")
                 'Random undergraduate degree name: Bachelor of Science'
         """
-        if degree_type and degree_type not in self.valid_degree_types:
-            msg = "Invalid degree_type. Must be one of 'undergraduate', 'masters', or 'doctorate'."
-            raise ValueError(msg)
+        if degree_type:
+            degree_type = degree_type.lower()
+            if degree_type not in self.valid_degree_types:
+                msg = "Invalid degree_type. Must be one of 'undergraduate', 'masters', or 'doctorate'."
+                raise ValueError(msg)
 
         degree_names = self.degree_provider.get_degree_names(degree_type)
-        return random.choice(degree_names)
+        degree_name = get_unique_value(degree_names, self._used_degree_name_by_types)
+        self._used_degree_name_by_types.add(degree_name)
+        return degree_name
 
     def degree_abbr_by_type(self, degree_type: str) -> str:
         """Generates a random degree abbreviation filtered by degree type.
@@ -115,9 +128,13 @@ class Degree:
                 >>> print(f"Random undergraduate degree abbreviation: {degree_abbr}")
                 'Random undergraduate degree abbreviation: B.Sc.'
         """
-        if degree_type and degree_type not in self.valid_degree_types:
-            msg = "Invalid degree_type. Must be one of 'undergraduate', 'masters', or 'doctorate'."
-            raise ValueError(msg)
+        if degree_type:
+            degree_type = degree_type.lower()
+            if degree_type not in self.valid_degree_types:
+                msg = "Invalid degree_type. Must be one of 'undergraduate', 'masters', or 'doctorate'."
+                raise ValueError(msg)
 
         degree_abbrs = self.degree_provider.get_degree_abbrs(degree_type)
-        return random.choice(degree_abbrs)
+        degree_abbr = get_unique_value(degree_abbrs, self._used_degree_abbr_by_types)
+        self._used_degree_abbr_by_types.add(degree_abbr)
+        return degree_abbr

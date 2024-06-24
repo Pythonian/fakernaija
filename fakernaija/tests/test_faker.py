@@ -18,7 +18,7 @@ class TestFakerStateProvider(unittest.TestCase):
         """Set up the test case environment."""
         self.faker = Faker()
 
-    @patch("fakernaija.providers.states.StateProvider.get_states_by_region")
+    @patch("fakernaija.providers.state_provider.StateProvider.get_states_by_region")
     @patch("random.choice")
     def test_state_with_region_initial(
         self,
@@ -38,7 +38,7 @@ class TestFakerStateProvider(unittest.TestCase):
         result = self.faker.state(shortcode=True, region_initial="SW")
         self.assertEqual(result, "LA")
 
-    @patch("fakernaija.providers.states.StateProvider.get_shortcodes")
+    @patch("fakernaija.providers.state_provider.StateProvider.get_shortcodes")
     @patch("random.choice")
     def test_state_with_shortcode(
         self,
@@ -52,7 +52,7 @@ class TestFakerStateProvider(unittest.TestCase):
         result = self.faker.state(shortcode=True)
         self.assertEqual(result, "LA")
 
-    @patch("fakernaija.providers.states.StateProvider.get_states")
+    @patch("fakernaija.providers.state_provider.StateProvider.get_states")
     @patch("random.choice")
     def test_state_without_parameters(
         self,
@@ -66,7 +66,7 @@ class TestFakerStateProvider(unittest.TestCase):
         result = self.faker.state()
         self.assertEqual(result, "Lagos")
 
-    @patch("fakernaija.providers.states.StateProvider.get_state_capital")
+    @patch("fakernaija.providers.state_provider.StateProvider.get_state_capital")
     @patch("random.choice")
     def test_capital_with_state(
         self,
@@ -79,7 +79,7 @@ class TestFakerStateProvider(unittest.TestCase):
         result = self.faker.capital(state="Lagos")
         self.assertEqual(result, "Ikeja")
 
-    @patch("fakernaija.providers.states.StateProvider.get_capitals")
+    @patch("fakernaija.providers.state_provider.StateProvider.get_capitals")
     @patch("random.choice")
     def test_capital_without_state(
         self,
@@ -93,7 +93,7 @@ class TestFakerStateProvider(unittest.TestCase):
         result = self.faker.capital()
         self.assertEqual(result, "Ikeja")
 
-    @patch("fakernaija.providers.states.StateProvider.get_state_lgas")
+    @patch("fakernaija.providers.state_provider.StateProvider.get_state_lgas")
     @patch("random.choice")
     def test_lga_with_state(
         self,
@@ -107,7 +107,7 @@ class TestFakerStateProvider(unittest.TestCase):
         result = self.faker.lga(state="Lagos")
         self.assertEqual(result, "Ikeja")
 
-    @patch("fakernaija.providers.states.StateProvider.get_lgas")
+    @patch("fakernaija.providers.state_provider.StateProvider.get_lgas")
     @patch("random.choice")
     def test_lga_without_state(
         self,
@@ -121,7 +121,7 @@ class TestFakerStateProvider(unittest.TestCase):
         result = self.faker.lga()
         self.assertEqual(result, "Ikeja")
 
-    @patch("fakernaija.providers.states.StateProvider.get_regions")
+    @patch("fakernaija.providers.state_provider.StateProvider.get_regions")
     @patch("random.choice")
     def test_region_with_initial(
         self,
@@ -139,7 +139,7 @@ class TestFakerStateProvider(unittest.TestCase):
         result = self.faker.region(initial=True)
         self.assertEqual(result, "SW")
 
-    @patch("fakernaija.providers.states.StateProvider.get_regions")
+    @patch("fakernaija.providers.state_provider.StateProvider.get_regions")
     @patch("random.choice")
     def test_region_without_initial(
         self,
@@ -153,7 +153,7 @@ class TestFakerStateProvider(unittest.TestCase):
         result = self.faker.region()
         self.assertEqual(result, "South West")
 
-    @patch("fakernaija.providers.states.StateProvider.get_postal_code_by_state")
+    @patch("fakernaija.providers.state_provider.StateProvider.get_postal_code_by_state")
     def test_postal_code_with_state(
         self,
         mock_get_postal_code_by_state: MagicMock,
@@ -164,7 +164,7 @@ class TestFakerStateProvider(unittest.TestCase):
         result = self.faker.postal_code(state="Lagos")
         self.assertEqual(result, "100001")
 
-    @patch("fakernaija.providers.states.StateProvider.get_postal_codes")
+    @patch("fakernaija.providers.state_provider.StateProvider.get_postal_codes")
     @patch("random.choice")
     def test_postal_code_without_state(
         self,

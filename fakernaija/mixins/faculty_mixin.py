@@ -3,6 +3,7 @@
 import random
 
 from fakernaija.providers.faculty_provider import FacultyProvider
+from fakernaija.utils import get_unique_value
 
 
 class Faculty:
@@ -11,6 +12,8 @@ class Faculty:
     def __init__(self) -> None:
         """Initializes the Faculty mixin and its provider."""
         self.faculty_provider = FacultyProvider()
+        self._used_faculty_names: set[str] = set()
+        self._used_departments: set[str] = set()
 
     def faculty(self) -> dict[str, list[str]]:
         """Get a random faculty with its departments.
@@ -48,7 +51,9 @@ class Faculty:
                 'Random faculty name: Basic Medical Sciences'
         """
         faculties = self.faculty_provider.get_faculties()
-        return random.choice(faculties)
+        faculty_name = get_unique_value(faculties, self._used_faculty_names)
+        self._used_faculty_names.add(faculty_name)
+        return faculty_name
 
     def department(self) -> str:
         """Get a random department.
@@ -67,7 +72,9 @@ class Faculty:
                 'Random department: Accounting'
         """
         departments = self.faculty_provider.get_departments()
-        return random.choice(departments)
+        department = get_unique_value(departments, self._used_departments)
+        self._used_departments.add(department)
+        return department
 
     def department_by_faculty(self, faculty: str) -> str:
         """Get a random department by a given faculty.

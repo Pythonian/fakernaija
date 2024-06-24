@@ -52,7 +52,7 @@ def degree(repeat: int) -> None:
     "-t",
     default=None,
     help="Type of degree to generate.",
-    type=click.Choice(["undergraduate", "masters", "doctorate"]),
+    type=click.Choice(["undergraduate", "masters", "doctorate"], case_sensitive=False),
 )
 def degree_name(repeat: int, degree_type: str) -> None:
     """Return random degree names.
@@ -75,6 +75,7 @@ def degree_name(repeat: int, degree_type: str) -> None:
 
     try:
         if degree_type:
+            degree_type = degree_type.lower()
             degree_names = [
                 naija.degree_name_by_type(degree_type=degree_type)
                 for _ in range(repeat)
@@ -100,7 +101,7 @@ def degree_name(repeat: int, degree_type: str) -> None:
     "-t",
     default=None,
     help="Type of degree to generate.",
-    type=click.Choice(["undergraduate", "masters", "doctorate"]),
+    type=click.Choice(["undergraduate", "masters", "doctorate"], case_sensitive=False),
 )
 def degree_abbr(repeat: int, degree_type: str) -> None:
     """Return random degree abbreviations.
@@ -123,6 +124,7 @@ def degree_abbr(repeat: int, degree_type: str) -> None:
 
     try:
         if degree_type:
+            degree_type = degree_type.lower()
             degree_abbrs = [
                 naija.degree_abbr_by_type(degree_type=degree_type)
                 for _ in range(repeat)

@@ -18,6 +18,7 @@ class StateProvider:
                 "name",
                 "code",
                 "capital",
+                "slogan",
                 "lgas",
                 "region",
                 "region_initial",

@@ -2,7 +2,7 @@
 
 import random
 
-from fakernaija.providers.states import StateProvider
+from fakernaija.providers.state_provider import StateProvider
 
 
 class State:
