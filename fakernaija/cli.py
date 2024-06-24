@@ -17,6 +17,7 @@ from fakernaija.commands.phonenumber_cli import calling_code, phonenumber
 
 
 @click.group()
+@click.version_option(package_name="fakernaija")
 def cli() -> None:
     """A CLI for generating random Nigerian data."""
 
