@@ -19,15 +19,18 @@ naija = Faker()
     "--tribe",
     "-t",
     default=None,
-    help="The tribe to generate email address from.",
-    type=click.Choice(["yoruba", "igbo", "hausa", "edo", "fulani", "ijaw"]),
+    help="The tribe to generate email addresses from.",
+    type=click.Choice(
+        ["yoruba", "igbo", "hausa", "edo", "fulani", "ijaw"],
+        case_sensitive=False,
+    ),
 )
 @click.option(
     "--gender",
     "-g",
     default=None,
     help="Specify the gender from which emails will be generated.",
-    type=click.Choice(["male", "female"]),
+    type=click.Choice(["male", "female"], case_sensitive=False),
 )
 @click.option(
     "--domain",
@@ -57,6 +60,10 @@ def email(repeat: int, tribe: str, gender: str, domain: str) -> None:
     if repeat < 1:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
         return
+
+    # Normalize tribe and gender to lowercase if they are provided
+    tribe = tribe.lower() if tribe else None
+    gender = gender.lower() if gender else None
 
     try:
         for _ in range(repeat):
