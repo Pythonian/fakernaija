@@ -18,55 +18,11 @@ class EmailProvider:
         self.default_domains = [
             "gmail.com",
             "yahoo.com",
+            "hotmail.com",
             "edu.ng",
             "gov.ng",
             "mail.com",
         ]
-
-    def get_first_names(
-        self,
-        tribe: str | None = None,
-        gender: str | None = None,
-    ) -> list[dict[str, str]]:
-        """Get a list of first names optionally filtered by ethnic group and gender.
-
-        Args:
-            tribe (str | None, optional): The ethnic group to filter by. Defaults to None.
-            gender (str | None, optional): The gender to filter by. Defaults to None.
-
-        Returns:
-            list[dict[str, str]]: A list of first names matching the specified filters.
-        """
-        return self.name_provider.get_first_names(tribe, gender)
-
-    def get_last_names(self, tribe: str | None = None) -> list[dict[str, str]]:
-        """Get a list of last names optionally filtered by ethnic group.
-
-        Args:
-            tribe (str | None, optional): The ethnic group to filter by. Defaults to None.
-
-        Returns:
-            list[dict[str, str]]: A list of last names matching the specified filter.
-        """
-        return self.name_provider.get_last_names(tribe)
-
-    def get_names_by_tribe(
-        self,
-        tribe: str,
-        gender: str | None = None,
-    ) -> tuple[list[str], list[str]]:
-        """Get first and last names filtered by tribe and optionally by gender.
-
-        Args:
-            tribe (str): The ethnic group to filter by.
-            gender (str | None, optional): The gender to filter by. Defaults to None.
-
-        Returns:
-            tuple[list[str], list[str]]: A tuple containing lists of first and last names.
-        """
-        first_names = [name["name"] for name in self.get_first_names(tribe, gender)]
-        last_names = [name["name"] for name in self.get_last_names(tribe)]
-        return first_names, last_names
 
     def validate_domain(self, domain: str) -> bool:
         """Validate the domain format.
@@ -101,7 +57,7 @@ class EmailProvider:
         tribe: str | None = None,
         gender: str | None = None,
         domain: str | None = None,
-    ) -> str | None:
+    ) -> str:
         """Generate a random email address with Nigerian names.
 
         Args:
@@ -110,8 +66,10 @@ class EmailProvider:
             domain (str | None, optional): The domain to use for the email. Defaults to None.
 
         Returns:
-            str | None: The generated email address or None if no matching data
-                        is found or the domain is invalid.
+            str: The generated email address.
+
+        Raises:
+            ValueError: If the domain is invalid or if no matching data is found for the given tribe or gender.
         """
         # Normalize the gender and tribe inputs to lowercase
         if tribe:
@@ -122,23 +80,25 @@ class EmailProvider:
         if domain:
             domain = domain.lower()
             if not self.validate_domain(domain):
-                return None
+                msg = f"Invalid domain: {domain}"
+                raise ValueError(msg)
 
         if tribe:
-            first_names, last_names = self.get_names_by_tribe(tribe, gender)
+            first_names = self.name_provider.get_first_names(tribe, gender)
+            last_names = self.name_provider.get_last_names(tribe)
         else:
             # Randomly choose a tribe to ensure names are from the same tribe
-            all_tribes = list(
-                {name["tribe"] for name in self.name_provider.first_names},
-            )
+            all_tribes = self.name_provider.tribes
             chosen_tribe = random.choice(all_tribes)
-            first_names, last_names = self.get_names_by_tribe(chosen_tribe, gender)
+            first_names = self.name_provider.get_first_names(chosen_tribe, gender)
+            last_names = self.name_provider.get_last_names(chosen_tribe)
 
         if not first_names or not last_names:
-            return None
+            msg = f"No matching data found for tribe: {tribe} or gender: {gender}"
+            raise ValueError(msg)
 
-        first_name = random.choice(first_names)
-        last_name = random.choice(last_names)
+        first_name = random.choice([name["name"] for name in first_names])
+        last_name = random.choice([name["name"] for name in last_names])
 
         formats = [
             f"{first_name}.{last_name}",
@@ -155,10 +115,11 @@ class EmailProvider:
         # We set it at 50% probability for adding a suffix to the email
         if random.random() < 0.5:  # noqa: PLR2004
             email = (
-                f"{email.split('@')[0]}{random.randint(1, 999)}@{email.split('@')[1]}"
+                f"{email.split('@')[0]}{random.randint(1, 99)}@{email.split('@')[1]}"
             )
 
         if not self.validate_email(email):
-            return None
+            msg = f"Invalid email format generated: {email}"
+            raise ValueError(msg)
 
         return email
