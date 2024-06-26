@@ -1,4 +1,4 @@
-"""StateMixin to group related methods for the StateProvider."""
+"""State mixin to group related methods for the StateProvider."""
 
 import random
 
@@ -12,18 +12,11 @@ class State:
         """Initializes the State mixin and its provider."""
         self.state_provider = StateProvider()
 
-    def state(self, shortcode: bool = False, region_initial: str | None = None) -> str:
-        """Get a random state.
-
-        Args:
-            shortcode (bool, optional): Whether to return the shortcode of the state instead of its name. Defaults to False.
-            region_initial (str | None, optional): The initial of the region from which to select a state. If provided, the method will return a random state from that region. Defaults to None.
+    def state(self) -> dict[str, str]:
+        """Get a dictionary of random state information.
 
         Returns:
-            str: Random state name or initial.
-
-        Note:
-            Available region initials are: NE, NW, NC, SE, SW, SS
+            dict[str, str]: Random state information.
 
         Example:
             .. code-block:: python
@@ -31,41 +24,159 @@ class State:
                 >>> from fakernaija.faker import Faker
                 >>> naija = Faker()
 
-                >>> state_name = naija.state()
-                >>> print(f"Random state name: {state_name}")
-                'Random state name: Lagos'
-
-                >>> state_shortcode = naija.state(shortcode=True)
-                >>> print(f"Random state shortcode: {state_shortcode}")
-                'Random state shortcode: LA'
-
-                >>> state_name = naija.state(region_initial="SS")
-                >>> print(f"Random state name from South South region: {state_name}")
-                'Random state name from South South region: Edo'
-
-                >>> state_shortcode = naija.state(shortcode=True, region_initial="SE")
-                >>> print(f"Random state shortcode from South East region: {state_shortcode}")
-                'Random state shortcode from South East region: AB'
+                >>> state = naija.state()
+                >>> print(f"Random state: {state}")
+                '{'code': 'BY', 'name': 'Bayelsa', 'capital': 'Yenagoa', 'slogan': 'Glory of All Lands', 'region': 'South South', 'region_initial': 'SS', 'postal_code': '561001', 'lgas': ['Brass', 'Ekeremor', 'Kolokuma Opokuma', 'Nembe', 'Ogbia', 'Sagbama', 'Southern-Ijaw', 'Yenagoa']}'
         """
-        if region_initial:
-            states = self.state_provider.get_states_by_region(region_initial)
-            random_state = random.choice(states)
-            return random_state["name"] if not shortcode else random_state["code"]
-        if shortcode:
-            return random.choice(self.state_provider.get_shortcodes())
         return random.choice(self.state_provider.get_states())
 
-    def capital(self, state: str | None = None) -> str | None:
-        """Get a random state capital or the capital of a specific state.
-
-        Args:
-            state (str | None, optional): The name of the state for which to get the capital. If None, a random capital city will be returned.
+    def state_name(self) -> str:
+        """Get a random state name.
 
         Returns:
-            str | None: Random state capital or the capital of the specified state. Returns None if the specified state does not exist.
+            str: Random state name.
 
-        Note:
-            Entering a nonexistent state to the state parameter will return None.
+        Example:
+            .. code-block:: python
+
+                >>> from fakernaija.faker import Faker
+                >>> naija = Faker()
+
+                >>> state_name = naija.state_name()
+                >>> print(f"Random state name: {state_name}")
+                'Random state name: Lagos'
+        """
+        return random.choice(self.state_provider.get_state_names())
+
+    def state_code(self) -> str:
+        """Get a random state code.
+
+        Returns:
+            str: Random state code.
+
+        Example:
+            .. code-block:: python
+
+                >>> from fakernaija.faker import Faker
+                >>> naija = Faker()
+
+                >>> state_code = naija.state_code()
+                >>> print(f"Random state code: {state_code}")
+                'Random state code: LA'
+        """
+        return random.choice(self.state_provider.get_shortcodes())
+
+    def state_slogan(self) -> str:
+        """Get a random state slogan.
+
+        Returns:
+            str: Random state slogan.
+
+        Example:
+            .. code-block:: python
+
+                >>> from fakernaija.faker import Faker
+                >>> naija = Faker()
+
+                >>> state_slogan = naija.state_slogan()
+                >>> print(f"Random state slogan: {state_slogan}")
+                'Random state slogan: Center of Excellence'
+        """
+        return random.choice(self.state_provider.get_slogans())
+
+    def region(self) -> dict[str, str]:
+        """Get a random geopolitical region in Nigeria.
+
+        Returns:
+            dict[str, str]: Random region abbreviation and full name.
+
+        Example:
+            .. code-block:: python
+
+                >>> from fakernaija.faker import Faker
+                >>> naija = Faker()
+
+                >>> region = naija.region()
+                >>> print(f"Random region: {region}")
+                "Random region: {'abbr': 'SS', 'name': 'South South'}"
+        """
+        return random.choice(self.state_provider.get_regions())
+
+    def region_name(self) -> str:
+        """Get a random geopolitical region name in Nigeria.
+
+        Returns:
+            str: Random region name.
+
+        Example:
+            .. code-block:: python
+
+                >>> from fakernaija.faker import Faker
+                >>> naija = Faker()
+
+                >>> region_name = naija.region_name()
+                >>> print(f"Random region name: {region_name}")
+                'Random region name: South West'
+        """
+        return random.choice(
+            [region["name"] for region in self.state_provider.get_regions()],
+        )
+
+    def region_abbr(self) -> str:
+        """Get a random geopolitical region abbreviation in Nigeria.
+
+        Returns:
+            str: Random region abbreviation.
+
+        Example:
+            .. code-block:: python
+
+                >>> from fakernaija.faker import Faker
+                >>> naija = Faker()
+
+                >>> region_abbr = naija.region_abbr()
+                >>> print(f"Random region abbreviation: {region_abbr}")
+                'Random region abbreviation: SW'
+        """
+        return random.choice(
+            [region["abbr"] for region in self.state_provider.get_regions()],
+        )
+
+    def state_region(self, region_abbr: str) -> dict[str, str]:
+        """Get a random state from a specific region.
+
+        Args:
+            region_abbr (str): The abbr of the region.
+
+        Returns:
+            dict[str, str]: Random state information from the specified region.
+
+        Example:
+            .. code-block:: python
+
+                >>> from fakernaija.faker import Faker
+                >>> naija = Faker()
+
+                >>> state_region = naija.state_region('SS')
+                >>> print(f"Random state information from a specific region: {state_region}")
+                "Random state information from a specific region: {'code': 'BY', 'name': 'Bayelsa', 'capital': 'Yenagoa', 'slogan': 'Glory of All Lands', 'region': 'South South', 'postal_code': '561001', 'lgas': ['Brass', 'Ekeremor', 'Kolokuma Opokuma', 'Nembe', 'Ogbia', 'Sagbama', 'Southern-Ijaw', 'Yenagoa'], 'region_abbr': 'SS'}"
+
+        Raises:
+            ValueError: If the specified region abbr does not exist.
+        """
+        states = self.state_provider.get_states_by_region(region_abbr)
+        if not states:
+            unique_abbrs = {r["abbr"] for r in self.state_provider.get_regions()}
+            available_options = ", ".join(unique_abbrs)
+            msg = f"Invalid region abbreviation: {region_abbr}. Available options are: {available_options}"
+            raise ValueError(msg)
+        return random.choice(states)
+
+    def capital(self) -> str:
+        """Get a random state capital.
+
+        Returns:
+            str: Random state capital
 
         Example:
             .. code-block:: python
@@ -76,26 +187,42 @@ class State:
                 >>> capital = naija.capital()
                 >>> print(f"Random state capital: {capital}")
                 'Random state capital: Ikeja'
-
-                >>> capital = naija.capital(state="Lagos")
-                >>> print(f"Capital of Lagos: {capital}")
-                'Capital of Lagos: Ikeja'
         """
-        if state:
-            return self.state_provider.get_state_capital(state)
         return random.choice(self.state_provider.get_capitals())
 
-    def lga(self, state: str | None = None) -> str | None:
-        """Get a random Local Government Area (L.G.A).
+    def state_capital(self, state: str) -> str:
+        """Get the capital of a specified state.
 
         Args:
-            state (str | None, optional): The name of the state for which to get an LGA. If None, a random LGA from any state will be returned.
+            state (str): The name of the state
 
         Returns:
-            str | None: A random Local Government Area.
+            str: The capital of the specified state.
 
-        Note:
-            Entering a nonexistent state to the state parameter will return None.
+        Example:
+            .. code-block:: python
+
+                >>> from fakernaija.faker import Faker
+                >>> naija = Faker()
+
+                >>> state_capital = naija.state_capital('abia')
+                >>> print(f"State capital of a specific state: {state_capital}")
+                'State capital of a specific state: Umuahia'
+
+        Raises:
+            ValueError: If the specified state does not exist.
+        """
+        capital = self.state_provider.get_state_capital(state.lower())
+        if not capital:
+            msg = f"The state: {state} does not exist in Nigeria."
+            raise ValueError(msg)
+        return capital
+
+    def lga(self) -> str:
+        """Get a random Local Government Area (LGA).
+
+        Returns:
+            str: Random LGA.
 
         Example:
             .. code-block:: python
@@ -105,28 +232,18 @@ class State:
 
                 >>> lga = naija.lga()
                 >>> print(f"Random LGA: {lga}")
-                'Random LGA: Ikeja'
-
-                >>> lga = naija.lga(state="Lagos")
-                >>> print(f"Random LGA in Lagos: {lga}")
-                'Random LGA in Lagos: Surulere'
+                'Random LGA: Surulere'
         """
-        if state:
-            lgas = self.state_provider.get_state_lgas(state)
-        else:
-            lgas = self.state_provider.get_lgas()
-        return random.choice(lgas) if lgas else None
+        return random.choice(self.state_provider.get_lgas())
 
-    def region(self, initial: bool = False) -> str:
-        """Get a random geopolitical region in Nigeria.
+    def state_lga(self, state: str) -> str:
+        """Get a random Local Government Area (LGA) in the specified state.
 
         Args:
-            initial (bool, optional):
-                If True, return the initials of the region (e.g., "SW" for South West).
-                If False (default), return the full name of the region.
+            state (str): The name of the state.
 
         Returns:
-            str: Random region name or initials.
+            str: Random LGA in the specified state.
 
         Example:
             .. code-block:: python
@@ -134,34 +251,24 @@ class State:
                 >>> from fakernaija.faker import Faker
                 >>> naija = Faker()
 
-                >>> region = naija.region()
-                >>> print(f"Random region: {region}")
-                'Random region: North Central'
+                >>> state_lga = naija.state_lga('lagos')
+                >>> print(f"Random State LGA: {state_lga}")
+                'Random State LGA: Surulere'
 
-                >>> region_initial = naija.region(initial=True)
-                >>> print(f"Random region initial: {region_initial}")
-                'Random region initial: NC'
+        Raises:
+            ValueError: If the specified state does not exist.
         """
-        regions = self.state_provider.get_regions()
-        if initial:
-            return random.choice(
-                [state["region_initial"] for state in self.state_provider.states_data],
-            )
-        return random.choice(regions)
+        lgas = self.state_provider.get_state_lgas(state.lower())
+        if not lgas:
+            msg = f"The state: {state} does not exist in Nigeria."
+            raise ValueError(msg)
+        return random.choice(lgas)
 
-    def postal_code(self, state: str | None = None) -> str | None:
-        """Get a random postal code of any state, or of a specific state if specified.
-
-        Args:
-            state (str | None, optional): The name of the state for which to get the postal code.
-            If None (default), return a random postal code of any state.
+    def postal_code(self) -> str:
+        """Get a random postal code.
 
         Returns:
-            str | None: Random postal code or the postal code of the specified state.
-            Returns None if the specified state does not exist.
-
-        Note:
-            Entering a nonexistent state to the state parameter will return None.
+            str: Random postal code.
 
         Example:
             .. code-block:: python
@@ -172,11 +279,33 @@ class State:
                 >>> postal_code = naija.postal_code()
                 >>> print(f"Random postal code: {postal_code}")
                 'Random postal code: 100001'
-
-                >>> postal_code = naija.postal_code(state="Lagos")
-                >>> print(f"Random postal code for Lagos: {postal_code}")
-                'Random postal code for Lagos: 101010'
         """
-        if state:
-            return self.state_provider.get_postal_code_by_state(state)
         return random.choice(self.state_provider.get_postal_codes())
+
+    def state_postal_code(self, state: str) -> str:
+        """Get the postal code of a specific state.
+
+        Args:
+            state (str): The name of the state for which to get the postal code.
+
+        Returns:
+            str: Postal code of the specified state.
+
+        Example:
+            .. code-block:: python
+
+                >>> from fakernaija.faker import Faker
+                >>> naija = Faker()
+
+                >>> state_postal_code = naija.state_postal_code("Lagos")
+                >>> print(f"Random postal code for Lagos: {state_postal_code}")
+                'Random postal code for Lagos: 101010'
+
+        Raises:
+            ValueError: If the specified state does not exist.
+        """
+        postal_code = self.state_provider.get_postal_code_by_state(state.lower())
+        if not postal_code:
+            msg = f"The state: {state} does not exist in Nigeria."
+            raise ValueError(msg)
+        return postal_code

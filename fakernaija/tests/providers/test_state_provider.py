@@ -18,9 +18,19 @@ class TestStateProvider(unittest.TestCase):
         self.state_provider = StateProvider()
 
     def test_get_states(self) -> None:
-        """Test getting all state names."""
+        """Test getting all states."""
         states = self.state_provider.get_states()
-        self.assertIn("Lagos", states)
+        self.assertTrue(any(state["name"] == "Lagos" for state in states))
+
+    def test_get_state_names(self) -> None:
+        """Test getting all state names."""
+        state_names = self.state_provider.get_state_names()
+        self.assertIn("Lagos", state_names)
+
+    def test_get_slogans(self) -> None:
+        """Test getting all state slogans."""
+        slogans = self.state_provider.get_slogans()
+        self.assertIn("Centre of Excellence", slogans)
 
     def test_get_shortcodes(self) -> None:
         """Test getting all state shortcodes."""
@@ -38,9 +48,13 @@ class TestStateProvider(unittest.TestCase):
         self.assertIn("Apapa", lgas)
 
     def test_get_regions(self) -> None:
-        """Test getting all unique region codes."""
+        """Test getting all unique regions."""
         regions = self.state_provider.get_regions()
-        self.assertIn("South West", regions)
+        region_names = [region["name"] for region in regions]
+        self.assertIn("South West", region_names)
+
+        region_abbrs = [region["abbr"] for region in regions]
+        self.assertIn("SW", region_abbrs)
 
     def test_get_postal_codes(self) -> None:
         """Test getting all postal codes of states."""

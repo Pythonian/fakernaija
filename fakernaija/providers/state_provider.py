@@ -21,18 +21,54 @@ class StateProvider:
                 "slogan",
                 "lgas",
                 "region",
-                "region_initial",
                 "postal_code",
             ],
         )
+        # Generate region initials dynamically
+        self._generate_region_abbrs()
 
-    def get_states(self) -> list[str]:
+    def _get_state(self, state_name: str) -> dict[str, Any]:
+        """Get state information by state name and raise an error if not found."""
+        for state in self.states_data:
+            if state["name"].lower() == state_name.lower():
+                return state
+        msg = f"State '{state_name}' does not exist in Nigeria."
+        raise ValueError(msg)
+
+    def _generate_region_abbrs(self) -> list[dict[str, str]]:
+        """Generate unique region abbreviations dynamically based on the region name."""
+        unique_regions = {}
+        for state in self.states_data:
+            region = state["region"]
+            region_abbr = "".join(word[0].upper() for word in region.split())
+            state["region_abbr"] = region_abbr
+            if region_abbr not in unique_regions:
+                unique_regions[region_abbr] = region
+        return [{"abbr": key, "name": value} for key, value in unique_regions.items()]
+
+    def get_states(self) -> list[dict[str, str]]:
+        """Get a list of all states.
+
+        Returns:
+            list[dict[str, str]]: A list of states.
+        """
+        return self.states_data
+
+    def get_state_names(self) -> list[str]:
         """Get a list of all state names.
 
         Returns:
             list[str]: A list of state names.
         """
         return [state["name"] for state in self.states_data]
+
+    def get_slogans(self) -> list[str]:
+        """Get the slogans of all states.
+
+        Returns:
+            list[str]: A list of state slogans.
+        """
+        return [state["slogan"] for state in self.states_data]
 
     def get_shortcodes(self) -> list[str]:
         """Get the shortcodes of all states.
@@ -58,15 +94,16 @@ class StateProvider:
         """
         return [lga for state in self.states_data for lga in state["lgas"]]
 
-    def get_regions(self) -> list[str]:
+    def get_regions(self) -> list[dict[str, str]]:
         """Get a list of all geopolitical regions.
 
         Returns:
-            list[str]: A list of unique regions.
+            list[dict[str, str]]: A list of unique regions with their initials.
         """
-        return list(
-            {state["region"] for state in self.states_data},
-        )
+        return [
+            {"abbr": state["region_abbr"], "name": state["region"]}
+            for state in self.states_data
+        ]
 
     def get_postal_codes(self) -> list[str]:
         """Get a list of all postal codes of states.
@@ -76,34 +113,34 @@ class StateProvider:
         """
         return [state["postal_code"] for state in self.states_data]
 
-    def get_states_by_region(self, region_initial: str) -> list[dict[str, Any]]:
+    def get_states_by_region(self, region_abbr: str) -> list[dict[str, str]]:
         """Get states by a specific region code.
 
         Args:
-            region_initial (str): The code of the region to filter states.
+            region_abbr (str): The code of the region to filter states.
 
         Returns:
-            list[dict[str, Any]]: A list of states belonging to the specified region code.
+            list[dict[str, str]]: A list of states belonging to the specified region code.
         """
         return [
             state
             for state in self.states_data
-            if state["region_initial"] == region_initial
+            if state["region_abbr"].upper() == region_abbr.upper()
         ]
 
-    def get_state_by_name(self, state_name: str) -> dict[str, Any] | None:
+    def get_state_by_name(self, state_name: str) -> dict[str, str] | None:
         """Get state information by state name.
 
         Args:
             state_name (str): The name of the state.
 
         Returns:
-            dict[str, Any] | None: Information about the specified state, or None if not found.
+            dict[str, str] | None: Information about the specified state, or None if not found.
         """
-        for state in self.states_data:
-            if state["name"].lower() == state_name.lower():
-                return state
-        return None
+        try:
+            return self._get_state(state_name)
+        except ValueError:
+            return None
 
     def get_postal_code_by_state(self, state_name: str) -> str | None:
         """Get the postal code of a specific state.
@@ -114,8 +151,11 @@ class StateProvider:
         Returns:
             str | None: The postal code of the specified state, or None if not found.
         """
-        state_info = self.get_state_by_name(state_name)
-        return state_info.get("postal_code") if state_info else None
+        try:
+            state_info = self._get_state(state_name)
+            return state_info["postal_code"]
+        except ValueError:
+            return None
 
     def get_state_capital(self, state: str) -> str | None:
         """Get the capital city of a specific state.
@@ -126,8 +166,11 @@ class StateProvider:
         Returns:
             str | None: The capital city of the specified state, or None if not found.
         """
-        state_info = self.get_state_by_name(state)
-        return state_info.get("capital") if state_info else None
+        try:
+            state_info = self._get_state(state)
+            return state_info["capital"]
+        except ValueError:
+            return None
 
     def get_state_lgas(self, state_name: str) -> list[str]:
         """Get a list of Local Government Areas for a specific state.
@@ -138,5 +181,8 @@ class StateProvider:
         Returns:
             list[str]: A list of LGAs for the specified state.
         """
-        state_info = self.get_state_by_name(state_name)
-        return state_info.get("lgas", []) if state_info else []
+        try:
+            state_info = self._get_state(state_name)
+            return state_info["lgas"]
+        except ValueError:
+            return []

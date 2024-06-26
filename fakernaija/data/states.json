@@ -5,7 +5,6 @@
         "capital": "Abuja",
         "slogan": "Centre of Unity",
         "region": "North Central",
-        "region_initial": "NC",
         "postal_code": "900001",
         "lgas": [
             "Abuja",
@@ -22,7 +21,6 @@
         "capital": "Umuahia",
         "slogan": "God's Own State",
         "region": "South East",
-        "region_initial": "SE",
         "postal_code": "440001",
         "lgas": [
             "Aba North",
@@ -53,7 +51,6 @@
         "capital": "Yola",
         "slogan": "Land of Beauty",
         "region": "North East",
-        "region_initial": "NE",
         "postal_code": "640001",
         "lgas": [
             "Demsa",
@@ -85,7 +82,6 @@
         "capital": "Uyo",
         "slogan": "Land of Promise",
         "region": "South South",
-        "region_initial": "SS",
         "postal_code": "520001",
         "lgas": [
             "Abak",
@@ -127,7 +123,6 @@
         "capital": "Awka",
         "slogan": "Light of the Nation",
         "region": "South East",
-        "region_initial": "SE",
         "postal_code": "420001",
         "lgas": [
             "Aguata",
@@ -158,7 +153,6 @@
         "capital": "Bauchi",
         "slogan": "Pearl of Tourism",
         "region": "North West",
-        "region_initial": "NW",
         "postal_code": "740001",
         "lgas": [
             "Alkaleri",
@@ -189,7 +183,6 @@
         "capital": "Yenagoa",
         "slogan": "Glory of All Lands",
         "region": "South South",
-        "region_initial": "SS",
         "postal_code": "561001",
         "lgas": [
             "Brass",
@@ -208,7 +201,6 @@
         "capital": "Makurdi",
         "slogan": "Food Basket of the Nation",
         "region": "North Central",
-        "region_initial": "NC",
         "postal_code": "970001",
         "lgas": [
             "Ado",
@@ -241,7 +233,6 @@
         "capital": "Maiduguri",
         "slogan": "Home of Peace",
         "region": "North East",
-        "region_initial": "NE",
         "postal_code": "600001",
         "lgas": [
             "Abadam",
@@ -279,7 +270,6 @@
         "capital": "Calabar",
         "slogan": "The People's Paradise",
         "region": "South South",
-        "region_initial": "SS",
         "postal_code": "540001",
         "lgas": [
             "Abi",
@@ -308,7 +298,6 @@
         "capital": "Asaba",
         "slogan": "The Big Heart",
         "region": "South South",
-        "region_initial": "SS",
         "postal_code": "320001",
         "lgas": [
             "Aniocha North",
@@ -345,7 +334,6 @@
         "capital": "Abakaliki",
         "slogan": "Salt of the Nation",
         "region": "South East",
-        "region_initial": "SE",
         "postal_code": "840001",
         "lgas": [
             "Abakaliki",
@@ -368,7 +356,6 @@
         "capital": "Benin City",
         "slogan": "Heartbeat of The Nation",
         "region": "South South",
-        "region_initial": "SS",
         "postal_code": "300001",
         "lgas": [
             "Akoko Edo",
@@ -397,7 +384,6 @@
         "capital": "Ado-Ekiti",
         "slogan": "Land of Honour and Integrity",
         "region": "South West",
-        "region_initial": "SW",
         "postal_code": "360001",
         "lgas": [
             "Ado-Ekiti",
@@ -424,7 +410,6 @@
         "capital": "Enugu",
         "slogan": "Coal City State",
         "region": "South East",
-        "region_initial": "SE",
         "postal_code": "400001",
         "lgas": [
             "Aninri",
@@ -452,7 +437,6 @@
         "capital": "Gombe",
         "slogan": "Jewel in the Savannah",
         "region": "North East",
-        "region_initial": "NE",
         "postal_code": "760001",
         "lgas": [
             "Akko",
@@ -474,7 +458,6 @@
         "capital": "Owerri",
         "slogan": "Eastern Heartland",
         "region": "South East",
-        "region_initial": "SE",
         "postal_code": "460001",
         "lgas": [
             "Aboh-Mbaise",
@@ -512,7 +495,6 @@
         "capital": "Dutse",
         "slogan": "The New World",
         "region": "North West",
-        "region_initial": "NW",
         "postal_code": "720001",
         "lgas": [
             "Auyo",
@@ -549,7 +531,6 @@
         "capital": "Kaduna",
         "slogan": "Centre of Learning",
         "region": "North West",
-        "region_initial": "NW",
         "postal_code": "800001",
         "lgas": [
             "Birnin-Gwari",
@@ -583,7 +564,6 @@
         "capital": "Kano",
         "slogan": "Centre of Commerce",
         "region": "North West",
-        "region_initial": "NW",
         "postal_code": "700001",
         "lgas": [
             "Ajingi",
@@ -638,7 +618,6 @@
         "capital": "Katsina",
         "slogan": "Home of Hospitality",
         "region": "North West",
-        "region_initial": "NW",
         "postal_code": "820001",
         "lgas": [
             "Bakori",
@@ -683,7 +662,6 @@
         "capital": "Birnin Kebbi",
         "slogan": "Land of Equity",
         "region": "North West",
-        "region_initial": "NW",
         "postal_code": "860001",
         "lgas": [
             "Aleiro",
@@ -715,7 +693,6 @@
         "capital": "Lokoja",
         "slogan": "The Confluence State",
         "region": "North Central",
-        "region_initial": "NC",
         "postal_code": "260001",
         "lgas": [
             "Adavi",
@@ -747,7 +724,6 @@
         "capital": "Ilorin",
         "slogan": "State of Harmony",
         "region": "North Central",
-        "region_initial": "NC",
         "postal_code": "240001",
         "lgas": [
             "Asa",
@@ -772,7 +748,6 @@
         "capital": "Ikeja",
         "slogan": "Centre of Excellence",
         "region": "South West",
-        "region_initial": "SW",
         "postal_code": "100001",
         "lgas": [
             "Agege",
@@ -804,7 +779,6 @@
         "capital": "Lafia",
         "slogan": "Home of Solid Minerals",
         "region": "North Central",
-        "region_initial": "NC",
         "postal_code": "962001",
         "lgas": [
             "Akwanga",
@@ -828,7 +802,6 @@
         "capital": "Minna",
         "slogan": "The Power State",
         "region": "North Central",
-        "region_initial": "NC",
         "postal_code": "920001",
         "lgas": [
             "Agaie",
@@ -864,7 +837,6 @@
         "capital": "Abeokuta",
         "slogan": "Gateway State",
         "region": "South West",
-        "region_initial": "SW",
         "postal_code": "110001",
         "lgas": [
             "Abeokuta-North",
@@ -894,7 +866,6 @@
         "capital": "Akure",
         "slogan": "Sunshine State",
         "region": "South West",
-        "region_initial": "SW",
         "postal_code": "340001",
         "lgas": [
             "Akoko North-East",
@@ -923,7 +894,6 @@
         "capital": "Osogbo",
         "slogan": "Land of Virtue",
         "region": "South West",
-        "region_initial": "SW",
         "postal_code": "230001",
         "lgas": [
             "Atakumosa West",
@@ -963,7 +933,6 @@
         "capital": "Ibadan",
         "slogan": "Pace Setter State",
         "region": "South West",
-        "region_initial": "SW",
         "postal_code": "200001",
         "lgas": [
             "Afijio",
@@ -1008,7 +977,6 @@
         "capital": "Jos",
         "slogan": "Home of Peace and Tourism",
         "region": "North Central",
-        "region_initial": "NC",
         "postal_code": "930001",
         "lgas": [
             "Barkin-Ladi",
@@ -1036,7 +1004,6 @@
         "capital": "Port Harcourt",
         "slogan": "Treasure Base of the Nation",
         "region": "South South",
-        "region_initial": "SS",
         "postal_code": "500001",
         "lgas": [
             "Abua Odual",
@@ -1071,7 +1038,6 @@
         "capital": "Sokoto",
         "slogan": "Seat of the Caliphate",
         "region": "North West",
-        "region_initial": "NW",
         "postal_code": "840001",
         "lgas": [
             "Binji",
@@ -1104,7 +1070,6 @@
         "capital": "Jalingo",
         "slogan": "Nature's Gift to the Nation",
         "region": "North East",
-        "region_initial": "NE",
         "postal_code": "660001",
         "lgas": [
             "Ardo-Kola",
@@ -1131,7 +1096,6 @@
         "capital": "Damaturu",
         "slogan": "Pride of the Sahel",
         "region": "North East",
-        "region_initial": "NE",
         "postal_code": "320001",
         "lgas": [
             "Bade",
@@ -1159,7 +1123,6 @@
         "capital": "Gusau",
         "slogan": "Farming is Our Pride",
         "region": "North West",
-        "region_initial": "NW",
         "postal_code": "860001",
         "lgas": [
             "Anka",
