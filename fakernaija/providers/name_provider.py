@@ -166,7 +166,11 @@ class NameProvider:
 
         first_name = self.generate_first_name(tribe, gender)
         last_name = self.generate_last_name(tribe)
+
         if middle_name:
             optional_middle_name = self.generate_first_name(tribe, gender)
+            while optional_middle_name == first_name:
+                optional_middle_name = self.generate_first_name(tribe, gender)
             return f"{first_name} {optional_middle_name} {last_name}"
+
         return f"{first_name} {last_name}"

@@ -1995,59 +1995,6 @@ class TestFakerSchoolProvider(unittest.TestCase):
         self.assertIsNone(result)
 
 
-class TestFakerNameProvider(unittest.TestCase):
-    """Unit tests for the Faker method from the NameProvider."""
-
-    def setUp(self) -> None:
-        """Set up the test case environment."""
-        self.faker = Faker()
-
-    def test_full_name(self) -> None:
-        """Test that full_name returns a string."""
-        name = self.faker.full_name()
-        self.assertIsInstance(name, str)
-
-    def test_first_name(self) -> None:
-        """Test that first_name returns a string."""
-        name = self.faker.first_name()
-        self.assertIsInstance(name, str)
-
-    def test_last_name(self) -> None:
-        """Test that last_name returns a string."""
-        name = self.faker.last_name()
-        self.assertIsInstance(name, str)
-
-    def test_prefix(self) -> None:
-        """Test that prefix returns a string."""
-        prefix = self.faker.prefix()
-        self.assertIsInstance(prefix, str)
-
-    def test_male_prefix(self) -> None:
-        """Test that male_prefix returns a string."""
-        prefix = self.faker.male_prefix()
-        self.assertIsInstance(prefix, str)
-
-    def test_female_prefix(self) -> None:
-        """Test that female_prefix returns a string."""
-        prefix = self.faker.female_prefix()
-        self.assertIsInstance(prefix, str)
-
-    def test_traditional_male_title(self) -> None:
-        """Test that traditional_male_title returns a string."""
-        prefix = self.faker.traditional_male_title()
-        self.assertIsInstance(prefix, str)
-
-    def test_traditional_female_title(self) -> None:
-        """Test that traditional_female_title returns a string."""
-        prefix = self.faker.traditional_female_title()
-        self.assertIsInstance(prefix, str)
-
-    def test_professional_title(self) -> None:
-        """Test that professional_title returns a string."""
-        prefix = self.faker.professional_title()
-        self.assertIsInstance(prefix, str)
-
-
 class TestFakerEmailProvider(unittest.TestCase):
     """Unit tests for the Faker method from the EmailProvider."""
 

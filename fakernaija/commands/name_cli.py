@@ -59,7 +59,21 @@ def fullname(repeat: int, gender: str, middlename: bool, tribe: str) -> None:
         return
 
     for _ in range(repeat):
-        fullname = naija.full_name(middle_name=middlename, gender=gender, tribe=tribe)
+        if tribe and gender:
+            if gender == "male":
+                fullname = naija.full_name_tribe(tribe, middle_name=middlename)
+            else:
+                fullname = naija.full_name_tribe(tribe, middle_name=middlename)
+        elif tribe:
+            fullname = naija.full_name_tribe(tribe, middle_name=middlename)
+        elif gender:
+            if gender == "male":
+                fullname = naija.male_full_name(middle_name=middlename)
+            else:
+                fullname = naija.female_full_name(middle_name=middlename)
+        else:
+            fullname = naija.full_name(middle_name=middlename)
+
         if fullname:
             click.echo(fullname)
         else:
@@ -110,7 +124,21 @@ def firstname(repeat: int, tribe: str, gender: str) -> None:
         return
 
     for _ in range(repeat):
-        firstname = naija.first_name(tribe=tribe, gender=gender)
+        if tribe and gender:
+            if gender == "male":
+                firstname = naija.male_first_name_tribe(tribe)
+            else:
+                firstname = naija.female_first_name_tribe(tribe)
+        elif tribe:
+            firstname = naija.first_name_tribe(tribe)
+        elif gender:
+            if gender == "male":
+                firstname = naija.male_first_name()
+            else:
+                firstname = naija.female_first_name()
+        else:
+            firstname = naija.first_name()
+
         if firstname:
             click.echo(firstname)
         else:
@@ -152,7 +180,8 @@ def lastname(repeat: int, tribe: str) -> None:
         return
 
     for _ in range(repeat):
-        lastname = naija.last_name(tribe=tribe)
+        lastname = naija.last_name_tribe(tribe) if tribe else naija.last_name()
+
         if lastname:
             click.echo(lastname)
         else:
@@ -167,24 +196,38 @@ def lastname(repeat: int, tribe: str) -> None:
     help="Number of random prefixes to return. Defaults to 1.",
     type=int,
 )
-def prefix(repeat: int) -> None:
+@click.option(
+    "--gender",
+    "-g",
+    type=click.Choice(["male", "female"], case_sensitive=False),
+    help="Specify the gender for the prefix.",
+)
+def prefix(repeat: int, gender: str | None) -> None:
     """Return random prefixes.
 
     This command generates random name prefixes and honorifics.
 
     Args:
         repeat (int): The number of random prefixes to return.
+        gender (str, optional): The gender for the prefix.
 
     Examples:
         $ naija prefix
         $ naija prefix --repeat 3
+        $ naija prefix --gender male
     """
     if repeat < 1:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
         return
 
     for _ in range(repeat):
-        prefix = naija.prefix()
+        if gender == "male":
+            prefix = naija.male_prefix()
+        elif gender == "female":
+            prefix = naija.female_prefix()
+        else:
+            prefix = naija.prefix()
+
         if prefix:
             click.echo(prefix)
         else:

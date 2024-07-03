@@ -14,26 +14,15 @@ class Name:
 
     def full_name(
         self,
-        tribe: str | None = None,
-        gender: str | None = None,
         middle_name: bool = False,
     ) -> str:
         """Generate a random full name.
 
         Args:
-            tribe (str | None, optional): The ethnic group for which to generate the name.
-            gender (str | None, optional): The gender for which to generate the name.
             middle_name (bool, optional): Whether to include a middle name. Defaults to False.
 
         Returns:
             str: A random full name.
-
-        Note:
-            - Supported genders: male, female
-            - Supported tribes: yoruba, igbo, hausa, edo, fulani, ijaw
-
-        Raises:
-            ValueError: If the specified tribe or gender is not supported or if no names are available.
 
         Example:
             .. code-block:: python
@@ -45,44 +34,208 @@ class Name:
                 >>> print(f"Random full name: {full_name}")
                 'Random full name: Ugochi Maduike'
 
-                >>> full_name = naija.full_name(tribe="yoruba")
-                >>> print(f"Random Yoruba full name: {full_name}")
-                'Random Yoruba full name: Opeyemi Obisesan'
-
-                >>> full_name = naija.full_name(gender="female")
-                >>> print(f"Random female full name: {full_name}")
-                'Random female full name: Ihuoma Maduabuchi'
-
                 >>> full_name = naija.full_name(middle_name=True)
                 >>> print(f"Random full name with middle name: {full_name}")
                 'Random full name with middle name: Oluwaseyi Atanda Abilujegbe'
-
-                >>> full_name = naija.full_name(tribe="igbo", gender="male")
-                >>> print(f"Random Igbo male full name: {full_name}")
-                'Random Igbo male full name: Ekene Muolokwu'
         """
-        return self.name_provider.generate_full_name(tribe, gender, middle_name)
+        return self.name_provider.generate_full_name(middle_name=middle_name)
 
-    def first_name(
+    def male_full_name(
         self,
-        tribe: str | None = None,
-        gender: str | None = None,
+        middle_name: bool = False,
     ) -> str:
-        """Generate a random first name.
+        """Generate a random full name for a male.
 
         Args:
-            tribe (str | None, optional): The ethnic group for which to generate the name.
-            gender (str | None, optional): The gender of the name.
+            middle_name (bool, optional): Whether to include a middle name. Defaults to False.
+
+        Returns:
+            str: A random male full name.
+
+        Example:
+            .. code-block:: python
+
+                >>> from fakernaija.faker import Faker
+                >>> naija = Faker()
+
+                >>> male_full_name = naija.male_full_name()
+                >>> print(f"Random male full name: {male_full_name}")
+                'Random male full name: Habeeb Bello'
+
+                >>> male_full_name = naija.male_full_name(middle_name=True)
+                >>> print(f"Random full name with middle name: {male_full_name}")
+                'Random male full name with middle name: Oluwaseyi Atanda Abilujegbe'
+        """
+        return self.name_provider.generate_full_name(
+            gender="male",
+            middle_name=middle_name,
+        )
+
+    def female_full_name(
+        self,
+        middle_name: bool = False,
+    ) -> str:
+        """Generate a random full name for a female.
+
+        Args:
+            middle_name (bool, optional): Whether to include a middle name. Defaults to False.
+
+        Returns:
+            str: A random female full name.
+
+        Example:
+            .. code-block:: python
+
+                >>> from fakernaija.faker import Faker
+                >>> naija = Faker()
+
+                >>> female_full_name = naija.female_full_name()
+                >>> print(f"Random female full name: {female_full_name}")
+                'Random female full name: Ugochi Maduike'
+
+                >>> female_full_name = naija.female_full_name(middle_name=True)
+                >>> print(f"Random full name with middle name: {female_full_name}")
+                'Random female full name with middle name: Ugochi Ihuoma Maduabuchi'
+        """
+        return self.name_provider.generate_full_name(
+            gender="female",
+            middle_name=middle_name,
+        )
+
+    def full_name_tribe(
+        self,
+        tribe: str,
+        middle_name: bool = False,
+    ) -> str:
+        """Generate a random full name for a specific tribe.
+
+        Args:
+            tribe (str): The ethnic group for which to generate the name.
+            middle_name (bool, optional): Whether to include a middle name. Defaults to False.
+
+        Returns:
+            str: A random full name for a specific tribe.
+
+        Note:
+            - Supported tribes: yoruba, igbo, hausa, edo, fulani, ijaw
+
+        Raises:
+            ValueError: If the specified tribe is not supported.
+
+        Example:
+            .. code-block:: python
+
+                >>> from fakernaija.faker import Faker
+                >>> naija = Faker()
+
+                >>> full_name_tribe = naija.full_name_tribe('igbo')
+                >>> print(f"Random full name: {full_name_tribe}")
+                'Random full name: Ugochi Maduike'
+
+                >>> full_name_tribe = naija.full_name_tribe(tribe='yoruba', middle_name=True)
+                >>> print(f"Random yoruba full name with middle name: {full_name_tribe}")
+                'Random yoruba full name with middle name: Oluwaseyi Atanda Obisesan'
+        """
+        return self.name_provider.generate_full_name(
+            tribe=tribe,
+            middle_name=middle_name,
+        )
+
+    def first_name(self) -> str:
+        """Generate a random first name.
 
         Returns:
             str: A random first name.
 
+        Example:
+            .. code-block:: python
+
+                >>> from fakernaija.faker import Faker
+                >>> naija = Faker()
+
+                >>> first_name = naija.first_name()
+                >>> print(f"Random first name: {first_name}")
+                'Random first name: Nasiru'
+        """
+        return self.name_provider.generate_first_name()
+
+    def first_name_tribe(self, tribe: str) -> str:
+        """Generate a random first name by specified tribe.
+
+        Args:
+            tribe (str): The ethnic group from which to generate the name.
+
+        Returns:
+            str: A random first name by tribe.
+
         Note:
-            - Supported genders: male, female
             - Supported tribes: yoruba, igbo, hausa, edo, fulani, ijaw
 
         Raises:
-            ValueError: If the specified tribe or gender is not supported or if no names are available.
+            ValueError: If the specified tribe is not supported.
+
+        Example:
+            .. code-block:: python
+
+                >>> from fakernaija.faker import Faker
+                >>> naija = Faker()
+
+                >>> first_name_tribe = naija.first_name_tribe('yoruba')
+                >>> print(f"Random first name: {first_name_tribe}")
+                'Random first name: Opeyemi'
+        """
+        return self.name_provider.generate_first_name(tribe=tribe)
+
+    def male_first_name(self) -> str:
+        """Generate a random first name for a male.
+
+        Returns:
+            str: A random male first name.
+
+        Example:
+            .. code-block:: python
+
+                >>> from fakernaija.faker import Faker
+                >>> naija = Faker()
+
+                >>> male_first_name = naija.male_first_name()
+                >>> print(f"Random male first name: {male_first_name}")
+                'Random male first name: Ejike'
+        """
+        return self.name_provider.generate_first_name(gender="male")
+
+    def female_first_name(self) -> str:
+        """Generate a random first name for a female.
+
+        Returns:
+            str: A random female first name.
+
+        Example:
+            .. code-block:: python
+
+                >>> from fakernaija.faker import Faker
+                >>> naija = Faker()
+
+                >>> female_first_name = naija.female_first_name()
+                >>> print(f"Random female first name: {female_first_name}")
+                'Random female first name: Ugochi'
+        """
+        return self.name_provider.generate_first_name(gender="female")
+
+    def male_first_name_tribe(self, tribe: str) -> str:
+        """Generate a random first name for a male from a specific tribe.
+
+        Args:
+            tribe (str): The ethnic group for which to generate the name.
+
+        Returns:
+            str: A random male first name from specified tribe.
+
+        Note:
+            - Supported tribes: yoruba, igbo, hausa, edo, fulani, ijaw
+
+        Raises:
+            ValueError: If the specified tribe is not supported.
 
         Example:
             .. code-block:: python
@@ -94,34 +247,48 @@ class Name:
                 >>> print(f"Random first name: {first_name}")
                 'Random first name: Nasiru'
 
-                >>> first_name = naija.first_name(tribe="yoruba")
-                >>> print(f"Random Yoruba first name: {first_name}")
-                'Random Yoruba first name: Adebayo'
-
-                >>> first_name = naija.first_name(gender="male")
-                >>> print(f"Random male first name: {first_name}")
-                'Random male first name: Ade'
-
-                >>> first_name = naija.first_name(tribe="igbo", gender="male")
-                >>> print(f"Random Igbo male first name: {first_name}")
-                'Random Igbo male first name: Chidi'
+                >>> male_first_name_tribe = naija.male_first_name_tribe("yoruba")
+                >>> print(f"Random Yoruba male first name: {male_first_name_tribe}")
+                'Random Yoruba male first name: Seyi'
         """
-        return self.name_provider.generate_first_name(tribe, gender)
+        return self.name_provider.generate_first_name(tribe=tribe, gender="male")
 
-    def last_name(self, tribe: str | None = None) -> str:
-        """Generate a random last name.
+    def female_first_name_tribe(self, tribe: str) -> str:
+        """Generate a random first name for a female from a specific tribe.
 
         Args:
-            tribe (str | None, optional): The ethnic group for which to generate the name.
+            tribe (str): The ethnic group for which to generate the name.
 
         Returns:
-            str: A random last name.
+            str: A random female first name from specified tribe.
 
         Note:
             - Supported tribes: yoruba, igbo, hausa, edo, fulani, ijaw
 
         Raises:
-            ValueError: If the specified tribe is not supported or if no names are available.
+            ValueError: If the specified tribe is not supported.
+
+        Example:
+            .. code-block:: python
+
+                >>> from fakernaija.faker import Faker
+                >>> naija = Faker()
+
+                >>> first_name = naija.first_name()
+                >>> print(f"Random first name: {first_name}")
+                'Random first name: Nasiru'
+
+                >>> female_first_name_tribe = naija.female_first_name_tribe("yoruba")
+                >>> print(f"Random Yoruba female first name: {female_first_name_tribe}")
+                'Random Yoruba female first name: Sayo'
+        """
+        return self.name_provider.generate_first_name(tribe=tribe, gender="female")
+
+    def last_name(self) -> str:
+        """Generate a random last name.
+
+        Returns:
+            str: A random last name.
 
         Example:
             .. code-block:: python
@@ -132,9 +299,32 @@ class Name:
                 >>> last_name = naija.last_name()
                 >>> print(f"Random last name: {last_name}")
                 'Random last name: Okonkwo'
+        """
+        return self.name_provider.generate_last_name()
 
-                >>> last_name = naija.last_name(tribe="hausa")
-                >>> print(f"Random Hausa last name: {last_name}")
+    def last_name_tribe(self, tribe: str) -> str:
+        """Generate a random last name.
+
+        Args:
+            tribe (str): The ethnic group for which to generate the name.
+
+        Returns:
+            str: A random last name of a specified tribe.
+
+        Note:
+            - Supported tribes: yoruba, igbo, hausa, edo, fulani, ijaw
+
+        Raises:
+            ValueError: If the specified tribe is not supported.
+
+        Example:
+            .. code-block:: python
+
+                >>> from fakernaija.faker import Faker
+                >>> naija = Faker()
+
+                >>> last_name_tribe = naija.last_name_tribe("hausa")
+                >>> print(f"Random Hausa last name: {last_name_tribe}")
                 'Random Hausa last name: Abubakar'
         """
         return self.name_provider.generate_last_name(tribe)
