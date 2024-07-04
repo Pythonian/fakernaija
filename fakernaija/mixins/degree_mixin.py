@@ -3,7 +3,7 @@
 import random
 
 from fakernaija.providers.degree_provider import DegreeProvider
-from fakernaija.utils import get_unique_value
+from fakernaija.utils import get_unique_value, validate_degree_type
 
 
 class Degree:
@@ -98,12 +98,7 @@ class Degree:
                 >>> print(f"Random undergraduate degree name: {degree_name}")
                 'Random undergraduate degree name: Bachelor of Science'
         """
-        if degree_type:
-            degree_type = degree_type.lower()
-            if degree_type not in self.valid_degree_types:
-                msg = "Invalid degree_type. Must be one of 'undergraduate', 'masters', or 'doctorate'."
-                raise ValueError(msg)
-
+        degree_type = validate_degree_type(degree_type, self.valid_degree_types)
         degree_names = self.degree_provider.get_degree_names(degree_type)
         degree_name = get_unique_value(degree_names, self._used_degree_name_by_types)
         self._used_degree_name_by_types.add(degree_name)
@@ -128,12 +123,7 @@ class Degree:
                 >>> print(f"Random undergraduate degree abbreviation: {degree_abbr}")
                 'Random undergraduate degree abbreviation: B.Sc.'
         """
-        if degree_type:
-            degree_type = degree_type.lower()
-            if degree_type not in self.valid_degree_types:
-                msg = "Invalid degree_type. Must be one of 'undergraduate', 'masters', or 'doctorate'."
-                raise ValueError(msg)
-
+        degree_type = validate_degree_type(degree_type, self.valid_degree_types)
         degree_abbrs = self.degree_provider.get_degree_abbrs(degree_type)
         degree_abbr = get_unique_value(degree_abbrs, self._used_degree_abbr_by_types)
         self._used_degree_abbr_by_types.add(degree_abbr)

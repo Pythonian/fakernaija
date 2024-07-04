@@ -3,6 +3,7 @@
 import click
 
 from fakernaija.faker import Faker
+from fakernaija.utils import validate_degree_type
 
 naija = Faker()
 
@@ -75,7 +76,7 @@ def degree_name(repeat: int, degree_type: str) -> None:
 
     try:
         if degree_type:
-            degree_type = degree_type.lower()
+            degree_type = validate_degree_type(degree_type, naija.valid_degree_types)
             degree_names = [
                 naija.degree_name_by_type(degree_type=degree_type)
                 for _ in range(repeat)
@@ -124,7 +125,7 @@ def degree_abbr(repeat: int, degree_type: str) -> None:
 
     try:
         if degree_type:
-            degree_type = degree_type.lower()
+            degree_type = validate_degree_type(degree_type, naija.valid_degree_types)
             degree_abbrs = [
                 naija.degree_abbr_by_type(degree_type=degree_type)
                 for _ in range(repeat)
