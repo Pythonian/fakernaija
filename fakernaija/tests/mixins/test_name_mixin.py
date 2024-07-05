@@ -28,14 +28,59 @@ class TestName(unittest.TestCase):
         parts = name.split()
         self.assertNotEqual(parts[0], parts[1])
 
+    def test_male_full_name(self) -> None:
+        """Test that male_full_name returns a string."""
+        name = self.name_mixin.male_full_name()
+        self.assertIsInstance(name, str)
+
+    def test_female_full_name(self) -> None:
+        """Test that female_full_name returns a string."""
+        name = self.name_mixin.female_full_name()
+        self.assertIsInstance(name, str)
+
+    def test_full_name_tribe(self) -> None:
+        """Test that full_name_tribe returns a string."""
+        name = self.name_mixin.full_name_tribe("yoruba")
+        self.assertIsInstance(name, str)
+
     def test_first_name(self) -> None:
         """Test that first_name returns a string."""
         name = self.name_mixin.first_name()
         self.assertIsInstance(name, str)
 
+    def test_first_name_tribe(self) -> None:
+        """Test that first_name_tribe returns a string."""
+        name = self.name_mixin.first_name_tribe("hausa")
+        self.assertIsInstance(name, str)
+
+    def test_male_first_name(self) -> None:
+        """Test that male_first_name returns a string."""
+        name = self.name_mixin.male_first_name()
+        self.assertIsInstance(name, str)
+
+    def test_female_first_name(self) -> None:
+        """Test that female_first_name returns a string."""
+        name = self.name_mixin.female_first_name()
+        self.assertIsInstance(name, str)
+
+    def test_male_first_name_tribe(self) -> None:
+        """Test that male_first_name_tribe returns a string."""
+        name = self.name_mixin.male_first_name_tribe("igbo")
+        self.assertIsInstance(name, str)
+
+    def test_female_first_name_tribe(self) -> None:
+        """Test that female_first_name_tribe returns a string."""
+        name = self.name_mixin.female_first_name_tribe("ijaw")
+        self.assertIsInstance(name, str)
+
     def test_last_name(self) -> None:
         """Test that last_name returns a string."""
         name = self.name_mixin.last_name()
+        self.assertIsInstance(name, str)
+
+    def test_last_name_tribe(self) -> None:
+        """Test that last_name_tribe returns a string."""
+        name = self.name_mixin.last_name_tribe("edo")
         self.assertIsInstance(name, str)
 
     def test_prefix(self) -> None:

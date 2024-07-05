@@ -111,6 +111,17 @@ class NameProvider:
         Raises:
             ValueError: If the specified tribe or gender is not supported or if no names are available.
         """
+        tribe = self.normalize_input(tribe)
+        gender = self.normalize_input(gender)
+
+        if tribe and tribe not in self.tribes:
+            msg = f"Unsupported tribe: {tribe}. Supported tribes are: {', '.join(self.tribes)}"
+            raise ValueError(msg)
+
+        if gender and gender not in self.genders:
+            msg = f"Unsupported gender: {gender}. Supported genders are: {', '.join(self.genders)}"
+            raise ValueError(msg)
+
         first_names = self.get_first_names(tribe, gender)
         if not first_names:
             msg = "No first names available for the specified criteria."
@@ -129,6 +140,12 @@ class NameProvider:
         Raises:
             ValueError: If the specified tribe is not supported or if no names are available.
         """
+        tribe = self.normalize_input(tribe)
+
+        if tribe and tribe not in self.tribes:
+            msg = f"Unsupported tribe: {tribe}. Supported tribes are: {', '.join(self.tribes)}"
+            raise ValueError(msg)
+
         last_names = self.get_last_names(tribe)
         if not last_names:
             msg = "No last names available for the specified criteria."

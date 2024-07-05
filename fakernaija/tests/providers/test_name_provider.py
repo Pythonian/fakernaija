@@ -90,6 +90,12 @@ class TestNameProvider(unittest.TestCase):
             self.name_provider.get_last_names(tribe="hausa")
         self.assertIn("Unsupported tribe: hausa", str(context.exception))
 
+    def test_generate_full_name_invalid_gender(self) -> None:
+        """Test generating full names with unsupported gender."""
+        with self.assertRaises(ValueError) as context:
+            self.name_provider.generate_full_name(tribe="igbo", gender="invalid")
+        self.assertIn("Unsupported gender: invalid", str(context.exception))
+
     @patch(
         "random.choice",
         return_value={"tribe": "igbo", "gender": "female", "name": "Ugochi"},

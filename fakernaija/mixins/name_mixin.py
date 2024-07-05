@@ -527,5 +527,5 @@ class Name:
                 >>> print(f"Random professional title: {professional_title}")
                 'Random professional title: Barrister'
         """
-        titles = ["Dr.", "Engr.", "Tpl", "Barrister", "Prof."]
+        titles = ["Dr.", "Engr.", "Tpl", "Barrister", "Prof.", "Esq."]
         return random.choice(titles)
