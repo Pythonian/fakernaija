@@ -1,7 +1,7 @@
 """CLI commands for EmailProvider to generate random email addresses."""
 
+import csv
 import json
-import re
 from pathlib import Path
 
 import click
@@ -10,8 +10,36 @@ from fakernaija.faker import Faker
 
 naija = Faker()
 
-# Regex pattern to match invalid characters for output file names
-INVALID_FILENAME_CHARS = re.compile(r'[<>:"/\\|?*]')
+
+def get_unique_filename(base_path: Path) -> Path:
+    """Generate a unique file name by appending numbers if the file exists."""
+    counter = 1
+    unique_path = base_path
+    while unique_path.exists():
+        unique_path = base_path.with_stem(f"{base_path.stem}_{counter}")
+        counter += 1
+    return unique_path
+
+
+def write_emails_to_file(emails: list[str], output_path: Path, output: str) -> None:
+    """Write emails to file in specified format."""
+    try:
+        if output == "json":
+            with output_path.open("w") as f:
+                json.dump(emails, f, indent=4)
+        elif output == "csv":
+            with output_path.open("w", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow(["Emails"])
+                for email in emails:
+                    writer.writerow([email])
+        elif output == "text":
+            with output_path.open("w") as f:
+                for email in emails:
+                    f.write(email + "\n")
+        click.echo(f"Generated emails saved to {output_path}")
+    except OSError as e:
+        click.echo(f"Error: Could not write to file {output_path}. {e}", err=True)
 
 
 @click.command()
@@ -49,20 +77,26 @@ INVALID_FILENAME_CHARS = re.compile(r'[<>:"/\\|?*]')
     "--output",
     "-o",
     default=None,
-    help="The path to the output JSON file. If not provided, prints to stdout.",
-    type=click.Path(dir_okay=False, writable=True, path_type=Path),
+    help="The format of the output file.",
+    type=click.Choice(["json", "text", "csv"], case_sensitive=False),
 )
-def email(repeat: int, tribe: str, gender: str, domain: str, output: Path) -> None:
+def email(
+    repeat: int,
+    tribe: str,
+    gender: str,
+    domain: str,
+    output: str,
+) -> None:
     """Return random Nigerian email addresses.
 
     This command generates random Nigerian email addresses.
 
     Args:
         repeat (int): The number of random email addresses to return.
-        tribe (str): The tribe to generate names from (yoruba, igbo, hausa, edo, fulani, ijaw).
+        tribe (str): The tribe to generate names from.
         gender (str): The specific gender from which the email address will be generated.
         domain (str): A custom domain to use for the email address.
-        output (Path): The path to the output JSON file.
+        output (str): The format of the output file.
 
     Examples:
         $ naija email
@@ -70,7 +104,7 @@ def email(repeat: int, tribe: str, gender: str, domain: str, output: Path) -> No
         $ naija email --tribe igbo
         $ naija email --gender female
         $ naija email --domain gov.ng
-        $ naija email --repeat 50 --tribe yoruba --gender male --domain gov.ng --output emails.json
+        $ naija email --repeat 50 --tribe yoruba --gender male --domain gov.ng --output json
     """
     if repeat < 1:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
@@ -79,10 +113,6 @@ def email(repeat: int, tribe: str, gender: str, domain: str, output: Path) -> No
     # Normalize tribe and gender to lowercase if they are provided
     tribe = tribe.lower() if tribe else None
     gender = gender.lower() if gender else None
-
-    if output and INVALID_FILENAME_CHARS.search(output.name):
-        click.echo("Error: Output file name contains invalid characters.", err=True)
-        return
 
     emails = []
 
@@ -95,16 +125,16 @@ def email(repeat: int, tribe: str, gender: str, domain: str, output: Path) -> No
                 click.echo("Error: Failed to generate email address.", err=True)
 
         if output:
-            output_path = Path.cwd() / output
-            try:
-                with output_path.open("w") as f:
-                    json.dump(emails, f, indent=4)
-                click.echo(f"Generated emails saved to {output_path}")
-            except OSError as e:
-                click.echo(
-                    f"Error: Could not write to file {output_path}. {e}",
-                    err=True,
-                )
+            file_extensions = {
+                "json": ".json",
+                "text": ".txt",
+                "csv": ".csv",
+            }
+
+            base_filename = Path(f"emails{file_extensions[output]}")
+            output_path = get_unique_filename(Path.cwd() / base_filename)
+            write_emails_to_file(emails, output_path, output)
+
         else:
             for email in emails:
                 click.echo(email)
