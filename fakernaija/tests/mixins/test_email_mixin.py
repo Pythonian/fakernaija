@@ -20,7 +20,7 @@ class TestEmail(unittest.TestCase):
         self.addCleanup(patch.stopall)
 
     def test_email_no_filters(self) -> None:
-        """Test generating an email with no tribe or gender or domain filters."""
+        """Test generating an email with no tribe, gender, or domain filters."""
         self.email_provider_mock.generate_email.return_value = "pythonian@gmail.com"
         result = self.faker.email()
         self.email_provider_mock.generate_email.assert_called_once_with(
@@ -68,39 +68,6 @@ class TestEmail(unittest.TestCase):
             None,
         )
         self.assertEqual(result, "tribe_gender_pythonian@gmail.com")
-
-    def test_email_with_invalid_tribe(self) -> None:
-        """Test generating an email with an invalid tribe."""
-        self.email_provider_mock.generate_email.return_value = None
-        result = self.faker.email(tribe="invalid_tribe")
-        self.email_provider_mock.generate_email.assert_called_once_with(
-            "invalid_tribe",
-            None,
-            None,
-        )
-        self.assertIsNone(result)
-
-    def test_email_with_invalid_gender(self) -> None:
-        """Test generating an email with an invalid gender."""
-        self.email_provider_mock.generate_email.return_value = None
-        result = self.faker.email(gender="invalid_gender")
-        self.email_provider_mock.generate_email.assert_called_once_with(
-            None,
-            "invalid_gender",
-            None,
-        )
-        self.assertIsNone(result)
-
-    def test_email_with_invalid_tribe_and_gender(self) -> None:
-        """Test generating an email with invalid tribe and gender."""
-        self.email_provider_mock.generate_email.return_value = None
-        result = self.faker.email(tribe="invalid_tribe", gender="invalid_gender")
-        self.email_provider_mock.generate_email.assert_called_once_with(
-            "invalid_tribe",
-            "invalid_gender",
-            None,
-        )
-        self.assertIsNone(result)
 
     def test_email_with_domain(self) -> None:
         """Test generating an email with a domain filter."""
@@ -156,6 +123,28 @@ class TestEmail(unittest.TestCase):
         )
         self.assertEqual(result, "tribe_gender_test@unn.edu.ng")
 
+    def test_email_with_invalid_tribe(self) -> None:
+        """Test generating an email with an invalid tribe."""
+        self.email_provider_mock.generate_email.return_value = None
+        result = self.faker.email(tribe="invalid_tribe")
+        self.email_provider_mock.generate_email.assert_called_once_with(
+            "invalid_tribe",
+            None,
+            None,
+        )
+        self.assertIsNone(result)
+
+    def test_email_with_invalid_gender(self) -> None:
+        """Test generating an email with an invalid gender."""
+        self.email_provider_mock.generate_email.return_value = None
+        result = self.faker.email(gender="invalid_gender")
+        self.email_provider_mock.generate_email.assert_called_once_with(
+            None,
+            "invalid_gender",
+            None,
+        )
+        self.assertIsNone(result)
+
     def test_email_with_invalid_domain(self) -> None:
         """Test generating an email with an invalid domain."""
         self.email_provider_mock.generate_email.return_value = None
@@ -168,32 +157,13 @@ class TestEmail(unittest.TestCase):
         )
         self.assertIsNone(result)
 
-    def test_email_by_tribe(self) -> None:
-        """Test generating an email with tribe filter using email_by_tribe."""
-        self.email_provider_mock.generate_email.return_value = "tribe_test@gmail.com"
-
-        result = self.faker.email_by_tribe("yoruba")
+    def test_email_with_invalid_tribe_and_gender(self) -> None:
+        """Test generating an email with invalid tribe and gender."""
+        self.email_provider_mock.generate_email.return_value = None
+        result = self.faker.email(tribe="invalid_tribe", gender="invalid_gender")
         self.email_provider_mock.generate_email.assert_called_once_with(
-            tribe="yoruba",
+            "invalid_tribe",
+            "invalid_gender",
+            None,
         )
-        self.assertEqual(result, "tribe_test@gmail.com")
-
-    def test_email_by_gender(self) -> None:
-        """Test generating an email with gender filter using email_by_gender."""
-        self.email_provider_mock.generate_email.return_value = "gender_test@gmail.com"
-
-        result = self.faker.email_by_gender("female")
-        self.email_provider_mock.generate_email.assert_called_once_with(
-            gender="female",
-        )
-        self.assertEqual(result, "gender_test@gmail.com")
-
-    def test_email_by_domain(self) -> None:
-        """Test generating an email with domain filter using email_by_domain."""
-        self.email_provider_mock.generate_email.return_value = "test@domain.com"
-
-        result = self.faker.email_by_domain("domain.com")
-        self.email_provider_mock.generate_email.assert_called_once_with(
-            domain="domain.com",
-        )
-        self.assertEqual(result, "test@domain.com")
+        self.assertIsNone(result)

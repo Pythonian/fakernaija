@@ -43,80 +43,16 @@ class Email:
                 >>> print(f"Random email: {email}")
                 'Random email: ugochi.maduike@gmail.com'
 
+                >>> email = naija.email(tribe="igbo")
+                >>> print(f"Random email with tribe filter: {email}")
+                'Random email with tribe filter: ugochi.maduike@gmail.com'
+
+                >>> email = naija.email(gender="female")
+                >>> print(f"Random email with gender filter: {email}")
+                'Random email with gender filter: ugochi.maduike@gmail.com'
+
                 >>> email = naija.email(tribe="igbo", gender="female", domain="unn.edu.ng")
                 >>> print(f"Random email with multiple filters: {email}")
-                'Random email with multiple filters: maduikeugochi99@unn.edu.ng'
+                'Random email with multiple filters: ugochi.maduike@unn.edu.ng'
         """
         return self.email_provider.generate_email(tribe, gender, domain)
-
-    def email_by_tribe(self, tribe: str) -> str:
-        """Generate a random email address filtered by tribe.
-
-        Args:
-            tribe (str): The ethnic group to filter by.
-
-        Returns:
-            str: The generated email address.
-
-        Raises:
-            ValueError: If no matching data is found for the given tribe.
-
-        Example:
-            .. code-block:: python
-
-                >>> from fakernaija.faker import Faker
-                >>> naija = Faker()
-
-                >>> email = naija.email_by_tribe("igbo")
-                >>> print(f"Random email: {email}")
-                'Random email: chinedu.okafor@gmail.com'
-        """
-        return self.email_provider.generate_email(tribe=tribe)
-
-    def email_by_gender(self, gender: str) -> str:
-        """Generate a random email address filtered by gender.
-
-        Args:
-            gender (str): The gender to filter by.
-
-        Returns:
-            str: The generated email address.
-
-        Raises:
-            ValueError: If no matching data is found for the given gender.
-
-        Example:
-            .. code-block:: python
-
-                >>> from fakernaija.faker import Faker
-                >>> naija = Faker()
-
-                >>> email = naija.email_by_gender("female")
-                >>> print(f"Random email: {email}")
-                'Random email: ugochi.maduike@gmail.com'
-        """
-        return self.email_provider.generate_email(gender=gender)
-
-    def email_by_domain(self, domain: str) -> str:
-        """Generate a random email address filtered by domain.
-
-        Args:
-            domain (str): The domain to use for the email.
-
-        Returns:
-            str: The generated email address.
-
-        Raises:
-            ValueError: If the domain is invalid.
-
-        Example:
-            .. code-block:: python
-
-                >>> from fakernaija.faker import Faker
-                >>> naija = Faker()
-
-                >>> email = naija.email_by_domain("unn.edu.ng")
-                >>> print(f"Random email: {email}")
-                'Random email: ugochimaduike99@unn.edu.ng'
-        """
-        return self.email_provider.generate_email(domain=domain)
