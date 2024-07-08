@@ -1,4 +1,4 @@
-"""PhoneNumberMixin to group related methods for the PhoneNumberProvider."""
+"""PhoneNumber mixin to group related methods for the PhoneNumberProvider."""
 
 from fakernaija.providers.phonenumber_provider import PhoneNumberProvider
 

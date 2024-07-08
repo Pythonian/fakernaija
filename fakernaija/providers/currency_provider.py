@@ -11,14 +11,15 @@ class CurrencyProvider:
         self.currency_symbol = "₦"
 
     def get_currency(self) -> dict[str, str]:
-        """Returns the currency code and name as a dictionary.
+        """Returns the currency code, name and symbol as a dictionary.
 
         Returns:
-            dict[str, str]: The currency code and currency name.
+            dict[str, str]: The currency code, name and symbol.
         """
         return {
             "code": self.currency_code,
             "name": self.currency_name,
+            "symbol": self.currency_symbol,
         }
 
     def get_currency_code(self) -> str:

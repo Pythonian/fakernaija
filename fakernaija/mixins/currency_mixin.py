@@ -24,7 +24,7 @@ class Currency:
 
                 >>> currency = naija.currency()
                 >>> print(f"Nigerian currency: {currency}")
-                "Nigerian currency: {'code': 'NGN', 'name': 'Nigerian naira'}"
+                "Nigerian currency: {'code': 'NGN', 'name': 'Nigerian naira', 'symbol': '₦'}"
         """
         return self.currency_provider.get_currency()
 

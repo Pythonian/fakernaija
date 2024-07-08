@@ -1,4 +1,4 @@
-"""This module provides the Degree mixin, which groups related methods for generating degree information using the DegreeProvider."""
+"""Degree mixin to group related methods for the DegreeProvider."""
 
 import random
 

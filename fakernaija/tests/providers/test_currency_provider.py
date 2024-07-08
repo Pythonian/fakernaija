@@ -17,10 +17,10 @@ class TestCurrencyProvider(unittest.TestCase):
         self.currency_provider = CurrencyProvider()
 
     def test_get_currency(self) -> None:
-        """Test the get_currency method for returning the currency code and name."""
+        """Test the get_currency method for returning the currency code, name and symbol."""
         self.assertEqual(
             self.currency_provider.get_currency(),
-            {"code": "NGN", "name": "Nigerian naira"},
+            {"code": "NGN", "name": "Nigerian naira", "symbol": "₦"},
         )
 
     def test_get_currency_code(self) -> None:
