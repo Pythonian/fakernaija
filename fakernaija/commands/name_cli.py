@@ -1,8 +1,11 @@
 """CLI commands for NameProvider to generate random Nigerian names."""
 
+from pathlib import Path
+
 import click
 
 from fakernaija.faker import Faker
+from fakernaija.utils import get_unique_filename, write_data_to_file
 
 naija = Faker()
 
@@ -35,7 +38,20 @@ naija = Faker()
     help="The tribe choice for the name.",
     type=click.Choice(["yoruba", "igbo", "hausa", "edo", "fulani", "ijaw"]),
 )
-def fullname(repeat: int, gender: str, middlename: bool, tribe: str) -> None:
+@click.option(
+    "--output",
+    "-o",
+    default=None,
+    help="The format of the output file.",
+    type=click.Choice(["json", "text", "csv", "xml"], case_sensitive=False),
+)
+def fullname(
+    repeat: int,
+    gender: str,
+    middlename: bool,
+    tribe: str,
+    output: str,
+) -> None:
     """Return random full names.
 
     This command generates random Nigerian full names.
@@ -45,6 +61,7 @@ def fullname(repeat: int, gender: str, middlename: bool, tribe: str) -> None:
         gender (str): The gender from which the name should be generated.
         middlename (bool): If set, include a middle name to the full name.
         tribe (str): The tribe from which the name should be generated.
+        output (str): The format of the output file.
 
     Examples:
         $ naija fullname
@@ -53,10 +70,13 @@ def fullname(repeat: int, gender: str, middlename: bool, tribe: str) -> None:
         $ naija fullname --tribe igbo
         $ naija fullname --gender female
         $ naija fullname --tribe yoruba --repeat 2 --gender female --middlename
+        $ naija fullname --tribe igbo --repeat 2 --middlename --output json
     """
     if repeat < 1:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
         return
+
+    fullnames = []
 
     for _ in range(repeat):
         if tribe and gender:
@@ -75,9 +95,25 @@ def fullname(repeat: int, gender: str, middlename: bool, tribe: str) -> None:
             fullname = naija.full_name(middle_name=middlename)
 
         if fullname:
-            click.echo(fullname)
+            fullnames.append(fullname)
         else:
             click.echo("Error: Failed to generate fullname.", err=True)
+
+    if output:
+        file_extensions = {
+            "json": ".json",
+            "text": ".txt",
+            "csv": ".csv",
+            "xml": ".xml",
+        }
+
+        base_filename = Path(f"fullnames{file_extensions[output]}")
+        output_path = get_unique_filename(Path.cwd() / base_filename)
+        write_data_to_file(fullnames, output_path, output, "fullname")
+
+    else:
+        for fullname in fullnames:
+            click.echo(fullname)
 
 
 @click.command()
@@ -102,7 +138,14 @@ def fullname(repeat: int, gender: str, middlename: bool, tribe: str) -> None:
     help="The tribe choice for the name.",
     type=click.Choice(["yoruba", "igbo", "hausa", "edo", "fulani", "ijaw"]),
 )
-def firstname(repeat: int, tribe: str, gender: str) -> None:
+@click.option(
+    "--output",
+    "-o",
+    default=None,
+    help="The format of the output file.",
+    type=click.Choice(["json", "text", "csv", "xml"], case_sensitive=False),
+)
+def firstname(repeat: int, tribe: str, gender: str, output: str) -> None:
     """Return random first names.
 
     This command generates random Nigerian first names.
@@ -111,6 +154,7 @@ def firstname(repeat: int, tribe: str, gender: str) -> None:
         repeat (int): The number of random names to return.
         tribe (str): The tribe from which the name should be generated.
         gender (str): The gender from which the name should be generated.
+        output (str): The format of the output file.
 
     Examples:
         $ naija firstname
@@ -122,6 +166,8 @@ def firstname(repeat: int, tribe: str, gender: str) -> None:
     if repeat < 1:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
         return
+
+    firstnames = []
 
     for _ in range(repeat):
         if tribe and gender:
@@ -140,9 +186,25 @@ def firstname(repeat: int, tribe: str, gender: str) -> None:
             firstname = naija.first_name()
 
         if firstname:
-            click.echo(firstname)
+            firstnames.append(firstname)
         else:
             click.echo("Error: Failed to generate firstname.", err=True)
+
+    if output:
+        file_extensions = {
+            "json": ".json",
+            "text": ".txt",
+            "csv": ".csv",
+            "xml": ".xml",
+        }
+
+        base_filename = Path(f"firstnames{file_extensions[output]}")
+        output_path = get_unique_filename(Path.cwd() / base_filename)
+        write_data_to_file(firstnames, output_path, output, "firstname")
+
+    else:
+        for firstname in firstnames:
+            click.echo(firstname)
 
 
 @click.command()
@@ -160,7 +222,14 @@ def firstname(repeat: int, tribe: str, gender: str) -> None:
     help="The tribe choice for the name.",
     type=click.Choice(["yoruba", "igbo", "hausa", "edo", "fulani", "ijaw"]),
 )
-def lastname(repeat: int, tribe: str) -> None:
+@click.option(
+    "--output",
+    "-o",
+    default=None,
+    help="The format of the output file.",
+    type=click.Choice(["json", "text", "csv", "xml"], case_sensitive=False),
+)
+def lastname(repeat: int, tribe: str, output: str) -> None:
     """Return random last names.
 
     This command generates random Nigerian last names.
@@ -168,6 +237,7 @@ def lastname(repeat: int, tribe: str) -> None:
     Args:
         repeat (int): The number of random names to return.
         tribe (str): The tribe from which the name should be generated.
+        output (str): The format of the output file.
 
     Examples:
         $ naija lastname
@@ -179,13 +249,31 @@ def lastname(repeat: int, tribe: str) -> None:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
         return
 
+    lastnames = []
+
     for _ in range(repeat):
         lastname = naija.last_name_tribe(tribe) if tribe else naija.last_name()
 
         if lastname:
-            click.echo(lastname)
+            lastnames.append(lastname)
         else:
             click.echo("Error: Failed to generate last name.", err=True)
+
+    if output:
+        file_extensions = {
+            "json": ".json",
+            "text": ".txt",
+            "csv": ".csv",
+            "xml": ".xml",
+        }
+
+        base_filename = Path(f"lastnames{file_extensions[output]}")
+        output_path = get_unique_filename(Path.cwd() / base_filename)
+        write_data_to_file(lastnames, output_path, output, "lastname")
+
+    else:
+        for lastname in lastnames:
+            click.echo(lastname)
 
 
 @click.command()
@@ -202,7 +290,14 @@ def lastname(repeat: int, tribe: str) -> None:
     type=click.Choice(["male", "female"], case_sensitive=False),
     help="Specify the gender for the prefix.",
 )
-def prefix(repeat: int, gender: str | None) -> None:
+@click.option(
+    "--output",
+    "-o",
+    default=None,
+    help="The format of the output file.",
+    type=click.Choice(["json", "text", "csv", "xml"], case_sensitive=False),
+)
+def prefix(repeat: int, gender: str | None, output: str) -> None:
     """Return random prefixes.
 
     This command generates random name prefixes and honorifics.
@@ -210,15 +305,18 @@ def prefix(repeat: int, gender: str | None) -> None:
     Args:
         repeat (int): The number of random prefixes to return.
         gender (str, optional): The gender for the prefix.
+        output (str): The format of the output file.
 
     Examples:
         $ naija prefix
         $ naija prefix --repeat 3
-        $ naija prefix --gender male
+        $ naija prefix --gender male -o text
     """
     if repeat < 1:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
         return
+
+    prefixes = []
 
     for _ in range(repeat):
         if gender == "male":
@@ -229,6 +327,22 @@ def prefix(repeat: int, gender: str | None) -> None:
             prefix = naija.prefix()
 
         if prefix:
-            click.echo(prefix)
+            prefixes.append(prefix)
         else:
             click.echo("Error: Failed to generate prefix.", err=True)
+
+    if output:
+        file_extensions = {
+            "json": ".json",
+            "text": ".txt",
+            "csv": ".csv",
+            "xml": ".xml",
+        }
+
+        base_filename = Path(f"prefixes{file_extensions[output]}")
+        output_path = get_unique_filename(Path.cwd() / base_filename)
+        write_data_to_file(prefixes, output_path, output, "prefix")
+
+    else:
+        for prefix in prefixes:
+            click.echo(prefix)

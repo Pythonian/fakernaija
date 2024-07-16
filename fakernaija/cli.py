@@ -18,9 +18,8 @@ from fakernaija.commands.faculty_cli import (
     faculty_name,
 )
 from fakernaija.commands.name_cli import firstname, fullname, lastname, prefix
-from fakernaija.commands.phonenumber_cli import calling_code, phonenumber
+from fakernaija.commands.phonenumber_cli import phonenumber
 from fakernaija.commands.state_cli import (
-    capital,
     lga,
     postal_code,
     region,
@@ -75,7 +74,6 @@ cli.add_command(lastname, name="lastname")
 cli.add_command(prefix, name="prefix")
 
 # Phonenumber CLI
-cli.add_command(calling_code, name="calling_code")
 cli.add_command(phonenumber, name="phonenumber")
 
 # State CLI
@@ -86,7 +84,6 @@ cli.add_command(state_slogan, name="state_slogan")
 cli.add_command(region, name="region")
 cli.add_command(region_name, name="region_name")
 cli.add_command(region_abbr, name="region_abbr")
-cli.add_command(capital, name="capital")
 cli.add_command(state_capital, name="state_capital")
 cli.add_command(lga, name="lga")
 cli.add_command(state_lga, name="state_lga")

@@ -42,14 +42,6 @@ class PhoneNumberProvider:
         """
         return prefix + "".join(random.choices("0123456789", k=7))
 
-    def get_nigeria_call_code(self) -> str:
-        """Returns Nigeria's call code.
-
-        Returns:
-            str: Nigeria's call code (+234).
-        """
-        return "+234"
-
     def generate_phone_number(
         self,
         network: str | None = None,

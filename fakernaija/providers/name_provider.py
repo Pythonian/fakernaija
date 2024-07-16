@@ -23,8 +23,8 @@ class NameProvider:
             self.data_path / "last_names.json",
             ["tribe", "name"],
         )
-        self.tribes = list({name["tribe"] for name in self.first_names})
-        self.genders = list({name["gender"] for name in self.first_names})
+        self.tribes = ["yoruba", "igbo", "hausa", "edo", "fulani", "ijaw"]
+        self.genders = ["male", "female"]
 
     def normalize_input(self, value: str | None) -> str | None:
         """Normalize input value to lowercase.

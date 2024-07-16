@@ -1,9 +1,15 @@
 """CLI commands for DegreeProvider to generate random Nigerian degrees."""
 
+from pathlib import Path
+
 import click
 
 from fakernaija.faker import Faker
-from fakernaija.utils import validate_degree_type
+from fakernaija.utils import (
+    get_unique_filename,
+    validate_degree_type,
+    write_data_to_file,
+)
 
 naija = Faker()
 
@@ -55,7 +61,14 @@ def degree(repeat: int) -> None:
     help="Type of degree to generate.",
     type=click.Choice(["undergraduate", "masters", "doctorate"], case_sensitive=False),
 )
-def degree_name(repeat: int, degree_type: str) -> None:
+@click.option(
+    "--output",
+    "-o",
+    default=None,
+    help="The format of the output file.",
+    type=click.Choice(["json", "text", "csv", "xml"], case_sensitive=False),
+)
+def degree_name(repeat: int, degree_type: str, output: str) -> None:
     """Return random degree names.
 
     This command generates random Nigerian degree names.
@@ -63,6 +76,7 @@ def degree_name(repeat: int, degree_type: str) -> None:
     Args:
         repeat (int): The number of random degree names to return.
         degree_type (str): Type of degree to generate.
+        output (str): The format of the output file.
 
     Examples:
         $ naija degree_name
@@ -83,8 +97,22 @@ def degree_name(repeat: int, degree_type: str) -> None:
             ]
         else:
             degree_names = [naija.degree_name() for _ in range(repeat)]
-        for degree_name in degree_names:
-            click.echo(degree_name)
+
+        if output:
+            file_extensions = {
+                "json": ".json",
+                "text": ".txt",
+                "csv": ".csv",
+                "xml": ".xml",
+            }
+
+            base_filename = Path(f"degree_names{file_extensions[output]}")
+            output_path = get_unique_filename(Path.cwd() / base_filename)
+            write_data_to_file(degree_names, output_path, output, "degree_name")
+
+        else:
+            for degree_name in degree_names:
+                click.echo(degree_name)
     except ValueError as e:
         click.echo(f"Error: {e}", err=True)
 
@@ -104,7 +132,14 @@ def degree_name(repeat: int, degree_type: str) -> None:
     help="Type of degree to generate.",
     type=click.Choice(["undergraduate", "masters", "doctorate"], case_sensitive=False),
 )
-def degree_abbr(repeat: int, degree_type: str) -> None:
+@click.option(
+    "--output",
+    "-o",
+    default=None,
+    help="The format of the output file.",
+    type=click.Choice(["json", "text", "csv", "xml"], case_sensitive=False),
+)
+def degree_abbr(repeat: int, degree_type: str, output: str) -> None:
     """Return random degree abbreviations.
 
     This command generates random Nigerian degree abbreviations.
@@ -112,6 +147,7 @@ def degree_abbr(repeat: int, degree_type: str) -> None:
     Args:
         repeat (int): The number of random degree abbreviations to return.
         degree_type (str): Type of degree to generate.
+        output (str): The format of the output file.
 
     Examples:
         $ naija degree_abbr
@@ -132,7 +168,21 @@ def degree_abbr(repeat: int, degree_type: str) -> None:
             ]
         else:
             degree_abbrs = [naija.degree_abbr() for _ in range(repeat)]
-        for degree_abbr in degree_abbrs:
-            click.echo(degree_abbr)
+
+        if output:
+            file_extensions = {
+                "json": ".json",
+                "text": ".txt",
+                "csv": ".csv",
+                "xml": ".xml",
+            }
+
+            base_filename = Path(f"degree_abbrs{file_extensions[output]}")
+            output_path = get_unique_filename(Path.cwd() / base_filename)
+            write_data_to_file(degree_abbrs, output_path, output, "degree_abbr")
+
+        else:
+            for degree_abbr in degree_abbrs:
+                click.echo(degree_abbr)
     except ValueError as e:
         click.echo(f"Error: {e}", err=True)

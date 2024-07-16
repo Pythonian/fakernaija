@@ -1,9 +1,12 @@
 """Utility file that provides functions to load json files and validate its data structure."""
 
+import csv
 import json
-import random
+import xml.etree.ElementTree as ET  # noqa: N817
 from pathlib import Path
 from typing import Any
+
+import click
 
 
 def load_json(file_path: str | Path, required_keys: list[str]) -> list[dict[str, Any]]:
@@ -61,32 +64,6 @@ def validate_json_structure(
             raise ValueError(msg)
 
 
-def get_unique_value(values: list[str], used_values: set[str]) -> str:
-    """Helper method to get a unique value from a list of values.
-
-    Ensures the generated value is unique within the session by:
-        * Checking available values against used values.
-        * Resetting used values if all options are exhausted.
-
-    Args:
-        values (list[str]): The list of possible values.
-        used_values (set[str]): The set of values that have already been used.
-
-    Returns:
-        str: A unique value from the list.
-    """
-    # Calculate the set difference to find values that have not been used
-    available_values = set(values) - used_values
-
-    # If no values are available, reset the used values set
-    if not available_values:
-        used_values.clear()
-        available_values = set(values)
-
-    # Return a randomly chosen value from the available values
-    return random.choice(list(available_values))
-
-
 def validate_degree_type(degree_type: str, valid_degree_types: list[str]) -> str:
     """Validate and convert degree type to lowercase.
 
@@ -105,3 +82,84 @@ def validate_degree_type(degree_type: str, valid_degree_types: list[str]) -> str
         msg = f"Invalid degree_type. Must be one of {valid_degree_types}."
         raise ValueError(msg)
     return degree_type
+
+
+def get_unique_filename(base_path: Path) -> Path:
+    """Generate a unique file name by appending numbers if the file exists."""
+    counter = 1
+    unique_path = base_path
+    while unique_path.exists():
+        unique_path = base_path.with_stem(f"{base_path.stem}_{counter}")
+        counter += 1
+    return unique_path
+
+
+def write_data_to_file(
+    data: list[Any],
+    output_path: Path,
+    output: str,
+    data_type: str,
+) -> None:
+    """Write data to file in specified format.
+
+    Args:
+        data (list[Any]): The data to write. Can be a list of dicts or a list of strings.
+        output_path (Path): The path to the output file.
+        output (str): The format of the output file (e.g., json, csv, text, xml).
+        data_type (str): The type of data being written.
+
+    Raises:
+        OSError: If there is an error writing to the file.
+    """
+    try:
+        if output == "json":
+            with output_path.open("w") as f:
+                json.dump(data, f, indent=4)
+        elif output == "csv":
+            with output_path.open("w", newline="") as f:
+                writer = csv.writer(f)
+                if data:
+                    if isinstance(data[0], dict):
+                        writer.writerow(
+                            [
+                                key.capitalize().replace("_", " ") + "s"
+                                for key in data[0]
+                            ],
+                        )
+                        for record in data:
+                            writer.writerow(record.values())
+                    else:
+                        writer.writerow([data_type.capitalize()])
+                        for record in data:
+                            writer.writerow([record])
+        elif output == "text":
+            with output_path.open("w") as f:
+                if isinstance(data[0], dict):
+                    for record in data:
+                        f.write(
+                            " | ".join(
+                                f"{key.capitalize().replace('_', ' ')}: {value}"
+                                for key, value in record.items()
+                            )
+                            + "\n",
+                        )
+                else:
+                    for record in data:
+                        f.write(record + "\n")
+        elif output == "xml":
+            root = ET.Element(data_type + "s")
+            if isinstance(data[0], dict):
+                for record in data:
+                    item_element = ET.SubElement(root, data_type)
+                    for key, value in record.items():
+                        child_element = ET.SubElement(item_element, key)
+                        child_element.text = str(value)
+            else:
+                for record in data:
+                    item_element = ET.SubElement(root, data_type)
+                    item_element.text = str(record)
+            tree = ET.ElementTree(root)
+            tree.write(output_path, encoding="utf-8", xml_declaration=True)
+        click.echo(f"Generated {data_type}s saved to {output_path}")
+    except OSError as e:
+        click.echo(f"Error: Could not write to file {output_path}. {e}", err=True)

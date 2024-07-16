@@ -1,14 +1,14 @@
 ---
 name: Feature Request
-about: Suggest a new provider or an enhancement to existing providers
+about: Suggest a new provider or method or an enhancement to existing providers or methods
 title: "[FEATURE] "
 labels: enhancement
 assignees: ''
 
 ---
 
-**Provider Request or Enhancement**
-Please specify whether your request is for a new provider or an enhancement to an existing provider.
+**Provider or Method Request or Enhancement**
+Please specify whether your request is for a new provider or method or an enhancement to an existing provider or method.
 
 **Describe the New Provider or Feature**
 Provide a brief description of the new provider you would like to see added, or the new methods or features you want to be added to an existing provider. Be as detailed as possible.
@@ -18,6 +18,9 @@ Provide examples of how this new provider or feature would be used. Include any 
 
 **Additional Context**
 Add any other context or screenshots about the feature request here. If this request is related to a specific use case or project, please describe it here.
+
+**Documentation Update**
+Provide information about the type of update required for the documentation should this feature be implemented.
 
 **Environment (optional)**
 If relevant, please provide information about your environment:

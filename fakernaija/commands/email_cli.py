@@ -1,45 +1,13 @@
 """CLI commands for EmailProvider to generate random email addresses."""
 
-import csv
-import json
 from pathlib import Path
 
 import click
 
 from fakernaija.faker import Faker
+from fakernaija.utils import get_unique_filename, write_data_to_file
 
 naija = Faker()
-
-
-def get_unique_filename(base_path: Path) -> Path:
-    """Generate a unique file name by appending numbers if the file exists."""
-    counter = 1
-    unique_path = base_path
-    while unique_path.exists():
-        unique_path = base_path.with_stem(f"{base_path.stem}_{counter}")
-        counter += 1
-    return unique_path
-
-
-def write_emails_to_file(emails: list[str], output_path: Path, output: str) -> None:
-    """Write emails to file in specified format."""
-    try:
-        if output == "json":
-            with output_path.open("w") as f:
-                json.dump(emails, f, indent=4)
-        elif output == "csv":
-            with output_path.open("w", newline="") as f:
-                writer = csv.writer(f)
-                writer.writerow(["Emails"])
-                for email in emails:
-                    writer.writerow([email])
-        elif output == "text":
-            with output_path.open("w") as f:
-                for email in emails:
-                    f.write(email + "\n")
-        click.echo(f"Generated emails saved to {output_path}")
-    except OSError as e:
-        click.echo(f"Error: Could not write to file {output_path}. {e}", err=True)
 
 
 @click.command()
@@ -78,7 +46,7 @@ def write_emails_to_file(emails: list[str], output_path: Path, output: str) -> N
     "-o",
     default=None,
     help="The format of the output file.",
-    type=click.Choice(["json", "text", "csv"], case_sensitive=False),
+    type=click.Choice(["json", "text", "csv", "xml"], case_sensitive=False),
 )
 def email(
     repeat: int,
@@ -129,11 +97,12 @@ def email(
                 "json": ".json",
                 "text": ".txt",
                 "csv": ".csv",
+                "xml": ".xml",
             }
 
             base_filename = Path(f"emails{file_extensions[output]}")
             output_path = get_unique_filename(Path.cwd() / base_filename)
-            write_emails_to_file(emails, output_path, output)
+            write_data_to_file(emails, output_path, output, "email")
 
         else:
             for email in emails:

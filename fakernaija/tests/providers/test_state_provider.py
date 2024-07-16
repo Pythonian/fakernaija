@@ -86,11 +86,6 @@ class TestStateProvider(unittest.TestCase):
         postal_code = self.state_provider.get_postal_code_by_state("Lagos")
         self.assertEqual(postal_code, "100001")
 
-    def test_get_state_capital(self) -> None:
-        """Test getting the capital city of a specific state."""
-        capital = self.state_provider.get_state_capital("Lagos")
-        self.assertEqual(capital, "Ikeja")
-
     def test_get_state_lgas(self) -> None:
         """Test getting a list of Local Government Areas for a specific state."""
         lgas = self.state_provider.get_state_lgas("Lagos")

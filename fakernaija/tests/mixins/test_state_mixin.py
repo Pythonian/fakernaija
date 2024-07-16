@@ -61,20 +61,9 @@ class TestFakerStateProvider(unittest.TestCase):
         result = self.faker.state()
         self.assertEqual(result["name"], "Lagos")
 
-    @patch("fakernaija.providers.state_provider.StateProvider.get_state_capital")
-    def test_capital_with_state(
-        self,
-        mock_get_state_capital: MagicMock,
-    ) -> None:
-        """Test capital method with state parameter."""
-        mock_get_state_capital.return_value = "Ikeja"
-
-        result = self.faker.state_capital(state="Lagos")
-        self.assertEqual(result, "Ikeja")
-
     @patch("fakernaija.providers.state_provider.StateProvider.get_capitals")
     @patch("random.choice")
-    def test_capital_without_state(
+    def test_state_capital_without_state(
         self,
         mock_choice: MagicMock,
         mock_get_capitals: MagicMock,
@@ -83,7 +72,7 @@ class TestFakerStateProvider(unittest.TestCase):
         mock_get_capitals.return_value = ["Ikeja", "Abeokuta"]
         mock_choice.return_value = "Ikeja"
 
-        result = self.faker.capital()
+        result = self.faker.state_capital()
         self.assertEqual(result, "Ikeja")
 
     @patch("fakernaija.providers.state_provider.StateProvider.get_state_lgas")

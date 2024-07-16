@@ -172,7 +172,7 @@ class State:
             raise ValueError(msg)
         return random.choice(states)
 
-    def capital(self) -> str:
+    def state_capital(self) -> str:
         """Get a random state capital.
 
         Returns:
@@ -184,39 +184,11 @@ class State:
                 >>> from fakernaija.faker import Faker
                 >>> naija = Faker()
 
-                >>> capital = naija.capital()
+                >>> capital = naija.state_capital()
                 >>> print(f"Random state capital: {capital}")
                 'Random state capital: Ikeja'
         """
         return random.choice(self.state_provider.get_capitals())
-
-    def state_capital(self, state: str) -> str:
-        """Get the capital of a specified state.
-
-        Args:
-            state (str): The name of the state
-
-        Returns:
-            str: The capital of the specified state.
-
-        Example:
-            .. code-block:: python
-
-                >>> from fakernaija.faker import Faker
-                >>> naija = Faker()
-
-                >>> state_capital = naija.state_capital('abia')
-                >>> print(f"State capital of a specific state: {state_capital}")
-                'State capital of a specific state: Umuahia'
-
-        Raises:
-            ValueError: If the specified state does not exist.
-        """
-        capital = self.state_provider.get_state_capital(state.lower())
-        if not capital:
-            msg = f"The state: {state} does not exist in Nigeria."
-            raise ValueError(msg)
-        return capital
 
     def lga(self) -> str:
         """Get a random Local Government Area (LGA).

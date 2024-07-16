@@ -64,8 +64,8 @@ class TestNameProvider(unittest.TestCase):
     def test_get_first_names_no_match(self) -> None:
         """Test getting first names with no match found."""
         with self.assertRaises(ValueError) as context:
-            self.name_provider.get_first_names(tribe="hausa", gender="male")
-        self.assertIn("Unsupported tribe: hausa", str(context.exception))
+            self.name_provider.get_first_names(tribe="pythonian", gender="male")
+        self.assertIn("Unsupported tribe: pythonian", str(context.exception))
 
     def test_get_first_names_invalid_gender(self) -> None:
         """Test getting first names with unsupported gender."""
@@ -87,8 +87,8 @@ class TestNameProvider(unittest.TestCase):
     def test_get_last_names_no_match(self) -> None:
         """Test getting last names with no match found."""
         with self.assertRaises(ValueError) as context:
-            self.name_provider.get_last_names(tribe="hausa")
-        self.assertIn("Unsupported tribe: hausa", str(context.exception))
+            self.name_provider.get_last_names(tribe="pythonian")
+        self.assertIn("Unsupported tribe: pythonian", str(context.exception))
 
     def test_generate_full_name_invalid_gender(self) -> None:
         """Test generating full names with unsupported gender."""

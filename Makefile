@@ -53,6 +53,7 @@ install: ## Install development packages
 
 docs: ## Build sphinx documentation
 	$(PIP) install -e .
+	@sphinx-quickstart docs
 	@sphinx-build -M html docs/source/ docs/build/
 	@echo "Project documentation successfully built."
 

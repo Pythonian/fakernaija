@@ -157,21 +157,6 @@ class StateProvider:
         except ValueError:
             return None
 
-    def get_state_capital(self, state: str) -> str | None:
-        """Get the capital city of a specific state.
-
-        Args:
-            state (str): The name of the state.
-
-        Returns:
-            str | None: The capital city of the specified state, or None if not found.
-        """
-        try:
-            state_info = self._get_state(state)
-            return state_info["capital"]
-        except ValueError:
-            return None
-
     def get_state_lgas(self, state_name: str) -> list[str]:
         """Get a list of Local Government Areas for a specific state.
 

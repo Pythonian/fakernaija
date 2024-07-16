@@ -267,7 +267,7 @@ def state_region(region_abbr: str) -> None:
     help="Number of random capitals to return. Defaults to 1.",
     type=int,
 )
-def capital(repeat: int) -> None:
+def state_capital(repeat: int) -> None:
     """Return random state capitals.
 
     This command generates random Nigerian state capitals.
@@ -276,45 +276,19 @@ def capital(repeat: int) -> None:
         repeat (int): The number of random state capitals to return.
 
     Examples:
-        $ naija capital
-        $ naija capital --repeat 3
+        $ naija state_capital
+        $ naija state_capital --repeat 3
     """
     if repeat < 1:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
         return
 
     for _ in range(repeat):
-        capital = naija.capital()
-        if capital:
-            click.echo(capital)
-        else:
-            click.echo("Error: Failed to generate capital.", err=True)
-
-
-@click.command()
-@click.argument("state")
-def state_capital(state: str) -> None:
-    """Return the capital of a specific state.
-
-    This command generates the capital of a specified Nigerian state.
-
-    Args:
-        state (str): The name of the state.
-
-    Examples:
-        $ naija state_capital Lagos
-    """
-    try:
-        state_capital = naija.state_capital(state)
+        state_capital = naija.state_capital()
         if state_capital:
             click.echo(state_capital)
         else:
-            click.echo(
-                f"Error: Failed to generate capital for state: {state}",
-                err=True,
-            )
-    except ValueError as e:
-        click.echo(f"Error: {e}", err=True)
+            click.echo("Error: Failed to generate capital.", err=True)
 
 
 @click.command()

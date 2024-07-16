@@ -45,6 +45,8 @@ ignore = [
     "S101", # Use of `assert` detected
     "PT027", # Avoid suggesting pytest.raises
     "PT009", # Avoid suggesting assert as against using unittest-style assertions
+    "C901", # Ignore raising Complex functions warning
+    "PLR0912", # Ignore Too many branches warning
 ]
 
 # Allow fix for all enabled rules (when `--fix`) is provided.
