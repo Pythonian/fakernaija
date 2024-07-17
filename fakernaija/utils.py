@@ -1,4 +1,4 @@
-"""Utility file that provides functions to load json files and validate its data structure."""
+"""Utility file that provides functions to common functionalities."""
 
 import csv
 import json
