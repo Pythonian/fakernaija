@@ -43,7 +43,7 @@ naija = Faker()
     "-o",
     default=None,
     help="The format of the output file.",
-    type=click.Choice(["json", "text", "csv", "xml"], case_sensitive=False),
+    type=click.Choice(["json", "text", "csv"], case_sensitive=False),
 )
 def fullname(
     repeat: int,
@@ -104,7 +104,6 @@ def fullname(
             "json": ".json",
             "text": ".txt",
             "csv": ".csv",
-            "xml": ".xml",
         }
 
         base_filename = Path(f"fullnames{file_extensions[output]}")
@@ -143,7 +142,7 @@ def fullname(
     "-o",
     default=None,
     help="The format of the output file.",
-    type=click.Choice(["json", "text", "csv", "xml"], case_sensitive=False),
+    type=click.Choice(["json", "text", "csv"], case_sensitive=False),
 )
 def firstname(repeat: int, tribe: str, gender: str, output: str) -> None:
     """Return random first names.
@@ -195,7 +194,6 @@ def firstname(repeat: int, tribe: str, gender: str, output: str) -> None:
             "json": ".json",
             "text": ".txt",
             "csv": ".csv",
-            "xml": ".xml",
         }
 
         base_filename = Path(f"firstnames{file_extensions[output]}")
@@ -227,7 +225,7 @@ def firstname(repeat: int, tribe: str, gender: str, output: str) -> None:
     "-o",
     default=None,
     help="The format of the output file.",
-    type=click.Choice(["json", "text", "csv", "xml"], case_sensitive=False),
+    type=click.Choice(["json", "text", "csv"], case_sensitive=False),
 )
 def lastname(repeat: int, tribe: str, output: str) -> None:
     """Return random last names.
@@ -264,7 +262,6 @@ def lastname(repeat: int, tribe: str, output: str) -> None:
             "json": ".json",
             "text": ".txt",
             "csv": ".csv",
-            "xml": ".xml",
         }
 
         base_filename = Path(f"lastnames{file_extensions[output]}")
@@ -295,7 +292,7 @@ def lastname(repeat: int, tribe: str, output: str) -> None:
     "-o",
     default=None,
     help="The format of the output file.",
-    type=click.Choice(["json", "text", "csv", "xml"], case_sensitive=False),
+    type=click.Choice(["json", "text", "csv"], case_sensitive=False),
 )
 def prefix(repeat: int, gender: str | None, output: str) -> None:
     """Return random prefixes.
@@ -336,7 +333,6 @@ def prefix(repeat: int, gender: str | None, output: str) -> None:
             "json": ".json",
             "text": ".txt",
             "csv": ".csv",
-            "xml": ".xml",
         }
 
         base_filename = Path(f"prefixes{file_extensions[output]}")

@@ -2,7 +2,6 @@
 
 import csv
 import json
-import xml.etree.ElementTree as ET  # noqa: N817
 from pathlib import Path
 from typing import Any
 
@@ -105,7 +104,7 @@ def write_data_to_file(
     Args:
         data (list[Any]): The data to write. Can be a list of dicts or a list of strings.
         output_path (Path): The path to the output file.
-        output (str): The format of the output file (e.g., json, csv, text, xml).
+        output (str): The format of the output file (e.g., json, csv, text).
         data_type (str): The type of data being written.
 
     Raises:
@@ -146,20 +145,6 @@ def write_data_to_file(
                 else:
                     for record in data:
                         f.write(record + "\n")
-        elif output == "xml":
-            root = ET.Element(data_type + "s")
-            if isinstance(data[0], dict):
-                for record in data:
-                    item_element = ET.SubElement(root, data_type)
-                    for key, value in record.items():
-                        child_element = ET.SubElement(item_element, key)
-                        child_element.text = str(value)
-            else:
-                for record in data:
-                    item_element = ET.SubElement(root, data_type)
-                    item_element.text = str(record)
-            tree = ET.ElementTree(root)
-            tree.write(output_path, encoding="utf-8", xml_declaration=True)
         click.echo(f"Generated {data_type}s saved to {output_path}")
     except OSError as e:
         click.echo(f"Error: Could not write to file {output_path}. {e}", err=True)

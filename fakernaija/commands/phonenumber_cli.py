@@ -36,7 +36,7 @@ naija = Faker()
     "-o",
     default=None,
     help="The format of the output file.",
-    type=click.Choice(["json", "text", "csv", "xml"], case_sensitive=False),
+    type=click.Choice(["json", "text", "csv"], case_sensitive=False),
 )
 def phonenumber(repeat: int, network: str, prefix: str, output: str) -> None:
     """Return random Nigerian phone numbers.
@@ -75,7 +75,6 @@ def phonenumber(repeat: int, network: str, prefix: str, output: str) -> None:
                 "json": ".json",
                 "text": ".txt",
                 "csv": ".csv",
-                "xml": ".xml",
             }
 
             base_filename = Path(f"phonenumbers{file_extensions[output]}")

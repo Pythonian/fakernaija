@@ -56,7 +56,7 @@ def faculty(repeat: int) -> None:
     "-o",
     default=None,
     help="The format of the output file.",
-    type=click.Choice(["json", "text", "csv", "xml"], case_sensitive=False),
+    type=click.Choice(["json", "text", "csv"], case_sensitive=False),
 )
 def faculty_name(repeat: int, output: str) -> None:
     """Return random faculty names.
@@ -89,7 +89,6 @@ def faculty_name(repeat: int, output: str) -> None:
             "json": ".json",
             "text": ".txt",
             "csv": ".csv",
-            "xml": ".xml",
         }
 
         base_filename = Path(f"faculty_names{file_extensions[output]}")
@@ -114,7 +113,7 @@ def faculty_name(repeat: int, output: str) -> None:
     "-o",
     default=None,
     help="The format of the output file.",
-    type=click.Choice(["json", "text", "csv", "xml"], case_sensitive=False),
+    type=click.Choice(["json", "text", "csv"], case_sensitive=False),
 )
 def department(repeat: int, output: str) -> None:
     """Return random departments.
@@ -148,7 +147,6 @@ def department(repeat: int, output: str) -> None:
             "json": ".json",
             "text": ".txt",
             "csv": ".csv",
-            "xml": ".xml",
         }
 
         base_filename = Path(f"departments{file_extensions[output]}")
@@ -174,7 +172,7 @@ def department(repeat: int, output: str) -> None:
     "-o",
     default=None,
     help="The format of the output file.",
-    type=click.Choice(["json", "text", "csv", "xml"], case_sensitive=False),
+    type=click.Choice(["json", "text", "csv"], case_sensitive=False),
 )
 def department_by_faculty(faculty: str, repeat: int, output: str) -> None:
     """Return random departments from a specified faculty.
@@ -212,7 +210,6 @@ def department_by_faculty(faculty: str, repeat: int, output: str) -> None:
             "json": ".json",
             "text": ".txt",
             "csv": ".csv",
-            "xml": ".xml",
         }
 
         base_filename = Path(f"departments_by_faculty{file_extensions[output]}")

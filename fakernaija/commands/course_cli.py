@@ -55,7 +55,7 @@ def course(repeat: int) -> None:
     "-o",
     default=None,
     help="The format of the output file.",
-    type=click.Choice(["json", "text", "csv", "xml"], case_sensitive=False),
+    type=click.Choice(["json", "text", "csv"], case_sensitive=False),
 )
 def course_name(repeat: int, output: str) -> None:
     """Return random course names.
@@ -69,7 +69,7 @@ def course_name(repeat: int, output: str) -> None:
     Examples:
         $ naija course_name
         $ naija course_name --repeat 3
-        $ naija course_name --repeat 30 --output xml
+        $ naija course_name --repeat 30 --output csv
     """
     if repeat < 1:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
@@ -89,7 +89,6 @@ def course_name(repeat: int, output: str) -> None:
             "json": ".json",
             "text": ".txt",
             "csv": ".csv",
-            "xml": ".xml",
         }
 
         base_filename = Path(f"course_names{file_extensions[output]}")
@@ -114,7 +113,7 @@ def course_name(repeat: int, output: str) -> None:
     "-o",
     default=None,
     help="The format of the output file.",
-    type=click.Choice(["json", "text", "csv", "xml"], case_sensitive=False),
+    type=click.Choice(["json", "text", "csv"], case_sensitive=False),
 )
 def course_code(repeat: int, output: str) -> None:
     """Return random course codes.
@@ -148,7 +147,6 @@ def course_code(repeat: int, output: str) -> None:
             "json": ".json",
             "text": ".txt",
             "csv": ".csv",
-            "xml": ".xml",
         }
 
         base_filename = Path(f"course_codes{file_extensions[output]}")

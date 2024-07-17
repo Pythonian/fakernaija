@@ -22,6 +22,9 @@ Add any other context or screenshots about the feature request here. If this req
 **Documentation Update**
 Provide information about the type of update required for the documentation should this feature be implemented.
 
+**Resources (optional)**
+Provide optional links to external resources that may help provide data to this Provider/Mixin or Feature.
+
 **Environment (optional)**
 If relevant, please provide information about your environment:
 

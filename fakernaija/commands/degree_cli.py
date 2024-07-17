@@ -66,7 +66,7 @@ def degree(repeat: int) -> None:
     "-o",
     default=None,
     help="The format of the output file.",
-    type=click.Choice(["json", "text", "csv", "xml"], case_sensitive=False),
+    type=click.Choice(["json", "text", "csv"], case_sensitive=False),
 )
 def degree_name(repeat: int, degree_type: str, output: str) -> None:
     """Return random degree names.
@@ -103,7 +103,6 @@ def degree_name(repeat: int, degree_type: str, output: str) -> None:
                 "json": ".json",
                 "text": ".txt",
                 "csv": ".csv",
-                "xml": ".xml",
             }
 
             base_filename = Path(f"degree_names{file_extensions[output]}")
@@ -137,7 +136,7 @@ def degree_name(repeat: int, degree_type: str, output: str) -> None:
     "-o",
     default=None,
     help="The format of the output file.",
-    type=click.Choice(["json", "text", "csv", "xml"], case_sensitive=False),
+    type=click.Choice(["json", "text", "csv"], case_sensitive=False),
 )
 def degree_abbr(repeat: int, degree_type: str, output: str) -> None:
     """Return random degree abbreviations.
@@ -174,7 +173,6 @@ def degree_abbr(repeat: int, degree_type: str, output: str) -> None:
                 "json": ".json",
                 "text": ".txt",
                 "csv": ".csv",
-                "xml": ".xml",
             }
 
             base_filename = Path(f"degree_abbrs{file_extensions[output]}")
