@@ -63,9 +63,9 @@ cli.add_command(email, name="email")
 
 # Faculty CLI
 cli.add_command(department, name="department")
+cli.add_command(department_by_faculty, name="department_by_faculty")
 cli.add_command(faculty, name="faculty")
 cli.add_command(faculty_name, name="faculty_name")
-cli.add_command(department_by_faculty, name="department_by_faculty")
 
 # Name CLI
 cli.add_command(firstname, name="firstname")
@@ -77,19 +77,19 @@ cli.add_command(prefix, name="prefix")
 cli.add_command(phonenumber, name="phonenumber")
 
 # State CLI
-cli.add_command(state, name="state")
-cli.add_command(state_code, name="state_code")
-cli.add_command(state_name, name="state_name")
-cli.add_command(state_slogan, name="state_slogan")
-cli.add_command(region, name="region")
-cli.add_command(region_name, name="region_name")
-cli.add_command(region_abbr, name="region_abbr")
-cli.add_command(state_capital, name="state_capital")
 cli.add_command(lga, name="lga")
-cli.add_command(state_lga, name="state_lga")
 cli.add_command(postal_code, name="postal_code")
+cli.add_command(region, name="region")
+cli.add_command(region_abbr, name="region_abbr")
+cli.add_command(region_name, name="region_name")
+cli.add_command(state, name="state")
+cli.add_command(state_capital, name="state_capital")
+cli.add_command(state_code, name="state_code")
+cli.add_command(state_lga, name="state_lga")
+cli.add_command(state_name, name="state_name")
 cli.add_command(state_postal_code, name="state_postal_code")
 cli.add_command(state_region, name="state_region")
+cli.add_command(state_slogan, name="state_slogan")
 
 if __name__ == "__main__":
     cli()

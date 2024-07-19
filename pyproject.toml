@@ -55,6 +55,10 @@ fixable = ["ALL"]
 # Avoid trying to fix flake8-bugbear (`B`) violations.
 unfixable = ["B"]
 
+[tool.ruff.lint.extend-per-file-ignores]
+# Ignore missing docstring warning for __init__.py files
+"__init__.py" = ["D104"]
+
 [tool.ruff.format]
 # Like Black, use double quotes for strings.
 quote-style = "double"
