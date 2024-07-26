@@ -9,6 +9,7 @@ from fakernaija.commands.currency_cli import (
     currency_name,
     currency_symbol,
 )
+from fakernaija.commands.data_cli import data
 from fakernaija.commands.degree_cli import degree, degree_abbr, degree_name
 from fakernaija.commands.email_cli import email
 from fakernaija.commands.faculty_cli import (
@@ -41,6 +42,9 @@ from fakernaija.commands.state_cli import (
 def cli() -> None:
     """A CLI for generating random Nigerian data."""
 
+
+# Data CLI
+cli.add_command(data, name="data")
 
 # Course CLI
 cli.add_command(course, name="course")

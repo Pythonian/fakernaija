@@ -1,11 +1,8 @@
 """CLI commands for EmailProvider to generate random email addresses."""
 
-from pathlib import Path
-
 import click
 
 from fakernaija.faker import Faker
-from fakernaija.utils import get_unique_filename, write_data_to_file
 
 naija = Faker()
 
@@ -41,19 +38,11 @@ naija = Faker()
     default=None,
     help="A custom domain to use for the email address.",
 )
-@click.option(
-    "--output",
-    "-o",
-    default=None,
-    help="The format of the output file.",
-    type=click.Choice(["json", "text", "csv"], case_sensitive=False),
-)
 def email(
     repeat: int,
     tribe: str,
     gender: str,
     domain: str,
-    output: str,
 ) -> None:
     """Return random Nigerian email addresses.
 
@@ -64,7 +53,6 @@ def email(
         tribe (str): The tribe to generate names from.
         gender (str): The specific gender from which the email address will be generated.
         domain (str): A custom domain to use for the email address.
-        output (str): The format of the output file.
 
     Examples:
         $ naija email
@@ -72,7 +60,7 @@ def email(
         $ naija email --tribe igbo
         $ naija email --gender female
         $ naija email --domain gov.ng
-        $ naija email --repeat 50 --tribe yoruba --gender male --domain gov.ng --output json
+        $ naija email --repeat 50 --tribe yoruba --gender male --domain gov.ng
     """
     if repeat < 1:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
@@ -82,29 +70,12 @@ def email(
     tribe = tribe.lower() if tribe else None
     gender = gender.lower() if gender else None
 
-    emails = []
-
     try:
         for _ in range(repeat):
             email = naija.email(tribe=tribe, gender=gender, domain=domain)
             if email:
-                emails.append(email)
+                click.echo(email)
             else:
                 click.echo("Error: Failed to generate email address.", err=True)
-
-        if output:
-            file_extensions = {
-                "json": ".json",
-                "text": ".txt",
-                "csv": ".csv",
-            }
-
-            base_filename = Path(f"emails{file_extensions[output]}")
-            output_path = get_unique_filename(Path.cwd() / base_filename)
-            write_data_to_file(emails, output_path, output, "email")
-
-        else:
-            for email in emails:
-                click.echo(email)
     except ValueError as e:
         click.echo(f"Error: {e}", err=True)
