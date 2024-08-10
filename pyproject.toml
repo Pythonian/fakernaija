@@ -11,14 +11,12 @@ description = "A Python package to generate random Nigerian-specific data for yo
 readme = "README.md"
 requires-python = ">=3.10"
 keywords = ["faker", "data", "generator", "mock", "nigeria", "naija", "test"]
-license = {file = "LICENSE"}
+license = {text = "MIT License"}
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
     "Environment :: Console",
     "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python",
-    "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -51,7 +49,7 @@ docs = [
 [project.urls]
 Homepage = "https://github.com/Pythonian/fakernaija"
 Documentation = "https://fakernaija.readthedocs.io/"
-Repository = "https://github.com/Pythonian/fakernaija.git"
+"Source Code" = "https://github.com/Pythonian/fakernaija"
 "Bug Tracker" = "https://github.com/Pythonian/fakernaija/issues"
 Changelog = "https://github.com/Pythonian/fakernaija/blob/master/CHANGELOG.md"
 

@@ -145,6 +145,9 @@ def write_data_to_file(
                 else:
                     for record in data:
                         f.write(record + "\n")
-        click.echo(f"Generated {data_type}s saved to {output_path}")
+        click.echo(f"Generated data saved to {output_path}")
     except OSError as e:
-        click.echo(f"Error: Could not write to file {output_path}. {e}", err=True)
+        click.echo(
+            f"Error: Could not write to file {output_path}. {e}",
+            err=True,
+        )
