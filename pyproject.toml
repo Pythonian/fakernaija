@@ -1,33 +1,67 @@
-[tool.ruff]
-# Exclude a variety of commonly ignored directories.
-exclude = [
-    ".bzr",
-    ".direnv",
-    ".eggs",
-    ".git",
-    ".git-rewrite",
-    ".hg",
-    ".ipynb_checkpoints",
-    ".mypy_cache",
-    ".nox",
-    ".pants.d",
-    ".pyenv",
-    ".pytest_cache",
-    ".pytype",
-    ".ruff_cache",
-    ".svn",
-    ".tox",
-    ".venv",
-    ".vscode",
-    "__pypackages__",
-    "_build",
-    "buck-out",
-    "build",
-    "dist",
-    "node_modules",
-    "site-packages",
-    "venv",
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fakernaija"
+authors = [
+    {name = "Seyi Pythonian", email = "seyipythonian@gmail.com"},
 ]
+description = "A Python package to generate random Nigerian-specific data for you."
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["faker", "data", "generator", "mock", "nigeria", "naija", "test"]
+license = {file = "LICENSE"}
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Environment :: Console",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "click",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+dev = [
+    "bandit==1.7.9",
+    "coverage==7.6.1",
+    "mypy==1.11.1",
+    "pre-commit==3.8.0",
+    "ruff==0.5.7",
+    "tox==4.17.1"
+]
+
+docs = [
+    "sphinx==8.0.2",
+    "sphinx-rtd-theme==2.0.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/Pythonian/fakernaija"
+Documentation = "https://fakernaija.readthedocs.io/"
+Repository = "https://github.com/Pythonian/fakernaija.git"
+"Bug Tracker" = "https://github.com/Pythonian/fakernaija/issues"
+Changelog = "https://github.com/Pythonian/fakernaija/blob/master/CHANGELOG.md"
+
+[project.scripts]
+naija = "fakernaija.cli:cli"
+
+[tool.setuptools.dynamic]
+version = {attr = "fakernaija.__version__"}
+
+[tool.ruff]
 line-length = 88
 indent-width = 4
 target-version = "py310"
@@ -60,23 +94,11 @@ unfixable = ["B"]
 "__init__.py" = ["D104"]
 
 [tool.ruff.format]
-# Like Black, use double quotes for strings.
 quote-style = "double"
-
-# Like Black, indent with spaces, rather than tabs.
 indent-style = "space"
-
-# Like Black, respect magic trailing commas.
 skip-magic-trailing-comma = false
-
-# Like Black, automatically detect the appropriate line ending.
 line-ending = "auto"
-
-# Enable auto-formatting of code examples in docstrings.
 docstring-code-format = true
-
-# Set the line length limit used when formatting code snippets in
-# docstrings.
 docstring-code-line-length = "dynamic"
 
 [tool.ruff.lint.pydocstyle]

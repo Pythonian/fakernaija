@@ -1,68 +1,47 @@
-# Makefile for setting up the fakernaija project
-
 .DEFAULT_GOAL=help
 
-# Define commands to be explicitly invoked
-.PHONY: all venv install tox clean help hello docs
+.PHONY: help hello venv install check clean
 
-# Define the name of the virtual environment directory
 VENV_DIR = .venv
-
-# Define the python command for creating virtual environments
 PYTHON = python3
-
-# Define the pip executable within the virtual environment
 PIP = $(VENV_DIR)/bin/pip
-
-# Define the tox executable within the virtual environment
 TOX = $(VENV_DIR)/bin/tox
-
-# Define the command to install the pre-commit setup
 PRE_COMMIT = $(VENV_DIR)/bin/pre-commit
 
-# Help command to show usage instructions
-help: ## Show this help
-	@echo "Usage: make [target]"
-	@echo ""
-	@echo "Targets:"
-	@echo "  all                Setup a complete development environment and run checks"
-	@echo "  venv               Create a virtual environment"
-	@echo "  install            Install development packages and pre-commit hooks"
-	@echo "  tox                Run all checks using tox"
-	@echo "  clean              Clean the project of unneeded files"
-	@echo "  docs				Build sphinx documentation"
-	@echo "  hello              Read our welcome note"
-	@echo "  help               Show this help message"
+# Check if virtual environment is activated
+define check_venv
+	@ if [ "$$($(PYTHON) -c 'import sys; print(sys.prefix)')" != "$(CURDIR)/$(VENV_DIR)" ]; then \
+		echo "Error: Virtual environment not activated. Please create or activate the virtual environment."; \
+		exit 1; \
+	fi
+endef
 
-hello: ## Read our welcome note
-	@echo "Welcome to FakerNaija! Let's make Nigeria proud with awesome fake data. Enjoy your coding journey!"
+help: ## Display this help message with available make commands.
+	@egrep -h '\s##\s' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
-# Setup the development environment
-all: venv install tox docs
+hello: ## Display a welcome message for contributors.
+	@echo "Your face show, your shoe shine. Thank you for contributing to Fakernaija. E go better for you!"
 
-venv: ## Create a virtual environment
+venv: ## Create a virtual environment for project isolation.
 	$(PYTHON) -m venv $(VENV_DIR)
 	@echo "Virtual environment created."
-	@echo "Activate with the command 'source .venv/bin/activate'"
+	@echo "Activate with the command 'source $(VENV_DIR)/bin/activate'"
 
-install: ## Install development packages
-	$(PIP) install --upgrade pip
-	$(PIP) install -r requirements.txt
-	$(PRE_COMMIT) install
-	@echo "Development packages and pre-commit hooks installed"
+install: ## Install project dependencies for development.
+	$(call check_venv)
+	$(PIP) install --upgrade pip setuptools
+	$(PIP) install -e .[dev]
+	@echo "Successfully installed development packages."
 
-docs: ## Build sphinx documentation
-	$(PIP) install -e .
-	@sphinx-quickstart docs
-	@sphinx-build -M html docs/source/ docs/build/
-	@echo "Project documentation successfully built."
-
-tox: ## Run all checks using tox
+check: ## Run code quality checks
+	$(call check_venv)
 	$(TOX)
+	$(PRE_COMMIT) install
+	$(PRE_COMMIT) run --all-files
 	@echo "All checks passed"
 
-clean: ## Clean the project of unneeded files
-	@echo "Cleaning up the project of unneeded files..."
+clean: ## Remove generated files and directories to reset the project state.
+	@echo "Cleaning up the project of generated files and directories..."
 	@rm -rf $(VENV_DIR)
 	@rm -rf .cache
 	@rm -rf htmlcov coverage.xml .coverage
