@@ -1,6 +1,6 @@
 .DEFAULT_GOAL=help
 
-.PHONY: help hello venv install check clean
+.PHONY: help hello venv install check clean build upload update
 
 VENV_DIR = .venv
 PYTHON = python3
@@ -39,6 +39,21 @@ check: ## Run code quality checks
 	$(PRE_COMMIT) install
 	$(PRE_COMMIT) run --all-files
 	@echo "All checks passed"
+
+build: ## Build the project source and wheel distribution.
+	$(call check_venv)
+	$(PYTHON) -m pip install --upgrade build
+	@rm -rf dist
+	$(PYTHON) -m build
+	@echo "Package built successfully."
+
+upload: ## Upload the project to PyPI.
+	$(call check_venv)
+	$(PYTHON) -m pip install --upgrade twine
+	$(PYTHON) -m twine upload dist/*
+	@echo "Package uploaded to PyPI."
+
+update: build upload ## Build and upload the project in one command.
 
 clean: ## Remove generated files and directories to reset the project state.
 	@echo "Cleaning up the project of generated files and directories..."

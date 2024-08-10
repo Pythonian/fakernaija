@@ -1,0 +1,5 @@
+# Include the data directory
+recursive-include fakernaija/data *.json
+
+# Exclude the tests directory
+prune fakernaija/tests
