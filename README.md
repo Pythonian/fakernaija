@@ -1,12 +1,12 @@
 # Fakernaija
 
-**Fakernaija** is a Python library designed to help developers generate realistic Nigerian-specific data. With a simple interface and a variety of data, it can be used for creating mock data tailored to the Nigerian context. Whether you're working on testing, development, or educational projects, Fakernaija can help you generate random data to meet your requirements, including a CLI for easy integration.
+**Fakernaija** is a Python library designed to help developers generate realistic Nigerian-specific data. With a simple interface and a variety of data, it can be used for creating mock data tailored to the Nigerian context. Whether you're working on testing, development, or educational projects, Fakernaija can help you generate random data to meet your requirements, including a CLI for easy data exports.
 
 _This library does not intend to be a drop-in replacement to the popular [Python Faker](https://faker.readthedocs.io/en/master/) package, but should complement it in cases where you need Nigerian contexts for your data generation._
 
 ----
 
-``` fakernaija
+```text
  _____           _                                    _     _
 |  ___|   __ _  | | __   ___   _ __   _ __     __ _  (_)   (_)   __ _
 | |_     / _` | | |/ /  / _ \ | '__| | '_ \   / _` | | |   | |  / _` |
@@ -43,7 +43,7 @@ print("A random Nigerian full name:", naija.full_name())
 print("A random MTN phone number:", naija.phone_number(network="mtn"))
 # 'A random MTN phone number: 08161723004'
 
-print("A random state capital:", naija.capital())
+print("A random state capital:", naija.state_capital())
 # 'A random state capital: Owerri'
 
 print("A random email with specific domain:", naija.email(domain="unn.edu.ng"))
@@ -80,7 +80,7 @@ Please check our [extended docs](https://fakernaija.readthedocs.io/) for a full 
 
 We welcome contributions! Please see the [contributing guide](CONTRIBUTING) for more information on how to contribute to this project.
 
-## Support
+## Feedback
 
 Efforts have been made to ensure the accuracy of the data, but there could be slip-ups. If you identify any such oversight, please [raise an issue](https://github.com/Pythonian/fakernaija/issues) as soon as possible. You can also suggest improvements or new features.
 
