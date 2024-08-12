@@ -40,7 +40,7 @@ def data(repeat: int, output: str, fields: str) -> None:
     """Generate and output job data in the specified format.
 
     Examples:
-        naija data --repeat 30 --output csv --fields fullname,email,phonenumber
+        naija data --repeat 30 --output csv --fields fullname,email,phonenumber,school
     """
     if repeat < 1:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
@@ -50,6 +50,7 @@ def data(repeat: int, output: str, fields: str) -> None:
         "fullname": naija.full_name,
         "email": naija.email,
         "phonenumber": naija.phone_number,
+        "school": lambda: naija.school_name() or "",
     }
 
     field_list = fields.split(",") if fields else []

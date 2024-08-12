@@ -20,6 +20,7 @@ from fakernaija.commands.faculty_cli import (
 )
 from fakernaija.commands.name_cli import firstname, fullname, lastname, prefix
 from fakernaija.commands.phonenumber_cli import phonenumber
+from fakernaija.commands.school_cli import school, school_name
 from fakernaija.commands.state_cli import (
     lga,
     postal_code,
@@ -79,6 +80,10 @@ cli.add_command(prefix, name="prefix")
 
 # Phonenumber CLI
 cli.add_command(phonenumber, name="phonenumber")
+
+# School CLI
+cli.add_command(school, name="school")
+cli.add_command(school_name, name="school_name")
 
 # State CLI
 cli.add_command(lga, name="lga")
