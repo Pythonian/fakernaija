@@ -23,7 +23,7 @@ _This library does not intend to be a drop-in replacement to the popular [Python
 Fakernaija is available on PyPI and can be easily installed using `pip`. The minimum requirement for working with Fakernaija is **Python 3.10**.
 
 ```bash
-pip install fakernaija
+pip install -U fakernaija
 ```
 
 ## Usage
@@ -78,7 +78,7 @@ Please check our [extended docs](https://fakernaija.readthedocs.io/) for a full 
 
 ## Contributing
 
-We welcome contributions! Please see the [contributing guide](CONTRIBUTING) for more information on how to contribute to this project.
+We welcome contributions! Please see the contributing guide for more information on how to contribute to this project.
 
 ## Feedback
 
@@ -86,4 +86,4 @@ Efforts have been made to ensure the accuracy of the data, but there could be sl
 
 ## License
 
-Fakernaija is released under the MIT License. See the [LICENSE](LICENSE) file for more details.
+Fakernaija is released under the MIT License. See the [LICENSE](https://github.com/Pythonian/fakernaija/blob/main/LICENSE) file for more details.

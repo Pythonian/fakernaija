@@ -1,6 +1,6 @@
 .DEFAULT_GOAL=help
 
-.PHONY: help hello venv install check clean build upload update
+.PHONY: help hello venv install install-dev install-build docs check build upload update clean
 
 VENV_DIR = .venv
 PYTHON = python3
@@ -11,7 +11,7 @@ PRE_COMMIT = $(VENV_DIR)/bin/pre-commit
 # Check if virtual environment is activated
 define check_venv
 	@ if [ "$$($(PYTHON) -c 'import sys; print(sys.prefix)')" != "$(CURDIR)/$(VENV_DIR)" ]; then \
-		echo "Error: Virtual environment not activated. Please create or activate the virtual environment."; \
+		echo "Error: Virtual environment not activated. Please activate or create one."; \
 		exit 1; \
 	fi
 endef
@@ -27,36 +27,47 @@ venv: ## Create a virtual environment for project isolation.
 	@echo "Virtual environment created."
 	@echo "Activate with the command 'source $(VENV_DIR)/bin/activate'"
 
-install: ## Install project dependencies for development.
+install-dev: ## Install local development dependencies.
 	$(call check_venv)
-	$(PIP) install --upgrade pip setuptools
+	$(PIP) install -U pip setuptools
 	$(PIP) install -e .[dev]
-	@echo "Successfully installed development packages."
+	$(PRE_COMMIT) install
+	@echo "Development dependencies installed."
 
-check: ## Run code quality checks
+install-build: ## Install project distribution dependencies.
+	$(call check_venv)
+	$(PIP) install -U build twine
+	@echo "Build dependencies installed."
+
+install: install-dev install-build ## Install all dependencies with one command.
+
+docs: ## Generate project HTML documentation using Sphinx.
+	$(call check_venv)
+	@rm -rf docs/build
+	@sphinx-build -M html docs/source/ docs/build/
+	@echo "Project documentation successfully built."
+
+check: ## Run code quality checks with Tox and Pre-commit
 	$(call check_venv)
 	$(TOX)
-	$(PRE_COMMIT) install
 	$(PRE_COMMIT) run --all-files
 	@echo "All checks passed"
 
 build: ## Build the project source and wheel distribution.
 	$(call check_venv)
-	$(PYTHON) -m pip install --upgrade build
 	@rm -rf dist
 	$(PYTHON) -m build
 	@echo "Package built successfully."
 
 upload: ## Upload the project to PyPI.
 	$(call check_venv)
-	$(PYTHON) -m pip install --upgrade twine
 	$(PYTHON) -m twine upload dist/*
 	@echo "Package uploaded to PyPI."
 
-update: build upload ## Build and upload the project in one command.
+update: build upload ## Build and upload the project to PyPI in one command.
 
-clean: ## Remove generated files and directories to reset the project state.
-	@echo "Cleaning up the project of generated files and directories..."
+clean: ## Clean up all generated files and directories.
+	@echo "Cleaning up the project..."
 	@rm -rf $(VENV_DIR)
 	@rm -rf .cache
 	@rm -rf htmlcov coverage.xml .coverage
@@ -66,5 +77,6 @@ clean: ## Remove generated files and directories to reset the project state.
 	@rm -rf *.egg-info
 	@rm -rf dist
 	@find . -name "*.pyc" -delete
-	@find . -type d -name "__pycache__" -exec rm -r {} +
-	@echo "Clean up successfully completed."
+	@find . -type d -name "__pycache__" -exec rm -rf {} +
+	@find . -type d -name "build" -exec rm -rf {} +
+	@echo "Cleanup completed."
