@@ -5,7 +5,7 @@ from typing import TYPE_CHECKING
 
 import click
 
-from fakernaija.faker import Faker
+from fakernaija import Faker
 from fakernaija.utils import get_unique_filename, write_data_to_file
 
 if TYPE_CHECKING:

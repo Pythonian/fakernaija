@@ -1,9 +1,4 @@
-"""Unit tests for the EmailProvider class.
-
-This module contains unit tests for the EmailProvider class, which provides methods
-for generating random email addresses with Nigerian names. The tests ensure that the
-methods return the expected names based on tribes and given domains.
-"""
+"""Unit tests for the EmailProvider class."""
 
 import unittest
 from unittest.mock import MagicMock, patch
@@ -13,7 +8,7 @@ from fakernaija.providers.name_provider import NameProvider
 
 
 class TestEmailProvider(unittest.TestCase):
-    """Unit tests for the EmailProvider class."""
+    """Test suite for the EmailProvider class."""
 
     def setUp(self) -> None:
         """Set up the test case environment."""

@@ -21,7 +21,7 @@ class Course:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> course = naija.course()
@@ -39,7 +39,7 @@ class Course:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> course = naija.course_name()
@@ -57,7 +57,7 @@ class Course:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> course = naija.course_code()

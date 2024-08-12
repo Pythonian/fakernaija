@@ -17,6 +17,7 @@ _This library does not intend to be a drop-in replacement to the popular [Python
 ```
 
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/Pythonian/fakernaija/.github%2Fworkflows%2Fci.yml)
+[![Documentation Status](https://readthedocs.org/projects/fakernaija/badge/?version=latest)](https://fakernaija.readthedocs.io/en/latest/?badge=latest)
 
 ## Installation
 

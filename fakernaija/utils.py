@@ -2,13 +2,17 @@
 
 import csv
 import json
+import random
 from pathlib import Path
 from typing import Any
 
 import click
 
 
-def load_json(file_path: str | Path, required_keys: list[str]) -> list[dict[str, Any]]:
+def load_json(
+    file_path: str | Path,
+    required_keys: list[str],
+) -> list[dict[str, Any]]:
     """Load data from a JSON file and validate its structure.
 
     Args:
@@ -63,7 +67,10 @@ def validate_json_structure(
             raise ValueError(msg)
 
 
-def validate_degree_type(degree_type: str, valid_degree_types: list[str]) -> str:
+def validate_degree_type(
+    degree_type: str,
+    valid_degree_types: list[str],
+) -> str:
     """Validate and convert degree type to lowercase.
 
     Args:
@@ -151,3 +158,29 @@ def write_data_to_file(
             f"Error: Could not write to file {output_path}. {e}",
             err=True,
         )
+
+
+def get_unique_value(values: list[str], used_values: set[str]) -> str:
+    """Helper method to get a unique value from a list of strings.
+
+    Ensures the generated value is unique within the session by:
+        * Checking available values against used values.
+        * Resetting used values if all options are exhausted.
+
+    Args:
+        values (list[str]): The list of possible values.
+        used_values (set[str]): The set of values that have already been used.
+
+    Returns:
+        str: A unique value from the list.
+    """
+    # Calculate the set difference to find values that have not been used
+    available_values = set(values) - used_values
+
+    # If no values are available, reset the used values set
+    if not available_values:
+        used_values.clear()
+        available_values = set(values)
+
+    # Return a randomly chosen value from the available values
+    return random.choice(list(available_values))

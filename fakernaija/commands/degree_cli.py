@@ -2,7 +2,7 @@
 
 import click
 
-from fakernaija.faker import Faker
+from fakernaija import Faker
 from fakernaija.utils import validate_degree_type
 
 naija = Faker()

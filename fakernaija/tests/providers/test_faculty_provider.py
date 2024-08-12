@@ -7,7 +7,7 @@ from fakernaija.providers.faculty_provider import FacultyProvider
 
 
 class TestFacultyProvider(unittest.TestCase):
-    """Test the FacultProvider class."""
+    """Test suite for the FacultProvider class."""
 
     @patch("fakernaija.providers.faculty_provider.load_json")
     def setUp(self, mock_load_json: MagicMock) -> None:

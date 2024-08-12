@@ -21,7 +21,7 @@ class Faculty:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> faculty = naija.faculty()
@@ -40,7 +40,7 @@ class Faculty:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> faculty_name = naija.faculty_name()
@@ -58,7 +58,7 @@ class Faculty:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> department = naija.department()
@@ -79,7 +79,7 @@ class Faculty:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> department = naija.department_by_faculty('Basic Medical Sciences')

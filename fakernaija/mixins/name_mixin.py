@@ -27,7 +27,7 @@ class Name:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> full_name = naija.full_name()
@@ -55,7 +55,7 @@ class Name:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> male_full_name = naija.male_full_name()
@@ -86,7 +86,7 @@ class Name:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> female_full_name = naija.female_full_name()
@@ -125,7 +125,7 @@ class Name:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> full_name_tribe = naija.full_name_tribe('igbo')
@@ -150,7 +150,7 @@ class Name:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> first_name = naija.first_name()
@@ -177,7 +177,7 @@ class Name:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> first_name_tribe = naija.first_name_tribe('yoruba')
@@ -195,7 +195,7 @@ class Name:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> male_first_name = naija.male_first_name()
@@ -213,7 +213,7 @@ class Name:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> female_first_name = naija.female_first_name()
@@ -240,7 +240,7 @@ class Name:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> first_name = naija.first_name()
@@ -271,7 +271,7 @@ class Name:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> first_name = naija.first_name()
@@ -293,7 +293,7 @@ class Name:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> last_name = naija.last_name()
@@ -320,7 +320,7 @@ class Name:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> last_name_tribe = naija.last_name_tribe("hausa")
@@ -338,7 +338,7 @@ class Name:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> name_prefix = naija.prefix()
@@ -388,7 +388,7 @@ class Name:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> male_name_prefix = naija.male_prefix()
@@ -427,7 +427,7 @@ class Name:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> female_name_prefix = naija.female_prefix()
@@ -461,7 +461,7 @@ class Name:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> male_title = naija.traditional_male_title()
@@ -492,7 +492,7 @@ class Name:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> female_title = naija.traditional_female_title()
@@ -520,7 +520,7 @@ class Name:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> professional_title = naija.professional_title()

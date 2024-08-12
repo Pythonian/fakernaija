@@ -21,7 +21,7 @@ class State:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> state = naija.state()
@@ -39,7 +39,7 @@ class State:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> state_name = naija.state_name()
@@ -57,7 +57,7 @@ class State:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> state_code = naija.state_code()
@@ -75,7 +75,7 @@ class State:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> state_slogan = naija.state_slogan()
@@ -93,7 +93,7 @@ class State:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> region = naija.region()
@@ -111,7 +111,7 @@ class State:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> region_name = naija.region_name()
@@ -131,7 +131,7 @@ class State:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> region_abbr = naija.region_abbr()
@@ -154,7 +154,7 @@ class State:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> state_region = naija.state_region('SS')
@@ -181,7 +181,7 @@ class State:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> capital = naija.state_capital()
@@ -199,7 +199,7 @@ class State:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> lga = naija.lga()
@@ -220,7 +220,7 @@ class State:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> state_lga = naija.state_lga('lagos')
@@ -245,7 +245,7 @@ class State:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> postal_code = naija.postal_code()
@@ -266,7 +266,7 @@ class State:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> state_postal_code = naija.state_postal_code("Lagos")

@@ -36,7 +36,7 @@ class Email:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> email = naija.email()

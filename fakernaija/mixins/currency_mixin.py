@@ -19,7 +19,7 @@ class Currency:
         Examples:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> currency = naija.currency()
@@ -37,7 +37,7 @@ class Currency:
         Examples:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> currency_code = naija.currency_code()
@@ -55,7 +55,7 @@ class Currency:
         Examples:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> currency_name = naija.currency_name()
@@ -73,7 +73,7 @@ class Currency:
         Examples:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> currency_symbol = naija.currency_symbol()

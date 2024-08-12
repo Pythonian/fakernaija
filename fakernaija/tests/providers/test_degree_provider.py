@@ -7,7 +7,7 @@ from fakernaija.providers.degree_provider import DegreeProvider
 
 
 class TestDegreeProvider(unittest.TestCase):
-    """Unit tests for the DegreeProvider class."""
+    """Test suite for the DegreeProvider class."""
 
     @patch("fakernaija.utils.load_json")
     def setUp(self, mock_load_json: Mock) -> None:

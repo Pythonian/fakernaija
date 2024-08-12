@@ -1,8 +1,4 @@
-"""Unit tests for the CurrencyProvider class.
-
-This module contains unit tests for the CurrencyProvider class, which provides
-methods to generate and return Nigerian currency information.
-"""
+"""Unit tests for the CurrencyProvider class."""
 
 import unittest
 

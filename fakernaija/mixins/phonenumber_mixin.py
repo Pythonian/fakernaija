@@ -37,7 +37,7 @@ class PhoneNumber:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> phone = naija.phone_number()

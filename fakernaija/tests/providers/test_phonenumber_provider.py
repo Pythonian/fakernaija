@@ -1,9 +1,4 @@
-"""Unit tests for the PhoneNumberProvider class.
-
-This module contains unit tests for the PhoneNumberProvider class, which provides methods
-for generating random Nigerian phone number. The tests ensure that the
-methods return the expected phone number based on network type and prefix specified.
-"""
+"""Unit tests for the PhoneNumberProvider class."""
 
 import unittest
 

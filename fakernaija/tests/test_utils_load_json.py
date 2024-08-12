@@ -8,7 +8,7 @@ from fakernaija.providers.course_provider import CourseProvider
 from fakernaija.providers.degree_provider import DegreeProvider
 from fakernaija.providers.faculty_provider import FacultyProvider
 from fakernaija.providers.name_provider import NameProvider
-from fakernaija.providers.schools import SchoolProvider
+from fakernaija.providers.school_provider import SchoolProvider
 from fakernaija.providers.state_provider import StateProvider
 from fakernaija.utils import load_json, validate_json_structure
 
@@ -385,25 +385,23 @@ class FacultyProviderLoadJSON(unittest.TestCase):
 class SchoolProviderLoadJSON(unittest.TestCase):
     """Unit tests for loading the JSON data of the SchoolProvider."""
 
-    @patch("fakernaija.providers.schools.load_json")
+    @patch("fakernaija.providers.school_provider.load_json")
     def setUp(self, mock_load_json: MagicMock) -> None:  # noqa: ARG002
         """Set up the test case with mock data."""
         self.valid_data: list[dict[str, Any]] = [
             {
                 "name": "University of Lagos",
                 "acronym": "UNILAG",
-                "location": "Lagos",
+                "state": "Lagos",
                 "type": "University",
                 "ownership": "Federal",
-                "year_founded": 1962,
             },
             {
                 "name": "Covenant University",
                 "acronym": "CU",
-                "location": "Ogun",
+                "state": "Ogun",
                 "type": "University",
                 "ownership": "Private",
-                "year_founded": 2002,
             },
         ]
         self.invalid_data_missing_keys: list[dict[str, Any]] = [
@@ -411,38 +409,34 @@ class SchoolProviderLoadJSON(unittest.TestCase):
             {
                 "name": "Covenant University",
                 "acronym": "CU",
-                "location": "Ogun",
+                "state": "Ogun",
                 "type": "University",
                 "ownership": "Private",
-                "year_founded": 2002,
             },
         ]
         self.invalid_data_extra_keys: list[dict[str, Any]] = [
             {
                 "name": "University of Lagos",
                 "acronym": "UNILAG",
-                "location": "Lagos",
+                "state": "Lagos",
                 "type": "University",
                 "ownership": "Federal",
-                "year_founded": 1962,
                 "extra": "value",
             },
             {
                 "name": "Covenant University",
                 "acronym": "CU",
-                "location": "Ogun",
+                "state": "Ogun",
                 "type": "University",
                 "ownership": "Private",
-                "year_founded": 2002,
             },
         ]
         self.required_keys: list[str] = [
             "name",
             "acronym",
-            "location",
+            "state",
             "type",
             "ownership",
-            "year_founded",
         ]
         self.school_provider = SchoolProvider()
 

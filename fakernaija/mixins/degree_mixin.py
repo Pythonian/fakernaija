@@ -23,7 +23,7 @@ class Degree:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> degree = naija.degree()
@@ -41,7 +41,7 @@ class Degree:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> degree_name = naija.degree_name()
@@ -59,7 +59,7 @@ class Degree:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> degree_abbr = naija.degree_abbr()
@@ -80,7 +80,7 @@ class Degree:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> degree_name = naija.degree_name_by_type("undergraduate")
@@ -103,7 +103,7 @@ class Degree:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija.faker import Faker
+                >>> from fakernaija import Faker
                 >>> naija = Faker()
 
                 >>> degree_abbr = naija.degree_abbr_by_type("undergraduate")

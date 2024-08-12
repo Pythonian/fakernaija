@@ -6,7 +6,7 @@ from fakernaija.providers.course_provider import CourseProvider
 
 
 class TestCourseProvider(unittest.TestCase):
-    """Unit tests for the CourseProvider class."""
+    """Test suite for the CourseProvider class."""
 
     def setUp(self) -> None:
         """Set up the CourseProvider instance for testing."""

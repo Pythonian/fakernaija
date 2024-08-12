@@ -3,7 +3,7 @@
 import unittest
 from unittest.mock import MagicMock, patch
 
-from fakernaija.faker import Faker
+from fakernaija import Faker
 
 
 class TestFakerStateProvider(unittest.TestCase):
