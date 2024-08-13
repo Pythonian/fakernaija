@@ -41,17 +41,19 @@ naija = Faker()
 print("A random Nigerian full name:", naija.full_name())
 # 'A random Nigerian full name: Ugochi Maduike'
 
-print("A random MTN phone number:", naija.phone_number(network="mtn"))
-# 'A random MTN phone number: 08161723004'
-
 print("A random state capital:", naija.state_capital())
 # 'A random state capital: Owerri'
 
 print("A random email with specific domain:", naija.email(domain="unn.edu.ng"))
 # 'A random email with specific domain: maduike.ugochi@unn.edu.ng'
 
-print("A random federal institution:", naija.federal_school())
-# 'A random federal institution: University of Nigeria, Nsukka'
+for _ in range(5):
+    print("A random MTN Phone number:", naija.phone_number(network="mtn"))
+# A random MTN Phone number: 08160189846
+# A random MTN Phone number: 09130280890
+# A random MTN Phone number: 08065421583
+# A random MTN Phone number: 08142772705
+# A random MTN Phone number: 08066980070
 ```
 
 ### Command Line Interface (CLI)
@@ -75,11 +77,11 @@ Generated data saved to /home/projectdir/data.csv
 
 ## Documentation
 
-Please check our [extended docs](https://fakernaija.readthedocs.io/) for a full list of all available methods and subcommands.
+Please check our [extended docs](https://fakernaija.readthedocs.io/en/latest/) for a full list of all available methods and subcommands.
 
 ## Contributing
 
-We welcome contributions! Please see the contributing guide for more information on how to contribute to this project.
+We welcome contributions! Please see the [contributing guide](https://fakernaija.readthedocs.io/en/latest/contributing.html) for more information on how to contribute to this project.
 
 ## Feedback
 
@@ -87,4 +89,4 @@ Efforts have been made to ensure the accuracy of the data, but there could be sl
 
 ## License
 
-Fakernaija is released under the MIT License. See the [LICENSE](https://github.com/Pythonian/fakernaija/blob/main/LICENSE) file for more details.
+Fakernaija is released under the MIT License. See the [LICENSE](https://fakernaija.readthedocs.io/en/latest/license.html) file for more details.

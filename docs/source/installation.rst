@@ -4,7 +4,7 @@ Installation
 Overview
 --------
 
-Installing Fakernaija is straightforward and can be done using Python's package manager, `pip`. This section will guide you through different installation processes and cover compatibility requirements.
+Installing Fakernaija is straightforward and can be done using Python's package manager, ``pip``. This section will guide you through different installation processes and cover compatibility requirements.
 
 Installing via Pip
 ------------------
@@ -71,7 +71,7 @@ For specific OS-related issues, refer to the respective platform's documentation
 Dependencies
 ------------
 
-Fakernaija relies on the `Click <https://click.palletsprojects.com/>`_ library to expose its `naija` command-line interface (CLI). Without `Click`, the `naija` CLI command will not function. The Click library is automatically installed when you install Fakernaija via `pip`, so no additional steps are required.
+Fakernaija relies on the `Click <https://click.palletsprojects.com/>`_ library to expose its ``naija`` command-line interface (CLI). Without ``Click``, the ``naija`` CLI command will not function. The Click library is automatically installed when you install Fakernaija via ``pip``, so no additional steps are required.
 
 Post-Installation Check
 -----------------------

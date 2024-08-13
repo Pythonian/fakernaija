@@ -11,6 +11,7 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinx.ext.autosummary",
     "myst_parser",
+    "notfound.extension",
 ]
 
 templates_path = ["_templates"]
