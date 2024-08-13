@@ -66,7 +66,7 @@ Fakernaija is platform-independent and can run on any operating system that supp
 - **macOS**
 - **Linux**
 
-For specific OS-related issues, refer to the respective platform's documentation or `raise an issue <https://github.com/Pythonian/fakernaija/issues>`_ on our GitHub repository.
+For specific OS-related issues, refer to the respective platform's documentation or `raise an issue <https://github.com/Pythonian/fakernaija/issues/new/choose>`_ on our GitHub repository.
 
 Dependencies
 ------------

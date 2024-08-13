@@ -2,13 +2,25 @@
    :parser: myst_parser.sphinx_
 
 .. toctree::
-   :caption: Contents
    :name: contents
-   :maxdepth: 2
+   :maxdepth: 1
    :hidden:
 
    Home <self>
    installation
+   getting_started
+   faker
+   cli
+   api
+
+.. toctree::
+   :caption: Development
+   :name: development
+   :maxdepth: 1
+   :hidden:
+
+   design_patterns
+   extending
    contributing
    license
 
