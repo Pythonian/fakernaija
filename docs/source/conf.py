@@ -7,6 +7,7 @@ release = "1.0.0"
 
 extensions = [
     "sphinx_rtd_theme",
+    "sphinx_copybutton",
     "sphinx.ext.autodoc",
     "sphinx.ext.napoleon",
     "sphinx.ext.autosummary",
