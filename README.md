@@ -27,7 +27,7 @@ Fakernaija is available on PyPI and can be easily installed using `pip`. The min
 pip install -U fakernaija
 ```
 
-## Usage
+## Getting Started
 
 Fakernaija is designed to be easy to use and integrate into your projects. Below are some basic examples:
 
@@ -75,17 +75,23 @@ $ naija data --repeat 30 --fields fullname,email,phonenumber --output csv
 Generated data saved to /home/projectdir/data.csv
 ```
 
+_For more detailed usage of the CLI, please refer to the [CLI documentation](https://fakernaija.readthedocs.io/en/latest/cli.html)._
+
 ## Documentation
 
 Please check our [extended docs](https://fakernaija.readthedocs.io/en/latest/) for a full list of all available methods and subcommands.
 
-## Contributing
+## Get Involved
 
-We welcome contributions! Please see the [contributing guide](https://fakernaija.readthedocs.io/en/latest/contributing.html) for more information on how to contribute to this project.
+We welcome contributions! Please see the [contributing guide](https://fakernaija.readthedocs.io/en/latest/contributing.html) for more information on how to contribute to this project. Make sure to review our [coding guidelines](https://fakernaija.readthedocs.io/en/latest/contributing.html#coding-guidelines) before submitting your PRs.
 
 ## Feedback
 
-Efforts have been made to ensure the accuracy of the data, but there could be slip-ups. If you identify any such oversight, please [raise an issue](https://github.com/Pythonian/fakernaija/issues) as soon as possible. You can also suggest improvements or new features.
+Efforts have been made to ensure the accuracy of the data, but there could be slip-ups. If you identify any such oversight, please [raise an issue](https://github.com/Pythonian/fakernaija/issues/new/choose) as soon as possible. You can also suggest improvements or new features or reach out to [Seyi Pythonian](https://twitter.com/Ajibel).
+
+## Changelog
+
+See the [changelog](https://fakernaija.readthedocs.io/en/latest/changelog.html) for details on changes made in each version.
 
 ## License
 
