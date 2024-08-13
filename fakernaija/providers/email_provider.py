@@ -58,6 +58,7 @@ class EmailProvider:
         tribe: str | None = None,
         gender: str | None = None,
         domain: str | None = None,
+        name: str | None = None,
     ) -> str:
         """Generate a random email address with Nigerian names.
 
@@ -65,6 +66,7 @@ class EmailProvider:
             tribe (str | None, optional): The ethnic group to filter by. Defaults to None.
             gender (str | None, optional): The gender to filter by. Defaults to None.
             domain (str | None, optional): The domain to use for the email. Defaults to None.
+            name (str | None, optional): The name to use for the email. Defaults to None.
 
         Returns:
             str: The generated email address.
@@ -81,22 +83,29 @@ class EmailProvider:
             msg = f"Invalid domain: {domain}"
             raise ValueError(msg)
 
-        if tribe:
-            first_names = self.name_provider.get_first_names(tribe, gender)
-            last_names = self.name_provider.get_last_names(tribe)
+        if name:
+            # If a name is provided, use it directly
+            name_parts = name.lower().split()
+            first_name = name_parts[0]
+            last_name = name_parts[-1] if len(name_parts) > 1 else ""
         else:
-            # Randomly choose a tribe to ensure names are from the same tribe
-            all_tribes = self.name_provider.tribes
-            chosen_tribe = random.choice(all_tribes)
-            first_names = self.name_provider.get_first_names(chosen_tribe, gender)
-            last_names = self.name_provider.get_last_names(chosen_tribe)
+            # Otherwise, generate the names based on tribe and gender
+            if tribe:
+                first_names = self.name_provider.get_first_names(tribe, gender)
+                last_names = self.name_provider.get_last_names(tribe)
+            else:
+                # Randomly choose a tribe to ensure names are from the same tribe
+                all_tribes = self.name_provider.tribes
+                chosen_tribe = random.choice(all_tribes)
+                first_names = self.name_provider.get_first_names(chosen_tribe, gender)
+                last_names = self.name_provider.get_last_names(chosen_tribe)
 
-        if not first_names or not last_names:
-            msg = f"No matching data found for tribe: {tribe} or gender: {gender}"
-            raise ValueError(msg)
+            if not first_names or not last_names:
+                msg = f"No matching data found for tribe: {tribe} or gender: {gender}"
+                raise ValueError(msg)
 
-        first_name = random.choice([name["name"] for name in first_names])
-        last_name = random.choice([name["name"] for name in last_names])
+            first_name = random.choice([name["name"] for name in first_names])
+            last_name = random.choice([name["name"] for name in last_names])
 
         formats = [
             f"{first_name}.{last_name}",

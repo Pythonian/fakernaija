@@ -20,10 +20,11 @@ class TestEmail(unittest.TestCase):
         self.addCleanup(patch.stopall)
 
     def test_email_no_filters(self) -> None:
-        """Test generating an email with no tribe, gender, or domain filters."""
+        """Test generating an email with no tribe, gender, domain, or name filters."""
         self.email_provider_mock.generate_email.return_value = "pythonian@gmail.com"
         result = self.faker.email()
         self.email_provider_mock.generate_email.assert_called_once_with(
+            None,
             None,
             None,
             None,
@@ -40,6 +41,7 @@ class TestEmail(unittest.TestCase):
             "yoruba",
             None,
             None,
+            None,
         )
         self.assertEqual(result, "tribe_pythonian@gmail.com")
 
@@ -52,6 +54,7 @@ class TestEmail(unittest.TestCase):
         self.email_provider_mock.generate_email.assert_called_once_with(
             None,
             "male",
+            None,
             None,
         )
         self.assertEqual(result, "gender_pythonian@gmail.com")
@@ -66,6 +69,7 @@ class TestEmail(unittest.TestCase):
             "yoruba",
             "male",
             None,
+            None,
         )
         self.assertEqual(result, "tribe_gender_pythonian@gmail.com")
 
@@ -78,6 +82,7 @@ class TestEmail(unittest.TestCase):
             None,
             None,
             "unn.edu.ng",
+            None,
         )
         self.assertEqual(result, "test@unn.edu.ng")
 
@@ -90,6 +95,7 @@ class TestEmail(unittest.TestCase):
             "yoruba",
             None,
             "unn.edu.ng",
+            None,
         )
         self.assertEqual(result, "tribe_test@unn.edu.ng")
 
@@ -102,11 +108,12 @@ class TestEmail(unittest.TestCase):
             None,
             "male",
             "unn.edu.ng",
+            None,
         )
         self.assertEqual(result, "gender_test@unn.edu.ng")
 
     def test_email_with_all_filters(self) -> None:
-        """Test generating an email with tribe, gender, and domain filters."""
+        """Test generating an email with tribe, gender, domain, and name filters."""
         self.email_provider_mock.generate_email.return_value = (
             "tribe_gender_test@unn.edu.ng"
         )
@@ -120,6 +127,7 @@ class TestEmail(unittest.TestCase):
             "yoruba",
             "male",
             "unn.edu.ng",
+            None,
         )
         self.assertEqual(result, "tribe_gender_test@unn.edu.ng")
 
@@ -129,6 +137,7 @@ class TestEmail(unittest.TestCase):
         result = self.faker.email(tribe="invalid_tribe")
         self.email_provider_mock.generate_email.assert_called_once_with(
             "invalid_tribe",
+            None,
             None,
             None,
         )
@@ -142,6 +151,7 @@ class TestEmail(unittest.TestCase):
             None,
             "invalid_gender",
             None,
+            None,
         )
         self.assertIsNone(result)
 
@@ -154,6 +164,7 @@ class TestEmail(unittest.TestCase):
             None,
             None,
             "invalid_domain",
+            None,
         )
         self.assertIsNone(result)
 
@@ -165,5 +176,52 @@ class TestEmail(unittest.TestCase):
             "invalid_tribe",
             "invalid_gender",
             None,
+            None,
         )
         self.assertIsNone(result)
+
+    def test_email_with_name(self) -> None:
+        """Test generating an email with a name filter."""
+        self.email_provider_mock.generate_email.return_value = "seyi01@gmail.com"
+
+        result = self.faker.email(name="Seyi")
+        self.email_provider_mock.generate_email.assert_called_once_with(
+            None,
+            None,
+            None,
+            "Seyi",
+        )
+        self.assertEqual(result, "seyi01@gmail.com")
+
+    def test_email_with_fullname_and_domain(self) -> None:
+        """Test generating an email with a full name and domain filter."""
+        self.email_provider_mock.generate_email.return_value = "pythonian.seyi23@edu.ng"
+
+        result = self.faker.email(name="Seyi Pythonian", domain="edu.ng")
+        self.email_provider_mock.generate_email.assert_called_once_with(
+            None,
+            None,
+            "edu.ng",
+            "Seyi Pythonian",
+        )
+        self.assertEqual(result, "pythonian.seyi23@edu.ng")
+
+    def test_email_with_name_and_all_filters(self) -> None:
+        """Test generating an email with tribe, gender, domain, and name filters."""
+        self.email_provider_mock.generate_email.return_value = (
+            "pythonian.seyi@unn.edu.ng"
+        )
+
+        result = self.faker.email(
+            tribe="yoruba",
+            gender="male",
+            domain="unn.edu.ng",
+            name="Seyi Pythonian",
+        )
+        self.email_provider_mock.generate_email.assert_called_once_with(
+            "yoruba",
+            "male",
+            "unn.edu.ng",
+            "Seyi Pythonian",
+        )
+        self.assertEqual(result, "pythonian.seyi@unn.edu.ng")

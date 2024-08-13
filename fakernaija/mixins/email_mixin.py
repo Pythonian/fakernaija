@@ -15,6 +15,7 @@ class Email:
         tribe: str | None = None,
         gender: str | None = None,
         domain: str | None = None,
+        name: str | None = None,
     ) -> str:
         """Generate a random email address with optional tribe, gender, and domain filters.
 
@@ -22,6 +23,7 @@ class Email:
             tribe (str | None, optional): The ethnic group to filter by. Defaults to None.
             gender (str | None, optional): The gender to filter by. Defaults to None.
             domain (str | None, optional): The domain to use for the email. Defaults to None.
+            name (str | None, optional): The name to use for the email. Defaults to None.
 
         Returns:
             str: The generated email address.
@@ -43,6 +45,10 @@ class Email:
                 >>> print(f"Random email: {email}")
                 'Random email: ugochi.maduike@gmail.com'
 
+                >>> email = naija.email(name="Ugochi Maduike")
+                >>> print(f"Generate email from given name: {email}")
+                'Generate email from given name: maduike.ugochi6@yahoo.com'
+
                 >>> email = naija.email(tribe="igbo")
                 >>> print(f"Random email with tribe filter: {email}")
                 'Random email with tribe filter: ugochi.maduike@gmail.com'
@@ -55,4 +61,9 @@ class Email:
                 >>> print(f"Random email with multiple filters: {email}")
                 'Random email with multiple filters: ugochi.maduike@unn.edu.ng'
         """
-        return self.email_provider.generate_email(tribe, gender, domain)
+        return self.email_provider.generate_email(
+            tribe,
+            gender,
+            domain,
+            name,
+        )
