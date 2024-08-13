@@ -31,6 +31,7 @@ install-dev: ## Install local development dependencies.
 	$(call check_venv)
 	$(PIP) install -U pip setuptools
 	$(PIP) install -e .[dev]
+	$(PIP) install -r docs/requirements.txt
 	$(PRE_COMMIT) install
 	@echo "Development dependencies installed."
 
