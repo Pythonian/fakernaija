@@ -3,7 +3,7 @@
 import random
 from pathlib import Path
 
-from fakernaija.utils import load_json
+from fakernaija.utils import load_json, normalize_input
 
 
 class NameProvider:
@@ -26,17 +26,6 @@ class NameProvider:
         self.tribes = ["yoruba", "igbo", "hausa", "edo", "fulani", "ijaw"]
         self.genders = ["male", "female"]
 
-    def normalize_input(self, value: str | None) -> str | None:
-        """Normalize input value to lowercase.
-
-        Args:
-            value (str | None): The value to normalize.
-
-        Returns:
-            str | None: The normalized value or None if the input is None.
-        """
-        return value.lower() if value is not None else None
-
     def get_first_names(
         self,
         tribe: str | None = None,
@@ -54,15 +43,15 @@ class NameProvider:
         Raises:
             ValueError: If the specified tribe or gender is not supported.
         """
-        tribe = self.normalize_input(tribe)
-        gender = self.normalize_input(gender)
+        tribe = normalize_input(tribe)
+        gender = normalize_input(gender)
 
         if tribe and tribe not in self.tribes:
-            msg = f"Unsupported tribe: {tribe}. Supported tribes are: {', '.join(self.tribes)}"
+            msg = f"Unsupported tribe: {tribe}. Supported values are: {', '.join(self.tribes)}"
             raise ValueError(msg)
 
         if gender and gender not in self.genders:
-            msg = f"Unsupported gender: {gender}. Supported genders are: {', '.join(self.genders)}"
+            msg = f"Unsupported gender: {gender}. Supported values are: {', '.join(self.genders)}"
             raise ValueError(msg)
 
         names = self.first_names
@@ -84,7 +73,7 @@ class NameProvider:
         Raises:
             ValueError: If the specified tribe is not supported.
         """
-        tribe = self.normalize_input(tribe)
+        tribe = normalize_input(tribe)
 
         if tribe and tribe not in self.tribes:
             msg = f"Unsupported tribe: {tribe}. Supported tribes are: {', '.join(self.tribes)}"
@@ -111,15 +100,15 @@ class NameProvider:
         Raises:
             ValueError: If the specified tribe or gender is not supported or if no names are available.
         """
-        tribe = self.normalize_input(tribe)
-        gender = self.normalize_input(gender)
+        tribe = normalize_input(tribe)
+        gender = normalize_input(gender)
 
         if tribe and tribe not in self.tribes:
-            msg = f"Unsupported tribe: {tribe}. Supported tribes are: {', '.join(self.tribes)}"
+            msg = f"Unsupported tribe: {tribe}. Supported values are: {', '.join(self.tribes)}"
             raise ValueError(msg)
 
         if gender and gender not in self.genders:
-            msg = f"Unsupported gender: {gender}. Supported genders are: {', '.join(self.genders)}"
+            msg = f"Unsupported gender: {gender}. Supported values are: {', '.join(self.genders)}"
             raise ValueError(msg)
 
         first_names = self.get_first_names(tribe, gender)
@@ -140,10 +129,10 @@ class NameProvider:
         Raises:
             ValueError: If the specified tribe is not supported or if no names are available.
         """
-        tribe = self.normalize_input(tribe)
+        tribe = normalize_input(tribe)
 
         if tribe and tribe not in self.tribes:
-            msg = f"Unsupported tribe: {tribe}. Supported tribes are: {', '.join(self.tribes)}"
+            msg = f"Unsupported tribe: {tribe}. Supported values are: {', '.join(self.tribes)}"
             raise ValueError(msg)
 
         last_names = self.get_last_names(tribe)
@@ -172,13 +161,13 @@ class NameProvider:
             ValueError: If the specified tribe or gender is not supported or if no names are available.
         """
         if gender and gender not in self.genders:
-            msg = f"Unsupported gender: {gender}. Supported genders are: {', '.join(self.genders)}"
+            msg = f"Unsupported gender: {gender}. Supported values are: {', '.join(self.genders)}"
             raise ValueError(msg)
 
         if tribe is None:
             tribe = random.choice(self.tribes)
         elif tribe not in self.tribes:
-            msg = f"Unsupported tribe: {tribe}. Supported tribes are: {', '.join(self.tribes)}"
+            msg = f"Unsupported tribe: {tribe}. Supported values are: {', '.join(self.tribes)}"
             raise ValueError(msg)
 
         first_name = self.generate_first_name(tribe, gender)

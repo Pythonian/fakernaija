@@ -57,11 +57,13 @@ class TestSchool(unittest.TestCase):
                 "state": "Lagos",
                 "type": "university",
                 "ownership": "Federal",
-            }
+            },
         ]
 
         school = self.school_mixin.school(
-            ownership="Federal", state="Lagos", school_type="university"
+            ownership="Federal",
+            state="Lagos",
+            school_type="university",
         )
         self.assertEqual(school, self.school_provider_mock.return_value[0])
 
@@ -93,7 +95,9 @@ class TestSchool(unittest.TestCase):
         self.school_name_provider_mock.return_value = ["University of Lagos"]
 
         school_name = self.school_mixin.school_name(
-            ownership="Federal", state="Lagos", school_type="university"
+            ownership="Federal",
+            state="Lagos",
+            school_type="university",
         )
         self.assertEqual(school_name, self.school_name_provider_mock.return_value[0])
 

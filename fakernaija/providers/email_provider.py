@@ -4,6 +4,7 @@ import random
 import re
 
 from fakernaija.providers.name_provider import NameProvider
+from fakernaija.utils import normalize_input
 
 
 class EmailProvider:
@@ -72,16 +73,13 @@ class EmailProvider:
             ValueError: If the domain is invalid or if no matching data is found for the given tribe or gender.
         """
         # Normalize the gender and tribe inputs to lowercase
-        if tribe:
-            tribe = tribe.lower()
-        if gender:
-            gender = gender.lower()
+        tribe = normalize_input(tribe)
+        gender = normalize_input(gender)
+        domain = normalize_input(domain)
 
-        if domain:
-            domain = domain.lower()
-            if not self.validate_domain(domain):
-                msg = f"Invalid domain: {domain}"
-                raise ValueError(msg)
+        if domain and not self.validate_domain(domain):
+            msg = f"Invalid domain: {domain}"
+            raise ValueError(msg)
 
         if tribe:
             first_names = self.name_provider.get_first_names(tribe, gender)

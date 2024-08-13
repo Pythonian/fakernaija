@@ -2,7 +2,7 @@
 
 from pathlib import Path
 
-from fakernaija.utils import load_json
+from fakernaija.utils import load_json, normalize_input
 
 
 class SchoolProvider:
@@ -21,6 +21,8 @@ class SchoolProvider:
                 "ownership",
             ],
         )
+        self.ownerships = ["federal", "state", "private"]
+        self.school_types = ["university", "polytechnic", "college"]
 
     def get_schools(
         self,
@@ -37,26 +39,40 @@ class SchoolProvider:
 
         Returns:
             list[dict[str, str]]: A list of dictionaries representing matching schools.
+
+        Raises:
+            ValueError: If an unsupported ownership or school_type is provided.
         """
+        ownership = normalize_input(ownership)
+        school_type = normalize_input(school_type)
+        state = normalize_input(state)
+
+        if ownership and ownership not in self.ownerships:
+            msg = f"Unsupported ownership: {ownership}. Supported values are: {', '.join(self.ownerships)}"
+            raise ValueError(msg)
+        if school_type and school_type not in self.school_types:
+            msg = f"Unsupported school type: {school_type}. Supported values are: {', '.join(self.school_types)}"
+            raise ValueError(msg)
+
         filtered_schools = self.schools_data
 
         if ownership:
             filtered_schools = [
                 school
                 for school in filtered_schools
-                if school.get("ownership", "") == ownership.capitalize()
+                if school.get("ownership", "").lower() == ownership
             ]
         if state:
             filtered_schools = [
                 school
                 for school in filtered_schools
-                if school.get("state", "").lower() == state.lower()
+                if school.get("state", "").lower() == state
             ]
         if school_type:
             filtered_schools = [
                 school
                 for school in filtered_schools
-                if school.get("type", "").lower() == school_type.lower()
+                if school.get("type", "").lower() == school_type
             ]
 
         return filtered_schools
@@ -78,6 +94,11 @@ class SchoolProvider:
 
         Returns:
             list[str]: A list of school names or acronyms.
+
+        Raises:
+            ValueError: If an unsupported ownership or school_type is provided.
         """
-        schools = self.get_schools(ownership, state, school_type)
-        return [school["acronym"] if acronym else school["name"] for school in schools]
+        return [
+            school["acronym"] if acronym else school["name"]
+            for school in self.get_schools(ownership, state, school_type)
+        ]

@@ -26,12 +26,6 @@ class TestNameProvider(unittest.TestCase):
         mock_load_json.side_effect = [self.mock_first_names, self.mock_last_names]
         self.name_provider = NameProvider()
 
-    def test_normalize_input(self) -> None:
-        """Test normalization of input values to lowercase."""
-        self.assertEqual(self.name_provider.normalize_input("Yoruba"), "yoruba")
-        self.assertEqual(self.name_provider.normalize_input("FEMALE"), "female")
-        self.assertIsNone(self.name_provider.normalize_input(None))
-
     def test_get_first_names_no_filters(self) -> None:
         """Test retrieving first names without filters."""
         first_names = self.name_provider.get_first_names()

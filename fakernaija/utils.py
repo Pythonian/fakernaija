@@ -184,3 +184,15 @@ def get_unique_value(values: list[str], used_values: set[str]) -> str:
 
     # Return a randomly chosen value from the available values
     return random.choice(list(available_values))
+
+
+def normalize_input(value: str | None) -> str | None:
+    """Normalize input value to lowercase.
+
+    Args:
+        value (str | None): The value to normalize.
+
+    Returns:
+        str | None: The normalized value or None if the input is None.
+    """
+    return value.lower() if value is not None else None

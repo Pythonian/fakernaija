@@ -23,12 +23,19 @@ class School:
         """Get a random school dictionary based on optional filters.
 
         Args:
-            ownership (str | None, optional): Filter by ownership ('federal', 'state', 'private').
+            ownership (str | None, optional): Filter by ownership.
             state (str | None, optional): Filter by state.
-            school_type (str | None, optional): Filter by type ('university', 'polytechnic', 'college').
+            school_type (str | None, optional): Filter by type.
 
         Returns:
             dict[str, str] | None: A dictionary representing a random school or None if no match found.
+
+        Raises:
+            ValueError: If an unsupported ownership or school_type is provided.
+
+        Note:
+            - Supported ownerships: federal, state, private
+            - Supported school types: university, polytechnic, college
 
         Examples:
             .. code-block:: python
@@ -74,12 +81,19 @@ class School:
 
         Args:
             acronym (bool, optional): If True, return the acronym instead of the full name. Defaults to False.
-            ownership (str | None, optional): Filter by ownership ('federal', 'state', 'private').
+            ownership (str | None, optional): Filter by ownership.
             state (str | None, optional): Filter by state.
-            school_type (str | None, optional): Filter by type ('university', 'polytechnic', 'college').
+            school_type (str | None, optional): Filter by type.
 
         Returns:
             str | None: A random school name or acronym or None if no match found.
+
+        Raises:
+            ValueError: If an unsupported ownership or school_type is provided.
+
+        Note:
+            - Supported ownerships: federal, state, private
+            - Supported school types: university, polytechnic, college
 
         Examples:
             .. code-block:: python
