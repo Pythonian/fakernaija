@@ -1,5 +1,5 @@
-Mixins API Reference
-====================
+Mixins
+======
 
 The Mixins module provides a set of classes that encapsulate reusable methods for generating specific types of data. Each Mixin class focuses on a particular category and are used in combination with Providers to generate realistic Nigerian data.
 

@@ -29,7 +29,7 @@ This library does not intend to be a drop-in replacement to the popular Python F
 * Tailored specifically to generate culturally accurate Nigerian data.
 * Quickly generate data from your terminal with our CLI command.
 * Supports exporting data to various formats including JSON, CSV, and plain text.
-* Simple, intuitive API that integrates seamlessly into your Python projects.
+* Simple, intuitive API that integrates seamlessly into your Python web frameworks.
 
 ## Installation
 
@@ -51,21 +51,20 @@ from fakernaija import Faker
 naija = Faker()
 
 print("A random Nigerian full name:", naija.full_name())
-# 'A random Nigerian full name: Ugochi Maduike'
+# 'A random Nigerian full name: Ololade Lawal'
 ```
 
-_For a reference of all available methods, please refer to the [API documentation](https://fakernaija.readthedocs.io/en/latest/api.html)._
+_For a more detailed walkthrough, please refer to the [User guide](https://fakernaija.readthedocs.io/en/latest/guide.html)._
 
 ## Command Line Interface (CLI)
 
-Fakernaija's CLI allows you to generate Nigerian-specific data directly from your terminal. Using the ``naija`` command alongside available subcommands, you can generate data in bulk and choose your output format.
-
-**Example**
+Fakernaija's CLI allows you to generate Nigerian-specific data directly from your terminal. Launch your favourite terminal and execute the command below:
 
 ```bash
-$ naija email --domain unn.edu.ng --tribe igbo --repeat 2
-maduike.ugochi16@unn.edu.ng
-okeke.ngozika@unn.edu.ng
+$ naija email --domain unn.edu.ng --tribe igbo --gender female --repeat 3
+maduike.ugochi@unn.edu.ng
+somtochi.mbakwe@unn.edu.ng
+mmasinwodo25@unn.edu.ng
 ```
 
 _For more detailed usage of the CLI, please refer to the [CLI documentation](https://fakernaija.readthedocs.io/en/latest/cli.html)._

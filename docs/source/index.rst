@@ -8,10 +8,20 @@
 
    Home <self>
    installation
-   getting_started
+   guide
+   internals
+
+.. toctree::
+   :caption: API Reference
+   :name: reference
+   :maxdepth: 1
+   :hidden:
+
    faker
+   providers
+   mixins
    cli
-   api
+   extending
 
 .. toctree::
    :caption: Development
@@ -19,14 +29,23 @@
    :maxdepth: 1
    :hidden:
 
-   design_patterns
-   extending
    contributing
+   documentation
+   testing
+   deployment
+
+.. toctree::
+   :caption: Meta
+   :name: meta
+   :maxdepth: 1
+   :hidden:
+
+   changelog
+   support
+   credits
    license
 
 Indices and Tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

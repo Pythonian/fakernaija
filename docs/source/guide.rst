@@ -1,10 +1,10 @@
-Getting Started
-===============
+User Guide
+==========
 
 Overview
 --------
 
-**Fakernaija** is a Python library designed to generate realistic, Nigerian-specific data. Whether you're testing or bootstrapping your project, this guide will help you get up and running quickly.
+This guide is expected to take you deeper into the features available with **Fakernaija**.
 
 Basic Usage
 -----------
@@ -32,8 +32,8 @@ Once you have installed Fakernaija as described in the :doc:`installation` guide
     print(naija.faculty_name())
     # Output: 'Pharmaceutical Sciences'
 
-Advanced Configuration
-----------------------
+Method Configuration
+--------------------
 
 Fakernaija allows you to customize the generated data by passing parameters to methods, providing more control over the results.
 
@@ -152,6 +152,11 @@ If you need to export your generated data to various file formats, Fakernaija su
 
     $ naija data --repeat 30 --fields fullname,email,phonenumber --output text
     Generated data saved to /home/projectdir/data.txt
+
+Advanced Usage
+--------------
+
+With Fakernaija, you can easily bootstrap your database application, whether you are making use of Django, Flask or FastAPI web frameworks. We show you how you can achieve this easily below.
 
 Error Handling
 --------------

@@ -1,5 +1,5 @@
-Providers API Reference
-========================
+Providers
+=========
 
 The Providers module contains classes responsible for generating fake data for specific categories, such as schools, states, or faculties. Each Provider class interacts with the corresponding Mixin class to produce realistic and relevant Nigerian data.
 
