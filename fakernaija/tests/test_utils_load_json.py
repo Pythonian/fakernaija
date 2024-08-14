@@ -4,7 +4,7 @@ import unittest
 from typing import Any
 from unittest.mock import MagicMock, mock_open, patch
 
-from fakernaija.providers.course_provider import CourseProvider
+from fakernaija.providers import CourseProvider
 from fakernaija.providers.degree_provider import DegreeProvider
 from fakernaija.providers.faculty_provider import FacultyProvider
 from fakernaija.providers.name_provider import NameProvider

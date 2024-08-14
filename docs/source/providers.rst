@@ -5,7 +5,7 @@ The Providers module contains classes responsible for generating fake data for s
 
 Below, you'll find detailed documentation for each Provider class, including the data they generate and how to use them in your projects.
 
-.. autoclass:: fakernaija.providers.course_provider.CourseProvider
+.. autoclass:: fakernaija.providers.CourseProvider
     :members:
     :undoc-members:
     :show-inheritance:

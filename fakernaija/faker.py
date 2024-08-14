@@ -1,6 +1,6 @@
 """This module provides a `Faker` class that generates random Nigerian data."""
 
-from fakernaija.mixins.course_mixin import Course
+from fakernaija.mixins import Course
 from fakernaija.mixins.currency_mixin import Currency
 from fakernaija.mixins.degree_mixin import Degree
 from fakernaija.mixins.email_mixin import Email
@@ -22,7 +22,11 @@ class Faker(
     School,
     State,
 ):
-    """A class for generating fake data exposed by different Providers."""
+    """This is the primary interface for generating various types of data.
+
+    This class aggregates various mixins, each providing methods
+    to generate specific types of data.
+    """
 
     def __init__(self) -> None:
         """Initializes the Faker class and its mixins."""

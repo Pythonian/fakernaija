@@ -18,8 +18,8 @@
    :hidden:
 
    faker
-   providers
    mixins
+   providers
    cli
    extending
 
@@ -44,8 +44,3 @@
    support
    credits
    license
-
-Indices and Tables
-==================
-
-* :ref:`genindex`

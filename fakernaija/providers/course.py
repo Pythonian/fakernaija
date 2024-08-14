@@ -9,7 +9,24 @@ from fakernaija.utils import load_json
 
 
 class CourseProvider:
-    """A class to provide information about Courses taken in Nigerian schools."""
+    """A provider class to manage and access Nigerian school courses data.
+
+    This class loads course data from a JSON file and provides methods to retrieve
+    course data.
+
+    Attributes:
+        data_path (Path): The path to the directory containing the courses JSON data.
+        courses_data (list[dict[str, str]]): The loaded course data, each entry containing
+            the course name and code.
+
+    Data Structure:
+        .. code-block:: python
+
+            [
+                {"name": "Introduction to Computer Science", "code": "COS101"},
+                {"name": "Introduction to Computer Systems", "code": "COS102"},
+            ]
+    """
 
     def __init__(self) -> None:
         """Initializes the CourseProvider.
@@ -19,7 +36,7 @@ class CourseProvider:
         self.data_path = Path(__file__).parent.parent / "data" / "courses.json"
         self.courses_data = load_json(self.data_path, ["name", "code"])
 
-    def get_courses(self) -> list[str]:
+    def get_courses_name(self) -> list[str]:
         """Get a list of all course names.
 
         Returns:
@@ -35,7 +52,7 @@ class CourseProvider:
         """
         return [course["code"] for course in self.courses_data]
 
-    def get_course_data(self) -> list[dict[str, str]]:
+    def get_courses(self) -> list[dict[str, str]]:
         """Get a list of all courses with their names and codes.
 
         Returns:

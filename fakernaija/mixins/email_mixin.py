@@ -17,7 +17,7 @@ class Email:
         domain: str | None = None,
         name: str | None = None,
     ) -> str:
-        """Generate a random email address with optional tribe, gender, and domain filters.
+        """Generate a random email address with optional tribe, gender, domain and name filters.
 
         Args:
             tribe (str | None, optional): The ethnic group to filter by. Defaults to None.

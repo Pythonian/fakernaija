@@ -2,7 +2,7 @@
 
 import unittest
 
-from fakernaija.providers.course_provider import CourseProvider
+from fakernaija.providers import CourseProvider
 
 
 class TestCourseProvider(unittest.TestCase):
@@ -12,9 +12,9 @@ class TestCourseProvider(unittest.TestCase):
         """Set up the CourseProvider instance for testing."""
         self.course_provider = CourseProvider()
 
-    def test_get_courses(self) -> None:
+    def test_get_courses_name(self) -> None:
         """Test getting a list of all course names."""
-        courses = self.course_provider.get_courses()
+        courses = self.course_provider.get_courses_name()
         self.assertIn("Introduction to Computer Science", courses)
 
     def test_get_course_codes(self) -> None:
@@ -22,9 +22,9 @@ class TestCourseProvider(unittest.TestCase):
         courses = self.course_provider.get_courses_code()
         self.assertIn("COS101", courses)
 
-    def test_get_course_data(self) -> None:
+    def test_get_courses(self) -> None:
         """Test getting a list of all courses with their names and codes."""
-        courses = self.course_provider.get_course_data()
+        courses = self.course_provider.get_courses()
         self.assertIn(
             {"name": "Introduction to Computer Science", "code": "COS101"},
             courses,
