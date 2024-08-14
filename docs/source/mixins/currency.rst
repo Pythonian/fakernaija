@@ -1,7 +1,7 @@
 Currency
 ========
 
-.. autoclass:: fakernaija.mixins.currency_mixin.Currency
+.. autoclass:: fakernaija.mixins.Currency
     :members:
     :undoc-members:
     :show-inheritance:

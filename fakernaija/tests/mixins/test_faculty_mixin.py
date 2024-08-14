@@ -7,7 +7,7 @@ to interact with the FacultyProvider class for generating faculty information.
 import unittest
 from unittest.mock import MagicMock, patch
 
-from fakernaija.mixins.faculty_mixin import Faculty
+from fakernaija.mixins import Faculty
 
 
 class TestFaculty(unittest.TestCase):

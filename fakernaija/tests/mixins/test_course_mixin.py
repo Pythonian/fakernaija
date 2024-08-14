@@ -6,7 +6,7 @@ to interact with the CourseProvider class for generating course information.
 
 import unittest
 
-from fakernaija.mixins.course import Course
+from fakernaija.mixins import Course
 
 
 class TestCourse(unittest.TestCase):

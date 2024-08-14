@@ -1,7 +1,7 @@
 Faculty
 =======
 
-.. autoclass:: fakernaija.mixins.faculty_mixin.Faculty
+.. autoclass:: fakernaija.mixins.Faculty
     :members:
     :undoc-members:
     :show-inheritance:

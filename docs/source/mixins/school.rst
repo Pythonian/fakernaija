@@ -1,7 +1,7 @@
 School
 ======
 
-.. autoclass:: fakernaija.mixins.school_mixin.School
+.. autoclass:: fakernaija.mixins.School
     :members:
     :undoc-members:
     :show-inheritance:

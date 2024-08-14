@@ -1,7 +1,7 @@
 Phonenumber
 ===========
 
-.. autoclass:: fakernaija.mixins.phonenumber_mixin.PhoneNumber
+.. autoclass:: fakernaija.mixins.PhoneNumber
     :members:
     :undoc-members:
     :show-inheritance:

@@ -1,7 +1,7 @@
 Email
 =====
 
-.. autoclass:: fakernaija.mixins.email_mixin.Email
+.. autoclass:: fakernaija.mixins.Email
     :members:
     :undoc-members:
     :show-inheritance:

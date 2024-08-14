@@ -7,7 +7,7 @@ related information.
 
 import unittest
 
-from fakernaija.mixins.currency_mixin import Currency
+from fakernaija.mixins import Currency
 
 
 class TestCurrency(unittest.TestCase):

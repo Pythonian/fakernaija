@@ -160,7 +160,7 @@ class NameProviderLoadJSONLastNames(unittest.TestCase):
 class CourseProviderLoadJSON(unittest.TestCase):
     """Unit tests for loading the JSON data of the CourseProvider."""
 
-    @patch("fakernaija.providers.course_provider.load_json")
+    @patch("fakernaija.providers.course.load_json")
     def setUp(self, mock_load_json: MagicMock) -> None:  # noqa: ARG002
         """Set up the test case with mock data."""
         self.valid_data: list[dict[str, str]] = [

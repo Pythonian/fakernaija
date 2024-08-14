@@ -3,7 +3,7 @@
 import unittest
 from unittest.mock import patch
 
-from fakernaija.mixins.school_mixin import School
+from fakernaija.mixins import School
 from fakernaija.providers.school_provider import SchoolProvider
 
 

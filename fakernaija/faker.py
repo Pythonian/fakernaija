@@ -1,14 +1,16 @@
 """This module provides a `Faker` class that generates random Nigerian data."""
 
-from fakernaija.mixins import Course
-from fakernaija.mixins.currency_mixin import Currency
-from fakernaija.mixins.degree_mixin import Degree
-from fakernaija.mixins.email_mixin import Email
-from fakernaija.mixins.faculty_mixin import Faculty
-from fakernaija.mixins.name_mixin import Name
-from fakernaija.mixins.phonenumber_mixin import PhoneNumber
-from fakernaija.mixins.school_mixin import School
-from fakernaija.mixins.state_mixin import State
+from fakernaija.mixins import (
+    Course,
+    Currency,
+    Degree,
+    Email,
+    Faculty,
+    Name,
+    PhoneNumber,
+    School,
+    State,
+)
 
 
 class Faker(

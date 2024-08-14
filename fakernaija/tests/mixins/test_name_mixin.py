@@ -6,7 +6,7 @@ to interact with the NameProvider class for generating different Name combinatio
 
 import unittest
 
-from fakernaija.mixins.name_mixin import Name
+from fakernaija.mixins import Name
 
 
 class TestName(unittest.TestCase):

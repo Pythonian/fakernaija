@@ -1,7 +1,7 @@
 Degree
 ======
 
-.. autoclass:: fakernaija.mixins.degree_mixin.Degree
+.. autoclass:: fakernaija.mixins.Degree
     :members:
     :undoc-members:
     :show-inheritance:

@@ -7,7 +7,7 @@ The tests ensure that the methods return valid degree names and abbr as expected
 import unittest
 from unittest.mock import Mock, patch
 
-from fakernaija.mixins.degree_mixin import Degree
+from fakernaija.mixins import Degree
 
 
 class TestDegree(unittest.TestCase):

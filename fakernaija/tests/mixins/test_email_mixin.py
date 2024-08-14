@@ -3,7 +3,7 @@
 import unittest
 from unittest.mock import patch
 
-from fakernaija.mixins.email_mixin import Email
+from fakernaija.mixins import Email
 
 
 class TestEmail(unittest.TestCase):

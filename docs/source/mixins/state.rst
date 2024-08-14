@@ -1,7 +1,7 @@
 State
 =====
 
-.. autoclass:: fakernaija.mixins.state_mixin.State
+.. autoclass:: fakernaija.mixins.State
     :members:
     :undoc-members:
     :show-inheritance:
