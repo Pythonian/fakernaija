@@ -7,7 +7,7 @@ from fakernaija.utils import load_json, normalize_input
 
 
 class NameProvider:
-    """Provides functionality for generating names based on ethnicity and gender."""
+    """Provides functionality for generating names based on tribe and gender."""
 
     def __init__(self) -> None:
         """Initialize the NameProvider.

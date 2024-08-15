@@ -16,16 +16,28 @@ naija = Faker()
     type=int,
 )
 def course(repeat: int) -> None:
-    """Return random courses.
-
-    This command generates random Nigerian courses.
+    """Generate and return random courses.
 
     Args:
         repeat (int): The number of random courses to return.
+            Must be a positive integer. Defaults to 1.
 
     Examples:
-        $ naija course
-        $ naija course --repeat 3
+        To generate a single random course:
+
+        .. code-block:: bash
+
+            $ naija course
+            {'name': 'Advanced Physical Chemistry I', 'code': 'CHM411'}
+
+        To generate three random courses:
+
+        .. code-block:: bash
+
+            $ naija course --repeat 3
+            {'name': 'Advanced Quantum Mechanics', 'code': 'PHY463'}
+            {'name': 'Numerical Analysis II', 'code': 'MTH444'}
+            {'name': 'Time Series Analysis I', 'code': 'STA415'}
     """
     if repeat < 1:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
@@ -48,17 +60,28 @@ def course(repeat: int) -> None:
     type=int,
 )
 def course_name(repeat: int) -> None:
-    """Return random course names.
-
-    This command generates random Nigerian course names.
+    """Generate and return random course names.
 
     Args:
         repeat (int): The number of random course names to return.
-        output (str): The format of the output file.
+            Must be a positive integer. Defaults to 1.
 
     Examples:
-        $ naija course_name
-        $ naija course_name --repeat 3
+        To generate a single random course name:
+
+        .. code-block:: bash
+
+            $ naija course_name
+            Methods of Theoretical Physics I
+
+        To generate three random course names:
+
+        .. code-block:: bash
+
+            $ naija course_name --repeat 3
+            Multivariate Analysis
+            Optimization to Operation Research
+            Multivariate Analysis II
     """
     if repeat < 1:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
@@ -81,16 +104,28 @@ def course_name(repeat: int) -> None:
     type=int,
 )
 def course_code(repeat: int) -> None:
-    """Return random course codes.
-
-    This command generates random Nigerian course codes.
+    """Generate and return random course codes.
 
     Args:
         repeat (int): The number of random course codes to return.
+            Must be a positive integer. Defaults to 1.
 
     Examples:
-        $ naija course_code
-        $ naija course_code --repeat 3
+        To generate a single random course code:
+
+        .. code-block:: bash
+
+            $ naija course_code
+            CHM302
+
+        To generate three random course codes:
+
+        .. code-block:: bash
+
+            $ naija course_code --repeat 3
+            PHY434
+            CHM484
+            CHM324
     """
     if repeat < 1:
         click.echo("Error: Repeat count must be a positive integer.", err=True)

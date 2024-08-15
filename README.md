@@ -4,9 +4,7 @@
 
 **Fakernaija** is a Python library designed to help developers generate realistic Nigerian-specific data. With a simple interface and a variety of data, it can be used for creating mock data tailored to the Nigerian context. Whether you're working on testing, development, or educational projects, Fakernaija can help you generate random data to meet your requirements, including a CLI for easy data exports.
 
-```{note}
-This library does not intend to be a drop-in replacement to the popular Python Faker package, but should complement it in cases where you need Nigerian contexts for your data generation.
-```
+_This library does not intend to be a drop-in replacement to the popular [Python Faker](https://faker.readthedocs.io/en/master/) package, but should complement it in cases where you need Nigerian contexts for your data generation._
 
 ----
 
@@ -54,7 +52,7 @@ print("A random Nigerian full name:", naija.full_name())
 # 'A random Nigerian full name: Ololade Lawal'
 ```
 
-_For a more detailed walkthrough, please refer to the [User guide](https://fakernaija.readthedocs.io/en/latest/guide.html)._
+_For a more detailed walkthrough, please refer to the [Usage guide](https://fakernaija.readthedocs.io/en/latest/guide.html)._
 
 ## Command Line Interface (CLI)
 
@@ -76,6 +74,8 @@ We welcome contributions! Visit our [contributing guide](https://fakernaija.read
 ## Feedback
 
 Help us improve! If you spot an issue or have suggestions, [raise an issue](https://github.com/Pythonian/fakernaija/issues/new/choose) or contact [Seyi Pythonian](https://twitter.com/Ajibel).
+
+You can also Star the Github repository of this library if you find it useful or worthy of your attention.
 
 ## Changelog
 

@@ -2,31 +2,35 @@
 
 import click
 
-from fakernaija.commands.course_cli import course, course_code, course_name
-from fakernaija.commands.currency_cli import (
+from fakernaija.commands import (
+    course,
+    course_code,
+    course_name,
     currency,
     currency_code,
     currency_name,
     currency_symbol,
-)
-from fakernaija.commands.data_cli import data
-from fakernaija.commands.degree_cli import degree, degree_abbr, degree_name
-from fakernaija.commands.email_cli import email
-from fakernaija.commands.faculty_cli import (
+    data,
+    degree,
+    degree_abbr,
+    degree_name,
     department,
     department_by_faculty,
+    email,
     faculty,
     faculty_name,
-)
-from fakernaija.commands.name_cli import firstname, fullname, lastname, prefix
-from fakernaija.commands.phonenumber_cli import phonenumber
-from fakernaija.commands.school_cli import school, school_name
-from fakernaija.commands.state_cli import (
+    firstname,
+    fullname,
+    lastname,
     lga,
+    phonenumber,
     postal_code,
+    prefix,
     region,
     region_abbr,
     region_name,
+    school,
+    school_name,
     state,
     state_capital,
     state_code,

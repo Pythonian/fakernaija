@@ -6,7 +6,7 @@ The ``Mixins`` module serves as a foundational component of the **Fakernaija** l
 Overview
 --------
 
-``Mixins`` in **Fakernaija** are designed to be composable, allowing the ``Faker`` class to inherit from multiple ``Mixins`` and thus aggregate their functionalities. This modular approach ensures that each ``Mixin`` class is responsible for a single aspect of data generation.
+``Mixins`` in **Fakernaija** are designed to be composable, allowing the :doc:`faker` to inherit from multiple ``Mixins`` and thus aggregate their functionalities. This modular approach ensures that each ``Mixin`` class is responsible for a single aspect of data generation.
 
 How to Use
 ----------
@@ -19,7 +19,7 @@ Classes
 The following are the ``Mixin`` classes available in the **Fakernaija** library. Each ``Mixin`` class is documented with examples to illustrate its usage. These examples can be run directly in your Python environment to see the results.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 3
 
    mixins/course
    mixins/currency

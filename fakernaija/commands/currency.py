@@ -9,12 +9,13 @@ naija = Faker()
 
 @click.command()
 def currency() -> None:
-    """Return currency code and name.
+    """Returns Nigerian currency code and name.
 
-    This command returns Nigerian currency code and name.
+    Example:
+        .. code-block:: bash
 
-    Examples:
-        $ naija currency
+            $ naija currency
+            {'code': 'NGN', 'name': 'Nigerian naira', 'symbol': '₦'}
     """
     currency = naija.currency()
     if currency:
@@ -25,12 +26,13 @@ def currency() -> None:
 
 @click.command()
 def currency_code() -> None:
-    """Return the currency code.
+    """Returns Nigerian currency code.
 
-    This command returns Nigerian currency code.
+    Example:
+        .. code-block:: bash
 
-    Examples:
-        $ naija currency_code
+            $ naija currency_code
+            NGN
     """
     currency_code = naija.currency_code()
     if currency_code:
@@ -41,12 +43,13 @@ def currency_code() -> None:
 
 @click.command()
 def currency_name() -> None:
-    """Return the currency name.
+    """Returns Nigerian currency name.
 
-    This command returns Nigerian currency name.
+    Example:
+        .. code-block:: bash
 
-    Examples:
-        $ naija currency_name
+            $ naija currency_name
+            Nigerian naira
     """
     currency_name = naija.currency_name()
     if currency_name:
@@ -57,12 +60,13 @@ def currency_name() -> None:
 
 @click.command()
 def currency_symbol() -> None:
-    """Return the currency symbol.
+    """Returns Nigerian currency symbol.
 
-    This command returns Nigerian currency symbol.
+    Example:
+        .. code-block:: bash
 
-    Examples:
-        $ naija currency_symbol
+            $ naija currency_symbol
+            ₦
     """
     currency_symbol = naija.currency_symbol()
     if currency_symbol:

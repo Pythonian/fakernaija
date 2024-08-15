@@ -6,7 +6,6 @@ author = "Seyi Pythonian"
 release = "1.0.0"
 
 extensions = [
-    "sphinx_rtd_theme",
     "sphinx_copybutton",
     "sphinx.ext.autodoc",
     "sphinx.ext.napoleon",
@@ -17,7 +16,7 @@ extensions = [
 
 templates_path = ["_templates"]
 exclude_patterns: list[str] = []
-html_theme = "furo"  # "sphinx_rtd_theme"
+html_theme = "furo"
 html_static_path = ["_static"]
 html_show_sphinx = False
 html_title = "Fakernaija"

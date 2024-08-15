@@ -12,21 +12,21 @@ naija = Faker()
     "--ownership",
     "-o",
     default=None,
-    help="Filter school by ownership.",
+    help="Filter schools by ownership.",
     type=click.Choice(["federal", "state", "private"], case_sensitive=False),
 )
 @click.option(
     "--state",
     "-s",
     default=None,
-    help="Filter by state.",
+    help="Filter schools by state.",
     type=str,
 )
 @click.option(
     "--school_type",
     "-t",
     default=None,
-    help="Filter school by school type.",
+    help="Filter schools by type.",
     type=click.Choice(["university", "polytechnic", "college"], case_sensitive=False),
 )
 @click.option(
@@ -37,26 +37,37 @@ naija = Faker()
     type=int,
 )
 def school(ownership: str, state: str, school_type: str, repeat: int) -> None:
-    """Return random schools.
-
-    This command generates random Nigerian schools based on filters.
+    """Generate and return random schools.
 
     Args:
-        ownership (str): Filter by ownership ('federal', 'state', 'private').
-        state (str): Filter by state.
-        school_type (str): Filter by school type ('university', 'polytechnic', 'college').
-        repeat (int): The number of random schools to return.
+        ownership (str): Filter schools by ownership type.
+        state (str): Filter schools by state.
+        school_type (str): Filter schools by type.
+        repeat (int): The number of random schools to return. Must be a positive integer. Defaults to 1.
 
     Examples:
-        $ naija school
-        $ naija school --ownership federal --state lagos --school_type university --repeat 3
+        To generate a single random school:
+
+        .. code-block:: bash
+
+            $ naija school
+
+        To generate three random federal universities in Lagos:
+
+        .. code-block:: bash
+
+            $ naija school --ownership federal --state lagos --school_type university --repeat 3
     """
     if repeat < 1:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
         return
 
     for _ in range(repeat):
-        school = naija.school(ownership=ownership, state=state, school_type=school_type)
+        school = naija.school(
+            ownership=ownership,
+            state=state,
+            school_type=school_type,
+        )
         if school:
             click.echo(school)
         else:
@@ -74,21 +85,21 @@ def school(ownership: str, state: str, school_type: str, repeat: int) -> None:
     "--ownership",
     "-o",
     default=None,
-    help="Filter school by ownership.",
+    help="Filter schools by ownership.",
     type=click.Choice(["federal", "state", "private"], case_sensitive=False),
 )
 @click.option(
     "--state",
     "-s",
     default=None,
-    help="Filter by state.",
+    help="Filter schools by state.",
     type=str,
 )
 @click.option(
     "--school_type",
     "-t",
     default=None,
-    help="Filter school by school type.",
+    help="Filter schools by type.",
     type=click.Choice(["university", "polytechnic", "college"], case_sensitive=False),
 )
 @click.option(
@@ -105,21 +116,39 @@ def school_name(
     school_type: str,
     repeat: int,
 ) -> None:
-    """Return random school names.
-
-    This command generates random Nigerian school names based on filters.
+    """Generate and return random school names.
 
     Args:
-        acronym (bool): Return the school's acronym instead of the full name.
-        ownership (str): Filter by ownership ('federal', 'state', 'private').
-        state (str): Filter by state.
-        school_type (str): Filter by school type ('university', 'polytechnic', 'college').
-        repeat (int): The number of random school names to return.
+        acronym (bool): Whether to return the school's acronym instead of the full name.
+        ownership (str): Filter schools by ownership type.
+        state (str): Filter schools by state.
+        school_type (str): Filter schools by type.
+        repeat (int): The number of random school names to return. Must be a positive integer. Defaults to 1.
+
+    Note:
+        - Ownership options: federal, state, private
+        - School type options: university, polytechnic, college
 
     Examples:
-        $ naija school_name
-        $ naija school_name --acronym
-        $ naija school_name --school_type university --ownership federal --state lagos --repeat 3
+        To generate a single random school name:
+
+        .. code-block:: bash
+
+            $ naija school_name
+            Federal College of Education, Abeokuta
+
+        To generate a school acronym instead of the full name:
+
+        .. code-block:: bash
+
+            $ naija school_name --acronym
+            UNN
+
+        To generate three random federal universities in Lagos:
+
+        .. code-block:: bash
+
+            $ naija school_name --school_type university --ownership federal --state lagos --repeat 3
     """
     if repeat < 1:
         click.echo("Error: Repeat count must be a positive integer.", err=True)

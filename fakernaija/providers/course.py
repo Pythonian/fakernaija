@@ -20,11 +20,13 @@ class CourseProvider:
             the course name and code.
 
     Data Structure:
-        .. code-block:: python
+        The structure of the course data used is as follows:
+
+        .. code-block:: json
 
             [
-                {"name": "Introduction to Computer Science", "code": "COS101"},
-                {"name": "Introduction to Computer Systems", "code": "COS102"},
+                {"name": "course name", "code": "course code"},
+                {"name": "course name", "code": "course code"},
             ]
     """
 
