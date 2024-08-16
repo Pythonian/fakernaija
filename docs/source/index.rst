@@ -20,7 +20,7 @@
    faker
    mixins
    providers
-   cli
+   commands
    extending
 
 .. toctree::

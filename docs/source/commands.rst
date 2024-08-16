@@ -24,10 +24,10 @@ To run any command, invoke the main ``naija`` command followed by the desired su
    * ``COMMAND``: The subcommand to execute, responsible for generating specific types of data.
    * ``ARGS``: Optional parameters that can be passed to a subcommand to filter the generated output.
 
-Documentation
--------------
+Reference
+---------
 
-Each command's documentation includes usage instructions, examples, and a breakdown of the available options. Refer to the respective sections for detailed information on how to use each command effectively.
+Each command's documentation includes usage instructions and examples that you can run on your terminal. Refer to the respective sections below for information on how to use each command.
 
 .. toctree::
    :maxdepth: 2

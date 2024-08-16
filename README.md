@@ -65,7 +65,7 @@ somtochi.mbakwe@unn.edu.ng
 mmasinwodo25@unn.edu.ng
 ```
 
-_For more detailed usage of the CLI, please refer to the [CLI documentation](https://fakernaija.readthedocs.io/en/latest/cli.html)._
+_For more detailed usage of the CLI, please refer to the [CLI documentation](https://fakernaija.readthedocs.io/en/latest/commands.html)._
 
 ## Get Involved
 

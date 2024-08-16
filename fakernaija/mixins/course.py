@@ -40,7 +40,7 @@ class Course:
         Returns:
             str: A random course name.
 
-        Example:
+        Examples:
             .. code-block:: python
 
                 >>> from fakernaija import Faker
@@ -49,6 +49,12 @@ class Course:
                 >>> course = naija.course_name()
                 >>> print(f"Random course: {course}")
                 "Random course: Introduction to Computer Science"
+
+                >>> for _ in range(3):
+                ...     print(naija.course_name())
+                Solar Energy II
+                Chemical Process Technology III
+                Analytical Mechanics
         """
         return random.choice(self.course_provider.get_courses_name())
 
@@ -58,7 +64,7 @@ class Course:
         Returns:
             str: A random course code.
 
-        Example:
+        Examples:
             .. code-block:: python
 
                 >>> from fakernaija import Faker
@@ -67,5 +73,11 @@ class Course:
                 >>> course = naija.course_code()
                 >>> print(f"Random course: {course}")
                 "Random course: COS101"
+
+                >>> for _ in range(3):
+                ...     print(naija.course_code())
+                STA212
+                COS452
+                MTH421
         """
         return random.choice(self.course_provider.get_courses_code())

@@ -13,8 +13,8 @@ How to Use
 
 When you create an instance of the :doc:`faker`, it automatically inherits methods from all the included ``Mixin`` classes. You can then call these methods to generate various types of data. The ``Mixins`` abstract away the complexities of data retrieval and processing, providing you with a simple and intuitive API.
 
-Classes
--------
+Reference
+---------
 
 The following are the ``Mixin`` classes available in the **Fakernaija** library. Each ``Mixin`` class is documented with examples to illustrate its usage. These examples can be run directly in your Python environment to see the results.
 
