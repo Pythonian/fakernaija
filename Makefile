@@ -29,8 +29,8 @@ venv: ## Create a virtual environment for project isolation.
 
 install-dev: ## Install local development dependencies.
 	$(call check_venv)
-	$(PIP) install -U pip setuptools
-	$(PIP) install -e .[dev]
+	$(PIP) install -U pip setuptools pre-commit tox
+	$(PIP) install -e .
 	$(PIP) install -r docs/requirements.txt
 	$(PRE_COMMIT) install
 	@echo "Development dependencies installed."
