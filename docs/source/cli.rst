@@ -1,33 +1,44 @@
 Commands
 ========
 
-The Commands module provides a set of command-line tools that allow users to generate fake data directly from the terminal. Each command corresponds to a specific category of data, such as courses, currencies, or names. These commands are designed to be flexible, allowing users to specify options and customize the generated data.
+Overview
+--------
+
+The Commands module provides a set of command-line tools that allow users to generate various types of data directly from the terminal. Each command corresponds to a specific category of data, with available options to also customize the generated data.
+
+Basic Usage
+-----------
+
+To run any command, invoke the main ``naija`` command followed by the desired subcommand and options.
 
 .. code-block:: bash
 
    naija [--version] [--help]
          [-r / --repeat] COMMAND [ARGS]...
 
-Where:
-   * ``naija`` is the main command to invoke to run any of the sub commands.
-   * ``--version`` shows the version of the library.
-   * ``--help`` shows the help message.
-   * ``-r`` or ``--repeat`` will generate a specified number of output
-   * ``COMMAND`` is the command to be run to generate an output.
-   * ``ARGS`` are the optional parameters that can be passed to a command.
+**Parameters**:
+   * ``naija``: The primary command used to access all subcommands.
+   * ``--version``: Displays the current version of the library.
+   * ``--help``: Shows the help message with information on usage.
+   * ``-r`` or ``--repeat``: Specifies how many times the command should generate the output.
+   * ``COMMAND``: The subcommand to execute, responsible for generating specific types of data.
+   * ``ARGS``: Optional parameters that can be passed to a subcommand to filter the generated output.
 
-Below, you'll find the documentation for each command, including usage examples and available options.
+Documentation
+-------------
+
+Each command's documentation includes usage instructions, examples, and a breakdown of the available options. Refer to the respective sections for detailed information on how to use each command effectively.
 
 .. toctree::
    :maxdepth: 2
 
-   cli/course
-   cli/currency
-   cli/data
-   cli/degree
-   cli/email
-   cli/faculty
-   cli/name
-   cli/phonenumber
-   cli/school
-   cli/state
+   commands/course
+   commands/currency
+   commands/data
+   commands/degree
+   commands/email
+   commands/faculty
+   commands/name
+   commands/phonenumber
+   commands/school
+   commands/state
