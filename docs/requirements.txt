@@ -3,3 +3,6 @@ myst-parser==4.0.0
 Sphinx==8.0.2
 sphinx-copybutton==0.5.2
 sphinx-notfound-page==1.0.4
+sphinx.ext.autodoc
+sphinx.ext.autosummary
+sphinx.ext.napoleon
