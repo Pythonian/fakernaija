@@ -54,9 +54,6 @@ def fullname(
         - Gender options: male, female
         - Tribe options: yoruba, igbo, hausa, edo, fulani, ijaw
 
-    Raises:
-        ValueError: If the specified tribe or gender is not supported.
-
     Examples:
         To generate a single random full name:
 
@@ -107,19 +104,16 @@ def fullname(
         click.echo("Error: Repeat count must be a positive integer.", err=True)
         return
 
-    try:
-        for _ in range(repeat):
-            fullname = naija.full_name(
-                tribe=tribe,
-                gender=gender,
-                middle_name=middlename,
-            )
-            if fullname:
-                click.echo(fullname)
-            else:
-                click.echo("Error: Failed to generate fullname.", err=True)
-    except ValueError as e:
-        click.echo(f"Error: {e}", err=True)
+    for _ in range(repeat):
+        fullname = naija.full_name(
+            tribe=tribe,
+            gender=gender,
+            middle_name=middlename,
+        )
+        if fullname:
+            click.echo(fullname)
+        else:
+            click.echo("Error: Failed to generate fullname.", err=True)
 
 
 @click.command()
@@ -156,9 +150,6 @@ def firstname(repeat: int, tribe: str, gender: str) -> None:
     Note:
         - Gender options: male, female
         - Tribe options: yoruba, igbo, hausa, edo, fulani, ijaw
-
-    Raises:
-        ValueError: If the specified tribe or gender is not supported.
 
     Examples:
         To generate a single random first name:
@@ -204,15 +195,12 @@ def firstname(repeat: int, tribe: str, gender: str) -> None:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
         return
 
-    try:
-        for _ in range(repeat):
-            firstname = naija.first_name(tribe=tribe, gender=gender)
-            if firstname:
-                click.echo(firstname)
-            else:
-                click.echo("Error: Failed to generate firstname.", err=True)
-    except ValueError as e:
-        click.echo(f"Error: {e}", err=True)
+    for _ in range(repeat):
+        firstname = naija.first_name(tribe=tribe, gender=gender)
+        if firstname:
+            click.echo(firstname)
+        else:
+            click.echo("Error: Failed to generate firstname.", err=True)
 
 
 @click.command()
@@ -240,9 +228,6 @@ def lastname(repeat: int, tribe: str) -> None:
 
     Note:
         - Tribe options: yoruba, igbo, hausa, edo, fulani, ijaw
-
-    Raises:
-        ValueError: If the specified tribe is not supported.
 
     Examples:
         To generate a single random last name:
@@ -281,15 +266,12 @@ def lastname(repeat: int, tribe: str) -> None:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
         return
 
-    try:
-        for _ in range(repeat):
-            lastname = naija.last_name(tribe=tribe)
-            if lastname:
-                click.echo(lastname)
-            else:
-                click.echo("Error: Failed to generate lastname.", err=True)
-    except ValueError as e:
-        click.echo(f"Error: {e}", err=True)
+    for _ in range(repeat):
+        lastname = naija.last_name(tribe=tribe)
+        if lastname:
+            click.echo(lastname)
+        else:
+            click.echo("Error: Failed to generate lastname.", err=True)
 
 
 @click.command()
@@ -324,9 +306,6 @@ def prefix(repeat: int, gender: str | None, title: str | None) -> None:
     Note:
         - Gender options: male, female
         - Title options: traditional, professional
-
-    Raises:
-        ValueError: If the specified gender or title is not supported.
 
     Examples:
         To generate a single random prefix:
@@ -372,12 +351,9 @@ def prefix(repeat: int, gender: str | None, title: str | None) -> None:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
         return
 
-    try:
-        for _ in range(repeat):
-            prefix = naija.prefix(gender=gender, title=title)
-            if prefix:
-                click.echo(prefix)
-            else:
-                click.echo("Error: Failed to generate prefix.", err=True)
-    except ValueError as e:
-        click.echo(f"Error: {e}", err=True)
+    for _ in range(repeat):
+        prefix = naija.prefix(gender=gender, title=title)
+        if prefix:
+            click.echo(prefix)
+        else:
+            click.echo("Error: Failed to generate prefix.", err=True)

@@ -66,9 +66,6 @@ def email(
         - Gender options: male, female
         - Tribe options: yoruba, igbo, hausa, edo, fulani, ijaw
 
-    Raises:
-        ValueError: If the specified tribe or gender is not supported.
-
     Examples:
         To generate a single random email address:
 
@@ -131,12 +128,9 @@ def email(
         click.echo("Error: Repeat count must be a positive integer.", err=True)
         return
 
-    try:
-        for _ in range(repeat):
-            email = naija.email(tribe=tribe, gender=gender, domain=domain, name=name)
-            if email:
-                click.echo(email)
-            else:
-                click.echo("Error: Failed to generate email address.", err=True)
-    except ValueError as e:
-        click.echo(f"Error: {e}", err=True)
+    for _ in range(repeat):
+        email = naija.email(tribe=tribe, gender=gender, domain=domain, name=name)
+        if email:
+            click.echo(email)
+        else:
+            click.echo("Error: Failed to generate email address.", err=True)

@@ -45,7 +45,7 @@
         "name": "Federal College of Education, Zaria",
         "acronym": "FCEZARIA",
         "state": "Kaduna",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "Federal"
     },
     {
@@ -87,7 +87,7 @@
         "name": "Abia State College of Education (Technical), Arochukwu",
         "acronym": "ASCETA",
         "state": "Abia",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "State"
     },
     {
@@ -171,7 +171,7 @@
         "name": "Federal College of Education, Kano",
         "acronym": "FCEKANO",
         "state": "Kano",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "Federal"
     },
     {
@@ -269,14 +269,14 @@
         "name": "College of Education, Warri",
         "acronym": "COEWarri",
         "state": "Delta",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "State"
     },
     {
         "name": "Adeyemi College of Education",
         "acronym": "ACE",
         "state": "Ondo",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "Federal"
     },
     {
@@ -409,21 +409,21 @@
         "name": "College of Education, Ikere-Ekiti",
         "acronym": "COEIKERE",
         "state": "Ekiti",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "State"
     },
     {
         "name": "Federal College of Education (Technical), Akoka",
         "acronym": "FCE(T)AKOKA",
         "state": "Lagos",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "Federal"
     },
     {
         "name": "Federal College of Education (Special), Oyo",
         "acronym": "FCE(S)OYO",
         "state": "Oyo",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "Federal"
     },
     {
@@ -479,203 +479,203 @@
         "name": "Federal College of Education, Obudu",
         "acronym": "FCEOBUDU",
         "state": "Cross River",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "Federal"
     },
     {
         "name": "Federal College of Education, Abeokuta",
         "acronym": "FCEA",
         "state": "Ogun",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "Federal"
     },
     {
         "name": "Federal College of Education (Technical), Asaba",
         "acronym": "FCETA",
         "state": "Delta",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "Federal"
     },
     {
         "name": "Federal College of Education (Technical), Gombe",
         "acronym": "FCETGOMBE",
         "state": "Gombe",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "Federal"
     },
     {
         "name": "Federal College of Education, Pankshin",
         "acronym": "FCEP",
         "state": "Plateau",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "Federal"
     },
     {
         "name": "Federal College of Education, Okene",
         "acronym": "FCEOKENE",
         "state": "Kogi",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "Federal"
     },
     {
         "name": "Federal College of Education (Technical), Bichi",
         "acronym": "FCETBICHI",
         "state": "Kano",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "Federal"
     },
     {
         "name": "Adeyemi College of Education",
         "acronym": "ACEONDO",
         "state": "Ondo",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "Federal"
     },
     {
         "name": "Emmanuel Alayande College of Education",
         "acronym": "EACOED",
         "state": "Oyo",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "State"
     },
     {
         "name": "Kwara State College of Education, Ilorin",
         "acronym": "KWCOE",
         "state": "Kwara",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "State"
     },
     {
         "name": "Michael Otedola College of Primary Education",
         "acronym": "MOCPED",
         "state": "Lagos",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "State"
     },
     {
         "name": "Sa'adatu Rimi College of Education",
         "acronym": "SRCOE",
         "state": "Kano",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "State"
     },
     {
         "name": "Umar Suleiman College of Education, Gashua",
         "acronym": "USCOEGA",
         "state": "Yobe",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "State"
     },
     {
         "name": " Federal College of Education (Technical), Ekiadolor",
         "acronym": "FCETEkiadolor",
         "state": "Edo",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "Federal"
     },
     {
         "name": "Kashim Ibrahim College of Education",
         "acronym": "KICOE",
         "state": "Borno",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "State"
     },
     {
         "name": "Tai Solarin College of Education",
         "acronym": "TASCE",
         "state": "Ogun",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "State"
     },
     {
         "name": "Corona College of Education",
         "acronym": "CCED",
         "state": "Lagos",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "Private"
     },
     {
         "name": "College of Education, Waka-Biu",
         "acronym": "COEWAKA",
         "state": "Borno",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "State"
     },
     {
         "name": "College of Education, Warri",
         "acronym": "COEWARRI",
         "state": "Delta",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "State"
     },
     {
         "name": "Jama’Atu College of Education",
         "acronym": "JACE",
         "state": "Kaduna",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "Private"
     },
     {
         "name": "St. Augustine College of Education",
         "acronym": "SACOED",
         "state": "Lagos",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "Private"
     },
     {
         "name": "Delar College of Education",
         "acronym": "DELARCOE",
         "state": "Oyo",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "Private"
     },
     {
         "name": "City College of Education",
         "acronym": "CITYCOE",
         "state": "Abuja",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "Private"
     },
     {
         "name": "Ansar-Ud-Deen College of Education",
         "acronym": "ANSARUDEEN",
         "state": "Lagos",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "Private"
     },
     {
         "name": "Cornerstone College of Education",
         "acronym": "CORNCOE",
         "state": "Lagos",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "Private"
     },
     {
         "name": "Crestfield College of Education",
         "acronym": "CRESTCOE",
         "state": "Osun",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "Private"
     },
     {
         "name": "Diamond College of Education",
         "acronym": "DIAMONDCOE",
         "state": "Abia",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "Private"
     },
     {
         "name": "Best Legacy College of Education",
         "acronym": "BESTLEGACY",
         "state": "Oyo",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "Private"
     },
     {
         "name": "ECWA College of Education",
         "acronym": "ECWACOE",
         "state": "Plateau",
-        "type": "College of Education",
+        "type": "College",
         "ownership": "Private"
     },
     {

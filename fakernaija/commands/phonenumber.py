@@ -19,14 +19,14 @@ naija = Faker()
     "--network",
     "-n",
     default=None,
-    help="Type of network to generate.",
+    help="Specific network to generate phone numbers from.",
     type=click.Choice(["mtn", "glo", "airtel", "etisalat"], case_sensitive=False),
 )
 @click.option(
     "--prefix",
     "-p",
     default=None,
-    help="Specific prefix to generate the phone number from.",
+    help="Specific prefix to generate the phone numbers from.",
 )
 def phonenumber(repeat: int, network: str, prefix: str) -> None:
     """Generate and return random phone numbers.
@@ -43,6 +43,10 @@ def phonenumber(repeat: int, network: str, prefix: str) -> None:
             - glo: 0705, 0805, 0807, 0811, 0815, 0905, 0915
             - airtel: 0802, 0808, 0812, 0708, 0701, 0901, 0902, 0907
             - etisalat: 0809, 0817, 0818, 0908, 0909
+
+    Raises:
+        ValueError: If the given prefix is not valid or the network and prefix
+            combination does not match.
 
     Examples:
         To generate a single random phone number:
@@ -87,9 +91,6 @@ def phonenumber(repeat: int, network: str, prefix: str) -> None:
     if repeat < 1:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
         return
-
-    # Normalize network to lowercase if provided
-    network = network.lower() if network else None
 
     try:
         for _ in range(repeat):
