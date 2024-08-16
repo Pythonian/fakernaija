@@ -12,14 +12,14 @@ naija = Faker()
     "--repeat",
     "-r",
     default=1,
-    help="Number of random names to return. Defaults to 1.",
+    help="Number of random full names to return. Defaults to 1.",
     type=int,
 )
 @click.option(
     "--gender",
     "-g",
     default=None,
-    help="The gender for the name.",
+    help="The gender for the full name.",
     type=click.Choice(["male", "female"]),
 )
 @click.option(
@@ -32,7 +32,7 @@ naija = Faker()
     "--tribe",
     "-t",
     default=None,
-    help="The tribe choice for the name.",
+    help="The tribe choice for the full name.",
     type=click.Choice(["yoruba", "igbo", "hausa", "edo", "fulani", "ijaw"]),
 )
 def fullname(
@@ -41,48 +41,85 @@ def fullname(
     middlename: bool,
     tribe: str,
 ) -> None:
-    """Return random full names.
-
-    This command generates random Nigerian full names.
+    """Generate and return random full names.
 
     Args:
-        repeat (int): The number of random names to return.
-        gender (str): The gender from which the name should be generated.
+        repeat (int): The number of random full names to return.
+            Must be a positive integer. Defaults to 1.
+        gender (str): The gender from which the full name should be generated.
         middlename (bool): If set, include a middle name to the full name.
-        tribe (str): The tribe from which the name should be generated.
+        tribe (str): The tribe from which the full name should be generated.
+
+    Note:
+        - Gender options: male, female
+        - Tribe options: yoruba, igbo, hausa, edo, fulani, ijaw
+
+    Raises:
+        ValueError: If the specified tribe or gender is not supported.
 
     Examples:
-        $ naija fullname
-        $ naija fullname --repeat 3
-        $ naija fullname --middlename
-        $ naija fullname --tribe igbo
-        $ naija fullname --gender female
-        $ naija fullname --tribe yoruba --repeat 2 --gender female --middlename
+        To generate a single random full name:
+
+        .. code-block:: bash
+
+            $ naija fullname
+            Chibunna Ulelu
+
+        To generate three random full names:
+
+        .. code-block:: bash
+
+            $ naija fullname --repeat 3
+            Kelechi Onyekwere
+            Ololade Lawal
+            Nasir El-Rufai
+
+        To generate a random full name with middle name:
+
+        .. code-block:: bash
+
+            $ naija fullname --middlename
+            Kosisochukwu Somtochukwu Mbakwe
+
+        To generate a random full name from a specific tribe:
+
+        .. code-block:: bash
+
+            $ naija fullname --tribe igbo
+            Chisom Nnabude
+
+        To generate a random full name from a specific gender:
+
+        .. code-block:: bash
+
+            $ naija fullname --gender male
+            Ebube Madu
+
+        To generate two random full names with middle names from a specific tribe and gender
+
+        .. code-block:: bash
+
+            $ naija fullname --tribe yoruba --repeat 2 --gender female --middlename
+            Yinka Ajiteru
+            Opeyemi Obisesan
     """
     if repeat < 1:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
         return
 
-    for _ in range(repeat):
-        if tribe and gender:
-            if gender == "male":
-                fullname = naija.full_name_tribe(tribe, middle_name=middlename)
+    try:
+        for _ in range(repeat):
+            fullname = naija.full_name(
+                tribe=tribe,
+                gender=gender,
+                middle_name=middlename,
+            )
+            if fullname:
+                click.echo(fullname)
             else:
-                fullname = naija.full_name_tribe(tribe, middle_name=middlename)
-        elif tribe:
-            fullname = naija.full_name_tribe(tribe, middle_name=middlename)
-        elif gender:
-            if gender == "male":
-                fullname = naija.male_full_name(middle_name=middlename)
-            else:
-                fullname = naija.female_full_name(middle_name=middlename)
-        else:
-            fullname = naija.full_name(middle_name=middlename)
-
-        if fullname:
-            click.echo(fullname)
-        else:
-            click.echo("Error: Failed to generate fullname.", err=True)
+                click.echo("Error: Failed to generate fullname.", err=True)
+    except ValueError as e:
+        click.echo(f"Error: {e}", err=True)
 
 
 @click.command()
@@ -90,64 +127,92 @@ def fullname(
     "--repeat",
     "-r",
     default=1,
-    help="Number of random names to return. Defaults to 1.",
+    help="Number of random first names to return. Defaults to 1.",
     type=int,
 )
 @click.option(
     "--gender",
     "-g",
     default=None,
-    help="The gender for the name.",
+    help="The gender for the first name.",
     type=click.Choice(["male", "female"]),
 )
 @click.option(
     "--tribe",
     "-t",
     default=None,
-    help="The tribe choice for the name.",
+    help="The tribe choice for the first name.",
     type=click.Choice(["yoruba", "igbo", "hausa", "edo", "fulani", "ijaw"]),
 )
 def firstname(repeat: int, tribe: str, gender: str) -> None:
-    """Return random first names.
-
-    This command generates random Nigerian first names.
+    """Generate and return random first names.
 
     Args:
-        repeat (int): The number of random names to return.
-        tribe (str): The tribe from which the name should be generated.
-        gender (str): The gender from which the name should be generated.
+        repeat (int): The number of random first names to return.
+            Must be a positive integer. Defaults to 1.
+        gender (str): The gender from which the first name should be generated.
+        tribe (str): The tribe from which the first name should be generated.
+
+    Note:
+        - Gender options: male, female
+        - Tribe options: yoruba, igbo, hausa, edo, fulani, ijaw
+
+    Raises:
+        ValueError: If the specified tribe or gender is not supported.
 
     Examples:
-        $ naija firstname
-        $ naija firstname --repeat 3
-        $ naija firstname --tribe igbo
-        $ naija firstname --gender female
-        $ naija firstname --tribe yoruba --repeat 2 --gender female
+        To generate a single random first name:
+
+        .. code-block:: bash
+
+            $ naija firstname
+            Mmasichukwu
+
+        To generate three random first names:
+
+        .. code-block:: bash
+
+            $ naija firstname --repeat 3
+            Ebuka
+            Ololade
+            Bashir
+
+        To generate a random first name from a specific tribe:
+
+        .. code-block:: bash
+
+            $ naija firstname --tribe edo
+            Osamagbe
+
+        To generate a random first name from a specific gender:
+
+        .. code-block:: bash
+
+            $ naija firstname --gender male
+            Seyi
+
+        To generate three random first names from a specific tribe and gender
+
+        .. code-block:: bash
+
+            $ naija firstname --tribe hausa --repeat 3 --gender female
+            Amina
+            Aisha
+            Falmata
     """
     if repeat < 1:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
         return
 
-    for _ in range(repeat):
-        if tribe and gender:
-            if gender == "male":
-                firstname = naija.male_first_name_tribe(tribe)
+    try:
+        for _ in range(repeat):
+            firstname = naija.first_name(tribe=tribe, gender=gender)
+            if firstname:
+                click.echo(firstname)
             else:
-                firstname = naija.female_first_name_tribe(tribe)
-        elif tribe:
-            firstname = naija.first_name_tribe(tribe)
-        elif gender:
-            if gender == "male":
-                firstname = naija.male_first_name()
-            else:
-                firstname = naija.female_first_name()
-        else:
-            firstname = naija.first_name()
-
-        if firstname:
-            click.echo(firstname)
-        else:
-            click.echo("Error: Failed to generate firstname.", err=True)
+                click.echo("Error: Failed to generate firstname.", err=True)
+    except ValueError as e:
+        click.echo(f"Error: {e}", err=True)
 
 
 @click.command()
@@ -155,42 +220,76 @@ def firstname(repeat: int, tribe: str, gender: str) -> None:
     "--repeat",
     "-r",
     default=1,
-    help="Number of random names to return. Defaults to 1.",
+    help="Number of random last names to return. Defaults to 1.",
     type=int,
 )
 @click.option(
     "--tribe",
     "-t",
     default=None,
-    help="The tribe choice for the name.",
+    help="The tribe choice for the last name.",
     type=click.Choice(["yoruba", "igbo", "hausa", "edo", "fulani", "ijaw"]),
 )
 def lastname(repeat: int, tribe: str) -> None:
-    """Return random last names.
-
-    This command generates random Nigerian last names.
+    """Generate and return random last names.
 
     Args:
-        repeat (int): The number of random names to return.
-        tribe (str): The tribe from which the name should be generated.
+        repeat (int): The number of random last names to return.
+            Must be a positive integer. Defaults to 1.
+        tribe (str): The tribe from which the last name should be generated.
+
+    Note:
+        - Tribe options: yoruba, igbo, hausa, edo, fulani, ijaw
+
+    Raises:
+        ValueError: If the specified tribe is not supported.
 
     Examples:
-        $ naija lastname
-        $ naija lastname --repeat 3
-        $ naija lastname --tribe igbo
-        $ naija lastname --tribe yoruba --repeat 2
+        To generate a single random last name:
+
+        .. code-block:: bash
+
+            $ naija lastname
+            Nwodo
+
+        To generate three random last names:
+
+        .. code-block:: bash
+
+            $ naija lastname --repeat 3
+            Eze
+            Bello
+            Okonkwo
+
+        To generate a random last name from a specific tribe:
+
+        .. code-block:: bash
+
+            $ naija lastname --tribe edo
+            Osagie
+
+        To generate three random last names from a specific tribe
+
+        .. code-block:: bash
+
+            $ naija lastname --tribe ijaw --repeat 3
+            Ebiere
+            Opobo
+            Oweipade
     """
     if repeat < 1:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
         return
 
-    for _ in range(repeat):
-        lastname = naija.last_name_tribe(tribe) if tribe else naija.last_name()
-
-        if lastname:
-            click.echo(lastname)
-        else:
-            click.echo("Error: Failed to generate last name.", err=True)
+    try:
+        for _ in range(repeat):
+            lastname = naija.last_name(tribe=tribe)
+            if lastname:
+                click.echo(lastname)
+            else:
+                click.echo("Error: Failed to generate lastname.", err=True)
+    except ValueError as e:
+        click.echo(f"Error: {e}", err=True)
 
 
 @click.command()
@@ -207,33 +306,78 @@ def lastname(repeat: int, tribe: str) -> None:
     type=click.Choice(["male", "female"], case_sensitive=False),
     help="Specify the gender for the prefix.",
 )
-def prefix(repeat: int, gender: str | None) -> None:
-    """Return random prefixes.
-
-    This command generates random name prefixes and honorifics.
+@click.option(
+    "--title",
+    "-t",
+    type=click.Choice(["traditional", "professional"], case_sensitive=False),
+    help="Specify the title for the prefix.",
+)
+def prefix(repeat: int, gender: str | None, title: str | None) -> None:
+    """Generate and return random prefixes.
 
     Args:
         repeat (int): The number of random prefixes to return.
-        gender (str, optional): The gender for the prefix.
+            Must be a positive integer. Defaults to 1.
+        gender (str): The gender for the prefix.
+        title (str): The title for the prefix.
+
+    Note:
+        - Gender options: male, female
+        - Title options: traditional, professional
+
+    Raises:
+        ValueError: If the specified gender or title is not supported.
 
     Examples:
-        $ naija prefix
-        $ naija prefix --repeat 3
-        $ naija prefix --gender male
+        To generate a single random prefix:
+
+        .. code-block:: bash
+
+            $ naija prefix
+            Mr.
+
+        To generate three random prefixes:
+
+        .. code-block:: bash
+
+            $ naija prefix --repeat 3
+            Otunba
+            Waziri
+            Dr.
+
+        To generate a random prefix from a specific gender:
+
+        .. code-block:: bash
+
+            $ naija prefix --gender male
+            Prince
+
+        To generate a random prefix from a specific title:
+
+        .. code-block:: bash
+
+            $ naija prefix --title professional
+            Engr.
+
+        To generate three random prefixes from a specific title and gender
+
+        .. code-block:: bash
+
+            $ naija prefix -r 3 --title traditional --gender female
+            Lady (Mrs.)
+            Lolo
+            Princess
     """
     if repeat < 1:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
         return
 
-    for _ in range(repeat):
-        if gender == "male":
-            prefix = naija.male_prefix()
-        elif gender == "female":
-            prefix = naija.female_prefix()
-        else:
-            prefix = naija.prefix()
-
-        if prefix:
-            click.echo(prefix)
-        else:
-            click.echo("Error: Failed to generate prefix.", err=True)
+    try:
+        for _ in range(repeat):
+            prefix = naija.prefix(gender=gender, title=title)
+            if prefix:
+                click.echo(prefix)
+            else:
+                click.echo("Error: Failed to generate prefix.", err=True)
+    except ValueError as e:
+        click.echo(f"Error: {e}", err=True)
