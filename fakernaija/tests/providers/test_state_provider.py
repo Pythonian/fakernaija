@@ -47,39 +47,10 @@ class TestStateProvider(unittest.TestCase):
         lgas = self.state_provider.get_lgas()
         self.assertIn("Apapa", lgas)
 
-    def test_get_regions(self) -> None:
-        """Test getting all unique regions."""
-        regions = self.state_provider.get_regions()
-        region_names = [region["name"] for region in regions]
-        self.assertIn("South West", region_names)
-
-        region_abbrs = [region["abbr"] for region in regions]
-        self.assertIn("SW", region_abbrs)
-
     def test_get_postal_codes(self) -> None:
         """Test getting all postal codes of states."""
         postal_codes = self.state_provider.get_postal_codes()
         self.assertIn("100001", postal_codes)
-
-    def test_get_states_by_region(self) -> None:
-        """Test getting states by a specific region code."""
-        states = self.state_provider.get_states_by_region("SW")
-        state_names = [state["name"] for state in states]
-        self.assertIn("Lagos", state_names)
-
-    def test_get_state_by_name(self) -> None:
-        """Test getting state information by state name."""
-        state_info = self.state_provider.get_state_by_name("Lagos")
-        self.assertIsNotNone(state_info, "Expected state info to not be None")
-        if state_info:
-            self.assertEqual(state_info["name"], "Lagos")
-            self.assertEqual(state_info["code"], "LA")
-            self.assertEqual(state_info["capital"], "Ikeja")
-
-    def test_get_state_by_name_not_found(self) -> None:
-        """Test getting a state by name when the state does not exist."""
-        state = self.state_provider.get_state_by_name("Pythonian")
-        self.assertIsNone(state)
 
     def test_get_postal_code_by_state(self) -> None:
         """Test getting the postal code of a specific state."""

@@ -10,7 +10,7 @@ class StateProvider:
     """A class to provide information about states and their attributes."""
 
     def __init__(self) -> None:
-        """Initializes the StateProvider instance by loading state data from a JSON file."""
+        """Initializes the StateProvider instance with data."""
         self.data_path = Path(__file__).parent.parent / "data" / "states.json"
         self.states_data = load_json(
             self.data_path,
@@ -24,8 +24,7 @@ class StateProvider:
                 "postal_code",
             ],
         )
-        # Generate region initials dynamically
-        self._generate_region_abbrs()
+        self.regions = ["NW", "NE", "NC", "SW", "SE", "SS"]
 
     def _get_state(self, state_name: str) -> dict[str, Any]:
         """Get state information by state name and raise an error if not found."""
@@ -35,16 +34,19 @@ class StateProvider:
         msg = f"State '{state_name}' does not exist in Nigeria."
         raise ValueError(msg)
 
-    def _generate_region_abbrs(self) -> list[dict[str, str]]:
-        """Generate unique region abbreviations dynamically based on the region name."""
-        unique_regions = {}
-        for state in self.states_data:
-            region = state["region"]
-            region_abbr = "".join(word[0].upper() for word in region.split())
-            state["region_abbr"] = region_abbr
-            if region_abbr not in unique_regions:
-                unique_regions[region_abbr] = region
-        return [{"abbr": key, "name": value} for key, value in unique_regions.items()]
+    def validate_region(self, region: str) -> None:
+        """Validate if the provided region is in the list of valid regions.
+
+        Args:
+            region (str): The region abbreviation to validate.
+
+        Raises:
+            ValueError: If the region is not valid.
+        """
+        if region.upper() not in self.regions:
+            available_options = ", ".join(self.regions)
+            msg = f"Invalid region abbreviation: {region}. Available options are: {available_options}"
+            raise ValueError(msg)
 
     def get_states(self) -> list[dict[str, str]]:
         """Get a list of all states.
@@ -128,34 +130,24 @@ class StateProvider:
             if state["region_abbr"].upper() == region_abbr.upper()
         ]
 
-    def get_state_by_name(self, state_name: str) -> dict[str, str] | None:
-        """Get state information by state name.
-
-        Args:
-            state_name (str): The name of the state.
-
-        Returns:
-            dict[str, str] | None: Information about the specified state, or None if not found.
-        """
-        try:
-            return self._get_state(state_name)
-        except ValueError:
-            return None
-
-    def get_postal_code_by_state(self, state_name: str) -> str | None:
+    def get_postal_code_by_state(self, state_name: str) -> str:
         """Get the postal code of a specific state.
 
         Args:
             state_name (str): The name of the state.
 
         Returns:
-            str | None: The postal code of the specified state, or None if not found.
+            str: The postal code of the specified state.
+
+        Raises:
+            ValueError: If the specified state does not exist.
         """
-        try:
-            state_info = self._get_state(state_name)
-            return state_info["postal_code"]
-        except ValueError:
-            return None
+        state_info = self._get_state(state_name)
+        if not state_info:
+            available_states = ", ".join(self.get_state_names())
+            msg = f"The state '{state_name}' does not exist in Nigeria. Available states are: {available_states}."
+            raise ValueError(msg)
+        return state_info["postal_code"]
 
     def get_state_lgas(self, state_name: str) -> list[str]:
         """Get a list of Local Government Areas for a specific state.
@@ -165,9 +157,13 @@ class StateProvider:
 
         Returns:
             list[str]: A list of LGAs for the specified state.
+
+        Raises:
+            ValueError: If the specified state does not exist.
         """
-        try:
-            state_info = self._get_state(state_name)
-            return state_info["lgas"]
-        except ValueError:
-            return []
+        state_info = self._get_state(state_name)
+        if not state_info:
+            available_states = ", ".join(self.get_state_names())
+            msg = f"The state '{state_name}' does not exist in Nigeria. Available states are: {available_states}."
+            raise ValueError(msg)
+        return state_info["lgas"]

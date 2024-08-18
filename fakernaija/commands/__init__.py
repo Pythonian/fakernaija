@@ -8,19 +8,11 @@ from .name import firstname, fullname, lastname, prefix
 from .phonenumber import phonenumber
 from .school import school, school_name
 from .state import (
-    lga,
-    postal_code,
-    region,
-    region_abbr,
-    region_name,
     state,
     state_capital,
-    state_code,
     state_lga,
     state_name,
     state_postal_code,
-    state_region,
-    state_slogan,
 )
 
 __all__ = [

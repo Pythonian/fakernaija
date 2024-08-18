@@ -19,8 +19,8 @@
 
    faker
    mixins
-   providers
    commands
+   providers
    extending
 
 .. toctree::
