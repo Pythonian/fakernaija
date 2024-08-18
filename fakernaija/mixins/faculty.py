@@ -102,10 +102,6 @@ class Faculty:
         Returns:
             str: A random department name from the specified faculty.
 
-        Todo:
-            - This should use get_unique_value
-            - Proper raising of value error message
-
         Example:
             .. code-block:: python
 

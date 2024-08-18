@@ -113,7 +113,6 @@ def state_capital(repeat: int) -> None:
     help="Number of random LGAs to return. Defaults to 1.",
     type=int,
 )
-@click.command()
 @click.argument("state")
 def state_lga(repeat: int, state: str) -> None:
     """Return a random LGA or LGA in a specified state.
@@ -147,7 +146,6 @@ def state_lga(repeat: int, state: str) -> None:
     help="Number of random postal codes to return. Defaults to 1.",
     type=int,
 )
-@click.command()
 @click.argument("state")
 def state_postal_code(repeat: int, state: str) -> None:
     """Return random postal codes.
