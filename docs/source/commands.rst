@@ -6,8 +6,8 @@ Overview
 
 The Commands module provides a set of command-line tools that allow users to generate various types of data directly from the terminal. Each command corresponds to a specific category of data, with available options to also customize the generated data.
 
-Basic Usage
------------
+Syntax
+------
 
 To run any command, invoke the main ``naija`` command followed by the desired subcommand and options.
 

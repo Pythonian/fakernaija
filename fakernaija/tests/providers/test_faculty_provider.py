@@ -37,7 +37,7 @@ class TestFacultyProvider(unittest.TestCase):
 
     def test_get_faculties(self) -> None:
         """Test the get_faculties method returns a list of Faculties."""
-        faculties = self.faculty_provider.get_faculties()
+        faculties = self.faculty_provider.get_faculty_names()
         expected_faculties = [
             "Basic Medical Sciences",
             "Communications and Media Studies",
@@ -46,7 +46,7 @@ class TestFacultyProvider(unittest.TestCase):
 
     def test_get_departments(self) -> None:
         """Test the get_departments method returns a list of departments."""
-        departments = self.faculty_provider.get_departments()
+        departments = self.faculty_provider.get_department_names()
         expected_departments = [
             "Human Anatomy",
             "Physiology",

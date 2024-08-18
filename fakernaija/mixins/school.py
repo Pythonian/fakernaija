@@ -20,7 +20,7 @@ class School:
         state: str | None = None,
         school_type: str | None = None,
     ) -> dict[str, str] | None:
-        """Get a random school dictionary based on optional filters.
+        """Get a random school object based on optional parameters.
 
         Args:
             ownership (str | None, optional): Filter by ownership.
@@ -34,8 +34,9 @@ class School:
             ValueError: If an unsupported ownership or school_type is provided.
 
         Note:
-            - Supported ownerships: federal, state, private
-            - Supported school types: university, polytechnic, college
+            - Ownership options: federal, state, private
+            - School type options: university, polytechnic, college
+            - State options: 36 states in Nigeria + Abuja
 
         Examples:
             .. code-block:: python
@@ -45,23 +46,23 @@ class School:
 
                 >>> school = naija.school()
                 >>> print(f"Random school: {school}")
-                'Random school: {'name': 'University of Lagos', 'acronym': 'UNILAG', 'state': 'Lagos', 'type': 'university', 'ownership': 'Federal'}'
+                Random school: {'name': 'University of Lagos', 'acronym': 'UNILAG', 'state': 'Lagos', 'type': 'university', 'ownership': 'Federal'}
 
                 >>> school = naija.school(ownership="federal")
                 >>> print(f"Random federal school: {school}")
-                'Random federal school: {'name': 'Ahmadu Bello University', 'acronym': 'ABU', 'state': 'Kaduna', 'type': 'university', 'ownership': 'Federal'}'
+                Random federal school: {'name': 'Ahmadu Bello University', 'acronym': 'ABU', 'state': 'Kaduna', 'type': 'university', 'ownership': 'Federal'}
 
                 >>> school = naija.school(state="lagos")
                 >>> print(f"Random school in Lagos: {school}")
-                'Random school in Lagos: {'name': 'Lagos State University', 'acronym': 'LASU', 'state': 'Lagos', 'type': 'university', 'ownership': 'State'}'
+                Random school in Lagos: {'name': 'Lagos State University', 'acronym': 'LASU', 'state': 'Lagos', 'type': 'university', 'ownership': 'State'}
 
                 >>> school = naija.school(school_type="polytechnic")
                 >>> print(f"Random polytechnic: {school}")
-                'Random polytechnic: {'name': 'Yaba College of Technology', 'acronym': 'YABATECH', 'state': 'Lagos', 'type': 'polytechnic', 'ownership': 'Federal'}'
+                Random polytechnic: {'name': 'Yaba College of Technology', 'acronym': 'YABATECH', 'state': 'Lagos', 'type': 'polytechnic', 'ownership': 'Federal'}
 
                 >>> school = naija.school(ownership="federal", state="lagos", school_type="university")
                 >>> print(f"Random federal university in Lagos: {school}")
-                'Random federal university in Lagos: {'name': 'University of Lagos', 'acronym': 'UNILAG', 'state': 'Lagos', 'type': 'university', 'ownership': 'Federal'}'
+                Random federal university in Lagos: {'name': 'University of Lagos', 'acronym': 'UNILAG', 'state': 'Lagos', 'type': 'university', 'ownership': 'Federal'}
         """
         schools = self.school_provider.get_schools(
             ownership,
@@ -77,7 +78,7 @@ class School:
         state: str | None = None,
         school_type: str | None = None,
     ) -> str | None:
-        """Get a random school name based on optional filters and optionally return the acronym.
+        """Get a random school name or acronym based on optional parameters.
 
         Args:
             acronym (bool, optional): If True, return the acronym instead of the full name. Defaults to False.
@@ -92,8 +93,9 @@ class School:
             ValueError: If an unsupported ownership or school_type is provided.
 
         Note:
-            - Supported ownerships: federal, state, private
-            - Supported school types: university, polytechnic, college
+            - Ownership options: federal, state, private
+            - School type options: university, polytechnic, college
+            - State options: 36 states in Nigeria + Abuja
 
         Examples:
             .. code-block:: python
@@ -103,23 +105,34 @@ class School:
 
                 >>> school_name = naija.school_name()
                 >>> print(f"Random school name: {school_name}")
-                'Random school name: University of Lagos'
+                Random school name: University of Lagos
+
+                >>> for _ in range(3):
+                ...     print(naija.school_name())
+                ...
+                Federal College of Education, Abeokuta
+                Kwara State Polytechnic
+                Yaba College of Technology
 
                 >>> school_acronym = naija.school_name(acronym=True)
                 >>> print(f"Random school acronym: {school_acronym}")
-                'Random school acronym: UNILAG'
+                Random school acronym: UNILAG
 
                 >>> school_name = naija.school_name(state="Lagos")
                 >>> print(f"Random school in Lagos: {school_name}")
-                'Random school in Lagos: Lagos State University'
+                Random school in Lagos: Lagos State University
 
                 >>> school_name = naija.school_name(school_type="university")
                 >>> print(f"Random university name: {school_name}")
-                'Random university name: University of Ibadan'
+                Random university name: University of Ibadan
+
+                >>> school_name = naija.school_name(ownership="private")
+                >>> print(f"Random private school: {school_name}")
+                Random private school: Al-Hikmah University
 
                 >>> school_acronym = naija.school_name(acronym=True, ownership="federal", state="Lagos", school_type="university")
                 >>> print(f"Random federal university acronym in Lagos: {school_acronym}")
-                'Random federal university acronym in Lagos: UNILAG'
+                Random federal university acronym in Lagos: UNILAG
         """
         school_names = self.school_provider.get_school_names(
             ownership,

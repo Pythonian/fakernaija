@@ -56,7 +56,7 @@ def phonenumber(repeat: int, network: str, prefix: str) -> None:
             $ naija phonenumber
             07062299016
 
-        To generate three random phone numbers:
+        To generate 3 random phone numbers:
 
         .. code-block:: bash
 
@@ -79,7 +79,7 @@ def phonenumber(repeat: int, network: str, prefix: str) -> None:
             $ naija phonenumber --prefix 0703
             07039490580
 
-        To generate three random phone numbers for the Glo network with the 0805 prefix:
+        To generate 3 random phone numbers for the Glo network with the 0805 prefix:
 
         .. code-block:: bash
 

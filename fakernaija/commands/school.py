@@ -59,7 +59,7 @@ def school(ownership: str, state: str, school_type: str, repeat: int) -> None:
             $ naija school
             {'name': 'Fidei Polytechnic', 'acronym': 'FIDEIPOLY', 'state': 'Benue', 'type': 'Polytechnic', 'ownership': 'Private'}
 
-        To generate three random schools:
+        To generate 3 random schools:
 
         .. code-block:: bash
 
@@ -89,7 +89,7 @@ def school(ownership: str, state: str, school_type: str, repeat: int) -> None:
             $ naija school --state abuja
             {'name': 'University of Abuja', 'acronym': 'UNIABUJA', 'state': 'Abuja', 'type': 'University', 'ownership': 'Federal'}
 
-        To generate three random private universities in Ogun:
+        To generate 3 random private universities in Ogun:
 
         .. code-block:: bash
 
@@ -186,7 +186,7 @@ def school_name(
             $ naija school_name --acronym
             UNN
 
-        To generate three random school names:
+        To generate 3 random school names:
 
         .. code-block:: bash
 
@@ -216,7 +216,7 @@ def school_name(
             $ naija school_name --state "akwa ibom"
             University of Uyo
 
-        To generate three random private universities in Ogun:
+        To generate 3 random private universities in Ogun:
 
         .. code-block:: bash
 

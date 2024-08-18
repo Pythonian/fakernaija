@@ -74,7 +74,7 @@ def email(
             $ naija email
             osayandeiyamu@gov.ng
 
-        To generate three random email addresses:
+        To generate 3 random email addresses:
 
         .. code-block:: bash
 
@@ -111,7 +111,7 @@ def email(
             $ naija email --name "Ugochi Maduike"
             ugochi.maduike75@mail.com
 
-        To generate 7 random email addresses for Yoruba males with a custom domain:
+        To generate 3 random email addresses for Yoruba males with a custom domain:
 
         .. code-block:: bash
 
@@ -119,10 +119,6 @@ def email(
             ogunlana.kola@gov.ng
             olamideogunbiyi@gov.ng
             kunleadewale@gov.ng
-            ojo.femi@gov.ng
-            ogunmolasola@gov.ng
-            olu.olabisi68@gov.ng
-            ogundiranakin@gov.ng
     """
     if repeat < 1:
         click.echo("Error: Repeat count must be a positive integer.", err=True)

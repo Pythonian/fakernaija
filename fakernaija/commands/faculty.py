@@ -97,7 +97,7 @@ def department(repeat: int) -> None:
         return
 
     for _ in range(repeat):
-        department = naija.department()
+        department = naija.department_name()
         if department:
             click.echo(department)
         else:

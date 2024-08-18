@@ -24,7 +24,7 @@ class Currency:
 
                 >>> currency = naija.currency()
                 >>> print(f"Nigerian currency: {currency}")
-                "Nigerian currency: {'code': 'NGN', 'name': 'Nigerian naira', 'symbol': '₦'}"
+                Nigerian currency: {'code': 'NGN', 'name': 'Nigerian naira', 'symbol': '₦'}
         """
         return self.currency_provider.get_currency()
 
@@ -42,7 +42,7 @@ class Currency:
 
                 >>> currency_code = naija.currency_code()
                 >>> print(f"Nigerian currency code: {currency_code}")
-                'Nigerian currency code: NGN'
+                Nigerian currency code: NGN
         """
         return self.currency_provider.get_currency_code()
 
@@ -60,7 +60,7 @@ class Currency:
 
                 >>> currency_name = naija.currency_name()
                 >>> print(f"Nigerian currency name: {currency_name}")
-                'Nigerian currency name: Nigerian naira'
+                Nigerian currency name: Nigerian naira
         """
         return self.currency_provider.get_currency_name()
 
@@ -78,6 +78,6 @@ class Currency:
 
                 >>> currency_symbol = naija.currency_symbol()
                 >>> print(f"Nigerian currency symbol: {currency_symbol}")
-                'Nigerian currency symbol: ₦'
+                Nigerian currency symbol: ₦
         """
         return self.currency_provider.get_currency_symbol()

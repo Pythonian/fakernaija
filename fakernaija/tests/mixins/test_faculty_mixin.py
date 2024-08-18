@@ -102,7 +102,7 @@ class TestFaculty(unittest.TestCase):
     def test_department(self, mock_choice: MagicMock) -> None:
         """Test the department method."""
         mock_choice.return_value = "Human Anatomy"
-        department = self.faculty_mixin.department()
+        department = self.faculty_mixin.department_name()
         expected_departments = [
             "Human Anatomy",
             "Physiology",

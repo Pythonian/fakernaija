@@ -30,7 +30,7 @@ def course(repeat: int) -> None:
             $ naija course
             {'name': 'Advanced Physical Chemistry I', 'code': 'CHM411'}
 
-        To generate three random courses:
+        To generate 3 random courses:
 
         .. code-block:: bash
 
@@ -74,7 +74,7 @@ def course_name(repeat: int) -> None:
             $ naija course_name
             Methods of Theoretical Physics I
 
-        To generate three random course names:
+        To generate 3 random course names:
 
         .. code-block:: bash
 
@@ -118,7 +118,7 @@ def course_code(repeat: int) -> None:
             $ naija course_code
             CHM302
 
-        To generate three random course codes:
+        To generate 3 random course codes:
 
         .. code-block:: bash
 

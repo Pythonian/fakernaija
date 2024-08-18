@@ -15,7 +15,7 @@ class PhoneNumber:
         network: str | None = None,
         prefix: str | None = None,
     ) -> str:
-        """Generate a random Nigerian phone number.
+        """Generate a random phone number with optional network and prefix filters.
 
         Args:
             network (str, optional): The name of the network. Defaults to None.
@@ -31,8 +31,9 @@ class PhoneNumber:
                 - airtel: 0802, 0808, 0812, 0708, 0701, 0901, 0902, 0907
                 - etisalat: 0809, 0817, 0818, 0908, 0909
 
-        Caution:
-            A ValueError will be raised if the provided prefix is not valid for the chosen network.
+        Raises:
+            ValueError: If the given prefix is not valid or the network and prefix
+                combination does not match.
 
         Example:
             .. code-block:: python
@@ -42,19 +43,26 @@ class PhoneNumber:
 
                 >>> phone = naija.phone_number()
                 >>> print(f"Random phone number: {phone}")
-                'Random phone number: 08051234567'
+                Random phone number: 08051234567
+
+                >>> for _ in range(3):
+                ...     print(naija.phone_number())
+                ...
+                09054519464
+                09025038192
+                09016604216
 
                 >>> phone = naija.phone_number(network="mtn")
                 >>> print(f"Random MTN phone number: {phone}")
-                'Random MTN phone number: 08031234567'
+                Random MTN phone number: 08031234567
 
                 >>> phone = naija.phone_number(prefix="0909")
                 >>> print(f"Random phone number with prefix 0909: {phone}")
-                'Random phone number with prefix 0909: 09091234567'
+                Random phone number with prefix 0909: 09091234567
 
                 >>> phone = naija.phone_number(network="airtel", prefix="0902")
                 >>> print(f"Random Airtel phone number with prefix 0902: {phone}")
-                'Random Airtel phone number with prefix 0902: 09021234567'
+                Random Airtel phone number with prefix 0902: 09021234567
         """
         return self.phonenumber_provider.generate_phone_number(
             network=network,

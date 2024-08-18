@@ -25,19 +25,19 @@ class FacultyProvider:
             ],
         )
 
-    def get_faculties(self) -> list[str]:
-        """Get a list of all faculties.
+    def get_faculty_names(self) -> list[str]:
+        """Get a list of all faculty names.
 
         Returns:
-            list[str]: A list of faculties.
+            list[str]: A list of faculty names.
         """
         return [faculty["name"] for faculty in self.faculties_data]
 
-    def get_departments(self) -> list[str]:
-        """Get a list of all departments.
+    def get_department_names(self) -> list[str]:
+        """Get a list of all department names.
 
         Returns:
-            list[str]: A list of departments.
+            list[str]: A list of department names.
         """
         departments = []
         for faculty in self.faculties_data:

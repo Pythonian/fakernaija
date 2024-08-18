@@ -1,8 +1,7 @@
 """Name mixin to group related methods for the NameProvider."""
 
-import random
-
 from fakernaija.providers.name_provider import NameProvider
+from fakernaija.utils import get_unique_value
 
 
 class Name:
@@ -11,13 +10,14 @@ class Name:
     def __init__(self) -> None:
         """Initializes the Name mixin and its provider."""
         self.name_provider = NameProvider()
+        self._used_prefixes: set[str] = set()
 
     def first_name(
         self,
         tribe: str | None = None,
         gender: str | None = None,
     ) -> str:
-        """Generate a random first name with optional tribe and gender filters.
+        """Generate a random first name with optional parameters.
 
         Args:
             tribe (str | None, optional): The tribe from which to generate the name.
@@ -41,26 +41,26 @@ class Name:
 
                 >>> first_name = naija.first_name()
                 >>> print(f"Random first name: {first_name}")
-                'Random first name: Nasiru'
+                Random first name: Nasiru
 
                 >>> for _ in range(3):
-                ...     naija.first_name()
+                ...     print(naija.first_name())
                 ...
-                'Izuchukwu'
-                'Yinka'
-                'Muhammadu'
+                Izuchukwu
+                Yinka
+                Muhammadu
 
                 >>> first_name_tribe = naija.first_name(tribe="yoruba")
                 >>> print(f"Random first name: {first_name_tribe}")
-                'Random first name: Opeyemi'
+                Random first name: Opeyemi
 
                 >>> female_first_name = naija.first_name(gender="female")
                 >>> print(f"Random female first name: {female_first_name}")
-                'Random female first name: Somtochi'
+                Random female first name: Somtochi
 
                 >>> male_first_name_tribe = naija.first_name(tribe="yoruba", gender="male")
                 >>> print(f"Random Yoruba male first name: {male_first_name_tribe}")
-                'Random Yoruba male first name: Seyi'
+                Random Yoruba male first name: Seyi
         """
         return self.name_provider.generate_first_name(
             tribe=tribe,
@@ -68,7 +68,7 @@ class Name:
         )
 
     def last_name(self, tribe: str | None = None) -> str:
-        """Generate a random last name with optional tribe filter.
+        """Generate a random last name with optional parameter.
 
         Args:
             tribe (str | None, optional): The tribe from which to generate the last name.
@@ -90,18 +90,18 @@ class Name:
 
                 >>> last_name = naija.last_name()
                 >>> print(f"Random last name: {last_name}")
-                'Random last name: Okonkwo'
+                Random last name: Okonkwo
 
                 >>> for _ in range(3):
-                ...     naija.last_name()
+                ...     print(naija.last_name())
                 ...
-                'Bello'
-                'Ajiteru'
-                'Lawal'
+                Bello
+                Ajiteru
+                Lawal
 
                 >>> last_name_tribe = naija.last_name(tribe="hausa")
                 >>> print(f"Random Hausa last name: {last_name_tribe}")
-                'Random Hausa last name: Abubakar'
+                Random Hausa last name: Abubakar
         """
         return self.name_provider.generate_last_name(tribe=tribe)
 
@@ -111,7 +111,7 @@ class Name:
         tribe: str | None = None,
         gender: str | None = None,
     ) -> str:
-        """Generate a random full name with optional tribe, gender or middle name filters.
+        """Generate a random full name with optional parameters.
 
         Args:
             middle_name (bool, optional): Whether to include a middle name. Defaults to False.
@@ -136,38 +136,38 @@ class Name:
 
                 >>> full_name = naija.full_name()
                 >>> print(f"Random full name: {full_name}")
-                'Random full name: Ugochi Maduike'
+                Random full name: Ugochi Maduike
 
                 >>> for _ in range(3):
                 ...     print(naija.full_name())
                 ...
-                'Ozioma Anyaegbunam'
-                'Oluwatosin Lemboye'
-                'Osawaru Ikhine'
+                Ozioma Anyaegbunam
+                Oluwatosin Lemboye
+                Osawaru Ikhine
 
                 >>> full_name = naija.full_name(middle_name=True)
                 >>> print(f"Random full name with middle name: {full_name}")
-                'Random full name with middle name: Kosisochukwu Somtochukwu Mbakwe'
+                Random full name with middle name: Kosisochukwu Somtochukwu Mbakwe
 
                 >>> full_name = naija.full_name(tribe="yoruba")
                 >>> print(f"Random Yoruba full name: {full_name}")
-                'Random Yoruba full name: Opeyemi Obisesan'
+                Random Yoruba full name: Opeyemi Obisesan
 
                 >>> full_name = naija.full_name(tribe="yoruba", middle_name=True)
                 >>> print(f"Random Yoruba full name with middle name: {full_name}")
-                'Random Yoruba full name with middle name: Babajide Olusola Sanwo-olu'
+                Random Yoruba full name with middle name: Babajide Olusola Sanwo-olu
 
                 >>> full_name = naija.full_name(gender="female")
                 >>> print(f"Random female full name: {full_name}")
-                'Random female full name: Chisom Nnabude'
+                Random female full name: Chisom Nnabude
 
                 >>> full_name = naija.full_name(gender="female", middle_name=True)
                 >>> print(f"Random female full name with middle name: {full_name}")
-                'Random female full name with middle name: Ifeoma Chinecherem Nwankwo'
+                Random female full name with middle name: Ifeoma Chinecherem Nwankwo
 
                 >>> full_name = naija.full_name(tribe="edo", gender="female", middle_name=True)
                 >>> print(f"Random female full name with middle name from Edo tribe: {full_name}")
-                'Random female full name with middle name from Edo tribe: Osazee Osahon Ogiemwonyi'
+                Random female full name with middle name from Edo tribe: Osazee Osahon Ogiemwonyi
         """
         return self.name_provider.generate_full_name(
             middle_name=middle_name,
@@ -180,7 +180,7 @@ class Name:
         gender: str | None = None,
         title: str | None = None,
     ) -> str:
-        """Generates a random name prefix based on the specified gender and title.
+        """Generates a random name prefix based on optional parameter.
 
         Args:
             gender (str | None, optional): The gender for which to generate the prefix.
@@ -204,7 +204,7 @@ class Name:
 
                 >>> name_prefix = naija.prefix()
                 >>> print(f"Random name prefix: {name_prefix}")
-                'Random name prefix: Prof.'
+                Random name prefix: Prof.
 
                 >>> for _ in range(3):
                 ...     print(naija.prefix())
@@ -215,27 +215,23 @@ class Name:
 
                 >>> male_prefix = naija.prefix(gender="male")
                 >>> print(f"Random male name prefix: {male_prefix}")
-                'Random male name prefix: Mr.'
+                Random male name prefix: Mr.
 
                 >>> female_prefix = naija.prefix(gender="female")
                 >>> print(f"Random female name prefix: {female_prefix}")
-                'Random female name prefix: Mrs.'
+                Random female name prefix: Mrs.
 
                 >>> professional_prefix = naija.prefix(title="professional")
                 >>> print(f"Random professional prefix: {professional_prefix}")
-                'Random professional prefix: Dr.'
-
-                >>> professional_prefix = naija.prefix(title="professional")
-                >>> print(f"Random professional prefix: {professional_prefix}")
-                'Random professional prefix: Engr.'
+                Random professional prefix: Dr.
 
                 >>> male_traditional_prefix = naija.prefix(gender="male", title="traditional")
                 >>> print(f"Random male traditional prefix: {male_traditional_prefix}")
-                'Random male traditional prefix: Waziri'
+                Random male traditional prefix: Waziri
 
                 >>> female_traditional_prefix = naija.prefix(gender="female", title="traditional")
                 >>> print(f"Random female traditional prefix: {female_traditional_prefix}")
-                'Random female traditional prefix: Iyalode'
+                Random female traditional prefix: Iyalode
         """
         if title not in {None, "professional", "traditional"}:
             msg = f"Invalid title '{title}'. Must be 'professional' or 'traditional'."
@@ -245,137 +241,7 @@ class Name:
             msg = f"Invalid gender '{gender}'. Must be 'male' or 'female'."
             raise ValueError(msg)
 
-        prefixes = []
-
-        if title is None:
-            if gender == "male":
-                prefixes = [
-                    "Mr.",
-                    "Master",
-                    "Mister",
-                    "Chief",
-                    "Oba",
-                    "Otunba",
-                    "Prince",
-                    "Prof.",
-                    "Dr.",
-                    "Alhaji",
-                    "Engr.",
-                    "Tpl",
-                    "Barrister",
-                    "Igwe",
-                    "Obi",
-                    "Obong",
-                    "Emir",
-                    "Waziri",
-                    "Olu",
-                ]
-            elif gender == "female":
-                prefixes = [
-                    "Mrs.",
-                    "Miss",
-                    "Madam",
-                    "Chief",
-                    "Lady",
-                    "Princess",
-                    "Erelu",
-                    "Prof.",
-                    "Dr. (Mrs.)",
-                    "Hajia",
-                    "Lady (Mrs.)",
-                    "Alhaja",
-                    "Lolo",
-                    "Iyalode",
-                ]
-            else:
-                prefixes = [
-                    "Mr.",
-                    "Mrs.",
-                    "Miss",
-                    "Master",
-                    "Mister",
-                    "Madam",
-                    "Prof.",
-                    "J.P",
-                    "Chief",
-                    "Oba",
-                    "Otunba",
-                    "Erelu",
-                    "Prince",
-                    "Princess",
-                    "Lolo",
-                    "Igwe",
-                    "Obi",
-                    "Obong",
-                    "Iyalode",
-                    "Emir",
-                    "Waziri",
-                    "Olu",
-                    "Alhaja",
-                    "Alhaji",
-                    "Hajia",
-                    "Lady",
-                    "Dr.",
-                    "Engr.",
-                    "Tpl",
-                    "Barrister",
-                ]
-        elif title == "professional":
-            prefixes = [
-                "Prof.",
-                "Dr.",
-                "Engr.",
-                "Tpl",
-                "Barrister",
-                "Esq.",
-            ]
-        elif title == "traditional":
-            if gender == "male":
-                prefixes = [
-                    "Chief",
-                    "Oba",
-                    "Otunba",
-                    "Prince",
-                    "Alhaji",
-                    "Igwe",
-                    "Obi",
-                    "Obong",
-                    "Emir",
-                    "Waziri",
-                    "Olu",
-                ]
-            elif gender == "female":
-                prefixes = [
-                    "Chief",
-                    "Erelu",
-                    "Princess",
-                    "Dr. (Mrs.)",
-                    "Lady (Mrs.)",
-                    "Hajia",
-                    "Alhaja",
-                    "Lolo",
-                    "Iyalode",
-                ]
-            else:
-                prefixes = [
-                    "Chief",
-                    "Oba",
-                    "Otunba",
-                    "Prince",
-                    "Alhaji",
-                    "Igwe",
-                    "Obi",
-                    "Obong",
-                    "Emir",
-                    "Waziri",
-                    "Olu",
-                    "Erelu",
-                    "Princess",
-                    "Lady (Mrs.)",
-                    "Hajia",
-                    "Alhaja",
-                    "Lolo",
-                    "Iyalode",
-                ]
-
-        return random.choice(prefixes)
+        prefixes = self.name_provider.generate_prefixes(title, gender)
+        prefix = get_unique_value(prefixes, self._used_prefixes)
+        self._used_prefixes.add(prefix)
+        return prefix

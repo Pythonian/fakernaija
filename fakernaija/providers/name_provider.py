@@ -180,3 +180,102 @@ class NameProvider:
             return f"{first_name} {optional_middle_name} {last_name}"
 
         return f"{first_name} {last_name}"
+
+    def generate_prefixes(
+        self,
+        title: str | None,
+        gender: str | None,
+    ) -> list[str]:
+        """Helper method to get the appropriate prefix list based on title and gender."""
+        if title == "professional":
+            return [
+                "Prof.",
+                "Dr.",
+                "Engr.",
+                "Tpl",
+                "Barrister",
+                "Esq.",
+            ]
+        if title == "traditional":
+            return self._get_traditional_prefixes(gender)
+        return self._get_general_prefixes(gender)
+
+    def _get_traditional_prefixes(self, gender: str | None) -> list[str]:
+        """Helper method to get traditional prefixes based on gender."""
+        male_prefixes = [
+            "Chief",
+            "Oba",
+            "Otunba",
+            "Prince",
+            "Alhaji",
+            "Igwe",
+            "Obi",
+            "Obong",
+            "Emir",
+            "Waziri",
+            "Olu",
+        ]
+        female_prefixes = [
+            "Chief",
+            "Erelu",
+            "Princess",
+            "Dr. (Mrs.)",
+            "Lady (Mrs.)",
+            "Hajia",
+            "Alhaja",
+            "Lolo",
+            "Iyalode",
+        ]
+        return (
+            male_prefixes
+            if gender == "male"
+            else female_prefixes
+            if gender == "female"
+            else male_prefixes + female_prefixes
+        )
+
+    def _get_general_prefixes(self, gender: str | None) -> list[str]:
+        """Helper method to get general prefixes based on gender."""
+        male_prefixes = [
+            "Mr.",
+            "Master",
+            "Mister",
+            "Chief",
+            "Oba",
+            "Otunba",
+            "Prince",
+            "Prof.",
+            "Dr.",
+            "Alhaji",
+            "Engr.",
+            "Tpl",
+            "Barrister",
+            "Igwe",
+            "Obi",
+            "Obong",
+            "Emir",
+            "Waziri",
+            "Olu",
+        ]
+        female_prefixes = [
+            "Mrs.",
+            "Miss",
+            "Madam",
+            "Chief",
+            "Lady",
+            "Princess",
+            "Erelu",
+            "Prof.",
+            "Dr. (Mrs.)",
+            "Hajia",
+            "Lady (Mrs.)",
+            "Alhaja",
+            "Lolo",
+            "Iyalode",
+        ]
+        general_prefixes = male_prefixes + female_prefixes
+        if gender == "male":
+            return male_prefixes
+        if gender == "female":
+            return female_prefixes
+        return general_prefixes

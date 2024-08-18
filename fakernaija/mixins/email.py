@@ -17,7 +17,7 @@ class Email:
         domain: str | None = None,
         name: str | None = None,
     ) -> str:
-        """Generate a random email address with optional tribe, gender, domain and name filters.
+        """Generate a random email address with optional parameters.
 
         Args:
             tribe (str | None, optional): The ethnic group to filter by. Defaults to None.
@@ -43,23 +43,30 @@ class Email:
 
                 >>> email = naija.email()
                 >>> print(f"Random email: {email}")
-                'Random email: ugochi.maduike@gmail.com'
+                Random email: ugochi.maduike@gmail.com
+
+                >>> for _ in range(3):
+                ...     print(naija.email())
+                ...
+                osazeeiyamu26@gov.ng
+                ogba.ogburu@edu.ng
+                bello.moussa@mail.com
 
                 >>> email = naija.email(name="Ugochi Maduike")
                 >>> print(f"Generate email from given name: {email}")
-                'Generate email from given name: maduike.ugochi6@yahoo.com'
+                Generate email from given name: maduike.ugochi6@yahoo.com
 
                 >>> email = naija.email(tribe="igbo")
                 >>> print(f"Random email with tribe filter: {email}")
-                'Random email with tribe filter: ugochi.maduike@gmail.com'
+                Random email with tribe filter: ugochi.maduike@gmail.com
 
                 >>> email = naija.email(gender="female")
                 >>> print(f"Random email with gender filter: {email}")
-                'Random email with gender filter: ugochi.maduike@gmail.com'
+                Random email with gender filter: ugochi.maduike@gmail.com
 
                 >>> email = naija.email(tribe="igbo", gender="female", domain="unn.edu.ng")
                 >>> print(f"Random email with multiple filters: {email}")
-                'Random email with multiple filters: ugochi.maduike@unn.edu.ng'
+                Random email with multiple filters: ugochi.maduike@unn.edu.ng
         """
         return self.email_provider.generate_email(
             tribe,

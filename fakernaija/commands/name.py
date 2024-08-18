@@ -62,7 +62,7 @@ def fullname(
             $ naija fullname
             Chibunna Ulelu
 
-        To generate three random full names:
+        To generate 3 random full names:
 
         .. code-block:: bash
 
@@ -92,13 +92,14 @@ def fullname(
             $ naija fullname --gender male
             Ebube Madu
 
-        To generate two random full names with middle names from a specific tribe and gender
+        To generate 3 random full names with middle names from a specific tribe and gender
 
         .. code-block:: bash
 
-            $ naija fullname --tribe yoruba --repeat 2 --gender female --middlename
-            Yinka Ajiteru
-            Opeyemi Obisesan
+            $ naija fullname --tribe yoruba -r 3 --gender female --middlename
+            Yetunde Bukola Ogunleye
+            Jumoke Tola Olabisi
+            Toyin Temitope Lemboye
     """
     if repeat < 1:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
@@ -159,7 +160,7 @@ def firstname(repeat: int, tribe: str, gender: str) -> None:
             $ naija firstname
             Mmasichukwu
 
-        To generate three random first names:
+        To generate 3 random first names:
 
         .. code-block:: bash
 
@@ -182,7 +183,7 @@ def firstname(repeat: int, tribe: str, gender: str) -> None:
             $ naija firstname --gender male
             Seyi
 
-        To generate three random first names from a specific tribe and gender
+        To generate 3 random first names from a specific tribe and gender
 
         .. code-block:: bash
 
@@ -237,7 +238,7 @@ def lastname(repeat: int, tribe: str) -> None:
             $ naija lastname
             Nwodo
 
-        To generate three random last names:
+        To generate 3 random last names:
 
         .. code-block:: bash
 
@@ -253,11 +254,11 @@ def lastname(repeat: int, tribe: str) -> None:
             $ naija lastname --tribe edo
             Osagie
 
-        To generate three random last names from a specific tribe
+        To generate 3 random last names from a specific tribe
 
         .. code-block:: bash
 
-            $ naija lastname --tribe ijaw --repeat 3
+            $ naija lastname --tribe ijaw -r 3
             Ebiere
             Opobo
             Oweipade
@@ -315,7 +316,7 @@ def prefix(repeat: int, gender: str | None, title: str | None) -> None:
             $ naija prefix
             Mr.
 
-        To generate three random prefixes:
+        To generate 3 random prefixes:
 
         .. code-block:: bash
 
@@ -338,7 +339,7 @@ def prefix(repeat: int, gender: str | None, title: str | None) -> None:
             $ naija prefix --title professional
             Engr.
 
-        To generate three random prefixes from a specific title and gender
+        To generate 3 random prefixes from a specific title and gender
 
         .. code-block:: bash
 
