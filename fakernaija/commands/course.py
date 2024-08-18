@@ -16,27 +16,29 @@ naija = Faker()
     type=int,
 )
 def course(repeat: int) -> None:
-    """Generate and return random courses.
+    """Return random courses.
 
     Args:
         repeat (int): The number of random courses to return.
             Must be a positive integer. Defaults to 1.
 
     Examples:
-        To generate a single random course:
+        To return a single random course:
 
         .. code-block:: bash
 
             $ naija course
             {'name': 'Advanced Physical Chemistry I', 'code': 'CHM411'}
 
-        To generate 3 random courses:
+        To return 3 random courses:
 
         .. code-block:: bash
 
             $ naija course --repeat 3
             {'name': 'Advanced Quantum Mechanics', 'code': 'PHY463'}
+
             {'name': 'Numerical Analysis II', 'code': 'MTH444'}
+
             {'name': 'Time Series Analysis I', 'code': 'STA415'}
     """
     if repeat < 1:
@@ -47,8 +49,9 @@ def course(repeat: int) -> None:
         course = naija.course()
         if course:
             click.echo(course)
+            click.echo("")
         else:
-            click.echo("Error: Failed to generate course.", err=True)
+            click.echo("Error: Failed to return course.", err=True)
 
 
 @click.command()
@@ -60,21 +63,21 @@ def course(repeat: int) -> None:
     type=int,
 )
 def course_name(repeat: int) -> None:
-    """Generate and return random course names.
+    """Return random course names.
 
     Args:
         repeat (int): The number of random course names to return.
             Must be a positive integer. Defaults to 1.
 
     Examples:
-        To generate a single random course name:
+        To return a single random course name:
 
         .. code-block:: bash
 
             $ naija course_name
             Methods of Theoretical Physics I
 
-        To generate 3 random course names:
+        To return 3 random course names:
 
         .. code-block:: bash
 
@@ -92,7 +95,7 @@ def course_name(repeat: int) -> None:
         if course_name:
             click.echo(course_name)
         else:
-            click.echo("Error: Failed to generate course name.", err=True)
+            click.echo("Error: Failed to return course name.", err=True)
 
 
 @click.command()
@@ -104,21 +107,21 @@ def course_name(repeat: int) -> None:
     type=int,
 )
 def course_code(repeat: int) -> None:
-    """Generate and return random course codes.
+    """Return random course codes.
 
     Args:
         repeat (int): The number of random course codes to return.
             Must be a positive integer. Defaults to 1.
 
     Examples:
-        To generate a single random course code:
+        To return a single random course code:
 
         .. code-block:: bash
 
             $ naija course_code
             CHM302
 
-        To generate 3 random course codes:
+        To return 3 random course codes:
 
         .. code-block:: bash
 
@@ -136,4 +139,4 @@ def course_code(repeat: int) -> None:
         if course_code:
             click.echo(course_code)
         else:
-            click.echo("Error: Failed to generate course code.", err=True)
+            click.echo("Error: Failed to return course code.", err=True)

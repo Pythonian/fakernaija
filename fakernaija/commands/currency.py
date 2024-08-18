@@ -1,4 +1,4 @@
-"""CLI commands for CurrencyProvider to return Nigerian Naira information."""
+"""CLI commands for CurrencyProvider to return Nigerian currency information."""
 
 import click
 
@@ -21,7 +21,7 @@ def currency() -> None:
     if currency:
         click.echo(currency)
     else:
-        click.echo("Error: Failed to generate currency.", err=True)
+        click.echo("Error: Failed to return currency code and name.", err=True)
 
 
 @click.command()
@@ -38,7 +38,7 @@ def currency_code() -> None:
     if currency_code:
         click.echo(currency_code)
     else:
-        click.echo("Error: Failed to generate currency code.", err=True)
+        click.echo("Error: Failed to return currency code.", err=True)
 
 
 @click.command()
@@ -55,7 +55,7 @@ def currency_name() -> None:
     if currency_name:
         click.echo(currency_name)
     else:
-        click.echo("Error: Failed to generate currency name.", err=True)
+        click.echo("Error: Failed to return currency name.", err=True)
 
 
 @click.command()
@@ -72,4 +72,4 @@ def currency_symbol() -> None:
     if currency_symbol:
         click.echo(currency_symbol)
     else:
-        click.echo("Error: Failed to generate currency symbol.", err=True)
+        click.echo("Error: Failed to return currency symbol.", err=True)

@@ -1,4 +1,4 @@
-"""CLI commands for SchoolProvider to generate random Nigerian schools."""
+"""CLI commands for SchoolProvider to return random Nigerian schools."""
 
 import click
 
@@ -37,7 +37,7 @@ naija = Faker()
     type=int,
 )
 def school(ownership: str, state: str, school_type: str, repeat: int) -> None:
-    """Generate and return random schools.
+    """Return random schools.
 
     Args:
         ownership (str): Filter schools by ownership type.
@@ -52,50 +52,54 @@ def school(ownership: str, state: str, school_type: str, repeat: int) -> None:
         - State options: 36 states in Nigeria + Abuja
 
     Examples:
-        To generate a single random school:
+        To return a single random school:
 
         .. code-block:: bash
 
             $ naija school
             {'name': 'Fidei Polytechnic', 'acronym': 'FIDEIPOLY', 'state': 'Benue', 'type': 'Polytechnic', 'ownership': 'Private'}
 
-        To generate 3 random schools:
+        To return 3 random schools:
 
         .. code-block:: bash
 
             $ naija school --repeat 3
             {'name': 'Federal Polytechnic Bali', 'acronym': 'FEDPOLYBALI', 'state': 'Taraba', 'type': 'Polytechnic', 'ownership': 'Federal'}
+
             {'name': 'Federal University of Petroleum Resources, Effurun', 'acronym': 'FUPRE', 'state': 'Delta', 'type': 'University', 'ownership': 'Federal'}
+
             {'name': 'Nnamdi Azikiwe University', 'acronym': 'UNIZIK', 'state': 'Anambra', 'type': 'University', 'ownership': 'Federal'}
 
-        To generate a random school filtered by ownership:
+        To return a random school filtered by ownership:
 
         .. code-block:: bash
 
             $ naija school --ownership private
             {'name': 'Ajayi Crowther University', 'acronym': 'ACU', 'state': 'Oyo', 'type': 'University', 'ownership': 'Private'}
 
-        To generate a random school filtered by school type:
+        To return a random school filtered by school type:
 
         .. code-block:: bash
 
             $ naija school --school_type college
             {'name': 'Federal College of Education, Zaria', 'acronym': 'FCEZARIA', 'state': 'Kaduna', 'type': 'College', 'ownership': 'Federal'}
 
-        To generate a random school from a specific state in Nigeria:
+        To return a random school from a specific state in Nigeria:
 
         .. code-block:: bash
 
             $ naija school --state abuja
             {'name': 'University of Abuja', 'acronym': 'UNIABUJA', 'state': 'Abuja', 'type': 'University', 'ownership': 'Federal'}
 
-        To generate 3 random private universities in Ogun:
+        To return 3 random private universities in Ogun:
 
         .. code-block:: bash
 
             $ naija school --ownership private --state ogun --school_type university -r 3
             {'name': 'Babcock University', 'acronym': 'BU', 'state': 'Ogun', 'type': 'University', 'ownership': 'Private'}
+
             {'name': 'Covenant University', 'acronym': 'CU', 'state': 'Ogun', 'type': 'University', 'ownership': 'Private'}
+
             {'name': 'Bells University of Technology', 'acronym': 'BELLSTECH', 'state': 'Ogun', 'type': 'University', 'ownership': 'Private'}
     """
     if repeat < 1:
@@ -110,8 +114,9 @@ def school(ownership: str, state: str, school_type: str, repeat: int) -> None:
         )
         if school:
             click.echo(school)
+            click.echo("")
         else:
-            click.echo("Error: Failed to generate school.", err=True)
+            click.echo("Error: Failed to return school.", err=True)
 
 
 @click.command()
@@ -156,7 +161,7 @@ def school_name(
     school_type: str,
     repeat: int,
 ) -> None:
-    """Generate and return random school names.
+    """Return random school names.
 
     Args:
         acronym (bool): Whether to return the school's acronym instead of the full name.
@@ -172,21 +177,21 @@ def school_name(
         - State options: 36 states in Nigeria + Abuja
 
     Examples:
-        To generate a single random school name:
+        To return a single random school name:
 
         .. code-block:: bash
 
             $ naija school_name
             Federal College of Education, Abeokuta
 
-        To generate a school acronym instead of the full name:
+        To return a school acronym instead of the full name:
 
         .. code-block:: bash
 
             $ naija school_name --acronym
             UNN
 
-        To generate 3 random school names:
+        To return 3 random school names:
 
         .. code-block:: bash
 
@@ -195,28 +200,28 @@ def school_name(
             Federal University of Technology, Akure
             Best Legacy College of Education
 
-        To generate a random school name filtered by ownership:
+        To return a random school name filtered by ownership:
 
         .. code-block:: bash
 
             $ naija school_name --ownership private
             Bells University of Technology
 
-        To generate a random school name filtered by school type:
+        To return a random school name filtered by school type:
 
         .. code-block:: bash
 
             $ naija school_name --school_type college
             Abia State College of Education (Technical), Arochukwu
 
-        To generate a random school name from a specific state in Nigeria:
+        To return a random school name from a specific state in Nigeria:
 
         .. code-block:: bash
 
             $ naija school_name --state "akwa ibom"
             University of Uyo
 
-        To generate 3 random private universities in Ogun:
+        To return 3 random private universities in Ogun:
 
         .. code-block:: bash
 
@@ -239,4 +244,4 @@ def school_name(
         if school_name:
             click.echo(school_name)
         else:
-            click.echo("Error: Failed to generate school name.", err=True)
+            click.echo("Error: Failed to return school name.", err=True)
