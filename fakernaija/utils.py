@@ -1,12 +1,9 @@
 """Utility file that provides functions to common functionalities."""
 
-import csv
 import json
 import random
 from pathlib import Path
 from typing import Any
-
-import click
 
 
 def load_json(
@@ -88,76 +85,6 @@ def validate_degree_type(
         msg = f"Invalid degree_type. Must be one of {valid_degree_types}."
         raise ValueError(msg)
     return degree_type
-
-
-def get_unique_filename(base_path: Path) -> Path:
-    """Generate a unique file name by appending numbers if the file exists."""
-    counter = 1
-    unique_path = base_path
-    while unique_path.exists():
-        unique_path = base_path.with_stem(f"{base_path.stem}_{counter}")
-        counter += 1
-    return unique_path
-
-
-def write_data_to_file(
-    data: list[Any],
-    output_path: Path,
-    output: str,
-    data_type: str,
-) -> None:
-    """Write data to file in specified format.
-
-    Args:
-        data (list[Any]): The data to write. Can be a list of dicts or a list of strings.
-        output_path (Path): The path to the output file.
-        output (str): The format of the output file (e.g., json, csv, text).
-        data_type (str): The type of data being written.
-
-    Raises:
-        OSError: If there is an error writing to the file.
-    """
-    try:
-        if output == "json":
-            with output_path.open("w") as f:
-                json.dump(data, f, indent=4)
-        elif output == "csv":
-            with output_path.open("w", newline="") as f:
-                writer = csv.writer(f)
-                if data:
-                    if isinstance(data[0], dict):
-                        writer.writerow(
-                            [
-                                key.capitalize().replace("_", " ") + "s"
-                                for key in data[0]
-                            ],
-                        )
-                        for record in data:
-                            writer.writerow(record.values())
-                    else:
-                        writer.writerow([data_type.capitalize()])
-                        for record in data:
-                            writer.writerow([record])
-        elif output == "text":
-            with output_path.open("w") as f:
-                if isinstance(data[0], dict):
-                    for record in data:
-                        f.write(
-                            " | ".join(
-                                f"{key.capitalize().replace('_', ' ')}: {value}"
-                                for key, value in record.items()
-                            )
-                            + "\n",
-                        )
-                else:
-                    for record in data:
-                        f.write(record + "\n")
-        click.echo(f"Generated data saved to {output_path}")
-    except OSError as e:
-        click.echo(
-            f"Error: Could not write to file {output_path}. {e}",
-            err=True,
-        )
 
 
 def get_unique_value(values: list[str], used_values: set[str]) -> str:

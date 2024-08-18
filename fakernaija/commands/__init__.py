@@ -1,6 +1,5 @@
 from .course import course, course_code, course_name
 from .currency import currency, currency_code, currency_name, currency_symbol
-from .data import data
 from .degree import degree, degree_abbr, degree_name
 from .email import email
 from .faculty import department, department_by_faculty, faculty, faculty_name
@@ -23,7 +22,6 @@ __all__ = [
     "currency_code",
     "currency_name",
     "currency_symbol",
-    "data",
     "degree",
     "degree_abbr",
     "degree_name",

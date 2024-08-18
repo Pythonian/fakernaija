@@ -10,7 +10,6 @@ from fakernaija.commands import (
     currency_code,
     currency_name,
     currency_symbol,
-    data,
     degree,
     degree_abbr,
     degree_name,
@@ -42,7 +41,6 @@ def cli() -> None:
 
 # Mapping of command names to their respective command functions
 commands = {
-    "data": data,
     "course": course,
     "course_code": course_code,
     "course_name": course_name,

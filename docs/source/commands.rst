@@ -34,7 +34,6 @@ Each command's documentation includes usage instructions and examples that you c
 
    commands/course
    commands/currency
-   commands/data
    commands/degree
    commands/email
    commands/faculty
