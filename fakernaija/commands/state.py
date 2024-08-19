@@ -49,7 +49,7 @@ def state(repeat: int) -> None:
         state = naija.state()
         if state:
             click.echo(state)
-            click.echo("")
+            click.echo()
         else:
             click.echo("Error: Failed to return state.", err=True)
 

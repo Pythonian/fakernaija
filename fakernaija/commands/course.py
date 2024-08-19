@@ -49,7 +49,7 @@ def course(repeat: int) -> None:
         course = naija.course()
         if course:
             click.echo(course)
-            click.echo("")
+            click.echo()
         else:
             click.echo("Error: Failed to return course.", err=True)
 

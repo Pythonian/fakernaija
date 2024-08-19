@@ -114,7 +114,7 @@ def school(ownership: str, state: str, school_type: str, repeat: int) -> None:
         )
         if school:
             click.echo(school)
-            click.echo("")
+            click.echo()
         else:
             click.echo("Error: Failed to return school.", err=True)
 

@@ -2,7 +2,7 @@ from .course import course, course_code, course_name
 from .currency import currency, currency_code, currency_name, currency_symbol
 from .degree import degree, degree_abbr, degree_name
 from .email import email
-from .faculty import department, department_by_faculty, faculty, faculty_name
+from .faculty import department_by_faculty, department_name, faculty, faculty_name
 from .name import firstname, fullname, lastname, prefix
 from .phonenumber import phonenumber
 from .school import school, school_name
@@ -28,7 +28,7 @@ __all__ = [
     "email",
     "faculty",
     "faculty_name",
-    "department",
+    "department_name",
     "department_by_faculty",
     "firstname",
     "fullname",

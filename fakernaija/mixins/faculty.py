@@ -40,7 +40,7 @@ class Faculty:
         Returns:
             str: A random faculty name.
 
-        Example:
+        Examples:
             .. code-block:: python
 
                 >>> from fakernaija import Faker
@@ -68,7 +68,7 @@ class Faculty:
         Returns:
             str: A random department name.
 
-        Example:
+        Examples:
             .. code-block:: python
 
                 >>> from fakernaija import Faker
