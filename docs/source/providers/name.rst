@@ -1,7 +1,7 @@
 Name
 ====
 
-.. autoclass:: fakernaija.providers.name_provider.NameProvider
+.. autoclass:: fakernaija.providers.NameProvider
     :members:
     :undoc-members:
     :show-inheritance:

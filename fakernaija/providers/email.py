@@ -3,7 +3,7 @@
 import random
 import re
 
-from fakernaija.providers.name_provider import NameProvider
+from fakernaija.providers.name import NameProvider
 from fakernaija.utils import normalize_input
 
 

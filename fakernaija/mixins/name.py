@@ -1,6 +1,6 @@
 """Name mixin to group related methods for the NameProvider."""
 
-from fakernaija.providers.name_provider import NameProvider
+from fakernaija.providers import NameProvider
 from fakernaija.utils import get_unique_value
 
 

@@ -3,8 +3,7 @@
 import unittest
 from unittest.mock import MagicMock, patch
 
-from fakernaija.providers import EmailProvider
-from fakernaija.providers.name_provider import NameProvider
+from fakernaija.providers import EmailProvider, NameProvider
 
 
 class TestEmailProvider(unittest.TestCase):
@@ -71,10 +70,10 @@ class TestGenerateEmailMethod(unittest.TestCase):
         self.email_provider = EmailProvider()
 
     @patch(
-        "fakernaija.providers.name_provider.NameProvider.get_first_names",
+        "fakernaija.providers.NameProvider.get_first_names",
     )
     @patch(
-        "fakernaija.providers.name_provider.NameProvider.get_last_names",
+        "fakernaija.providers.NameProvider.get_last_names",
     )
     @patch("fakernaija.providers.EmailProvider.validate_domain")
     @patch("fakernaija.providers.EmailProvider.validate_email")
@@ -107,10 +106,10 @@ class TestGenerateEmailMethod(unittest.TestCase):
             self.email_provider.generate_email(domain="invalid_domain")
 
     @patch(
-        "fakernaija.providers.name_provider.NameProvider.get_first_names",
+        "fakernaija.providers.NameProvider.get_first_names",
     )
     @patch(
-        "fakernaija.providers.name_provider.NameProvider.get_last_names",
+        "fakernaija.providers.NameProvider.get_last_names",
     )
     @patch("fakernaija.providers.EmailProvider.validate_domain")
     @patch("fakernaija.providers.EmailProvider.validate_email")
@@ -131,10 +130,10 @@ class TestGenerateEmailMethod(unittest.TestCase):
             self.email_provider.generate_email("yoruba", "male", "example.com")
 
     @patch(
-        "fakernaija.providers.name_provider.NameProvider.get_first_names",
+        "fakernaija.providers.NameProvider.get_first_names",
     )
     @patch(
-        "fakernaija.providers.name_provider.NameProvider.get_last_names",
+        "fakernaija.providers.NameProvider.get_last_names",
     )
     @patch("fakernaija.providers.EmailProvider.validate_domain")
     @patch("fakernaija.providers.EmailProvider.validate_email")
@@ -161,10 +160,10 @@ class TestGenerateEmailMethod(unittest.TestCase):
         )
 
     @patch(
-        "fakernaija.providers.name_provider.NameProvider.get_first_names",
+        "fakernaija.providers.NameProvider.get_first_names",
     )
     @patch(
-        "fakernaija.providers.name_provider.NameProvider.get_last_names",
+        "fakernaija.providers.NameProvider.get_last_names",
     )
     @patch("fakernaija.providers.EmailProvider.validate_domain")
     @patch("fakernaija.providers.EmailProvider.validate_email")
@@ -193,10 +192,10 @@ class TestGenerateEmailMethod(unittest.TestCase):
         self.assertIsNotNone(email)
 
     @patch(
-        "fakernaija.providers.name_provider.NameProvider.get_first_names",
+        "fakernaija.providers.NameProvider.get_first_names",
     )
     @patch(
-        "fakernaija.providers.name_provider.NameProvider.get_last_names",
+        "fakernaija.providers.NameProvider.get_last_names",
     )
     @patch("fakernaija.providers.EmailProvider.validate_domain")
     @patch("fakernaija.providers.EmailProvider.validate_email")
@@ -220,10 +219,10 @@ class TestGenerateEmailMethod(unittest.TestCase):
             self.assertRegex(email, r"[a-zA-Z]+[.]?[a-zA-Z]*[0-9]+@example\.com")
 
     @patch(
-        "fakernaija.providers.name_provider.NameProvider.get_first_names",
+        "fakernaija.providers.NameProvider.get_first_names",
     )
     @patch(
-        "fakernaija.providers.name_provider.NameProvider.get_last_names",
+        "fakernaija.providers.NameProvider.get_last_names",
     )
     @patch("fakernaija.providers.EmailProvider.validate_domain")
     @patch("fakernaija.providers.EmailProvider.validate_email")
@@ -247,10 +246,10 @@ class TestGenerateEmailMethod(unittest.TestCase):
             self.assertNotRegex(email, r"[0-9]+@example\.com")
 
     @patch(
-        "fakernaija.providers.name_provider.NameProvider.get_first_names",
+        "fakernaija.providers.NameProvider.get_first_names",
     )
     @patch(
-        "fakernaija.providers.name_provider.NameProvider.get_last_names",
+        "fakernaija.providers.NameProvider.get_last_names",
     )
     @patch("fakernaija.providers.EmailProvider.validate_domain")
     @patch("fakernaija.providers.EmailProvider.validate_email")
