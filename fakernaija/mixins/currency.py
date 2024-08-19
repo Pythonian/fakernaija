@@ -1,6 +1,6 @@
 """Currency mixin to group related methods for the CurrencyProvider."""
 
-from fakernaija.providers.currency_provider import CurrencyProvider
+from fakernaija.providers import CurrencyProvider
 
 
 class Currency:

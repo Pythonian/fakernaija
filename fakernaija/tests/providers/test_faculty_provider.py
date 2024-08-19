@@ -3,13 +3,13 @@
 import unittest
 from unittest.mock import MagicMock, patch
 
-from fakernaija.providers.faculty_provider import FacultyProvider
+from fakernaija.providers import FacultyProvider
 
 
 class TestFacultyProvider(unittest.TestCase):
     """Test suite for the FacultProvider class."""
 
-    @patch("fakernaija.providers.faculty_provider.load_json")
+    @patch("fakernaija.providers.faculty.load_json")
     def setUp(self, mock_load_json: MagicMock) -> None:
         """Setup mock data for faculties."""
         self.mock_faculties_data = [

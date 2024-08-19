@@ -2,7 +2,7 @@
 
 import unittest
 
-from fakernaija.providers.currency_provider import CurrencyProvider
+from fakernaija.providers import CurrencyProvider
 
 
 class TestCurrencyProvider(unittest.TestCase):

@@ -13,9 +13,9 @@ When an instance of the ``Faker`` class is created, it automatically initializes
 
 .. code-block:: python
 
-    from fakernaija import Faker
+    >>> from fakernaija import Faker
 
-    naija = Faker()
+    >>> naija = Faker()
 
 In this example, ``naija`` is an instance of the ``Faker`` class. Upon initialization, ``naija`` has access to all the data generation methods provided by the available Mixins.
 
@@ -26,9 +26,9 @@ In the documentation and examples, we use the variable name ``naija`` to refer t
 
 .. code-block:: python
 
-    from faker import Faker
+    >>> from faker import Faker
 
-    fake = Faker()
+    >>> fake = Faker()
 
 If users were to name their ``Faker`` instance ``fake``, it could lead to confusion or conflicts, especially in projects that use both ``Faker`` and ``Fakernaija``. By using ``naija``, we maintain clarity and prevent any accidental overlaps.
 
@@ -37,16 +37,16 @@ Usage Example
 
 .. code-block:: python
 
-    from fakernaija import Faker
+    >>> from fakernaija import Faker
 
-    naija = Faker()
+    >>> naija = Faker()
 
-    # Generate a Nigerian currency
-    currency = naija.currency()
-    print(f"Nigerian currency: {currency}")
+    >>> # Generate a Nigerian currency
+    >>> currency = naija.currency()
+    >>> print(f"Nigerian currency: {currency}")
 
-    # Generate a Nigerian fullname
-    name = naija.full_name()
-    print(f"Nigerian name: {name}")
+    >>> # Generate a Nigerian fullname
+    >>> name = naija.full_name()
+    >>> print(f"Nigerian name: {name}")
 
 In this example, the ``naija`` instance is used to generate a Nigerian currency and fullname, demonstrating the ease of accessing different data generation methods through the ``Faker`` class.

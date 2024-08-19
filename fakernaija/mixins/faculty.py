@@ -2,7 +2,7 @@
 
 import random
 
-from fakernaija.providers.faculty_provider import FacultyProvider
+from fakernaija.providers.faculty import FacultyProvider
 from fakernaija.utils import get_unique_value
 
 

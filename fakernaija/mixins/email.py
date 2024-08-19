@@ -1,6 +1,6 @@
 """Email mixin to group related methods for the EmailProvider."""
 
-from fakernaija.providers.email_provider import EmailProvider
+from fakernaija.providers.email import EmailProvider
 
 
 class Email:

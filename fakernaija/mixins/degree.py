@@ -2,7 +2,7 @@
 
 import random
 
-from fakernaija.providers.degree_provider import DegreeProvider
+from fakernaija.providers import DegreeProvider
 from fakernaija.utils import validate_degree_type
 
 

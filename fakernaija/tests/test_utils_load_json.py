@@ -4,12 +4,14 @@ import unittest
 from typing import Any
 from unittest.mock import MagicMock, mock_open, patch
 
-from fakernaija.providers import CourseProvider
-from fakernaija.providers.degree_provider import DegreeProvider
-from fakernaija.providers.faculty_provider import FacultyProvider
+from fakernaija.providers import (
+    CourseProvider,
+    DegreeProvider,
+    FacultyProvider,
+    SchoolProvider,
+    StateProvider,
+)
 from fakernaija.providers.name_provider import NameProvider
-from fakernaija.providers.school_provider import SchoolProvider
-from fakernaija.providers.state_provider import StateProvider
 from fakernaija.utils import load_json, validate_json_structure
 
 
@@ -232,7 +234,7 @@ class CourseProviderLoadJSON(unittest.TestCase):
 class DegreeProviderLoadJSON(unittest.TestCase):
     """Unit tests for loading the JSON data of the DegreeProvider."""
 
-    @patch("fakernaija.providers.degree_provider.load_json")
+    @patch("fakernaija.providers.degree.load_json")
     def setUp(self, mock_load_json: MagicMock) -> None:  # noqa: ARG002
         """Set up the test case with mock data."""
         self.valid_data: list[dict[str, str]] = [
@@ -309,7 +311,7 @@ class DegreeProviderLoadJSON(unittest.TestCase):
 class FacultyProviderLoadJSON(unittest.TestCase):
     """Unit tests for loading the JSON data of the FacultyProvider."""
 
-    @patch("fakernaija.providers.faculty_provider.load_json")
+    @patch("fakernaija.providers.faculty.load_json")
     def setUp(self, mock_load_json: MagicMock) -> None:  # noqa: ARG002
         """Set up the test case with mock data."""
         self.valid_data: list[dict[str, Any]] = [
@@ -385,7 +387,7 @@ class FacultyProviderLoadJSON(unittest.TestCase):
 class SchoolProviderLoadJSON(unittest.TestCase):
     """Unit tests for loading the JSON data of the SchoolProvider."""
 
-    @patch("fakernaija.providers.school_provider.load_json")
+    @patch("fakernaija.providers.school.load_json")
     def setUp(self, mock_load_json: MagicMock) -> None:  # noqa: ARG002
         """Set up the test case with mock data."""
         self.valid_data: list[dict[str, Any]] = [
@@ -494,7 +496,7 @@ class SchoolProviderLoadJSON(unittest.TestCase):
 class StateProviderLoadJSON(unittest.TestCase):
     """Unit tests for loading the JSON data of the StateProvider."""
 
-    @patch("fakernaija.providers.state_provider.load_json")
+    @patch("fakernaija.providers.state.load_json")
     def setUp(self, mock_load_json: MagicMock) -> None:  # noqa: ARG002
         """Set up the test case with mock data."""
         self.valid_data: list[dict[str, Any]] = [

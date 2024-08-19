@@ -5,47 +5,15 @@ The Providers module contains classes responsible for generating fake data for s
 
 Below, you'll find detailed documentation for each Provider class, including the data they generate and how to use them in your projects.
 
-.. autoclass:: fakernaija.providers.CourseProvider
-    :members:
-    :undoc-members:
-    :show-inheritance:
+.. toctree::
+   :maxdepth: 3
 
-.. autoclass:: fakernaija.providers.currency_provider.CurrencyProvider
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. autoclass:: fakernaija.providers.degree_provider.DegreeProvider
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. autoclass:: fakernaija.providers.email_provider.EmailProvider
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. autoclass:: fakernaija.providers.faculty_provider.FacultyProvider
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. autoclass:: fakernaija.providers.name_provider.NameProvider
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. autoclass:: fakernaija.providers.phonenumber_provider.PhoneNumberProvider
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. autoclass:: fakernaija.providers.school_provider.SchoolProvider
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-.. autoclass:: fakernaija.providers.state_provider.StateProvider
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   providers/course
+   providers/currency
+   providers/degree
+   providers/email
+   providers/faculty
+   providers/name
+   providers/phonenumber
+   providers/school
+   providers/state

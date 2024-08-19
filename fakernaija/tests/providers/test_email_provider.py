@@ -3,7 +3,7 @@
 import unittest
 from unittest.mock import MagicMock, patch
 
-from fakernaija.providers.email_provider import EmailProvider
+from fakernaija.providers import EmailProvider
 from fakernaija.providers.name_provider import NameProvider
 
 
@@ -76,8 +76,8 @@ class TestGenerateEmailMethod(unittest.TestCase):
     @patch(
         "fakernaija.providers.name_provider.NameProvider.get_last_names",
     )
-    @patch("fakernaija.providers.email_provider.EmailProvider.validate_domain")
-    @patch("fakernaija.providers.email_provider.EmailProvider.validate_email")
+    @patch("fakernaija.providers.EmailProvider.validate_domain")
+    @patch("fakernaija.providers.EmailProvider.validate_email")
     def test_generate_email_valid(
         self,
         mock_validate_email: MagicMock,
@@ -95,7 +95,7 @@ class TestGenerateEmailMethod(unittest.TestCase):
         self.assertIsNotNone(email)
         self.assertIn("@example.com", email)
 
-    @patch("fakernaija.providers.email_provider.EmailProvider.validate_domain")
+    @patch("fakernaija.providers.EmailProvider.validate_domain")
     def test_generate_email_invalid_domain(
         self,
         mock_validate_domain: MagicMock,
@@ -112,8 +112,8 @@ class TestGenerateEmailMethod(unittest.TestCase):
     @patch(
         "fakernaija.providers.name_provider.NameProvider.get_last_names",
     )
-    @patch("fakernaija.providers.email_provider.EmailProvider.validate_domain")
-    @patch("fakernaija.providers.email_provider.EmailProvider.validate_email")
+    @patch("fakernaija.providers.EmailProvider.validate_domain")
+    @patch("fakernaija.providers.EmailProvider.validate_email")
     def test_generate_email_with_missing_names(
         self,
         mock_validate_email: MagicMock,
@@ -136,8 +136,8 @@ class TestGenerateEmailMethod(unittest.TestCase):
     @patch(
         "fakernaija.providers.name_provider.NameProvider.get_last_names",
     )
-    @patch("fakernaija.providers.email_provider.EmailProvider.validate_domain")
-    @patch("fakernaija.providers.email_provider.EmailProvider.validate_email")
+    @patch("fakernaija.providers.EmailProvider.validate_domain")
+    @patch("fakernaija.providers.EmailProvider.validate_email")
     def test_generate_email_random_domain(
         self,
         mock_validate_email: MagicMock,
@@ -166,8 +166,8 @@ class TestGenerateEmailMethod(unittest.TestCase):
     @patch(
         "fakernaija.providers.name_provider.NameProvider.get_last_names",
     )
-    @patch("fakernaija.providers.email_provider.EmailProvider.validate_domain")
-    @patch("fakernaija.providers.email_provider.EmailProvider.validate_email")
+    @patch("fakernaija.providers.EmailProvider.validate_domain")
+    @patch("fakernaija.providers.EmailProvider.validate_email")
     def test_generate_email_random_tribe(
         self,
         mock_validate_email: MagicMock,
@@ -198,8 +198,8 @@ class TestGenerateEmailMethod(unittest.TestCase):
     @patch(
         "fakernaija.providers.name_provider.NameProvider.get_last_names",
     )
-    @patch("fakernaija.providers.email_provider.EmailProvider.validate_domain")
-    @patch("fakernaija.providers.email_provider.EmailProvider.validate_email")
+    @patch("fakernaija.providers.EmailProvider.validate_domain")
+    @patch("fakernaija.providers.EmailProvider.validate_email")
     def test_generate_email_with_suffix(
         self,
         mock_validate_email: MagicMock,
@@ -225,8 +225,8 @@ class TestGenerateEmailMethod(unittest.TestCase):
     @patch(
         "fakernaija.providers.name_provider.NameProvider.get_last_names",
     )
-    @patch("fakernaija.providers.email_provider.EmailProvider.validate_domain")
-    @patch("fakernaija.providers.email_provider.EmailProvider.validate_email")
+    @patch("fakernaija.providers.EmailProvider.validate_domain")
+    @patch("fakernaija.providers.EmailProvider.validate_email")
     def test_generate_email_without_suffix(
         self,
         mock_validate_email: MagicMock,
@@ -252,8 +252,8 @@ class TestGenerateEmailMethod(unittest.TestCase):
     @patch(
         "fakernaija.providers.name_provider.NameProvider.get_last_names",
     )
-    @patch("fakernaija.providers.email_provider.EmailProvider.validate_domain")
-    @patch("fakernaija.providers.email_provider.EmailProvider.validate_email")
+    @patch("fakernaija.providers.EmailProvider.validate_domain")
+    @patch("fakernaija.providers.EmailProvider.validate_email")
     def test_generate_email_invalid_email(
         self,
         mock_validate_email: MagicMock,

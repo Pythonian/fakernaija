@@ -44,12 +44,12 @@ _For a more detailed installation setup, please refer to our [Installation guide
 Fakernaija is designed to be easy to use. Launch your Python shell and run the example below:
 
 ```python
-from fakernaija import Faker
+>>> from fakernaija import Faker
 
-naija = Faker()
+>>> naija = Faker()
 
-print("A random Nigerian full name:", naija.full_name())
-# 'A random Nigerian full name: Ololade Lawal'
+>>> print("A random Nigerian full name:", naija.full_name())
+A random Nigerian full name: Ololade Lawal
 ```
 
 _For a more detailed walkthrough, please refer to the [Usage guide](https://fakernaija.readthedocs.io/en/latest/guide.html)._
@@ -75,7 +75,7 @@ We welcome contributions! Visit our [contributing guide](https://fakernaija.read
 
 Help us improve! If you spot an issue or have suggestions, [raise an issue](https://github.com/Pythonian/fakernaija/issues/new/choose) or contact [Seyi Pythonian](https://twitter.com/Ajibel).
 
-You can also Star the Github repository of this library if you find it useful or worthy of your attention.
+Please, you can also Star the Github repository of this library if you find it useful or worthy of your attention. Thank you.
 
 ## Changelog
 
@@ -83,4 +83,4 @@ See the [changelog](https://fakernaija.readthedocs.io/en/latest/changelog.html) 
 
 ## License
 
-Fakernaija is released under the MIT License. See the [LICENSE](https://fakernaija.readthedocs.io/en/latest/license.html) file for more details.
+Fakernaija is released under the MIT License. See the [LICENSE](https://fakernaija.readthedocs.io/en/latest/license.html) for more details.

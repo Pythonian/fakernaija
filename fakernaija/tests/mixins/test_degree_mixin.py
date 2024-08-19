@@ -17,7 +17,7 @@ class TestDegree(unittest.TestCase):
         """Set up the test case environment."""
         self.degree = Degree()
 
-    @patch("fakernaija.providers.degree_provider.DegreeProvider.get_degrees")
+    @patch("fakernaija.providers.DegreeProvider.get_degrees")
     def test_degree(self, mock_get_degrees: Mock) -> None:
         """Mocks the get_degrees method and checks if the returned degree is in the mocked return value."""
         mock_get_degrees.return_value = [
@@ -35,21 +35,21 @@ class TestDegree(unittest.TestCase):
         result = self.degree.degree()
         self.assertIn(result, mock_get_degrees.return_value)
 
-    @patch("fakernaija.providers.degree_provider.DegreeProvider.get_degree_names")
+    @patch("fakernaija.providers.DegreeProvider.get_degree_names")
     def test_degree_name(self, mock_get_degree_names: Mock) -> None:
         """Test degree_name method returns a degree name."""
         mock_get_degree_names.return_value = ["Bachelor of Arts", "Bachelor of Science"]
         result = self.degree.degree_name()
         self.assertIn(result, mock_get_degree_names.return_value)
 
-    @patch("fakernaija.providers.degree_provider.DegreeProvider.get_degree_abbrs")
+    @patch("fakernaija.providers.DegreeProvider.get_degree_abbrs")
     def test_degree_abbr(self, mock_get_degree_abbrs: Mock) -> None:
         """Test degree_abbr method returns a degree abbreviation."""
         mock_get_degree_abbrs.return_value = ["B.A.", "B.Sc."]
         result = self.degree.degree_abbr()
         self.assertIn(result, mock_get_degree_abbrs.return_value)
 
-    @patch("fakernaija.providers.degree_provider.DegreeProvider.get_degree_names")
+    @patch("fakernaija.providers.DegreeProvider.get_degree_names")
     def test_degree_name_by_type(self, mock_get_degree_names: Mock) -> None:
         """Test that degree_name_by_type returns valid degree names based on that degree type."""
         mock_get_degree_names.return_value = ["Bachelor of Arts", "Bachelor of Science"]
@@ -61,7 +61,7 @@ class TestDegree(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.degree.degree_name_by_type("invalid_type")
 
-    @patch("fakernaija.providers.degree_provider.DegreeProvider.get_degree_abbrs")
+    @patch("fakernaija.providers.DegreeProvider.get_degree_abbrs")
     def test_degree_abbr_by_type(self, mock_get_degree_abbrs: Mock) -> None:
         """Test that degree_abbr_by_type returns valid degree abbreviations based on that degree type."""
         mock_get_degree_abbrs.return_value = ["B.A.", "B.Sc."]

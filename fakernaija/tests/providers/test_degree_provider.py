@@ -3,7 +3,7 @@
 import unittest
 from unittest.mock import Mock, patch
 
-from fakernaija.providers.degree_provider import DegreeProvider
+from fakernaija.providers import DegreeProvider
 
 
 class TestDegreeProvider(unittest.TestCase):

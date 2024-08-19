@@ -3,7 +3,7 @@
 import unittest
 from unittest.mock import MagicMock, patch
 
-from fakernaija.providers.school_provider import SchoolProvider
+from fakernaija.providers import SchoolProvider
 
 
 class TestSchoolProvider(unittest.TestCase):
@@ -42,14 +42,14 @@ class TestSchoolProvider(unittest.TestCase):
             },
         ]
 
-    @patch("fakernaija.providers.school_provider.load_json")
+    @patch("fakernaija.providers.school.load_json")
     def test_initialization(self, mock_load_json: MagicMock) -> None:
         """Test the initialization of SchoolProvider."""
         mock_load_json.return_value = self.sample_schools
         provider = SchoolProvider()
         self.assertEqual(provider.schools_data, self.sample_schools)
 
-    @patch("fakernaija.providers.school_provider.load_json")
+    @patch("fakernaija.providers.school.load_json")
     def test_get_schools_no_filters(self, mock_load_json: MagicMock) -> None:
         """Test get_schools with no filters."""
         mock_load_json.return_value = self.sample_schools
@@ -57,7 +57,7 @@ class TestSchoolProvider(unittest.TestCase):
         result = provider.get_schools()
         self.assertEqual(result, self.sample_schools)
 
-    @patch("fakernaija.providers.school_provider.load_json")
+    @patch("fakernaija.providers.school.load_json")
     def test_get_schools_ownership_filter(self, mock_load_json: MagicMock) -> None:
         """Test get_schools with an ownership filter."""
         mock_load_json.return_value = self.sample_schools
@@ -70,7 +70,7 @@ class TestSchoolProvider(unittest.TestCase):
         ]
         self.assertEqual(result, expected)
 
-    @patch("fakernaija.providers.school_provider.load_json")
+    @patch("fakernaija.providers.school.load_json")
     def test_get_schools_state_filter(self, mock_load_json: MagicMock) -> None:
         """Test get_schools with a state filter."""
         mock_load_json.return_value = self.sample_schools
@@ -83,7 +83,7 @@ class TestSchoolProvider(unittest.TestCase):
         ]
         self.assertEqual(result, expected)
 
-    @patch("fakernaija.providers.school_provider.load_json")
+    @patch("fakernaija.providers.school.load_json")
     def test_get_schools_school_type_filter(self, mock_load_json: MagicMock) -> None:
         """Test get_schools with a school type filter."""
         mock_load_json.return_value = self.sample_schools
@@ -92,7 +92,7 @@ class TestSchoolProvider(unittest.TestCase):
         expected = [self.sample_schools[2]]  # YABATECH
         self.assertEqual(result, expected)
 
-    @patch("fakernaija.providers.school_provider.load_json")
+    @patch("fakernaija.providers.school.load_json")
     def test_get_schools_combined_filters(self, mock_load_json: MagicMock) -> None:
         """Test get_schools with combined filters."""
         mock_load_json.return_value = self.sample_schools
@@ -105,7 +105,7 @@ class TestSchoolProvider(unittest.TestCase):
         expected = [self.sample_schools[0]]  # UNILAG
         self.assertEqual(result, expected)
 
-    @patch("fakernaija.providers.school_provider.load_json")
+    @patch("fakernaija.providers.school.load_json")
     def test_get_schools_no_matches(self, mock_load_json: MagicMock) -> None:
         """Test get_schools with filters that result in no matches."""
         mock_load_json.return_value = self.sample_schools
@@ -113,7 +113,7 @@ class TestSchoolProvider(unittest.TestCase):
         result = provider.get_schools(ownership="private")
         self.assertEqual(result, [])
 
-    @patch("fakernaija.providers.school_provider.load_json")
+    @patch("fakernaija.providers.school.load_json")
     def test_get_school_names_no_filters(self, mock_load_json: MagicMock) -> None:
         """Test get_school_names with no filters."""
         mock_load_json.return_value = self.sample_schools
@@ -122,7 +122,7 @@ class TestSchoolProvider(unittest.TestCase):
         expected = [school["name"] for school in self.sample_schools]
         self.assertEqual(result, expected)
 
-    @patch("fakernaija.providers.school_provider.load_json")
+    @patch("fakernaija.providers.school.load_json")
     def test_get_school_names_with_acronym(self, mock_load_json: MagicMock) -> None:
         """Test get_school_names with acronym option."""
         mock_load_json.return_value = self.sample_schools
@@ -131,7 +131,7 @@ class TestSchoolProvider(unittest.TestCase):
         expected = [school["acronym"] for school in self.sample_schools]
         self.assertEqual(result, expected)
 
-    @patch("fakernaija.providers.school_provider.load_json")
+    @patch("fakernaija.providers.school.load_json")
     def test_get_school_names_with_filters(self, mock_load_json: MagicMock) -> None:
         """Test get_school_names with filters."""
         mock_load_json.return_value = self.sample_schools
@@ -143,7 +143,7 @@ class TestSchoolProvider(unittest.TestCase):
         ]
         self.assertEqual(result, expected)
 
-    @patch("fakernaija.providers.school_provider.load_json")
+    @patch("fakernaija.providers.school.load_json")
     def test_get_school_names_no_matches(self, mock_load_json: MagicMock) -> None:
         """Test get_school_names with filters that result in no matches."""
         mock_load_json.return_value = self.sample_schools

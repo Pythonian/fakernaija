@@ -74,7 +74,7 @@ class EmailProvider:
         Raises:
             ValueError: If the domain is invalid or if no matching data is found for the given tribe or gender.
         """
-        # Normalize the gender and tribe inputs to lowercase
+        # Normalize the inputs to lowercase
         tribe = normalize_input(tribe)
         gender = normalize_input(gender)
         domain = normalize_input(domain)

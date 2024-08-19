@@ -13,7 +13,7 @@ from fakernaija.mixins import Faculty
 class TestFaculty(unittest.TestCase):
     """Test suite for the Faculty class."""
 
-    @patch("fakernaija.providers.faculty_provider.FacultyProvider")
+    @patch("fakernaija.providers.FacultyProvider")
     def setUp(self, mock_faculty_provider: MagicMock) -> None:
         """Setup to mock the FacultyProvider."""
         self.mock_faculty_provider = mock_faculty_provider.return_value

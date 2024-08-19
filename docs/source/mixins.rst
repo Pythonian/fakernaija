@@ -16,7 +16,7 @@ When you create an instance of the :doc:`faker`, it automatically inherits metho
 Reference
 ---------
 
-The following are the ``Mixin`` classes available in the **Fakernaija** library. Each ``Mixin`` class is documented with examples to illustrate its usage. These examples can be run directly in your Python environment to see the results.
+The following are the ``Mixin`` classes available in the **Fakernaija** library. Each ``Mixin`` class is documented with examples to illustrate its usage. These examples can be run directly in your Python shell to see the results.
 
 .. toctree::
    :maxdepth: 3

@@ -2,7 +2,7 @@
 
 import unittest
 
-from fakernaija.providers.phonenumber_provider import PhoneNumberProvider
+from fakernaija.providers import PhoneNumberProvider
 
 PHONE_NUMBER_LENGTH = 11
 

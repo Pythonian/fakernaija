@@ -13,7 +13,7 @@ class TestFakerStateProvider(unittest.TestCase):
         """Set up the test case environment."""
         self.faker = Faker()
 
-    @patch("fakernaija.providers.state_provider.StateProvider.get_states")
+    @patch("fakernaija.providers.StateProvider.get_states")
     @patch("random.choice")
     def test_state_without_parameters(
         self,
@@ -30,7 +30,7 @@ class TestFakerStateProvider(unittest.TestCase):
         result = self.faker.state()
         self.assertEqual(result["name"], "Lagos")
 
-    @patch("fakernaija.providers.state_provider.StateProvider.get_capitals")
+    @patch("fakernaija.providers.StateProvider.get_capitals")
     @patch("random.choice")
     def test_state_capital_without_state(
         self,
@@ -44,7 +44,7 @@ class TestFakerStateProvider(unittest.TestCase):
         result = self.faker.state_capital()
         self.assertEqual(result, "Ikeja")
 
-    @patch("fakernaija.providers.state_provider.StateProvider.get_state_lgas")
+    @patch("fakernaija.providers.StateProvider.get_state_lgas")
     @patch("random.choice")
     def test_lga_with_state(
         self,
@@ -58,7 +58,7 @@ class TestFakerStateProvider(unittest.TestCase):
         result = self.faker.state_lga(state="Lagos")
         self.assertEqual(result, "Ikeja")
 
-    @patch("fakernaija.providers.state_provider.StateProvider.get_lgas")
+    @patch("fakernaija.providers.StateProvider.get_lgas")
     @patch("random.choice")
     def test_lga_without_state(
         self,
@@ -72,7 +72,7 @@ class TestFakerStateProvider(unittest.TestCase):
         result = self.faker.state_lga()
         self.assertEqual(result, "Ikeja")
 
-    @patch("fakernaija.providers.state_provider.StateProvider.get_postal_code_by_state")
+    @patch("fakernaija.providers.StateProvider.get_postal_code_by_state")
     def test_postal_code_with_state(
         self,
         mock_get_postal_code_by_state: MagicMock,
@@ -83,7 +83,7 @@ class TestFakerStateProvider(unittest.TestCase):
         result = self.faker.state_postal_code(state="Lagos")
         self.assertEqual(result, "100001")
 
-    @patch("fakernaija.providers.state_provider.StateProvider.get_postal_codes")
+    @patch("fakernaija.providers.StateProvider.get_postal_codes")
     @patch("random.choice")
     def test_postal_code_without_state(
         self,

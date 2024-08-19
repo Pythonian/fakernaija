@@ -2,7 +2,7 @@
 
 import random
 
-from fakernaija.providers.state_provider import StateProvider
+from fakernaija.providers import StateProvider
 from fakernaija.utils import get_unique_value
 
 
