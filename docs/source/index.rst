@@ -21,7 +21,6 @@
    mixins
    commands
    providers
-   extending
 
 .. toctree::
    :caption: Development
