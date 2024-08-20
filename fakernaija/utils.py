@@ -14,7 +14,8 @@ def load_json(
 
     Args:
         file_path (str | Path): The path to the JSON file.
-        required_keys (list[str]): The keys that each entry in the JSON data must have.
+        required_keys (list[str]): The keys that each entry in the JSON data
+                                   must have.
 
     Returns:
         list[dict[str, Any]]: The data loaded from the JSON file.
@@ -44,10 +45,12 @@ def validate_json_structure(
 
     Args:
         data (list[dict[str, Any]]): The JSON data to validate.
-        required_keys (list[str]): The keys that each entry in the JSON data must have.
+        required_keys (list[str]): The keys that each entry in the JSON data
+                                   must have.
 
     Raises:
-        ValueError: If any entry is missing a required key or contains extra keys.
+        ValueError: If any entry is missing a required key or contains
+                    extra keys.
     """
     for entry in data:
         entry_keys = set(entry.keys())

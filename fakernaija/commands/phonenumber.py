@@ -1,4 +1,4 @@
-"""CLI commands for PhoneNumberProvider to generate random Nigerian phone numbers."""
+"""CLI commands for PhoneNumberProvider to generate random phone numbers."""
 
 import click
 
@@ -20,7 +20,10 @@ naija = Faker()
     "-n",
     default=None,
     help="Specific network to generate phone numbers from.",
-    type=click.Choice(["mtn", "glo", "airtel", "etisalat"], case_sensitive=False),
+    type=click.Choice(
+        ["mtn", "glo", "airtel", "etisalat"],
+        case_sensitive=False,
+    ),
 )
 @click.option(
     "--prefix",
@@ -79,7 +82,7 @@ def phonenumber(repeat: int, network: str, prefix: str) -> None:
             $ naija phonenumber --prefix 0703
             07039490580
 
-        To generate 3 random phone numbers for the Glo network with the 0805 prefix:
+        To generate 3 random phone numbers for a specific network and prefix:
 
         .. code-block:: bash
 

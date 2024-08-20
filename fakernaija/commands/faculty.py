@@ -1,4 +1,4 @@
-"""CLI commands for FacultyProvider to generate random faculty and department."""
+"""CLI commands for FacultyProvider to return random faculty and department."""
 
 import click
 
@@ -190,6 +190,9 @@ def department_by_faculty(faculty: str, repeat: int) -> None:
             if department:
                 click.echo(department)
             else:
-                click.echo("Error: Failed to return department name.", err=True)
+                click.echo(
+                    "Error: Failed to return department name.",
+                    err=True,
+                )
     except ValueError as e:
         click.echo(f"Error: {e}", err=True)

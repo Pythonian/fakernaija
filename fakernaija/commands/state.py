@@ -1,4 +1,4 @@
-"""CLI commands for StateProvider to return random Nigerian state information."""
+"""CLI commands for StateProvider to return random Nigerian state info."""
 
 import click
 

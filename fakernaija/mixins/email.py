@@ -20,16 +20,21 @@ class Email:
         """Generate a random email address with optional parameters.
 
         Args:
-            tribe (str | None, optional): The ethnic group to filter by. Defaults to None.
-            gender (str | None, optional): The gender to filter by. Defaults to None.
-            domain (str | None, optional): The domain to use for the email. Defaults to None.
-            name (str | None, optional): The name to use for the email. Defaults to None.
+            tribe (str | None, optional): The ethnic group to filter by.
+                Defaults to None.
+            gender (str | None, optional): The gender to filter by.
+                Defaults to None.
+            domain (str | None, optional): The domain to use for the email.
+                Defaults to None.
+            name (str | None, optional): The name to use for the email.
+                Defaults to None.
 
         Returns:
             str: The generated email address.
 
         Raises:
-            ValueError: If the domain is invalid or if no matching data is found for the given tribe or gender.
+            ValueError: If the domain is invalid or if no matching data
+                        is found for the given tribe or gender.
 
         Note:
             - Supported genders: male, female

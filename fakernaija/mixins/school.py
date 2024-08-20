@@ -81,13 +81,15 @@ class School:
         """Get a random school name or acronym based on optional parameters.
 
         Args:
-            acronym (bool, optional): If True, return the acronym instead of the full name. Defaults to False.
+            acronym (bool, optional): If True, return the acronym instead
+                of the full name. Defaults to False.
             ownership (str | None, optional): Filter by ownership.
             state (str | None, optional): Filter by state.
             school_type (str | None, optional): Filter by type.
 
         Returns:
-            str | None: A random school name or acronym or None if no match found.
+            str | None: A random school name or acronym or None
+                if no match found.
 
         Raises:
             ValueError: If an unsupported ownership or school_type is provided.

@@ -87,7 +87,10 @@ class Degree:
                 >>> print(f"Random undergraduate degree name: {degree_name}")
                 'Random undergraduate degree name: Bachelor of Science'
         """
-        degree_type = validate_degree_type(degree_type, self.valid_degree_types)
+        degree_type = validate_degree_type(
+            degree_type,
+            self.valid_degree_types,
+        )
         degree_names = self.degree_provider.get_degree_names(degree_type)
         return random.choice(degree_names)
 
@@ -110,6 +113,9 @@ class Degree:
                 >>> print(f"Random undergraduate degree abbreviation: {degree_abbr}")
                 'Random undergraduate degree abbreviation: B.Sc.'
         """
-        degree_type = validate_degree_type(degree_type, self.valid_degree_types)
+        degree_type = validate_degree_type(
+            degree_type,
+            self.valid_degree_types,
+        )
         degree_abbrs = self.degree_provider.get_degree_abbrs(degree_type)
         return random.choice(degree_abbrs)

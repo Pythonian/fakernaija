@@ -19,7 +19,8 @@ class PhoneNumber:
 
         Args:
             network (str, optional): The name of the network. Defaults to None.
-            prefix (str, optional): The prefix of the phone number. Defaults to None.
+            prefix (str, optional): The prefix of the phone number.
+                Defaults to None.
 
         Returns:
             str: A valid Nigerian phone number.

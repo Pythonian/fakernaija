@@ -111,11 +111,11 @@ def email(
             $ naija email --name "Ugochi Maduike"
             ugochi.maduike75@mail.com
 
-        To generate 3 random email addresses for Yoruba males with a custom domain:
+        To generate 3 random emails for a specific tribe, gender and domain:
 
         .. code-block:: bash
 
-            $ naija email --repeat 7 --tribe yoruba --gender male --domain gov.ng
+            $ naija email -r 7 --tribe yoruba --gender male --domain gov.ng
             ogunlana.kola@gov.ng
             olamideogunbiyi@gov.ng
             kunleadewale@gov.ng
@@ -125,7 +125,12 @@ def email(
         return
 
     for _ in range(repeat):
-        email = naija.email(tribe=tribe, gender=gender, domain=domain, name=name)
+        email = naija.email(
+            tribe=tribe,
+            gender=gender,
+            domain=domain,
+            name=name,
+        )
         if email:
             click.echo(email)
         else:

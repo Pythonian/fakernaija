@@ -1,4 +1,4 @@
-"""CLI commands for CurrencyProvider to return Nigerian currency information."""
+"""CLI commands for CurrencyProvider to return Nigerian currency info."""
 
 import click
 

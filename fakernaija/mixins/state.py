@@ -21,10 +21,12 @@ class State:
         """Get a dictionary of random state information, optionally filtered by region.
 
         Args:
-            region (str | None, optional): The region abbreviation to filter by.
+            region (str | None, optional): The region abbreviation to
+                filter by.
 
         Returns:
-            dict[str, str]: Random state information, optionally filtered by region.
+            dict[str, str]: Random state information, optionally filtered
+                by region.
 
         Note:
             - Region options: NW, NE, NC, SW, SE, SS
@@ -57,7 +59,8 @@ class State:
         """Get a random state name, optionally filtered by region.
 
         Args:
-            region (str | None, optional): The region abbreviation to filter by.
+            region (str | None, optional): The region abbreviation to
+                filter by.
 
         Returns:
             str: Random state name, optionally filtered by region.
@@ -103,7 +106,8 @@ class State:
         """Get a random state capital, optionally filtered by region.
 
         Args:
-            region (str | None, optional): The region abbreviation to filter by.
+            region (str | None, optional): The region abbreviation to
+                filter by.
 
         Returns:
             str: Random state capital, optionally filtered by region.
@@ -141,7 +145,10 @@ class State:
             state_capitals = [state["capital"] for state in states]
         else:
             state_capitals = self.state_provider.get_capitals()
-        state_capital = get_unique_value(state_capitals, self._used_state_capitals)
+        state_capital = get_unique_value(
+            state_capitals,
+            self._used_state_capitals,
+        )
         self._used_state_capitals.add(state_capital)
         return state_capital
 
@@ -152,7 +159,8 @@ class State:
             state (str | None, optional): The name of the state to filter by.
 
         Returns:
-            str: Random LGA in the specified state or any state if none is specified.
+            str: Random LGA in the specified state or any state if
+                none is specified.
 
         Note:
             - State options: 36 States in Nigeria
@@ -177,7 +185,9 @@ class State:
         if state:
             state_lgas = self.state_provider.get_state_lgas(state.lower())
             if not state_lgas:
-                available_states = ", ".join(self.state_provider.get_state_names())
+                available_states = ", ".join(
+                    self.state_provider.get_state_names(),
+                )
                 msg = f"The state '{state}' does not exist in Nigeria. Available states are: {available_states}."
                 raise ValueError(msg)
         else:
@@ -193,7 +203,8 @@ class State:
             state (str | None, optional): An optional state name.
 
         Returns:
-            str: Postal code of the specified state or any state if none is specified.
+            str: Postal code of the specified state or any state if
+                none is specified.
 
         Note:
             - State options: 36 states in Nigeria.
@@ -227,7 +238,9 @@ class State:
                 state.lower(),
             )
             if not state_postal_code:
-                available_states = ", ".join(self.state_provider.get_state_names())
+                available_states = ", ".join(
+                    self.state_provider.get_state_names(),
+                )
                 msg = f"The state '{state}' does not exist in Nigeria. Available states are: {available_states}."
                 raise ValueError(msg)
             return state_postal_code

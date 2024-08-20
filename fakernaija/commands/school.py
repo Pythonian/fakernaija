@@ -27,7 +27,10 @@ naija = Faker()
     "-t",
     default=None,
     help="Filter schools by type.",
-    type=click.Choice(["university", "polytechnic", "college"], case_sensitive=False),
+    type=click.Choice(
+        ["university", "polytechnic", "college"],
+        case_sensitive=False,
+    ),
 )
 @click.option(
     "--repeat",
@@ -145,7 +148,10 @@ def school(ownership: str, state: str, school_type: str, repeat: int) -> None:
     "-t",
     default=None,
     help="Filter schools by type.",
-    type=click.Choice(["university", "polytechnic", "college"], case_sensitive=False),
+    type=click.Choice(
+        ["university", "polytechnic", "college"],
+        case_sensitive=False,
+    ),
 )
 @click.option(
     "--repeat",

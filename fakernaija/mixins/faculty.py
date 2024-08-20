@@ -19,7 +19,8 @@ class Faculty:
         """Get a random faculty object with its departments.
 
         Returns:
-            dict[str, list[str]]: A dictionary with faculty name and list of departments.
+            dict[str, list[str]]: A dictionary with faculty name and
+                list of departments.
 
         Example:
             .. code-block:: python
@@ -32,7 +33,10 @@ class Faculty:
                 Random faculty: {'faculty_name': 'Basic Medical Sciences', 'departments': ['Human Anatomy', 'Physiology']}
         """
         faculty = random.choice(self.faculty_provider.faculties_data)
-        return {"faculty_name": faculty["name"], "departments": faculty["departments"]}
+        return {
+            "faculty_name": faculty["name"],
+            "departments": faculty["departments"],
+        }
 
     def faculty_name(self) -> str:
         """Get a random faculty name.
@@ -58,7 +62,10 @@ class Faculty:
                 Basic Medical Sciences
         """
         faculty_names = self.faculty_provider.get_faculty_names()
-        faculty_name = get_unique_value(faculty_names, self._used_faculty_names)
+        faculty_name = get_unique_value(
+            faculty_names,
+            self._used_faculty_names,
+        )
         self._used_faculty_names.add(faculty_name)
         return faculty_name
 

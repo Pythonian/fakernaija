@@ -20,8 +20,10 @@ class Name:
         """Generate a random first name with optional parameters.
 
         Args:
-            tribe (str | None, optional): The tribe from which to generate the name.
-            gender (str | None, optional): The gender from which to generate the name.
+            tribe (str | None, optional): The tribe from which to generate
+                the name.
+            gender (str | None, optional): The gender from which to generate
+                the name.
 
         Returns:
             str: A randomly generated first name.
@@ -71,7 +73,8 @@ class Name:
         """Generate a random last name with optional parameter.
 
         Args:
-            tribe (str | None, optional): The tribe from which to generate the last name.
+            tribe (str | None, optional): The tribe from which to generate
+                the last name.
 
         Returns:
             str: A randomly generated last name.
@@ -114,9 +117,12 @@ class Name:
         """Generate a random full name with optional parameters.
 
         Args:
-            middle_name (bool, optional): Whether to include a middle name. Defaults to False.
-            tribe (str | None, optional): The tribe from which to generate the name.
-            gender (str | None, optional): The gender from which to generate the name.
+            middle_name (bool, optional): Whether to include a middle name.
+                Defaults to False.
+            tribe (str | None, optional): The tribe from which to generate
+                the name.
+            gender (str | None, optional): The gender from which to generate
+                the name.
 
         Returns:
             str: A randomly generated full name.
@@ -183,8 +189,10 @@ class Name:
         """Generates a random name prefix based on optional parameter.
 
         Args:
-            gender (str | None, optional): The gender for which to generate the prefix.
-            title (str | None, optional): The title type for which to generate the prefix.
+            gender (str | None, optional): The gender for which to generate
+                the prefix.
+            title (str | None, optional): The title type for which to generate
+                the prefix.
 
         Returns:
             str: A randomly generated prefix.
