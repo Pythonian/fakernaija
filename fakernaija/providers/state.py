@@ -25,6 +25,14 @@ class StateProvider:
             ],
         )
         self.regions = ["NW", "NE", "NC", "SW", "SE", "SS"]
+        self._generate_region_abbrs()
+
+    def _generate_region_abbrs(self) -> None:
+        """Generate unique region abbreviations dynamically based on the region name."""
+        for state in self.states_data:
+            region = state["region"]
+            region_abbr = "".join(word[0].upper() for word in region.split())
+            state["region_abbr"] = region_abbr
 
     def _get_state(self, state_name: str) -> dict[str, Any]:
         """Get state information by state name and raise an error if not found."""
