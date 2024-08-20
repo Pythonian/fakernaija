@@ -122,7 +122,7 @@ class EmailProvider:
         # We set it at 50% probability for adding a suffix to the email
         if random.random() < 0.5:  # noqa: PLR2004
             email = (
-                f"{email.split('@')[0]}{random.randint(1, 99)}@{email.split('@')[1]}"
+                f"{email.split('@')[0]}{random.randint(1, 9999)}@{email.split('@')[1]}"
             )
 
         if not self.validate_email(email):
