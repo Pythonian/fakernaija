@@ -52,18 +52,18 @@ def validate_json_structure(
         ValueError: If any entry is missing a required key or contains
                     extra keys.
     """
+    required_keys_set = set(required_keys)
     for entry in data:
         entry_keys = set(entry.keys())
-        required_keys_set = set(required_keys)
-
         missing_keys = required_keys_set - entry_keys
         invalid_keys = entry_keys - required_keys_set
 
-        if missing_keys:
-            msg = f"Missing keys {missing_keys} in entry: {entry}"
-            raise ValueError(msg)
-        if invalid_keys:
-            msg = f"Invalid keys {invalid_keys} in entry: {entry}"
+        if missing_keys or invalid_keys:
+            msg = f"Entry: {entry} "
+            if missing_keys:
+                msg += f"Missing keys: {missing_keys}. "
+            if invalid_keys:
+                msg += f"Invalid keys: {invalid_keys}."
             raise ValueError(msg)
 
 
@@ -125,4 +125,4 @@ def normalize_input(value: str | None) -> str | None:
     Returns:
         str | None: The normalized value or None if the input is None.
     """
-    return value.lower() if value is not None else None
+    return value.lower() if value else None

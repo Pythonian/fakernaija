@@ -1,36 +1,11 @@
 """Main CLI entry point that includes subcommands from various providers."""
 
+import importlib
+import pkgutil
+
 import click
 
-from fakernaija.commands import (
-    course,
-    course_code,
-    course_name,
-    currency,
-    currency_code,
-    currency_name,
-    currency_symbol,
-    degree,
-    degree_abbr,
-    degree_name,
-    department_by_faculty,
-    department_name,
-    email,
-    faculty,
-    faculty_name,
-    firstname,
-    fullname,
-    lastname,
-    phonenumber,
-    prefix,
-    school,
-    school_name,
-    state,
-    state_capital,
-    state_lga,
-    state_name,
-    state_postal_code,
-)
+from fakernaija import commands
 
 
 @click.group()
@@ -39,40 +14,14 @@ def cli() -> None:
     """A CLI for generating random Nigerian data."""
 
 
-# Mapping of command names to their respective command functions
-commands = {
-    "course": course,
-    "course_code": course_code,
-    "course_name": course_name,
-    "currency": currency,
-    "currency_code": currency_code,
-    "currency_name": currency_name,
-    "currency_symbol": currency_symbol,
-    "degree": degree,
-    "degree_abbr": degree_abbr,
-    "degree_name": degree_name,
-    "email": email,
-    "department_by_faculty": department_by_faculty,
-    "department_name": department_name,
-    "faculty": faculty,
-    "faculty_name": faculty_name,
-    "firstname": firstname,
-    "fullname": fullname,
-    "lastname": lastname,
-    "prefix": prefix,
-    "phonenumber": phonenumber,
-    "school": school,
-    "school_name": school_name,
-    "state": state,
-    "state_capital": state_capital,
-    "state_lga": state_lga,
-    "state_name": state_name,
-    "state_postal_code": state_postal_code,
-}
-
-# Loop to add commands to the CLI group
-for name, command in commands.items():
-    cli.add_command(command, name=name)
+# Dynamically discover and load all commands from the commands module
+for _, module_name, _ in pkgutil.iter_modules(commands.__path__):
+    module = importlib.import_module(f"fakernaija.commands.{module_name}")
+    # Adding each function in the module as a CLI command
+    for name in dir(module):
+        command = getattr(module, name)
+        if isinstance(command, click.Command):
+            cli.add_command(command, name=name)
 
 if __name__ == "__main__":
     cli()

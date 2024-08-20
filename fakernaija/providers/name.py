@@ -54,12 +54,12 @@ class NameProvider:
             msg = f"Unsupported gender: {gender}. Supported values are: {', '.join(self.genders)}"
             raise ValueError(msg)
 
-        names = self.first_names
-        if tribe:
-            names = [name for name in names if name["tribe"] == tribe]
-        if gender:
-            names = [name for name in names if name["gender"] == gender]
-        return names
+        return [
+            name
+            for name in self.first_names
+            if (tribe is None or name["tribe"] == tribe)
+            and (gender is None or name["gender"] == gender)
+        ]
 
     def get_last_names(self, tribe: str | None = None) -> list[dict[str, str]]:
         """Get a list of last names optionally filtered by ethnic group.
@@ -79,19 +79,19 @@ class NameProvider:
             msg = f"Unsupported tribe: {tribe}. Supported tribes are: {', '.join(self.tribes)}"
             raise ValueError(msg)
 
-        if tribe:
-            return [name for name in self.last_names if name["tribe"] == tribe]
-        return self.last_names
+        return [
+            name for name in self.last_names if tribe is None or name["tribe"] == tribe
+        ]
 
     def generate_first_name(
         self,
         tribe: str | None = None,
         gender: str | None = None,
     ) -> str:
-        """Generate a random first name optionally from a specific ethnic group and gender.
+        """Generate a random first name optionally from a specific tribe and gender.
 
         Args:
-            tribe (str | None, optional): The ethnic group of the name. Defaults to None.
+            tribe (str | None, optional): The tribe name. Defaults to None.
             gender (str | None, optional): The gender of the name. Defaults to None.
 
         Returns:
@@ -118,10 +118,10 @@ class NameProvider:
         return random.choice(first_names)["name"]
 
     def generate_last_name(self, tribe: str | None = None) -> str:
-        """Generate a random last name optionally from a specific ethnic group.
+        """Generate a random last name optionally from a specific tribe.
 
         Args:
-            tribe (str | None, optional): The ethnic group of the name. Defaults to None.
+            tribe (str | None, optional): The tribe name. Defaults to None.
 
         Returns:
             str: A random last name.
@@ -147,10 +147,10 @@ class NameProvider:
         gender: str | None = None,
         middle_name: bool = False,
     ) -> str:
-        """Generate a random full name optionally from a specific ethnic group, gender, and with a middle name.
+        """Generate a random full name optionally from a specific tribe, gender, and with a middle name.
 
         Args:
-            tribe (str | None, optional): The ethnic group of the name. Defaults to None.
+            tribe (str | None, optional): The tribe name. Defaults to None.
             gender (str | None, optional): The gender of the name. Defaults to None.
             middle_name (bool, optional): Whether to include a middle name. Defaults to False.
 
@@ -160,6 +160,9 @@ class NameProvider:
         Raises:
             ValueError: If the specified tribe or gender is not supported or if no names are available.
         """
+        tribe = normalize_input(tribe)
+        gender = normalize_input(gender)
+
         if gender and gender not in self.genders:
             msg = f"Unsupported gender: {gender}. Supported values are: {', '.join(self.genders)}"
             raise ValueError(msg)
