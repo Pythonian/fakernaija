@@ -102,6 +102,9 @@ class Faculty:
         Returns:
             str: A random department name from the specified faculty.
 
+        Raises:
+            ValueError: If the provided faculty is not found.
+
         Example:
             .. code-block:: python
 

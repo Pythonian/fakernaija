@@ -49,7 +49,7 @@ def school(ownership: str, state: str, school_type: str, repeat: int) -> None:
     Note:
         - Ownership options: federal, state, private
         - School type options: university, polytechnic, college
-        - State options: 36 states in Nigeria + Abuja
+        - State options: 36 states in Nigeria + FCT
 
     Examples:
         To return a single random school:
@@ -174,7 +174,7 @@ def school_name(
     Note:
         - Ownership options: federal, state, private
         - School type options: university, polytechnic, college
-        - State options: 36 states in Nigeria + Abuja
+        - State options: 36 states in Nigeria + FCT
 
     Examples:
         To return a single random school name:

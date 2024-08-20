@@ -142,7 +142,7 @@
     {
         "name": "University of Abuja",
         "acronym": "UNIABUJA",
-        "state": "Abuja",
+        "state": "FCT",
         "type": "University",
         "ownership": "Federal"
     },
@@ -436,7 +436,7 @@
     {
         "name": "Baze University",
         "acronym": "BU",
-        "state": "Abuja",
+        "state": "FCT",
         "type": "University",
         "ownership": "Private"
     },
@@ -450,7 +450,7 @@
     {
         "name": "Nile University of Nigeria",
         "acronym": "NUN",
-        "state": "Abuja",
+        "state": "FCT",
         "type": "University",
         "ownership": "Private"
     },
@@ -632,7 +632,7 @@
     {
         "name": "City College of Education",
         "acronym": "CITYCOE",
-        "state": "Abuja",
+        "state": "FCT",
         "type": "College",
         "ownership": "Private"
     },
@@ -828,7 +828,7 @@
     {
         "name": "Dorben Polytechnic",
         "acronym": "DORBENPOLY",
-        "state": "Abuja",
+        "state": "FCT",
         "type": "Polytechnic",
         "ownership": "Private"
     },

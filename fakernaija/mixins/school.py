@@ -36,7 +36,7 @@ class School:
         Note:
             - Ownership options: federal, state, private
             - School type options: university, polytechnic, college
-            - State options: 36 states in Nigeria + Abuja
+            - State options: 36 states in Nigeria + FCT
 
         Examples:
             .. code-block:: python
@@ -95,7 +95,7 @@ class School:
         Note:
             - Ownership options: federal, state, private
             - School type options: university, polytechnic, college
-            - State options: 36 states in Nigeria + Abuja
+            - State options: 36 states in Nigeria + FCT
 
         Examples:
             .. code-block:: python
