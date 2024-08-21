@@ -60,12 +60,12 @@ build: ## Build the project source and wheel distribution.
 	$(PYTHON) -m build
 	@echo "Package built successfully."
 
-upload: ## Upload the project to PyPI.
+upload: ## Upload the project to TestPyPI.
 	$(call check_venv)
-	$(PYTHON) -m twine upload dist/*
-	@echo "Package uploaded to PyPI."
+	$(PYTHON) -m twine upload --repository testpypi dist/*
+	@echo "Package uploaded to TestPyPI."
 
-update: build upload ## Build and upload the project to PyPI in one command.
+update: build upload ## Build and upload the project to TestPyPI in one command.
 
 clean: ## Clean up all generated files and directories.
 	@echo "Cleaning up the project..."

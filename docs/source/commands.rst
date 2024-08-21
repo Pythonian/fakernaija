@@ -9,25 +9,42 @@ The Commands module provides a set of command-line tools that allow users to gen
 Syntax
 ------
 
-To run any command, invoke the main ``naija`` command followed by the desired subcommand and options.
+To run any command, use the ``naija`` command followed by a category command and any optional arguments. The general structure of the command is as follows:
 
 .. code-block:: bash
 
-   naija [--version] [--help]
-         [-r / --repeat] COMMAND [ARGS]...
+   naija [OPTIONS] COMMAND [ARGS]...
 
-**Parameters**:
-   * ``naija``: The primary command used to access all subcommands.
-   * ``--version``: Displays the current version of the library.
-   * ``--help``: Shows the help message with information on usage.
-   * ``-r`` or ``--repeat``: Specifies how many times the command should generate the output.
-   * ``COMMAND``: The subcommand to execute, responsible for generating specific types of data.
-   * ``ARGS``: Optional parameters that can be passed to a subcommand to filter the generated output.
+* ``naija``: The primary command used to access all other category commands.
+* ``COMMAND``: The category command to execute, responsible for generating specific types of data.
+* ``ARGS``: Optional parameters that can be passed to a category command to filter the generated output.
+
+**Options**:
+
+- ``--version``: Show the version of the ``naija`` library and exit.
+- ``--help``: Show a help message and exit.
+
+.. code-block:: bash
+
+   $ naija
+   Usage: naija [OPTIONS] COMMAND [ARGS]...
+
+      A CLI for generating and returning random Nigerian data.
+
+   Options:
+      --version  Show the version and exit.
+      --help     Show this message and exit.
+
+   Commands:
+      course             Returns random course objects.
+      course_code        Returns random course codes.
+      course_name        Returns random course names.
+      ...                ...
 
 Reference
 ---------
 
-Each command's documentation includes usage instructions and examples that you can run on your terminal. Refer to the respective sections below for information on how to use each command.
+Each category command is documented with usage instructions and practical examples. Refer to the specific sections below for detailed guidance on using each command.
 
 .. toctree::
    :maxdepth: 2

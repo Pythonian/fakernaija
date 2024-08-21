@@ -16,7 +16,7 @@ naija = Faker()
     type=int,
 )
 def degree(repeat: int) -> None:
-    """Returns random degree object.
+    """Returns random degree objects.
 
     Args:
         repeat (int): The number of random degree objects to return.
@@ -76,7 +76,7 @@ def degree(repeat: int) -> None:
     ),
 )
 def degree_name(repeat: int, degree_type: str) -> None:
-    """Returns random degree names, optionally to return by degree type.
+    """Returns random degree names.
 
     Args:
         repeat (int): The number of random degree names to return.
@@ -154,7 +154,7 @@ def degree_name(repeat: int, degree_type: str) -> None:
     ),
 )
 def degree_abbr(repeat: int, degree_type: str) -> None:
-    """Returns random degree abbreviations, optionally to return by degree type.
+    """Returns random degree abbreviations.
 
     Args:
         repeat (int): The number of random degree abbreviations to return.

@@ -113,7 +113,7 @@ def faculty_name(repeat: int) -> None:
     type=int,
 )
 def department_name(faculty: str, repeat: int) -> None:
-    """Returns random department names, with an option to filter by faculty.
+    """Returns random department names.
 
     Args:
         faculty (str): The specific faculty name to return departments from.

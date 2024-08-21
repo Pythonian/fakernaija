@@ -4,12 +4,12 @@ Usage Guide
 Overview
 --------
 
-This guide is expected to take you deeper into the features available with **Fakernaija**.
+This guide explores the various features available in **Fakernaija**, providing you with the information needed to generate realistic Nigerian data efficiently.
 
 Basic Usage
 -----------
 
-Once you have installed Fakernaija as described in the :doc:`installation` guide, using it is straightforward. Launch your Python interpreter and explore the following examples:
+Once you have installed Fakernaija as described in the :doc:`installation` guide, using it is straightforward. Start by launching your Python interpreter and exploring the following examples:
 
 .. code-block:: python
 
@@ -32,10 +32,10 @@ Once you have installed Fakernaija as described in the :doc:`installation` guide
     print(naija.faculty_name())
     # Output: 'Pharmaceutical Sciences'
 
-Method Configuration
---------------------
+Customizing Data Generation
+---------------------------
 
-Fakernaija allows you to customize the generated data by passing parameters to methods, providing more control over the results.
+Fakernaija allows you to customize the generated data by passing parameters to methods, giving you greater control over the results:
 
 .. code-block:: python
 
@@ -55,7 +55,7 @@ Fakernaija allows you to customize the generated data by passing parameters to m
 Consistent Randomization
 ------------------------
 
-Each method call returns a unique result, ensuring that no duplicate data is generated within the same session until all possible outcomes are exhausted.
+Fakernaija tries to ensure that each method call returns a different result within the same session until all possible outcomes are exhausted:
 
 .. code-block:: python
 
@@ -74,7 +74,7 @@ Each method call returns a unique result, ensuring that no duplicate data is gen
 Data Representation
 -------------------
 
-If you need to retrieve complete data objects rather than individual attributes, Fakernaija supports this functionality to enable easy integration into more complex data structures:
+If you need to retrieve complete data objects rather than individual attributes, Fakernaija supports this functionality, enabling easy integration into more complex data structures:
 
 .. code-block:: python
 
@@ -97,28 +97,7 @@ If you need to retrieve complete data objects rather than individual attributes,
 Command-Line Interface (CLI)
 ----------------------------
 
-Fakernaija also offers a CLI for generating data directly from the terminal.
-
-.. code-block:: bash
-
-    (.venv) $ naija
-    Usage: naija [OPTIONS] COMMAND [ARGS]...
-
-    A CLI for generating random Nigerian data.
-
-    Options:
-        --version       Show the version and exit.
-        --help          Show this message and exit.
-
-    Commands:
-        course          Return random courses.
-        course_code     Return random course codes.
-        course_name     Return random course names.
-        -------------------------------------------
-
-**Executing Commands from Terminal**
-
-You can easily generate data by executing commands directly from your terminal:
+Fakernaija also lets you easily generate data by executing commands directly from your terminal:
 
 .. code-block:: bash
 
@@ -140,7 +119,7 @@ You can easily generate data by executing commands directly from your terminal:
 Exporting Data
 --------------
 
-If you need to export your generated data to various file formats, Fakernaija supports CSV, JSON, and plain text exports.
+If you need to export your generated data to various file formats, Fakernaija supports CSV, JSON, and plain text exports:
 
 .. code-block:: bash
 
@@ -153,12 +132,7 @@ If you need to export your generated data to various file formats, Fakernaija su
     $ naija data --repeat 30 --fields fullname,email,phonenumber --output text
     Generated data saved to /home/projectdir/data.txt
 
-Advanced Usage
---------------
-
-With Fakernaija, you can easily bootstrap your database application, whether you are making use of Django, Flask or FastAPI web frameworks. We show you how you can achieve this easily below.
-
 Error Handling
 --------------
 
-While using Fakernaija, you might encounter errors raised via incorrect parameter usage. Please always verify that the parameters passed are correct and supported. Refer to the API documentation for the list of valid values for each method if you are unsure.
+While using Fakernaija, you might encounter errors due to incorrect parameter usage. Always verify that the parameters passed are correct and supported. If in doubt, refer to the API documentation for the list of valid values for each method.

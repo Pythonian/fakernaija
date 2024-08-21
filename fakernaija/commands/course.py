@@ -16,7 +16,7 @@ naija = Faker()
     type=int,
 )
 def course(repeat: int) -> None:
-    """Returns random course object.
+    """Returns random course objects.
 
     Args:
         repeat (int): The number of random course objects to return.

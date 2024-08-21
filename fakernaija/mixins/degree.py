@@ -1,4 +1,8 @@
-"""Degree mixin to group related methods for the DegreeProvider."""
+"""Degree mixin module.
+
+This module defines a mixin class which groups related methods for
+fetching and returning degree-related data from its provider.
+"""
 
 import random
 
@@ -7,18 +11,18 @@ from fakernaija.utils import validate_degree_type
 
 
 class Degree:
-    """Methods for the DegreeProvider."""
+    """A mixin providing methods to fetch and return degree-related data."""
 
     def __init__(self) -> None:
-        """Initializes the Degree mixin and its provider."""
+        """Initializes the Degree mixin and sets up its provider."""
         self.degree_provider = DegreeProvider()
         self.valid_degree_types = ["undergraduate", "masters", "doctorate"]
 
     def degree(self) -> dict:
-        """Generates a random degree.
+        """Returns a random degree object.
 
         Returns:
-            dict: A random degree dictionary.
+            dict[str, str]: A dictionary with degree name, type and abbreviation.
 
         Example:
             .. code-block:: python
