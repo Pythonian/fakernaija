@@ -1,4 +1,8 @@
-"""Course mixin to group related methods for the CourseProvider."""
+"""Course mixin module.
+
+This module defines a mixin class which groups related methods for
+fetching and returning course-related data from its provider.
+"""
 
 import random
 
@@ -7,20 +11,16 @@ from fakernaija.utils import get_unique_value
 
 
 class Course:
-    """A mixin providing methods to generate course-related data.
-
-    This mixin utilizes the `CourseProvider` class and provides the
-    functionality for fetching and returning course-related data.
-    """
+    """A mixin providing methods to fetch and return course-related data."""
 
     def __init__(self) -> None:
-        """Initializes the Course mixin and its provider."""
+        """Initializes the Course mixin and sets up its provider."""
         self.course_provider = CourseProvider()
         self._used_course_names: set[str] = set()
         self._used_course_codes: set[str] = set()
 
     def course(self) -> dict[str, str]:
-        """Get a random course object.
+        """Returns a random course object.
 
         Returns:
             dict[str, str]: A dictionary with course name and code.
@@ -38,7 +38,7 @@ class Course:
         return random.choice(self.course_provider.get_courses())
 
     def course_name(self) -> str:
-        """Get a random course name.
+        """Returns a random course name.
 
         Returns:
             str: A random course name.
@@ -66,7 +66,7 @@ class Course:
         return course_name
 
     def course_code(self) -> str:
-        """Get a random course code.
+        """Returns a random course code.
 
         Returns:
             str: A random course code.

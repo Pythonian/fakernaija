@@ -9,8 +9,8 @@ from .faculty import (
     faculty,
     faculty_name,
 )
-from .name import firstname, fullname, lastname, prefix
-from .phonenumber import phonenumber
+from .name import first_name, full_name, last_name, prefix
+from .phonenumber import phone_number
 from .school import school, school_name
 from .state import (
     state,
@@ -41,12 +41,12 @@ __all__ = [
     "faculty_name",
     "department_name",
     # Name commands
-    "firstname",
-    "fullname",
-    "lastname",
+    "first_name",
+    "full_name",
+    "last_name",
     "prefix",
     # PhoneNumber command
-    "phonenumber",
+    "phone_number",
     # School commands
     "school",
     "school_name",

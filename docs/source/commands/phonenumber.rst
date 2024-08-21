@@ -1,4 +1,4 @@
 phonenumber
 ===========
 
-.. autofunction:: fakernaija.commands.phonenumber
+.. autofunction:: fakernaija.commands.phone_number

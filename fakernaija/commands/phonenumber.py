@@ -31,7 +31,7 @@ naija = Faker()
     default=None,
     help="Specific prefix to generate the phone numbers from.",
 )
-def phonenumber(repeat: int, network: str, prefix: str) -> None:
+def phone_number(repeat: int, network: str, prefix: str) -> None:
     """Generate and return random phone numbers.
 
     Args:
@@ -56,14 +56,14 @@ def phonenumber(repeat: int, network: str, prefix: str) -> None:
 
         .. code-block:: bash
 
-            $ naija phonenumber
+            $ naija phone_number
             07062299016
 
         To generate 3 random phone numbers:
 
         .. code-block:: bash
 
-            $ naija phonenumber --repeat 3
+            $ naija phone_number --repeat 3
             08027680763
             09093662189
             07062504974
@@ -72,21 +72,21 @@ def phonenumber(repeat: int, network: str, prefix: str) -> None:
 
         .. code-block:: bash
 
-            $ naija phonenumber --network mtn
+            $ naija phone_number --network mtn
             08061821006
 
         To generate a random phone number with a specific prefix:
 
         .. code-block:: bash
 
-            $ naija phonenumber --prefix 0703
+            $ naija phone_number --prefix 0703
             07039490580
 
         To generate 3 random phone numbers for a specific network and prefix:
 
         .. code-block:: bash
 
-            $ naija phonenumber -r 3 --network glo --prefix 0805
+            $ naija phone_number -r 3 --network glo --prefix 0805
             08055333680
             08050142530
             08050269007
@@ -97,9 +97,9 @@ def phonenumber(repeat: int, network: str, prefix: str) -> None:
 
     try:
         for _ in range(repeat):
-            phonenumber = naija.phone_number(network=network, prefix=prefix)
-            if phonenumber:
-                click.echo(phonenumber)
+            phone_number = naija.phone_number(network=network, prefix=prefix)
+            if phone_number:
+                click.echo(phone_number)
             else:
                 click.echo("Error: Failed to generate phone number.", err=True)
     except ValueError as e:

@@ -178,6 +178,13 @@ class State:
                 >>> print(f"Random State LGA: {state_lga}")
                 Random State LGA: Surulere
 
+                >>> for _ in range(3):
+                ...     print(naija.state_lga())
+                ...
+                Koko-Besse
+                Ogba-Egbema-Ndoni
+                Ikot-Abasi
+
                 >>> state_lga = naija.state_lga("lagos")
                 >>> print(f"Random State LGA in a specified state: {state_lga}")
                 Random State LGA: Alimosho

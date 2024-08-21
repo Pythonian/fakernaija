@@ -35,7 +35,7 @@ naija = Faker()
     help="The tribe choice for the full name.",
     type=click.Choice(["yoruba", "igbo", "hausa", "edo", "fulani", "ijaw"]),
 )
-def fullname(
+def full_name(
     repeat: int,
     gender: str,
     middlename: bool,
@@ -59,14 +59,14 @@ def fullname(
 
         .. code-block:: bash
 
-            $ naija fullname
+            $ naija full_name
             Chibunna Ulelu
 
         To generate 3 random full names:
 
         .. code-block:: bash
 
-            $ naija fullname --repeat 3
+            $ naija full_name --repeat 3
             Kelechi Onyekwere
             Ololade Lawal
             Nasir El-Rufai
@@ -75,28 +75,28 @@ def fullname(
 
         .. code-block:: bash
 
-            $ naija fullname --middlename
+            $ naija full_name --middlename
             Kosisochukwu Somtochukwu Mbakwe
 
         To generate a random full name from a specific tribe:
 
         .. code-block:: bash
 
-            $ naija fullname --tribe igbo
+            $ naija full_name --tribe igbo
             Chisom Nnabude
 
         To generate a random full name from a specific gender:
 
         .. code-block:: bash
 
-            $ naija fullname --gender male
+            $ naija full_name --gender male
             Ebube Madu
 
         To generate 3 random full names with middle names from a specific tribe and gender
 
         .. code-block:: bash
 
-            $ naija fullname --tribe yoruba -r 3 --gender female --middlename
+            $ naija full_name --tribe yoruba -r 3 --gender female --middlename
             Yetunde Bukola Ogunleye
             Jumoke Tola Olabisi
             Toyin Temitope Lemboye
@@ -106,15 +106,15 @@ def fullname(
         return
 
     for _ in range(repeat):
-        fullname = naija.full_name(
+        full_name = naija.full_name(
             tribe=tribe,
             gender=gender,
             middle_name=middlename,
         )
-        if fullname:
-            click.echo(fullname)
+        if full_name:
+            click.echo(full_name)
         else:
-            click.echo("Error: Failed to generate fullname.", err=True)
+            click.echo("Error: Failed to generate full name.", err=True)
 
 
 @click.command()
@@ -139,7 +139,7 @@ def fullname(
     help="The tribe choice for the first name.",
     type=click.Choice(["yoruba", "igbo", "hausa", "edo", "fulani", "ijaw"]),
 )
-def firstname(repeat: int, tribe: str, gender: str) -> None:
+def first_name(repeat: int, tribe: str, gender: str) -> None:
     """Generate and return random first names.
 
     Args:
@@ -157,14 +157,14 @@ def firstname(repeat: int, tribe: str, gender: str) -> None:
 
         .. code-block:: bash
 
-            $ naija firstname
+            $ naija first_name
             Mmasichukwu
 
         To generate 3 random first names:
 
         .. code-block:: bash
 
-            $ naija firstname --repeat 3
+            $ naija first_name --repeat 3
             Ebuka
             Ololade
             Bashir
@@ -173,21 +173,21 @@ def firstname(repeat: int, tribe: str, gender: str) -> None:
 
         .. code-block:: bash
 
-            $ naija firstname --tribe edo
+            $ naija first_name --tribe edo
             Osamagbe
 
         To generate a random first name from a specific gender:
 
         .. code-block:: bash
 
-            $ naija firstname --gender male
+            $ naija first_name --gender male
             Seyi
 
         To generate 3 random first names from a specific tribe and gender
 
         .. code-block:: bash
 
-            $ naija firstname --tribe hausa --repeat 3 --gender female
+            $ naija first_name --tribe hausa --repeat 3 --gender female
             Amina
             Aisha
             Falmata
@@ -197,11 +197,11 @@ def firstname(repeat: int, tribe: str, gender: str) -> None:
         return
 
     for _ in range(repeat):
-        firstname = naija.first_name(tribe=tribe, gender=gender)
-        if firstname:
-            click.echo(firstname)
+        first_name = naija.first_name(tribe=tribe, gender=gender)
+        if first_name:
+            click.echo(first_name)
         else:
-            click.echo("Error: Failed to generate firstname.", err=True)
+            click.echo("Error: Failed to generate first name.", err=True)
 
 
 @click.command()
@@ -219,7 +219,7 @@ def firstname(repeat: int, tribe: str, gender: str) -> None:
     help="The tribe choice for the last name.",
     type=click.Choice(["yoruba", "igbo", "hausa", "edo", "fulani", "ijaw"]),
 )
-def lastname(repeat: int, tribe: str) -> None:
+def last_name(repeat: int, tribe: str) -> None:
     """Generate and return random last names.
 
     Args:
@@ -235,14 +235,14 @@ def lastname(repeat: int, tribe: str) -> None:
 
         .. code-block:: bash
 
-            $ naija lastname
+            $ naija last_name
             Nwodo
 
         To generate 3 random last names:
 
         .. code-block:: bash
 
-            $ naija lastname --repeat 3
+            $ naija last_name --repeat 3
             Eze
             Bello
             Okonkwo
@@ -251,14 +251,14 @@ def lastname(repeat: int, tribe: str) -> None:
 
         .. code-block:: bash
 
-            $ naija lastname --tribe edo
+            $ naija last_name --tribe edo
             Osagie
 
         To generate 3 random last names from a specific tribe
 
         .. code-block:: bash
 
-            $ naija lastname --tribe ijaw -r 3
+            $ naija last_name --tribe ijaw -r 3
             Ebiere
             Opobo
             Oweipade
@@ -268,11 +268,11 @@ def lastname(repeat: int, tribe: str) -> None:
         return
 
     for _ in range(repeat):
-        lastname = naija.last_name(tribe=tribe)
-        if lastname:
-            click.echo(lastname)
+        last_name = naija.last_name(tribe=tribe)
+        if last_name:
+            click.echo(last_name)
         else:
-            click.echo("Error: Failed to generate lastname.", err=True)
+            click.echo("Error: Failed to generate last name.", err=True)
 
 
 @click.command()
