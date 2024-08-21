@@ -1,11 +1,10 @@
-"""Aggregates and exposes CLI commands from various modules for the Fakernaija library."""
+"""Aggregates and exposes subcommands from various command modules."""
 
 from .course import course, course_code, course_name
 from .currency import currency, currency_code, currency_name, currency_symbol
 from .degree import degree, degree_abbr, degree_name
 from .email import email
 from .faculty import (
-    department_by_faculty,
     department_name,
     faculty,
     faculty_name,
@@ -41,7 +40,6 @@ __all__ = [
     "faculty",
     "faculty_name",
     "department_name",
-    "department_by_faculty",
     # Name commands
     "firstname",
     "fullname",

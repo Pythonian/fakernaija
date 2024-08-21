@@ -1,4 +1,4 @@
-"""CLI commands for CurrencyProvider to return Nigerian currency info."""
+"""Currency commands to return Nigerian currency data."""
 
 import click
 
@@ -9,7 +9,7 @@ naija = Faker()
 
 @click.command()
 def currency() -> None:
-    """Returns Nigerian currency code and name.
+    """Returns Nigerian currency object.
 
     Example:
         .. code-block:: bash
@@ -21,7 +21,7 @@ def currency() -> None:
     if currency:
         click.echo(currency)
     else:
-        click.echo("Error: Failed to return currency code and name.", err=True)
+        click.echo("Error: Failed to return currency object.", err=True)
 
 
 @click.command()

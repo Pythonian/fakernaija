@@ -1,4 +1,4 @@
-"""CLI commands for FacultyProvider to return random faculty and department."""
+"""Faculty commands to return random Nigerian schools faculty and department data."""
 
 import click
 
@@ -12,14 +12,14 @@ naija = Faker()
     "--repeat",
     "-r",
     default=1,
-    help="Number of random faculties to return. Defaults to 1.",
+    help="Number of random faculty objects to return. Defaults to 1.",
     type=int,
 )
 def faculty(repeat: int) -> None:
-    """Return random Nigerian school faculties.
+    """Returns random faculty objects.
 
     Args:
-        repeat (int): The number of random faculties to return.
+        repeat (int): The number of random faculty objects to return.
             Must be a positive integer. Defaults to 1.
 
     Examples:
@@ -30,7 +30,7 @@ def faculty(repeat: int) -> None:
             $ naija faculty
             {'faculty_name': 'Medicine and Dentistry', 'departments': ['Bachelor of Medicine and Bachelor of Surgery', 'Dentistry']}
 
-        To return 3 random faculties:
+        To return 3 random faculty objects:
 
         .. code-block:: bash
 
@@ -40,7 +40,6 @@ def faculty(repeat: int) -> None:
             {'faculty_name': 'Medicine and Dentistry', 'departments': ['Bachelor of Medicine and Bachelor of Surgery', 'Dentistry']}
 
             {'faculty_name': 'Computing', 'departments': ['Cybersecurity', 'Software Engineering', 'Data Science', 'Information and Communications Technology', 'Information Technology', 'Information System', 'Computer Science']}
-
     """
     if repeat < 1:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
@@ -52,7 +51,7 @@ def faculty(repeat: int) -> None:
             click.echo(faculty)
             click.echo()
         else:
-            click.echo("Error: Failed to return faculty.", err=True)
+            click.echo("Error: Failed to return faculty object.", err=True)
 
 
 @click.command()
@@ -64,7 +63,7 @@ def faculty(repeat: int) -> None:
     type=int,
 )
 def faculty_name(repeat: int) -> None:
-    """Return random Nigerian school faculty names.
+    """Returns random faculty names.
 
     Args:
         repeat (int): The number of random faculty names to return.
@@ -101,18 +100,29 @@ def faculty_name(repeat: int) -> None:
 
 @click.command()
 @click.option(
+    "--faculty",
+    "-f",
+    default=None,
+    help="Name of the faculty to return departments from.",
+)
+@click.option(
     "--repeat",
     "-r",
     default=1,
     help="Number of random department names to return. Defaults to 1.",
     type=int,
 )
-def department_name(repeat: int) -> None:
-    """Return random school departments.
+def department_name(faculty: str, repeat: int) -> None:
+    """Returns random department names, with an option to filter by faculty.
 
     Args:
-        repeat (int): The number of random departments to return.
+        faculty (str): The specific faculty name to return departments from.
+            Defaults to None.
+        repeat (int): The number of random department names to return.
             Must be a positive integer. Defaults to 1.
+
+    Raises:
+        ValueError: If the given faculty name is invalid.
 
     Examples:
         To return a single department name:
@@ -120,7 +130,7 @@ def department_name(repeat: int) -> None:
         .. code-block:: bash
 
             $ naija department_name
-            Technology Education
+            Computer Science
 
         To return 3 random department names:
 
@@ -130,52 +140,19 @@ def department_name(repeat: int) -> None:
             Physiology
             Logistics and Supply Chain Management
             Health Information Management
-    """
-    if repeat < 1:
-        click.echo("Error: Repeat count must be a positive integer.", err=True)
-        return
 
-    for _ in range(repeat):
-        department_name = naija.department_name()
-        if department_name:
-            click.echo(department_name)
-        else:
-            click.echo("Error: Failed to return department name.", err=True)
-
-
-@click.command()
-@click.argument("faculty")
-@click.option(
-    "--repeat",
-    "-r",
-    default=1,
-    help="Number of random departments to return from the specified faculty. Defaults to 1.",
-    type=int,
-)
-def department_by_faculty(faculty: str, repeat: int) -> None:
-    """Return random school departments from a specific faculty.
-
-    Args:
-        faculty (str): The specific faculty name to return departments from.
-        repeat (int): The number of random departments to return.
-            Must be an integer. Defaults to 1.
-
-    Raises:
-        ValueError: If the given faculty name is invalid.
-
-    Examples:
         To return a single department by faculty name:
 
         .. code-block:: bash
 
-            $ naija department_by_faculty 'Basic Medical Sciences'
+            $ naija department_name --faculty 'Basic Medical Sciences'
             Human Anatomy
 
         To return 3 random departments by faculty name:
 
         .. code-block:: bash
 
-            $ naija department_by_faculty 'computing' --repeat 3
+            $ naija department_name --faculty 'computing' --repeat 3
             Computer Science
             Information and Communications Technology
             Data Science
@@ -185,14 +162,19 @@ def department_by_faculty(faculty: str, repeat: int) -> None:
         return
 
     try:
-        for _ in range(repeat):
-            department = naija.department_by_faculty(faculty)
-            if department:
-                click.echo(department)
-            else:
-                click.echo(
-                    "Error: Failed to return department name.",
-                    err=True,
-                )
+        if faculty:
+            for _ in range(repeat):
+                department_name = naija.department_by_faculty(faculty)
+                if department_name:
+                    click.echo(department_name)
+                else:
+                    click.echo("Error: Failed to return department name.", err=True)
+        else:
+            for _ in range(repeat):
+                department_name = naija.department_name()
+                if department_name:
+                    click.echo(department_name)
+                else:
+                    click.echo("Error: Failed to return department name.", err=True)
     except ValueError as e:
         click.echo(f"Error: {e}", err=True)

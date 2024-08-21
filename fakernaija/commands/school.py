@@ -1,4 +1,4 @@
-"""CLI commands for SchoolProvider to return random Nigerian schools."""
+"""School commands to return random Nigerian schools data."""
 
 import click
 
@@ -40,13 +40,13 @@ naija = Faker()
     type=int,
 )
 def school(ownership: str, state: str, school_type: str, repeat: int) -> None:
-    """Return random schools.
+    """Return random school objects.
 
     Args:
         ownership (str): Filter schools by ownership type.
         state (str): Filter schools by state.
         school_type (str): Filter schools by type.
-        repeat (int): The number of random schools to return. Must be
+        repeat (int): The number of random school objects to return. Must be
             a positive integer. Defaults to 1.
 
     Note:
@@ -55,14 +55,14 @@ def school(ownership: str, state: str, school_type: str, repeat: int) -> None:
         - State options: 36 states in Nigeria + FCT
 
     Examples:
-        To return a single random school:
+        To return a single random school object:
 
         .. code-block:: bash
 
             $ naija school
             {'name': 'Fidei Polytechnic', 'acronym': 'FIDEIPOLY', 'state': 'Benue', 'type': 'Polytechnic', 'ownership': 'Private'}
 
-        To return 3 random schools:
+        To return 3 random school objects:
 
         .. code-block:: bash
 
@@ -73,28 +73,28 @@ def school(ownership: str, state: str, school_type: str, repeat: int) -> None:
 
             {'name': 'Nnamdi Azikiwe University', 'acronym': 'UNIZIK', 'state': 'Anambra', 'type': 'University', 'ownership': 'Federal'}
 
-        To return a random school filtered by ownership:
+        To return a random school object filtered by ownership:
 
         .. code-block:: bash
 
             $ naija school --ownership private
             {'name': 'Ajayi Crowther University', 'acronym': 'ACU', 'state': 'Oyo', 'type': 'University', 'ownership': 'Private'}
 
-        To return a random school filtered by school type:
+        To return a random school object filtered by school type:
 
         .. code-block:: bash
 
             $ naija school --school_type college
             {'name': 'Federal College of Education, Zaria', 'acronym': 'FCEZARIA', 'state': 'Kaduna', 'type': 'College', 'ownership': 'Federal'}
 
-        To return a random school from a specific state in Nigeria:
+        To return a random school object from a specific state in Nigeria:
 
         .. code-block:: bash
 
             $ naija school --state abuja
             {'name': 'University of Abuja', 'acronym': 'UNIABUJA', 'state': 'Abuja', 'type': 'University', 'ownership': 'Federal'}
 
-        To return 3 random private universities in Ogun:
+        To return 3 random school object filtered by ownership, school type and state:
 
         .. code-block:: bash
 
@@ -119,7 +119,7 @@ def school(ownership: str, state: str, school_type: str, repeat: int) -> None:
             click.echo(school)
             click.echo()
         else:
-            click.echo("Error: Failed to return school.", err=True)
+            click.echo("Error: Failed to return school object.", err=True)
 
 
 @click.command()

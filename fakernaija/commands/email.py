@@ -1,4 +1,4 @@
-"""CLI commands for EmailProvider to generate random email addresses."""
+"""Email commands to generate and return random email addresses."""
 
 import click
 
@@ -90,7 +90,7 @@ def email(
             $ naija email --tribe igbo
             chioma.onyekaozuru97@gmail.com
 
-        To generate a random email address from a female name:
+        To generate a random email address from a specific gender:
 
         .. code-block:: bash
 
@@ -115,13 +115,16 @@ def email(
 
         .. code-block:: bash
 
-            $ naija email -r 7 --tribe yoruba --gender male --domain gov.ng
+            $ naija email -r 3 --tribe yoruba --gender male --domain gov.ng
             ogunlana.kola@gov.ng
             olamideogunbiyi@gov.ng
             kunleadewale@gov.ng
     """
     if repeat < 1:
-        click.echo("Error: Repeat count must be a positive integer.", err=True)
+        click.echo(
+            "Error: Repeat count must be a positive integer.",
+            err=True,
+        )
         return
 
     for _ in range(repeat):

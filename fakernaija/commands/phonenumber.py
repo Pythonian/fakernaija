@@ -1,4 +1,4 @@
-"""CLI commands for PhoneNumberProvider to generate random phone numbers."""
+"""Phonenumber commands to generate and return random phone numbers."""
 
 import click
 

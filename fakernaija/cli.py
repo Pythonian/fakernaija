@@ -1,4 +1,4 @@
-"""Main CLI entry point that includes subcommands from various providers."""
+"""Main CLI entry point that includes subcommands from various mixins."""
 
 import importlib
 import pkgutil
@@ -11,7 +11,7 @@ from fakernaija import commands
 @click.group()
 @click.version_option(package_name="fakernaija")
 def cli() -> None:
-    """A CLI for generating random Nigerian data."""
+    """A CLI for generating and returning random Nigerian data."""
 
 
 # Dynamically discover and load all commands from the commands module

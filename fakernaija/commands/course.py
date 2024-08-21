@@ -1,4 +1,4 @@
-"""CLI commands for CourseProvider to generate random Nigerian courses."""
+"""Course commands to return random Nigerian schools course data."""
 
 import click
 
@@ -12,25 +12,25 @@ naija = Faker()
     "--repeat",
     "-r",
     default=1,
-    help="Number of random courses to return. Defaults to 1.",
+    help="Number of random course objects to return. Defaults to 1.",
     type=int,
 )
 def course(repeat: int) -> None:
-    """Return random courses.
+    """Returns random course object.
 
     Args:
-        repeat (int): The number of random courses to return.
+        repeat (int): The number of random course objects to return.
             Must be a positive integer. Defaults to 1.
 
     Examples:
-        To return a single random course:
+        To return a single random course object:
 
         .. code-block:: bash
 
             $ naija course
             {'name': 'Advanced Physical Chemistry I', 'code': 'CHM411'}
 
-        To return 3 random courses:
+        To return 3 random course objects:
 
         .. code-block:: bash
 
@@ -51,7 +51,7 @@ def course(repeat: int) -> None:
             click.echo(course)
             click.echo()
         else:
-            click.echo("Error: Failed to return course.", err=True)
+            click.echo("Error: Failed to return course object.", err=True)
 
 
 @click.command()
@@ -63,7 +63,7 @@ def course(repeat: int) -> None:
     type=int,
 )
 def course_name(repeat: int) -> None:
-    """Return random course names.
+    """Returns random course names.
 
     Args:
         repeat (int): The number of random course names to return.
@@ -107,7 +107,7 @@ def course_name(repeat: int) -> None:
     type=int,
 )
 def course_code(repeat: int) -> None:
-    """Return random course codes.
+    """Returns random course codes.
 
     Args:
         repeat (int): The number of random course codes to return.

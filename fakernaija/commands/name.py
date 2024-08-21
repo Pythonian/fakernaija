@@ -1,4 +1,4 @@
-"""CLI commands for NameProvider to generate random Nigerian names."""
+"""Name commands to generate and return random Nigerian names."""
 
 import click
 
@@ -296,10 +296,10 @@ def lastname(repeat: int, tribe: str) -> None:
     help="Specify the title for the prefix.",
 )
 def prefix(repeat: int, gender: str | None, title: str | None) -> None:
-    """Generate and return random prefixes.
+    """Returns random name prefixes.
 
     Args:
-        repeat (int): The number of random prefixes to return.
+        repeat (int): The number of random name prefixes to return.
             Must be a positive integer. Defaults to 1.
         gender (str): The gender for the prefix.
         title (str): The title for the prefix.
@@ -309,14 +309,14 @@ def prefix(repeat: int, gender: str | None, title: str | None) -> None:
         - Title options: traditional, professional
 
     Examples:
-        To generate a single random prefix:
+        To return a single random prefix:
 
         .. code-block:: bash
 
             $ naija prefix
             Mr.
 
-        To generate 3 random prefixes:
+        To return 3 random prefixes:
 
         .. code-block:: bash
 
@@ -325,21 +325,21 @@ def prefix(repeat: int, gender: str | None, title: str | None) -> None:
             Waziri
             Dr.
 
-        To generate a random prefix from a specific gender:
+        To return a random prefix from a specific gender:
 
         .. code-block:: bash
 
             $ naija prefix --gender male
             Prince
 
-        To generate a random prefix from a specific title:
+        To return a random prefix from a specific title:
 
         .. code-block:: bash
 
             $ naija prefix --title professional
             Engr.
 
-        To generate 3 random prefixes from a specific title and gender
+        To return 3 random prefixes from a specific title and gender
 
         .. code-block:: bash
 
@@ -357,4 +357,4 @@ def prefix(repeat: int, gender: str | None, title: str | None) -> None:
         if prefix:
             click.echo(prefix)
         else:
-            click.echo("Error: Failed to generate prefix.", err=True)
+            click.echo("Error: Failed to return prefix.", err=True)

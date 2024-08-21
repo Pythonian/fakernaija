@@ -31,7 +31,7 @@ class Faker(
     """
 
     def __init__(self) -> None:
-        """Initializes the Faker class and its mixins."""
+        """Initializes the Faker class and its inherited mixins."""
         Course.__init__(self)
         Currency.__init__(self)
         Degree.__init__(self)

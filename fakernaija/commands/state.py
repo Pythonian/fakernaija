@@ -1,4 +1,4 @@
-"""CLI commands for StateProvider to return random Nigerian state info."""
+"""State commands to return random Nigerian state data."""
 
 import click
 
@@ -12,25 +12,25 @@ naija = Faker()
     "--repeat",
     "-r",
     default=1,
-    help="Number of random states to return. Defaults to 1.",
+    help="Number of random state objects to return. Defaults to 1.",
     type=int,
 )
 def state(repeat: int) -> None:
-    """Return random states.
+    """Return random state objects.
 
     Args:
-        repeat (int): The number of random states to return.
+        repeat (int): The number of random state objects to return.
             Must be a positive integer. Defaults to 1.
 
     Examples:
-        To return a single random state:
+        To return a single random state object:
 
         .. code-block:: bash
 
             $ naija state
             {'code': 'BY', 'name': 'Bayelsa', 'capital': 'Yenagoa', 'slogan': 'Glory of All Lands', 'region': 'South South', 'postal_code': '561001', 'lgas': ['Brass', 'Ekeremor', 'Kolokuma Opokuma', 'Nembe', 'Ogbia', 'Sagbama', 'Southern-Ijaw', 'Yenagoa']}
 
-        To return 3 random states:
+        To return 3 random state objects:
 
         .. code-block:: bash
 
@@ -51,7 +51,7 @@ def state(repeat: int) -> None:
             click.echo(state)
             click.echo()
         else:
-            click.echo("Error: Failed to return state.", err=True)
+            click.echo("Error: Failed to return state object.", err=True)
 
 
 @click.command()
