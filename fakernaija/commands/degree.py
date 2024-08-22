@@ -15,12 +15,24 @@ naija = Faker()
     help="Number of random degree objects to return. Defaults to 1.",
     type=int,
 )
-def degree(repeat: int) -> None:
+@click.option(
+    "--degree-type",
+    "-t",
+    default=None,
+    help="Type of degree to generate.",
+    type=click.Choice(
+        ["undergraduate", "masters", "doctorate"],
+        case_sensitive=False,
+    ),
+)
+def degree(repeat: int, degree_type: str | None) -> None:
     """Returns random degree objects.
 
     Args:
         repeat (int): The number of random degree objects to return.
             Must be a positive integer. Defaults to 1.
+        degree_type (str | None): The type of degree to generate.
+            Defaults to any type.
 
     Examples:
         To return a single random degree object:
@@ -29,6 +41,13 @@ def degree(repeat: int) -> None:
 
             $ naija degree
             {'name': 'Bachelor of Science', 'degree_type': 'undergraduate', 'abbr': 'B.Sc.'}
+
+        To return a random degree object by degree type:
+
+        .. code-block:: bash
+
+            $ naija degree --degree-type undergraduate
+            {'name': 'Bachelor of Medicine, Bachelor of Surgery', 'degree_type': 'undergraduate', 'abbr': 'MBBS'}
 
         To return 3 random degree objects:
 
@@ -49,7 +68,7 @@ def degree(repeat: int) -> None:
         return
 
     for _ in range(repeat):
-        degree = naija.degree()
+        degree = naija.degree(degree_type=degree_type)
         if degree:
             click.echo(degree)
             click.echo()
@@ -75,16 +94,14 @@ def degree(repeat: int) -> None:
         case_sensitive=False,
     ),
 )
-def degree_name(repeat: int, degree_type: str) -> None:
+def degree_name(repeat: int, degree_type: str | None) -> None:
     """Returns random degree names.
 
     Args:
         repeat (int): The number of random degree names to return.
             Must be a positive integer. Defaults to 1.
-        degree_type (str): The type of degree to generate.
-
-    Note:
-        - Degree type options: undergraduate, masters, doctorate
+        degree_type (str | None): The type of degree to generate.
+            Defaults to any type.
 
     Examples:
         To return a single random degree name:
@@ -109,15 +126,6 @@ def degree_name(repeat: int, degree_type: str) -> None:
 
             $ naija degree_name --degree-type undergraduate
             Bachelor of Medicine, Bachelor of Surgery
-
-        To return 3 random degree names by degree type:
-
-        .. code-block:: bash
-
-            $ naija degree_name --repeat 3 --degree-type undergraduate
-            Bachelor of Medicine, Bachelor of Surgery
-            Bachelor of Science
-            Bachelor of Education
     """
     if repeat < 1:
         click.echo(
@@ -126,13 +134,12 @@ def degree_name(repeat: int, degree_type: str) -> None:
         )
         return
 
-    degree_names = (
-        [naija.degree_name_by_type(degree_type=degree_type) for _ in range(repeat)]
-        if degree_type
-        else [naija.degree_name() for _ in range(repeat)]
-    )
-    for degree_name in degree_names:
-        click.echo(degree_name)
+    for _ in range(repeat):
+        degree_name = naija.degree_name(degree_type=degree_type)
+        if degree_name:
+            click.echo(degree_name)
+        else:
+            click.echo("Error: Failed to return degree name.", err=True)
 
 
 @click.command()
@@ -153,16 +160,14 @@ def degree_name(repeat: int, degree_type: str) -> None:
         case_sensitive=False,
     ),
 )
-def degree_abbr(repeat: int, degree_type: str) -> None:
+def degree_abbr(repeat: int, degree_type: str | None) -> None:
     """Returns random degree abbreviations.
 
     Args:
         repeat (int): The number of random degree abbreviations to return.
             Must be a positive integer. Defaults to 1.
-        degree_type (str): The type of degree to generate.
-
-    Note:
-        - Degree type options: undergraduate, masters, doctorate
+        degree_type (str | None): The type of degree to generate.
+            Defaults to any type.
 
     Examples:
         To return a single random degree abbreviation:
@@ -187,15 +192,6 @@ def degree_abbr(repeat: int, degree_type: str) -> None:
 
             $ naija degree_abbr --degree-type masters
             M.Eng.
-
-        To return 3 random degree abbreviations by degree type:
-
-        .. code-block:: bash
-
-            $ naija degree_abbr --repeat 3 --degree-type doctorate
-            D.Eng.
-            Ed.D.
-            MD
     """
     if repeat < 1:
         click.echo(
@@ -204,10 +200,12 @@ def degree_abbr(repeat: int, degree_type: str) -> None:
         )
         return
 
-    degree_abbrs = (
-        [naija.degree_abbr_by_type(degree_type=degree_type) for _ in range(repeat)]
-        if degree_type
-        else [naija.degree_abbr() for _ in range(repeat)]
-    )
-    for degree_abbr in degree_abbrs:
-        click.echo(degree_abbr)
+    for _ in range(repeat):
+        degree_abbr = naija.degree_abbr(degree_type=degree_type)
+        if degree_abbr:
+            click.echo(degree_abbr)
+        else:
+            click.echo(
+                "Error: Failed to return degree abbreviation.",
+                err=True,
+            )

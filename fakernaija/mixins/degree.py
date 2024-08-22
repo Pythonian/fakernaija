@@ -18,8 +18,12 @@ class Degree:
         self.degree_provider = DegreeProvider()
         self.valid_degree_types = ["undergraduate", "masters", "doctorate"]
 
-    def degree(self) -> dict:
-        """Returns a random degree object.
+    def degree(self, degree_type: str | None = None) -> dict:
+        """Returns a random degree object, optionally filtered by degree type.
+
+        Args:
+            degree_type (str | None, optional): The type of degree to filter by.
+                Defaults to None.
 
         Returns:
             dict[str, str]: A dictionary with degree name, type and abbreviation.
@@ -33,11 +37,24 @@ class Degree:
                 >>> degree = naija.degree()
                 >>> print(f"Random degree: {degree}")
                 'Random degree: {'name': 'Bachelor of Science', 'degree_type': 'undergraduate', 'abbr': 'B.Sc.'}'
-        """
-        return random.choice(self.degree_provider.get_degrees())
 
-    def degree_name(self) -> str:
-        """Generates a random degree name.
+                >>> degree = naija.degree(degree_type="masters")
+                >>> print(f"Random masters degree: {degree}")
+                'Random masters degree: {'name': 'Master of Business Administration', 'degree_type': 'masters', 'abbr': 'MBA'}'
+        """
+        if degree_type:
+            degree_type = validate_degree_type(
+                degree_type,
+                self.valid_degree_types,
+            )
+        return random.choice(self.degree_provider.get_degrees(degree_type))
+
+    def degree_name(self, degree_type: str | None = None) -> str:
+        """Generates a random degree name, optionally filtered by degree type.
+
+        Args:
+            degree_type (str | None, optional): The type of degree to filter by.
+                Defaults to None.
 
         Returns:
             str: A random degree name.
@@ -51,11 +68,24 @@ class Degree:
                 >>> degree_name = naija.degree_name()
                 >>> print(f"Random degree name: {degree_name}")
                 'Random degree name: Bachelor of Science'
-        """
-        return random.choice(self.degree_provider.get_degree_names())
 
-    def degree_abbr(self) -> str:
-        """Generates a random degree abbreviation.
+                >>> degree_name = naija.degree_name(degree_type="doctorate")
+                >>> print(f"Random doctorate degree name: {degree_name}")
+                'Random doctorate degree name: Doctor of Philosophy'
+        """
+        if degree_type:
+            degree_type = validate_degree_type(
+                degree_type,
+                self.valid_degree_types,
+            )
+        return random.choice(self.degree_provider.get_degree_names(degree_type))
+
+    def degree_abbr(self, degree_type: str | None = None) -> str:
+        """Generates a random degree abbreviation, optionally filtered by degree type.
+
+        Args:
+            degree_type (str | None, optional): The type of degree to filter by.
+                Defaults to None.
 
         Returns:
             str: A random degree abbreviation.
@@ -69,57 +99,14 @@ class Degree:
                 >>> degree_abbr = naija.degree_abbr()
                 >>> print(f"Random degree abbreviation: {degree_abbr}")
                 'Random degree abbreviation: B.Sc.'
+
+                >>> degree_abbr = naija.degree_abbr(degree_type="masters")
+                >>> print(f"Random masters degree abbreviation: {degree_abbr}")
+                'Random masters degree abbreviation: MBA'
         """
-        return random.choice(self.degree_provider.get_degree_abbrs())
-
-    def degree_name_by_type(self, degree_type: str) -> str:
-        """Generates a random degree name filtered by degree type.
-
-        Args:
-            degree_type (str): The type of degree to filter by.
-
-        Returns:
-            str: A random degree name filtered by type.
-
-        Example:
-            .. code-block:: python
-
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
-
-                >>> degree_name = naija.degree_name_by_type("undergraduate")
-                >>> print(f"Random undergraduate degree name: {degree_name}")
-                'Random undergraduate degree name: Bachelor of Science'
-        """
-        degree_type = validate_degree_type(
-            degree_type,
-            self.valid_degree_types,
-        )
-        degree_names = self.degree_provider.get_degree_names(degree_type)
-        return random.choice(degree_names)
-
-    def degree_abbr_by_type(self, degree_type: str) -> str:
-        """Generates a random degree abbreviation filtered by degree type.
-
-        Args:
-            degree_type (str): The type of degree to filter by.
-
-        Returns:
-            str: A random degree abbreviation filtered by type.
-
-        Example:
-            .. code-block:: python
-
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
-
-                >>> degree_abbr = naija.degree_abbr_by_type("undergraduate")
-                >>> print(f"Random undergraduate degree abbreviation: {degree_abbr}")
-                'Random undergraduate degree abbreviation: B.Sc.'
-        """
-        degree_type = validate_degree_type(
-            degree_type,
-            self.valid_degree_types,
-        )
-        degree_abbrs = self.degree_provider.get_degree_abbrs(degree_type)
-        return random.choice(degree_abbrs)
+        if degree_type:
+            degree_type = validate_degree_type(
+                degree_type,
+                self.valid_degree_types,
+            )
+        return random.choice(self.degree_provider.get_degree_abbrs(degree_type))

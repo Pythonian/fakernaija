@@ -48,27 +48,3 @@ class TestDegree(unittest.TestCase):
         mock_get_degree_abbrs.return_value = ["B.A.", "B.Sc."]
         result = self.degree.degree_abbr()
         self.assertIn(result, mock_get_degree_abbrs.return_value)
-
-    @patch("fakernaija.providers.DegreeProvider.get_degree_names")
-    def test_degree_name_by_type(self, mock_get_degree_names: Mock) -> None:
-        """Test that degree_name_by_type returns valid degree names based on that degree type."""
-        mock_get_degree_names.return_value = ["Bachelor of Arts", "Bachelor of Science"]
-        result = self.degree.degree_name_by_type("undergraduate")
-        self.assertIn(result, mock_get_degree_names.return_value)
-
-    def test_degree_name_by_type_invalid(self) -> None:
-        """Test that degree_name_by_type raises ValueError if passed an invalid degree type."""
-        with self.assertRaises(ValueError):
-            self.degree.degree_name_by_type("invalid_type")
-
-    @patch("fakernaija.providers.DegreeProvider.get_degree_abbrs")
-    def test_degree_abbr_by_type(self, mock_get_degree_abbrs: Mock) -> None:
-        """Test that degree_abbr_by_type returns valid degree abbreviations based on that degree type."""
-        mock_get_degree_abbrs.return_value = ["B.A.", "B.Sc."]
-        result = self.degree.degree_abbr_by_type("undergraduate")
-        self.assertIn(result, mock_get_degree_abbrs.return_value)
-
-    def test_degree_abbr_by_type_invalid(self) -> None:
-        """Test that degree_abbr_by_type raises ValueError if passed an invalid degree type."""
-        with self.assertRaises(ValueError):
-            self.degree.degree_abbr_by_type("invalid_type")
