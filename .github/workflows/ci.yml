@@ -36,6 +36,7 @@ jobs:
 
       - name: Generate coverage report
         run: |
+          python3 -m pip install -U coverage
           coverage xml -o coverage.xml
         if: success()
 
@@ -47,4 +48,5 @@ jobs:
           flags: unittests
           name: codecov-umbrella
           fail_ci_if_error: true
+          verbose: true
         if: success()
