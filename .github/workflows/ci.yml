@@ -40,13 +40,11 @@ jobs:
         if: success()
 
       - name: Upload coverage to Codecov
-      - uses: actions/checkout@main
-      - uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: coverage.xml
           flags: unittests
           name: codecov-umbrella
           fail_ci_if_error: true
-          verbose: true
         if: success()
