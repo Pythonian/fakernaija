@@ -33,13 +33,22 @@ class FacultyProvider:
         """
         return [faculty["name"] for faculty in self.faculties_data]
 
-    def get_department_names(self) -> list[str]:
-        """Get a list of all department names.
+    def get_department_names(self, faculty: str | None = None) -> list[str]:
+        """Get a list of department names. Optionally filter by faculty.
+
+        Args:
+            faculty (str, optional): The name of the faculty. Defaults to None.
 
         Returns:
             list[str]: A list of department names.
         """
         departments = []
-        for faculty in self.faculties_data:
-            departments.extend(faculty["departments"])
+        if faculty:
+            for fac in self.faculties_data:
+                if fac["name"].lower() == faculty.lower():
+                    departments.extend(fac["departments"])
+                    break
+        else:
+            for fac in self.faculties_data:
+                departments.extend(fac["departments"])
         return departments

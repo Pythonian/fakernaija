@@ -69,8 +69,12 @@ class Faculty:
         self._used_faculty_names.add(faculty_name)
         return faculty_name
 
-    def department_name(self) -> str:
+    def department_name(self, faculty: str | None = None) -> str:
         """Get a random department name.
+
+        Args:
+            faculty (str | None, optional): The name of the faculty to filter
+                departments. Defaults to None.
 
         Returns:
             str: A random department name.
@@ -91,39 +95,15 @@ class Faculty:
                 Biotechnology
                 Public Health
                 Furniture Design
+
+                >>> department_name = naija.department_name(faculty='Social Sciences')
+                >>> print(f"Random department in a specific Faculty: {department_name}")
+                Random department in a specific Faculty: Psychology
         """
-        department_names = self.faculty_provider.get_department_names()
+        department_names = self.faculty_provider.get_department_names(faculty)
         department_name = get_unique_value(
             department_names,
             self._used_department_names,
         )
         self._used_department_names.add(department_name)
         return department_name
-
-    def department_by_faculty(self, faculty: str) -> str:
-        """Get a random department name by a given faculty.
-
-        Args:
-            faculty (str): The name of the faculty.
-
-        Returns:
-            str: A random department name from the specified faculty.
-
-        Raises:
-            ValueError: If the provided faculty is not found.
-
-        Example:
-            .. code-block:: python
-
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
-
-                >>> department = naija.department_by_faculty('Basic Medical Sciences')
-                >>> print(f"Random department: {department}")
-                Random department: Human Anatomy
-        """
-        for fac in self.faculty_provider.faculties_data:
-            if fac["name"].lower() == faculty.lower():
-                return random.choice(fac["departments"])
-        msg = f"Faculty '{faculty}' not found"
-        raise ValueError(msg)

@@ -161,20 +161,9 @@ def department_name(faculty: str, repeat: int) -> None:
         click.echo("Error: Repeat count must be a positive integer.", err=True)
         return
 
-    try:
-        if faculty:
-            for _ in range(repeat):
-                department_name = naija.department_by_faculty(faculty)
-                if department_name:
-                    click.echo(department_name)
-                else:
-                    click.echo("Error: Failed to return department name.", err=True)
+    for _ in range(repeat):
+        department_name = naija.department_name(faculty)
+        if department_name:
+            click.echo(department_name)
         else:
-            for _ in range(repeat):
-                department_name = naija.department_name()
-                if department_name:
-                    click.echo(department_name)
-                else:
-                    click.echo("Error: Failed to return department name.", err=True)
-    except ValueError as e:
-        click.echo(f"Error: {e}", err=True)
+            click.echo("Error: Failed to return department name.", err=True)

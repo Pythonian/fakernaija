@@ -117,32 +117,3 @@ class TestFaculty(unittest.TestCase):
             "Public Relations",
         ]
         self.assertIn(department, expected_departments)
-
-    @patch("random.choice")
-    def test_department_by_faculty(self, mock_choice: MagicMock) -> None:
-        """Test the department_by_faculty method."""
-        mock_choice.side_effect = ["Human Anatomy", "Strategic Communications"]
-
-        department = self.faculty_mixin.department_by_faculty("Basic Medical Sciences")
-        self.assertIn(department, ["Human Anatomy", "Physiology"])
-
-        department = self.faculty_mixin.department_by_faculty(
-            "Communications and Media Studies",
-        )
-        self.assertIn(
-            department,
-            [
-                "Strategic Communications",
-                "Advertising",
-                "Broadcasting",
-                "Development Communications Studies",
-                "Film and Multimedia",
-                "Information and Media Studies",
-                "Journalism and Media Studies",
-                "Mass Communications",
-                "Public Relations",
-            ],
-        )
-
-        with self.assertRaises(ValueError):
-            self.faculty_mixin.department_by_faculty("Nonexistent Faculty")
