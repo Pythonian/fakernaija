@@ -32,11 +32,10 @@ dependencies = [
 dynamic = ["version"]
 
 [project.urls]
-Homepage = "https://github.com/Pythonian/fakernaija"
-Documentation = "https://fakernaija.readthedocs.io/"
-"Source Code" = "https://github.com/Pythonian/fakernaija"
+Homepage = "https://fakernaija.readthedocs.io/"
+Repository = "https://github.com/Pythonian/fakernaija"
 "Bug Tracker" = "https://github.com/Pythonian/fakernaija/issues"
-Changelog = "https://github.com/Pythonian/fakernaija/blob/master/CHANGELOG.md"
+Changelog = "https://fakernaija.readthedocs.io/en/latest/changelog.html"
 
 [project.scripts]
 naija = "fakernaija.cli:cli"
