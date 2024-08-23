@@ -9,7 +9,6 @@ Below, you'll find detailed documentation for each Provider class, including the
    :maxdepth: 3
 
    providers/course
-   providers/currency
    providers/degree
    providers/email
    providers/faculty

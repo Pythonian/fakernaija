@@ -1,7 +1,6 @@
 """Aggregates and exposes subcommands from various command modules."""
 
 from .course import course, course_code, course_name
-from .currency import currency, currency_code, currency_name, currency_symbol
 from .degree import degree, degree_abbr, degree_name
 from .email import email
 from .faculty import (
@@ -25,11 +24,6 @@ __all__ = [
     "course",
     "course_code",
     "course_name",
-    # Currency commands
-    "currency",
-    "currency_code",
-    "currency_name",
-    "currency_symbol",
     # Degree commands
     "degree",
     "degree_abbr",

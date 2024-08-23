@@ -2,7 +2,6 @@
 
 from fakernaija.mixins import (
     Course,
-    Currency,
     Degree,
     Email,
     Faculty,
@@ -15,7 +14,6 @@ from fakernaija.mixins import (
 
 class Faker(
     Course,
-    Currency,
     Degree,
     Email,
     Faculty,
@@ -33,7 +31,6 @@ class Faker(
     def __init__(self) -> None:
         """Initializes the Faker class and its inherited mixins."""
         Course.__init__(self)
-        Currency.__init__(self)
         Degree.__init__(self)
         Email.__init__(self)
         Faculty.__init__(self)

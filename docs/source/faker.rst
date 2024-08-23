@@ -20,9 +20,9 @@ In this example, we created an instance of the ``Faker`` class named ``naija``. 
 
 .. code-block:: python
 
-    >>> # Generate a Nigerian currency
-    >>> currency = naija.currency()
-    >>> print(f"Nigerian currency: {currency}")
+    >>> # Generate an email address
+    >>> email = naija.email()
+    >>> print(f"Email: {email}")
 
     >>> # Generate a Nigerian full name
     >>> name = naija.full_name()
@@ -39,7 +39,6 @@ You can explore the list of available Faker methods below to see various data ge
    :maxdepth: 2
 
    faker/course
-   faker/currency
    faker/degree
    faker/email
    faker/faculty

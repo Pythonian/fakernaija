@@ -22,7 +22,6 @@ The following are the ``Mixin`` classes available in the **Fakernaija** library.
    :maxdepth: 3
 
    mixins/course
-   mixins/currency
    mixins/degree
    mixins/email
    mixins/faculty

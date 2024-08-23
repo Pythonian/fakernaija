@@ -98,9 +98,6 @@ You can also generate complete data objects, useful for when you need more than 
     >>> print(naija.course())
     {'name': 'Introduction to Computer Science', 'code': 'COS101'}
 
-    >>> print(naija.currency())
-    {'code': 'NGN', 'name': 'Nigerian naira', 'symbol': '₦'}
-
     >>> print(naija.degree())
     {'name': 'Bachelor of Science', 'degree_type': 'undergraduate', 'abbr': 'B.Sc.'}
 

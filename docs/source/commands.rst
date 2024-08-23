@@ -50,7 +50,6 @@ Each category command is documented with usage instructions and practical exampl
    :maxdepth: 2
 
    commands/course
-   commands/currency
    commands/degree
    commands/email
    commands/faculty
