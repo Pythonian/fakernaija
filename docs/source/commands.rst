@@ -44,7 +44,7 @@ To run any command, use the ``naija`` command followed by a category command and
 Reference
 ---------
 
-Each category command is documented with usage instructions and practical examples. Refer to the specific sections below for detailed guidance on using each command.
+Each category command is documented with practical examples. You can find a guide to any of the commands you want to work with below:
 
 .. toctree::
    :maxdepth: 2

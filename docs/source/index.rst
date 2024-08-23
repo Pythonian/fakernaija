@@ -13,14 +13,13 @@ Overview
     Home <self>
     faker
     commands
-    internals
 
 Features
 --------
 
 - Generate culturally accurate Nigerian data — no more `Oyinbo` names that don't gel!
 - Quickly generate data from the terminal with our CLI commands, because time na money!
-- Export data to JSON, CSV, and plain text formats, like wrapping your suya in the perfect paper.
+- Export generated data to various formats like JSON, CSV, and plain text.
 
 Installation
 ------------
@@ -34,7 +33,7 @@ Installation
 Getting Started
 ---------------
 
-The primary interface you will interact with is the ``Faker`` class. You will need to import and instantiate it then you can start generating data right away. To whet your appetite, launch your Python shell and try out these examples:
+The primary interface you will interact with is the :doc:`faker`. You will need to import and instantiate it then you can start generating data right away. To whet your appetite, launch your Python shell and try out these examples:
 
 .. code-block:: python
 
@@ -72,7 +71,7 @@ The primary interface you will interact with is the ``Faker`` class. You will ne
     Kwara State Polytechnic
     Federal Polytechnic, Ado-Ekiti
 
-There is also some flexibility in the data you generate. Many methods accept optional parameters to customize the output. Here are a few examples:
+You can also have control over the results of the data you generate. Faker methods accept optional parameters to customize the output. Here are a few examples:
 
 .. code-block:: python
 
@@ -104,10 +103,10 @@ You can also generate complete data objects, useful for when you need more than 
     >>> print(naija.school())
     {'name': 'Lagos State University', 'acronym': 'LASU', 'state': 'Lagos', 'type': 'university', 'ownership': 'State'}
 
-Command Line Interface
-----------------------
+Command Line Usage
+------------------
 
-Once installed, **Fakernaija** provides the ``naija`` command-line interface (CLI), powered by the `Click <https://click.palletsprojects.com/>`_ library. This CLI simplifies data generation directly from your terminal. Below are some examples to help you get started:
+Once installed, **Fakernaija** can be invoked directly from your command line via the ``naija`` command. The :doc:`commands` command simplifies data generation directly from your terminal. This is powered by the `Click <https://click.palletsprojects.com/>`_ library. Below are some examples to help you get started:
 
 .. code-block:: bash
 
@@ -147,28 +146,13 @@ You can export the generated data to various formats using the ``--output`` (or 
 Next Steps
 ----------
 
-Now that you have a basic understanding of **Fakernaija**, you can move onto the :doc:`faker` to find out all available methods.
+Now that you have a basic understanding of **Fakernaija**, you can check out:
 
-You can also check out the following sections:
-
-API Reference
-^^^^^^^^^^^^^
-
-The API Reference section provides detailed documentation on the modules and classes in the **Fakernaija** library. Here are the key components:
-
-- :doc:`mixins`: Specialized classes handling specific data generation tasks.
-- :doc:`providers`: The data providers that work behind the scenes with Mixins to generate data.
-
-.. toctree::
-    :caption: API Reference
-    :maxdepth: 1
-    :hidden:
-
-    mixins
-    providers
+* :doc:`faker`: For a reference of all available ``Faker`` methods you can call.
+* :doc:`commands`: For a reference of all available ``naija`` sub commands you can execute.
 
 Get Involved
-^^^^^^^^^^^^
+------------
 
 If you want to contribute to **Fakernaija**, this section is your guide to the development process. Key sections include:
 
@@ -188,7 +172,7 @@ If you want to contribute to **Fakernaija**, this section is your guide to the d
     deployment
 
 Meta
-^^^^
+----
 
 This section provides information about the project itself:
 
