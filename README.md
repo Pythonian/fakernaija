@@ -2,9 +2,9 @@
 
 ## Overview
 
-**Fakernaija** is a Python library designed to help developers generate realistic Nigerian-specific data. With a simple interface and a variety of data, it can be used for creating mock data tailored to the Nigerian context. Whether you're working on testing, development, or educational projects, Fakernaija can help you generate random data to meet your requirements, including a CLI for easy data exports.
+**Fakernaija** is a Python library designed to help developers generate realistic Nigerian-specific data. Whether you're working on testing, development, or educational projects, **Fakernaija** can help you generate random data with Nigerian contexts, including a CLI for easy data exports.
 
-_This library does not intend to be a drop-in replacement to the popular [Python Faker](https://faker.readthedocs.io/en/master/) package, but should complement it in cases where you need Nigerian contexts for your data generation._
+The documentation is hosted on [Read the Docs](https://fakernaija.readthedocs.io).
 
 ----
 
@@ -25,10 +25,9 @@ _This library does not intend to be a drop-in replacement to the popular [Python
 
 ## Features
 
-* Tailored specifically to generate culturally accurate Nigerian data.
-* Quickly generate data from your terminal with our CLI command.
-* Supports exporting data to various formats including JSON, CSV, and plain text.
-* Simple, intuitive API that integrates seamlessly into your Python web frameworks.
+- Generate culturally accurate Nigerian data — no more `Oyinbo` names that don't gel!
+- Quickly generate data from the terminal with our CLI commands, because time na money!
+- Export data to JSON, CSV, and plain text formats, like wrapping your suya in the perfect paper.
 
 ## Installation
 
@@ -37,8 +36,6 @@ Fakernaija is available on PyPI and can be easily installed using `pip`. The min
 ```bash
 pip install -U fakernaija
 ```
-
-_For a more detailed installation setup, please refer to our [Installation guide](https://fakernaija.readthedocs.io/en/latest/installation.html)._
 
 ## Quick Start
 
@@ -53,7 +50,7 @@ Fakernaija is designed to be easy to use. Launch your Python shell and run the e
 A random Nigerian full name: Ololade Lawal
 ```
 
-_For a more detailed walkthrough, please refer to the [Usage guide](https://fakernaija.readthedocs.io/en/latest/guide.html)._
+_For more available method calls, please refer to the [Faker API](https://fakernaija.readthedocs.io/en/latest/faker.html)._
 
 ## Command Line Interface (CLI)
 
@@ -63,10 +60,10 @@ Fakernaija's CLI allows you to generate Nigerian-specific data directly from you
 $ naija email --domain unn.edu.ng --tribe igbo --gender female --repeat 3
 maduike.ugochi@unn.edu.ng
 somtochi.mbakwe@unn.edu.ng
-mmasinwodo25@unn.edu.ng
+mmasinwodo2000@unn.edu.ng
 ```
 
-_For more detailed usage of the CLI, please refer to the [CLI documentation](https://fakernaija.readthedocs.io/en/latest/commands.html)._
+_For more detailed usage of the CLI, please refer to the [Commands API](https://fakernaija.readthedocs.io/en/latest/commands.html)._
 
 ## Get Involved
 
