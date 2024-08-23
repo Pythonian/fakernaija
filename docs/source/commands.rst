@@ -1,5 +1,5 @@
-Commands
-========
+naija - CLI
+===========
 
 Overview
 --------
