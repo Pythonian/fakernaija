@@ -67,29 +67,6 @@ def validate_json_structure(
             raise ValueError(msg)
 
 
-def validate_degree_type(
-    degree_type: str,
-    valid_degree_types: list[str],
-) -> str:
-    """Validate and convert degree type to lowercase.
-
-    Args:
-        degree_type (str): The type of degree to validate.
-        valid_degree_types (list[str]): List of valid degree types.
-
-    Returns:
-        str: The validated and lowercased degree type.
-
-    Raises:
-        ValueError: If the degree type is not valid.
-    """
-    degree_type = degree_type.lower()
-    if degree_type not in valid_degree_types:
-        msg = f"Invalid degree_type. Must be one of {valid_degree_types}."
-        raise ValueError(msg)
-    return degree_type
-
-
 def get_unique_value(values: list[str], used_values: set[str]) -> str:
     """Helper method to get a unique value from a list of strings.
 

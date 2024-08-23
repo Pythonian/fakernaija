@@ -2,7 +2,7 @@
 
 from pathlib import Path
 
-from fakernaija.utils import load_json
+from fakernaija.utils import load_json, normalize_input
 
 
 class DegreeProvider:
@@ -22,6 +22,25 @@ class DegreeProvider:
                 "abbr",
             ],
         )
+        self.valid_degree_types = ["undergraduate", "masters", "doctorate"]
+
+    def _validate_degree_type(self, degree_type: str | None) -> str | None:
+        """Normalize and validate degree type.
+
+        Args:
+            degree_type (str): The type of degree to validate.
+
+        Returns:
+            str: The validated and lowercased degree type.
+
+        Raises:
+            ValueError: If the degree type is not valid.
+        """
+        degree_type = normalize_input(degree_type)
+        if degree_type and degree_type not in self.valid_degree_types:
+            msg = f"Invalid degree_type. Must be one of {self.valid_degree_types}."
+            raise ValueError(msg)
+        return degree_type
 
     def get_degrees(self, degree_type: str | None = None) -> list[dict]:
         """Get a list of degrees filtered by degree type if specified.
@@ -33,6 +52,7 @@ class DegreeProvider:
         Returns:
             list[dict]: A list of degree dictionaries.
         """
+        degree_type = self._validate_degree_type(degree_type)
         if degree_type:
             return [
                 degree
