@@ -4,49 +4,46 @@ Faker Class
 Overview
 --------
 
-The ``Faker`` class serves as the primary interface for generating various types of Nigerian data, providing a user-friendly, cohesive way to access different data generation features. It aggregates multiple Mixins, each responsible for specific data generation functionalities, allowing users to generate diverse types of data through a single class instance. This design abstracts the complexity of interacting with underlying Providers or Mixins, making it easier to work with the full range of available data generation methods.
+The ``Faker`` class is your go-to guy for generating all sorts of Nigerian data. You can think of it as your ultimate data plug — whether you need to generate Nigerian names, email addresses, phone numbers, state information or even school data.
 
 Initialization
 --------------
 
-When an instance of the ``Faker`` class is created, it automatically initializes all the Mixins included in its definition. This means that all methods provided by the Mixins are immediately available through the ``Faker`` instance.
+Setting up the ``Faker`` class is as easy as `ABC`. Just import the class and create an instance of ``Faker``, and you're good to go:
 
 .. code-block:: python
 
     >>> from fakernaija import Faker
-
     >>> naija = Faker()
 
-In this example, ``naija`` is an instance of the ``Faker`` class. Upon initialization, ``naija`` has access to all the data generation methods provided by the available Mixins.
-
-``naija`` Variable
-------------------
-
-In the documentation and examples, we use the variable name ``naija`` to refer to an instance of the ``Faker`` class. This naming convention is intentional to avoid potential clashes with the popular ``Faker`` library, which is often used as follows:
+In this example, we created an instance of the ``Faker`` class named ``naija``. Now, this ``naija`` has access to all available methods from the ``Faker`` class.
 
 .. code-block:: python
-
-    >>> from faker import Faker
-
-    >>> fake = Faker()
-
-If users were to name their ``Faker`` instance ``fake``, it could lead to confusion or conflicts, especially in projects that use both ``Faker`` and ``Fakernaija``. By using ``naija``, we maintain clarity and prevent any accidental overlaps.
-
-Usage Example
--------------
-
-.. code-block:: python
-
-    >>> from fakernaija import Faker
-
-    >>> naija = Faker()
 
     >>> # Generate a Nigerian currency
     >>> currency = naija.currency()
     >>> print(f"Nigerian currency: {currency}")
 
-    >>> # Generate a Nigerian fullname
+    >>> # Generate a Nigerian full name
     >>> name = naija.full_name()
     >>> print(f"Nigerian name: {name}")
 
-In this example, the ``naija`` instance is used to generate a Nigerian currency and fullname, demonstrating the ease of accessing different data generation methods through the ``Faker`` class.
+Reference
+---------
+
+The ``Faker`` class gives you access to a variety of methods, each tied to a specific type of data.
+
+You can explore the list of available Faker methods below to see various data generation options:
+
+.. toctree::
+   :maxdepth: 2
+
+   faker/course
+   faker/currency
+   faker/degree
+   faker/email
+   faker/faculty
+   faker/name
+   faker/phonenumber
+   faker/school
+   faker/state

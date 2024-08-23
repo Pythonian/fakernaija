@@ -1,10 +1,8 @@
 # Fakernaija
 
-## Overview
+**Fakernaija** is a Python library designed to help developers generate realistic Nigerian-specific data like full names, email addresses, phone numbers, bank information, jobs, schools, states, license plate numbers, and much more. Whether you're working on testing, development, or educational projects, Fakernaija can help you generate random data with Nigerian contexts, including a CLI for easy data exports.
 
-**Fakernaija** is a Python library designed to help developers generate realistic Nigerian-specific data. Whether you're working on testing, development, or educational projects, **Fakernaija** can help you generate random data with Nigerian contexts, including a CLI for easy data exports.
-
-The documentation is hosted on [Read the Docs](https://fakernaija.readthedocs.io).
+The documentation is available on [Read the Docs](https://fakernaija.readthedocs.io).
 
 ----
 
@@ -31,7 +29,7 @@ The documentation is hosted on [Read the Docs](https://fakernaija.readthedocs.io
 
 ## Installation
 
-Fakernaija is available on PyPI and can be easily installed using `pip`. The minimum requirement for working with Fakernaija is **Python 3.10**.
+Fakernaija is available on PyPI and can be easily installed using `pip`. The minimum requirement for working with the library is **Python 3.10**.
 
 ```bash
 pip install -U fakernaija
@@ -77,8 +75,8 @@ Please, you can also Star the Github repository of this library if you find it u
 
 ## Changelog
 
-See the [changelog](https://fakernaija.readthedocs.io/en/latest/changelog.html) for details on changes made in each version.
+See the [Changelog](https://fakernaija.readthedocs.io/en/latest/changelog.html) for details on changes made in each version.
 
 ## License
 
-Fakernaija is released under the MIT License. See the [LICENSE](https://fakernaija.readthedocs.io/en/latest/license.html) for more details.
+Fakernaija is released under the [MIT License](https://fakernaija.readthedocs.io/en/latest/license.html).
