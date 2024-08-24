@@ -4,7 +4,9 @@ Welcome to Fakernaija's Documentation!
 Overview
 --------
 
-`Fakernaija <https://github.com/Pythonian/fakernaija>`_ is a Python library designed to help developers generate Nigerian-specific data like full names, email addresses, phone numbers, bank information, jobs, schools, states, license plate numbers, and much more. When you need some Naija flavour added to your project, **Fakernaija** helps you generate random, realistic data, including a CLI for easy exports.
+**Fakernaija** is a Python library that helps developers generate Nigerian-specific data like names, emails, addresses, phone numbers, banks, jobs, schools, states, license plate numbers, and much more. Whether you're working on testing, development, or educational projects, **Fakernaija** helps you generate realistic data, including a CLI for easy exports.
+
+The source code is available on `GitHub <https://github.com/Pythonian/fakernaija>`_
 
 .. toctree::
     :hidden:
@@ -18,13 +20,13 @@ Features
 --------
 
 - Generate culturally accurate Nigerian data — no more `Oyinbo` names that don't gel!
-- Quickly generate data from the terminal with our CLI commands, because time na money!
-- Export generated data to various formats like JSON, CSV, and plain text.
+- Quickly generate data from your favourite terminal with our CLI commands.
+- Export your generated data to various formats like JSON, CSV, and plain text.
 
 Installation
 ------------
 
-**Fakernaija** requires **Python 3.10** or higher. Installation is easy-peasy with `pip`, ensuring you get the latest stable release of the library.
+**Fakernaija** requires **Python 3.10** or higher. Installation is easy-peasy with `pip` and this ensures you always get the latest stable release of the library.
 
 .. code-block:: bash
 
@@ -106,7 +108,7 @@ You can also generate complete data objects, useful for when you need more than 
 Command Line Usage
 ------------------
 
-Once installed, **Fakernaija** can be invoked directly from your command line via the ``naija`` command. The :doc:`commands` command simplifies data generation directly from your terminal. This is powered by the `Click <https://click.palletsprojects.com/>`_ library. Below are some examples to help you get started:
+Once installed, **Fakernaija** can be invoked directly from your command line via the ``naija`` command. The :doc:`commands` command allows you to generate data directly from your terminal. This is powered by the `Click <https://click.palletsprojects.com/>`_ library. Below are some examples to help you get started:
 
 .. code-block:: bash
 
@@ -115,6 +117,9 @@ Once installed, **Fakernaija** can be invoked directly from your command line vi
 
     $ naija phonenumber --network glo --prefix 0805
     08053791792
+
+    $ naija school_name --school_type university --ownership private --state lagos
+    Pan-Atlantic University
 
 To generate multiple outputs, use the ``--repeat`` (or ``-r``) flag:
 
@@ -135,13 +140,13 @@ You can export the generated data to various formats using the ``--output`` (or 
 .. code-block:: bash
 
     $ naija full_name --repeat 1000 --tribe edo --gender female --middle_name --output csv
-    Generated full names saved to /home/projectdir/full_name.csv
+    Generated full names saved to /path/to/directory/full_name.csv
 
     $ naija email --repeat 1000 --domain gov.ng -o json
-    Generated emails saved to /home/projectdir/email.json
+    Generated emails saved to /path/to/directory/email.json
 
     $ naija phone_number --repeat 1000 --network mtn --prefix 0803 --output text
-    Generated phone numbers saved to /home/projectdir/phone_number.txt
+    Generated phone numbers saved to /path/to/directory/phone_number.txt
 
 Next Steps
 ----------
@@ -194,6 +199,6 @@ This section provides information about the project itself:
 Thank You
 ---------
 
-If you find this project useful or worthy of your attention, please `Star the repository <https://github.com/Pythonian/fakernaija>`_. Your contributions, feedback, and suggestions are always welcome!
+If you find this library useful or worthy of your attention, please give it a `Star <https://github.com/Pythonian/fakernaija>`_ on GitHub. Your contributions, feedback, and suggestions are always welcome!
 
 Happy coding!
