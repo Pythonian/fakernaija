@@ -2,7 +2,7 @@
 
 import random
 
-from fakernaija.providers.faculty import FacultyProvider
+from fakernaija.providers import FacultyProvider
 from fakernaija.utils import get_unique_value
 
 
@@ -96,7 +96,7 @@ class Faculty:
                 Public Health
                 Furniture Design
 
-                >>> department_name = naija.department_name(faculty='Social Sciences')
+                >>> department_name = naija.department_name(faculty="Social Sciences")
                 >>> print(f"Random department in a specific Faculty: {department_name}")
                 Random department in a specific Faculty: Psychology
         """

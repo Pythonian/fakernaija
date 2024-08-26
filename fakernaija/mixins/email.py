@@ -1,6 +1,6 @@
 """Email mixin to group related methods for the EmailProvider."""
 
-from fakernaija.providers.email import EmailProvider
+from fakernaija.providers import EmailProvider
 
 
 class Email:
@@ -37,8 +37,8 @@ class Email:
                         is found for the given tribe or gender.
 
         Note:
-            - Supported genders: male, female
-            - Supported tribes: yoruba, igbo, hausa, edo, fulani, ijaw
+            - Gender options: male, female
+            - Tribe options: yoruba, igbo, hausa, edo, fulani, ijaw
 
         Example:
             .. code-block:: python

@@ -27,16 +27,6 @@ class TestStateProvider(unittest.TestCase):
         state_names = self.state_provider.get_state_names()
         self.assertIn("Lagos", state_names)
 
-    def test_get_slogans(self) -> None:
-        """Test getting all state slogans."""
-        slogans = self.state_provider.get_slogans()
-        self.assertIn("Centre of Excellence", slogans)
-
-    def test_get_shortcodes(self) -> None:
-        """Test getting all state shortcodes."""
-        shortcodes = self.state_provider.get_shortcodes()
-        self.assertIn("LA", shortcodes)
-
     def test_get_capitals(self) -> None:
         """Test getting all state capitals."""
         capitals = self.state_provider.get_capitals()

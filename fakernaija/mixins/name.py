@@ -28,12 +28,12 @@ class Name:
         Returns:
             str: A randomly generated first name.
 
+        Raises:
+            ValueError: If the specified tribe or gender is not supported.
+
         Note:
             - Tribe options: yoruba, igbo, hausa, edo, fulani, ijaw
             - Gender options: male, female
-
-        Raises:
-            ValueError: If the specified tribe or gender is not supported.
 
         Examples:
             .. code-block:: python
@@ -79,11 +79,11 @@ class Name:
         Returns:
             str: A randomly generated last name.
 
-        Note:
-            - Tribe options: yoruba, igbo, hausa, edo, fulani, ijaw
-
         Raises:
             ValueError: If the specified tribe is not supported.
+
+        Note:
+            - Tribe options: yoruba, igbo, hausa, edo, fulani, ijaw
 
         Examples:
             .. code-block:: python
@@ -127,12 +127,12 @@ class Name:
         Returns:
             str: A randomly generated full name.
 
+        Raises:
+            ValueError: If the specified tribe or gender is not supported.
+
         Note:
             - Tribe options: yoruba, igbo, hausa, edo, fulani, ijaw
             - Gender options: male, female
-
-        Raises:
-            ValueError: If the specified tribe or gender is not supported.
 
         Examples:
             .. code-block:: python

@@ -28,11 +28,11 @@ class State:
             dict[str, str]: Random state information, optionally filtered
                 by region.
 
-        Note:
-            - Region options: NW, NE, NC, SW, SE, SS
-
         Raises:
             ValueError: If the specified region does not exist.
+
+        Note:
+            - Region options: NW, NE, NC, SW, SE, SS
 
         Examples:
             .. code-block:: python
@@ -65,11 +65,11 @@ class State:
         Returns:
             str: Random state name, optionally filtered by region.
 
-        Note:
-            - Region options: NW, NE, NC, SW, SE, SS
-
         Raises:
             ValueError: If the specified region does not exist.
+
+        Note:
+            - Region options: NW, NE, NC, SW, SE, SS
 
         Examples:
             .. code-block:: python
@@ -112,11 +112,11 @@ class State:
         Returns:
             str: Random state capital, optionally filtered by region.
 
-        Note:
-            - Region options: NW, NE, NC, SW, SE, SS
-
         Raises:
             ValueError: If the specified region does not exist.
+
+        Note:
+            - Region options: NW, NE, NC, SW, SE, SS
 
         Examples:
             .. code-block:: python
@@ -162,11 +162,11 @@ class State:
             str: Random LGA in the specified state or any state if
                 none is specified.
 
-        Note:
-            - State options: 36 States in Nigeria
-
         Raises:
             ValueError: If the specified state does not exist.
+
+        Note:
+            - State options: 36 States in Nigeria + FCT.
 
         Examples:
             .. code-block:: python
@@ -185,18 +185,12 @@ class State:
                 Ogba-Egbema-Ndoni
                 Ikot-Abasi
 
-                >>> state_lga = naija.state_lga("lagos")
+                >>> state_lga = naija.state_lga(state="lagos")
                 >>> print(f"Random State LGA in a specified state: {state_lga}")
                 Random State LGA: Alimosho
         """
         if state:
-            state_lgas = self.state_provider.get_state_lgas(state.lower())
-            if not state_lgas:
-                available_states = ", ".join(
-                    self.state_provider.get_state_names(),
-                )
-                msg = f"The state '{state}' does not exist in Nigeria. Available states are: {available_states}."
-                raise ValueError(msg)
+            state_lgas = self.state_provider.get_state_lgas(state)
         else:
             state_lgas = self.state_provider.get_lgas()
         state_lga = get_unique_value(state_lgas, self._used_state_lgas)
@@ -213,11 +207,11 @@ class State:
             str: Postal code of the specified state or any state if
                 none is specified.
 
-        Note:
-            - State options: 36 states in Nigeria.
-
         Raises:
             ValueError: If the specified state does not exist.
+
+        Note:
+            - State options: 36 states in Nigeria + FCT.
 
         Example:
             .. code-block:: python
@@ -236,19 +230,10 @@ class State:
                 400001
                 320001
 
-                >>> postal_code = naija.state_postal_code('lagos')
+                >>> postal_code = naija.state_postal_code(state="lagos")
                 >>> print(f"Postal code of a state: {postal_code}")
                 Postal code of a state: 100001
         """
         if state:
-            state_postal_code = self.state_provider.get_postal_code_by_state(
-                state.lower(),
-            )
-            if not state_postal_code:
-                available_states = ", ".join(
-                    self.state_provider.get_state_names(),
-                )
-                msg = f"The state '{state}' does not exist in Nigeria. Available states are: {available_states}."
-                raise ValueError(msg)
-            return state_postal_code
+            return self.state_provider.get_postal_code_by_state(state)
         return random.choice(self.state_provider.get_postal_codes())
