@@ -45,5 +45,6 @@ You can explore the list of available Faker methods below to see various data ge
    faker/marital_status
    faker/name
    faker/phonenumber
+   faker/religion
    faker/school
    faker/state

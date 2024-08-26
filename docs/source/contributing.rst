@@ -24,7 +24,7 @@ To contribute to Fakernaija, you'll need to follow the steps below. A `Makefile 
 
    .. code-block:: console
 
-      $ git clone https://github.com/your-username/fakernaija.git
+      git clone https://github.com/your-username/fakernaija.git
 
    Replace ``your-username`` with your GitHub username.
 
@@ -32,7 +32,7 @@ To contribute to Fakernaija, you'll need to follow the steps below. A `Makefile 
 
    .. code-block:: console
 
-      >>> cd fakernaija
+      cd fakernaija
 
 4. Set up the upstream remote to keep your fork in sync with the original repository.
 

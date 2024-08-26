@@ -11,6 +11,7 @@ from .faculty import (
 from .marital_status import marital_status
 from .name import first_name, full_name, last_name, prefix
 from .phonenumber import phone_number
+from .religion import religion
 from .school import school, school_name
 from .state import (
     state,
@@ -44,6 +45,8 @@ __all__ = [
     "prefix",
     # PhoneNumber command
     "phone_number",
+    # Religion command
+    "religion",
     # School commands
     "school",
     "school_name",

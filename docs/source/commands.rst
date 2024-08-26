@@ -56,5 +56,6 @@ Each category command is documented with practical examples. You can find a guid
    commands/marital_status
    commands/name
    commands/phonenumber
+   commands/religion
    commands/school
    commands/state

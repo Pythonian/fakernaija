@@ -5,6 +5,7 @@ from .faculty import FacultyProvider
 from .marital_status import MaritalStatusProvider
 from .name import NameProvider
 from .phonenumber import PhoneNumberProvider
+from .religion import ReligionProvider
 from .school import SchoolProvider
 from .state import StateProvider
 
@@ -16,6 +17,7 @@ __all__ = [
     "MaritalStatusProvider",
     "NameProvider",
     "PhoneNumberProvider",
+    "ReligionProvider",
     "SchoolProvider",
     "StateProvider",
 ]

@@ -8,6 +8,7 @@ from fakernaija.mixins import (
     MaritalStatus,
     Name,
     PhoneNumber,
+    Religion,
     School,
     State,
 )
@@ -21,6 +22,7 @@ class Faker(
     MaritalStatus,
     Name,
     PhoneNumber,
+    Religion,
     School,
     State,
 ):
@@ -39,5 +41,6 @@ class Faker(
         MaritalStatus.__init__(self)
         Name.__init__(self)
         PhoneNumber.__init__(self)
+        Religion.__init__(self)
         School.__init__(self)
         State.__init__(self)
