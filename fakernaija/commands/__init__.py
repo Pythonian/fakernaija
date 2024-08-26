@@ -8,6 +8,7 @@ from .faculty import (
     faculty,
     faculty_name,
 )
+from .marital_status import marital_status
 from .name import first_name, full_name, last_name, prefix
 from .phonenumber import phone_number
 from .school import school, school_name
@@ -34,6 +35,8 @@ __all__ = [
     "faculty",
     "faculty_name",
     "department_name",
+    # Marital status command
+    "marital_status",
     # Name commands
     "first_name",
     "full_name",

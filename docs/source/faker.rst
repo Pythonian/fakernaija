@@ -42,6 +42,7 @@ You can explore the list of available Faker methods below to see various data ge
    faker/degree
    faker/email
    faker/faculty
+   faker/marital_status
    faker/name
    faker/phonenumber
    faker/school
