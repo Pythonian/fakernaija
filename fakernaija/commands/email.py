@@ -3,6 +3,7 @@
 import click
 
 from fakernaija import Faker
+from fakernaija.utils import generate_command_data, handle_command_output
 
 naija = Faker()
 
@@ -44,12 +45,20 @@ naija = Faker()
     default=None,
     help="Generate an email address from a given name.",
 )
-def email(
+@click.option(
+    "--output",
+    "-o",
+    default=None,
+    help="The format of the output file.",
+    type=click.Choice(["json", "csv", "text"], case_sensitive=False),
+)
+def email(  # noqa: PLR0913
     repeat: int,
     tribe: str,
     gender: str,
     domain: str,
     name: str,
+    output: str,
 ) -> None:
     """Generate and return random email addresses.
 
@@ -61,10 +70,12 @@ def email(
             for the email address.
         domain (str): A custom domain to use for the email address.
         name (str): A specific name to use for generating the email address.
+        output (str): The format of the output file if provided.
 
     Note:
         - Gender options: male, female
         - Tribe options: yoruba, igbo, hausa, edo, fulani, ijaw
+        - Output options: csv, json, text
 
     Examples:
         To generate a single random email address:
@@ -119,22 +130,21 @@ def email(
             ogunlana.kola@gov.ng
             olamideogunbiyi@gov.ng
             kunleadewale@gov.ng
-    """
-    if repeat < 1:
-        click.echo(
-            "Error: Repeat count must be a positive integer.",
-            err=True,
-        )
-        return
 
-    for _ in range(repeat):
-        email = naija.email(
-            tribe=tribe,
-            gender=gender,
-            domain=domain,
-            name=name,
-        )
-        if email:
-            click.echo(email)
-        else:
-            click.echo("Error: Failed to generate email address.", err=True)
+        To generate 30 random emails and save them to a specified format:
+
+        .. code-block:: bash
+
+            $ naija email --repeat 30 --output json
+            Generated data saved to /path/to/directory/filename.ext
+    """
+    data = generate_command_data(
+        repeat,
+        naija.email,
+        tribe=tribe,
+        gender=gender,
+        domain=domain,
+        name=name,
+    )
+    if data:
+        handle_command_output(data, output, "emails", "email addresses")

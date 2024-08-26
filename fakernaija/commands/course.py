@@ -3,6 +3,7 @@
 import click
 
 from fakernaija import Faker
+from fakernaija.utils import generate_command_data, handle_command_output
 
 naija = Faker()
 
@@ -15,12 +16,20 @@ naija = Faker()
     help="Number of random course objects to return. Defaults to 1.",
     type=int,
 )
-def course(repeat: int) -> None:
+@click.option(
+    "--output",
+    "-o",
+    default=None,
+    help="The format of the output file.",
+    type=click.Choice(["json", "csv", "text"], case_sensitive=False),
+)
+def course(repeat: int, output: str) -> None:
     """Returns random course objects.
 
     Args:
         repeat (int): The number of random course objects to return.
             Must be a positive integer. Defaults to 1.
+        output (str): The format of the output file if provided.
 
     Examples:
         To return a single random course object:
@@ -36,22 +45,19 @@ def course(repeat: int) -> None:
 
             $ naija course --repeat 3
             {'name': 'Advanced Quantum Mechanics', 'code': 'PHY463'}
-
             {'name': 'Numerical Analysis II', 'code': 'MTH444'}
-
             {'name': 'Time Series Analysis I', 'code': 'STA415'}
-    """
-    if repeat < 1:
-        click.echo("Error: Repeat count must be a positive integer.", err=True)
-        return
 
-    for _ in range(repeat):
-        course = naija.course()
-        if course:
-            click.echo(course)
-            click.echo()
-        else:
-            click.echo("Error: Failed to return course object.", err=True)
+        To return 30 random course objects and save them to a specified format:
+
+        .. code-block:: console
+
+            $ naija course --repeat 30 --output csv
+            Generated data saved to /path/to/directory/filename.ext
+    """
+    data = generate_command_data(repeat, naija.course)
+    if data:
+        handle_command_output(data, output, "courses", "courses")
 
 
 @click.command()
@@ -62,12 +68,23 @@ def course(repeat: int) -> None:
     help="Number of random course names to return. Defaults to 1.",
     type=int,
 )
-def course_name(repeat: int) -> None:
+@click.option(
+    "--output",
+    "-o",
+    default=None,
+    help="The format of the output file.",
+    type=click.Choice(["json", "csv", "text"], case_sensitive=False),
+)
+def course_name(repeat: int, output: str) -> None:
     """Returns random course names.
 
     Args:
         repeat (int): The number of random course names to return.
             Must be a positive integer. Defaults to 1.
+        output (str): The format of the output file if provided.
+
+    Note:
+        - Output options: csv, json, text
 
     Examples:
         To return a single random course name:
@@ -85,17 +102,17 @@ def course_name(repeat: int) -> None:
             Multivariate Analysis
             Optimization to Operation Research
             Multivariate Analysis II
-    """
-    if repeat < 1:
-        click.echo("Error: Repeat count must be a positive integer.", err=True)
-        return
 
-    for _ in range(repeat):
-        course_name = naija.course_name()
-        if course_name:
-            click.echo(course_name)
-        else:
-            click.echo("Error: Failed to return course name.", err=True)
+        To return 30 random course names and save them to a specified format:
+
+        .. code-block:: console
+
+            $ naija course_name --repeat 30 --output json
+            Generated data saved to /path/to/directory/filename.ext
+    """
+    data = generate_command_data(repeat, naija.course_name)
+    if data:
+        handle_command_output(data, output, "course_names", "course names")
 
 
 @click.command()
@@ -106,12 +123,23 @@ def course_name(repeat: int) -> None:
     help="Number of random course codes to return. Defaults to 1.",
     type=int,
 )
-def course_code(repeat: int) -> None:
+@click.option(
+    "--output",
+    "-o",
+    default=None,
+    help="The format of the output file.",
+    type=click.Choice(["json", "csv", "text"], case_sensitive=False),
+)
+def course_code(repeat: int, output: str) -> None:
     """Returns random course codes.
 
     Args:
         repeat (int): The number of random course codes to return.
             Must be a positive integer. Defaults to 1.
+        output (str): The format of the output file if provided.
+
+    Note:
+        - Output options: csv, json, text
 
     Examples:
         To return a single random course code:
@@ -129,14 +157,14 @@ def course_code(repeat: int) -> None:
             PHY434
             CHM484
             CHM324
-    """
-    if repeat < 1:
-        click.echo("Error: Repeat count must be a positive integer.", err=True)
-        return
 
-    for _ in range(repeat):
-        course_code = naija.course_code()
-        if course_code:
-            click.echo(course_code)
-        else:
-            click.echo("Error: Failed to return course code.", err=True)
+        To return 30 random course codes and save them to a specified format:
+
+        .. code-block:: console
+
+            $ naija course_code --repeat 30 --output text
+            Generated data saved to /path/to/directory/filename.ext
+    """
+    data = generate_command_data(repeat, naija.course_code)
+    if data:
+        handle_command_output(data, output, "course_codes", "course codes")

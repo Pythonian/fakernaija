@@ -3,6 +3,7 @@
 import click
 
 from fakernaija import Faker
+from fakernaija.utils import generate_command_data, handle_command_output
 
 naija = Faker()
 
@@ -25,7 +26,14 @@ naija = Faker()
         case_sensitive=False,
     ),
 )
-def degree(repeat: int, degree_type: str | None) -> None:
+@click.option(
+    "--output",
+    "-o",
+    default=None,
+    help="The format of the output file.",
+    type=click.Choice(["json", "csv", "text"], case_sensitive=False),
+)
+def degree(repeat: int, degree_type: str | None, output: str) -> None:
     """Returns random degree objects.
 
     Args:
@@ -33,6 +41,11 @@ def degree(repeat: int, degree_type: str | None) -> None:
             Must be a positive integer. Defaults to 1.
         degree_type (str | None): The type of degree to generate.
             Defaults to any type.
+        output (str): The format of the output file if provided.
+
+    Note:
+        - Degree type options: undergraduate, masters, doctorate
+        - Output options: csv, json, text
 
     Examples:
         To return a single random degree object:
@@ -55,25 +68,19 @@ def degree(repeat: int, degree_type: str | None) -> None:
 
             $ naija degree --repeat 3
             {'name': 'Doctor of Education', 'degree_type': 'doctorate', 'abbr': 'Ed.D.'}
-
             {'name': 'Bachelor of Nursing Science', 'degree_type': 'undergraduate', 'abbr': 'B.N.Sc.'}
-
             {'name': 'Master of Education', 'degree_type': 'masters', 'abbr': 'M.Ed.'}
-    """
-    if repeat < 1:
-        click.echo(
-            "Error: Repeat count must be a positive integer.",
-            err=True,
-        )
-        return
 
-    for _ in range(repeat):
-        degree = naija.degree(degree_type=degree_type)
-        if degree:
-            click.echo(degree)
-            click.echo()
-        else:
-            click.echo("Error: Failed to return degree object.", err=True)
+        To return 30 random degree objects and save them to a specified format:
+
+        .. code-block:: bash
+
+            $ naija degree --repeat 30 --degree-type undergraduate --output json
+            Generated data saved to /path/to/directory/filename.ext
+    """
+    data = generate_command_data(repeat, naija.degree, degree_type=degree_type)
+    if data:
+        handle_command_output(data, output, "degrees", "degrees")
 
 
 @click.command()
@@ -94,7 +101,14 @@ def degree(repeat: int, degree_type: str | None) -> None:
         case_sensitive=False,
     ),
 )
-def degree_name(repeat: int, degree_type: str | None) -> None:
+@click.option(
+    "--output",
+    "-o",
+    default=None,
+    help="The format of the output file.",
+    type=click.Choice(["json", "csv", "text"], case_sensitive=False),
+)
+def degree_name(repeat: int, degree_type: str | None, output: str) -> None:
     """Returns random degree names.
 
     Args:
@@ -102,6 +116,11 @@ def degree_name(repeat: int, degree_type: str | None) -> None:
             Must be a positive integer. Defaults to 1.
         degree_type (str | None): The type of degree to generate.
             Defaults to any type.
+        output (str): The format of the output file if provided.
+
+    Note:
+        - Degree type options: undergraduate, masters, doctorate
+        - Output options: csv, json, text
 
     Examples:
         To return a single random degree name:
@@ -126,20 +145,17 @@ def degree_name(repeat: int, degree_type: str | None) -> None:
 
             $ naija degree_name --degree-type undergraduate
             Bachelor of Medicine, Bachelor of Surgery
-    """
-    if repeat < 1:
-        click.echo(
-            "Error: Repeat count must be a positive integer.",
-            err=True,
-        )
-        return
 
-    for _ in range(repeat):
-        degree_name = naija.degree_name(degree_type=degree_type)
-        if degree_name:
-            click.echo(degree_name)
-        else:
-            click.echo("Error: Failed to return degree name.", err=True)
+        To return 30 random degree names and save them to a specified format:
+
+        .. code-block:: bash
+
+            $ naija degree_name --repeat 30 --degree-type undergraduate --output csv
+            Generated data saved to /path/to/directory/filename.ext
+    """
+    data = generate_command_data(repeat, naija.degree_name, degree_type=degree_type)
+    if data:
+        handle_command_output(data, output, "degree_names", "degree names")
 
 
 @click.command()
@@ -160,7 +176,14 @@ def degree_name(repeat: int, degree_type: str | None) -> None:
         case_sensitive=False,
     ),
 )
-def degree_abbr(repeat: int, degree_type: str | None) -> None:
+@click.option(
+    "--output",
+    "-o",
+    default=None,
+    help="The format of the output file.",
+    type=click.Choice(["json", "csv", "text"], case_sensitive=False),
+)
+def degree_abbr(repeat: int, degree_type: str | None, output: str) -> None:
     """Returns random degree abbreviations.
 
     Args:
@@ -168,6 +191,11 @@ def degree_abbr(repeat: int, degree_type: str | None) -> None:
             Must be a positive integer. Defaults to 1.
         degree_type (str | None): The type of degree to generate.
             Defaults to any type.
+        output (str): The format of the output file if provided.
+
+    Note:
+        - Degree type options: undergraduate, masters, doctorate
+        - Output options: csv, json, text
 
     Examples:
         To return a single random degree abbreviation:
@@ -192,20 +220,14 @@ def degree_abbr(repeat: int, degree_type: str | None) -> None:
 
             $ naija degree_abbr --degree-type masters
             M.Eng.
-    """
-    if repeat < 1:
-        click.echo(
-            "Error: Repeat count must be a positive integer.",
-            err=True,
-        )
-        return
 
-    for _ in range(repeat):
-        degree_abbr = naija.degree_abbr(degree_type=degree_type)
-        if degree_abbr:
-            click.echo(degree_abbr)
-        else:
-            click.echo(
-                "Error: Failed to return degree abbreviation.",
-                err=True,
-            )
+        To return 30 random degree abbrs and save them to a specified format:
+
+        .. code-block:: bash
+
+            $ naija degree_abbr --repeat 30 --degree-type undergraduate --output text
+            Generated data saved to /path/to/directory/filename.ext
+    """
+    data = generate_command_data(repeat, naija.degree_abbr, degree_type=degree_type)
+    if data:
+        handle_command_output(data, output, "degree_abbrs", "degree abbreviations")

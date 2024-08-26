@@ -3,6 +3,7 @@
 import click
 
 from fakernaija import Faker
+from fakernaija.utils import generate_command_data, handle_command_output
 
 naija = Faker()
 
@@ -31,7 +32,14 @@ naija = Faker()
     default=None,
     help="Specific prefix to generate the phone numbers from.",
 )
-def phone_number(repeat: int, network: str, prefix: str) -> None:
+@click.option(
+    "--output",
+    "-o",
+    default=None,
+    help="The format of the output file.",
+    type=click.Choice(["json", "csv", "text"], case_sensitive=False),
+)
+def phone_number(repeat: int, network: str, prefix: str, output: str) -> None:
     """Generate and return random phone numbers.
 
     Args:
@@ -39,17 +47,19 @@ def phone_number(repeat: int, network: str, prefix: str) -> None:
             Must be a positive integer. Defaults to 1.
         network (str): The network type to generate the phone number from.
         prefix (str): A specific prefix to generate the phone number from.
-
-    Note:
-        Available networks and prefixes:
-            - mtn: 0703, 0706, 0803, 0806, 0813, 0816, 0810, 0814, 0903, 0906, 0913, 0916
-            - glo: 0705, 0805, 0807, 0811, 0815, 0905, 0915
-            - airtel: 0802, 0808, 0812, 0708, 0701, 0901, 0902, 0907
-            - etisalat: 0809, 0817, 0818, 0908, 0909
+        output (str): The format of the output file if provided.
 
     Raises:
         ValueError: If the given prefix is not valid or the network and prefix
             combination does not match.
+
+    Note:
+        - Output options: csv, json, text
+        - Available networks and prefixes:
+            - mtn: 0703, 0706, 0803, 0806, 0813, 0816, 0810, 0814, 0903, 0906, 0913, 0916
+            - glo: 0705, 0805, 0807, 0811, 0815, 0905, 0915
+            - airtel: 0802, 0808, 0812, 0708, 0701, 0901, 0902, 0907
+            - etisalat: 0809, 0817, 0818, 0908, 0909
 
     Examples:
         To generate a single random phone number:
@@ -90,17 +100,19 @@ def phone_number(repeat: int, network: str, prefix: str) -> None:
             08055333680
             08050142530
             08050269007
-    """
-    if repeat < 1:
-        click.echo("Error: Repeat count must be a positive integer.", err=True)
-        return
 
-    try:
-        for _ in range(repeat):
-            phone_number = naija.phone_number(network=network, prefix=prefix)
-            if phone_number:
-                click.echo(phone_number)
-            else:
-                click.echo("Error: Failed to generate phone number.", err=True)
-    except ValueError as e:
-        click.echo(f"Error: {e}", err=True)
+        To return 30 random phonenumbers and save them to a specified format:
+
+        .. code-block:: bash
+
+            $ naija phone_number --repeat 30 --output text
+            Generated data saved to /path/to/directory/filename.ext
+    """
+    data = generate_command_data(
+        repeat,
+        naija.phone_number,
+        network=network,
+        prefix=prefix,
+    )
+    if data:
+        handle_command_output(data, output, "phone_number", "phone numbers")

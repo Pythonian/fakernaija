@@ -3,6 +3,7 @@
 import click
 
 from fakernaija import Faker
+from fakernaija.utils import generate_command_data, handle_command_output
 
 naija = Faker()
 
@@ -35,11 +36,19 @@ naija = Faker()
     help="The tribe choice for the full name.",
     type=click.Choice(["yoruba", "igbo", "hausa", "edo", "fulani", "ijaw"]),
 )
+@click.option(
+    "--output",
+    "-o",
+    default=None,
+    help="The format of the output file.",
+    type=click.Choice(["json", "csv", "text"], case_sensitive=False),
+)
 def full_name(
     repeat: int,
     gender: str,
     middlename: bool,
     tribe: str,
+    output: str,
 ) -> None:
     """Generate and return random full names.
 
@@ -49,10 +58,12 @@ def full_name(
         gender (str): The gender from which the full name should be generated.
         middlename (bool): If set, include a middle name to the full name.
         tribe (str): The tribe from which the full name should be generated.
+        output (str): The format of the output file if provided.
 
     Note:
         - Gender options: male, female
         - Tribe options: yoruba, igbo, hausa, edo, fulani, ijaw
+        - Output options: csv, json, text
 
     Examples:
         To generate a single random full name:
@@ -100,21 +111,23 @@ def full_name(
             Yetunde Bukola Ogunleye
             Jumoke Tola Olabisi
             Toyin Temitope Lemboye
-    """
-    if repeat < 1:
-        click.echo("Error: Repeat count must be a positive integer.", err=True)
-        return
 
-    for _ in range(repeat):
-        full_name = naija.full_name(
-            tribe=tribe,
-            gender=gender,
-            middle_name=middlename,
-        )
-        if full_name:
-            click.echo(full_name)
-        else:
-            click.echo("Error: Failed to generate full name.", err=True)
+        To generate 30 random full names and save them to a specified format:
+
+        .. code-block:: bash
+
+            $ naija full_name --repeat 30 --output csv
+            Generated data saved to /path/to/directory/filename.ext
+    """
+    data = generate_command_data(
+        repeat,
+        naija.full_name,
+        tribe=tribe,
+        gender=gender,
+        middle_name=middlename,
+    )
+    if data:
+        handle_command_output(data, output, "full_name", "full names")
 
 
 @click.command()
@@ -139,7 +152,19 @@ def full_name(
     help="The tribe choice for the first name.",
     type=click.Choice(["yoruba", "igbo", "hausa", "edo", "fulani", "ijaw"]),
 )
-def first_name(repeat: int, tribe: str, gender: str) -> None:
+@click.option(
+    "--output",
+    "-o",
+    default=None,
+    help="The format of the output file.",
+    type=click.Choice(["json", "csv", "text"], case_sensitive=False),
+)
+def first_name(
+    repeat: int,
+    tribe: str,
+    gender: str,
+    output: str,
+) -> None:
     """Generate and return random first names.
 
     Args:
@@ -147,10 +172,12 @@ def first_name(repeat: int, tribe: str, gender: str) -> None:
             Must be a positive integer. Defaults to 1.
         gender (str): The gender from which the first name should be generated.
         tribe (str): The tribe from which the first name should be generated.
+        output (str): The format of the output file if provided.
 
     Note:
         - Gender options: male, female
         - Tribe options: yoruba, igbo, hausa, edo, fulani, ijaw
+        - Output options: csv, json, text
 
     Examples:
         To generate a single random first name:
@@ -191,17 +218,22 @@ def first_name(repeat: int, tribe: str, gender: str) -> None:
             Amina
             Aisha
             Falmata
-    """
-    if repeat < 1:
-        click.echo("Error: Repeat count must be a positive integer.", err=True)
-        return
 
-    for _ in range(repeat):
-        first_name = naija.first_name(tribe=tribe, gender=gender)
-        if first_name:
-            click.echo(first_name)
-        else:
-            click.echo("Error: Failed to generate first name.", err=True)
+        To generate 30 random first names and save them to a specified format:
+
+        .. code-block:: bash
+
+            $ naija first_name --repeat 30 --output json
+            Generated data saved to /path/to/directory/filename.ext
+    """
+    data = generate_command_data(
+        repeat,
+        naija.first_name,
+        tribe=tribe,
+        gender=gender,
+    )
+    if data:
+        handle_command_output(data, output, "first_name", "first names")
 
 
 @click.command()
@@ -219,16 +251,25 @@ def first_name(repeat: int, tribe: str, gender: str) -> None:
     help="The tribe choice for the last name.",
     type=click.Choice(["yoruba", "igbo", "hausa", "edo", "fulani", "ijaw"]),
 )
-def last_name(repeat: int, tribe: str) -> None:
+@click.option(
+    "--output",
+    "-o",
+    default=None,
+    help="The format of the output file.",
+    type=click.Choice(["json", "csv", "text"], case_sensitive=False),
+)
+def last_name(repeat: int, tribe: str, output: str) -> None:
     """Generate and return random last names.
 
     Args:
         repeat (int): The number of random last names to return.
             Must be a positive integer. Defaults to 1.
         tribe (str): The tribe from which the last name should be generated.
+        output (str): The format of the output file if provided.
 
     Note:
         - Tribe options: yoruba, igbo, hausa, edo, fulani, ijaw
+        - Output options: csv, json, text
 
     Examples:
         To generate a single random last name:
@@ -262,17 +303,21 @@ def last_name(repeat: int, tribe: str) -> None:
             Ebiere
             Opobo
             Oweipade
-    """
-    if repeat < 1:
-        click.echo("Error: Repeat count must be a positive integer.", err=True)
-        return
 
-    for _ in range(repeat):
-        last_name = naija.last_name(tribe=tribe)
-        if last_name:
-            click.echo(last_name)
-        else:
-            click.echo("Error: Failed to generate last name.", err=True)
+        To generate 30 random last names and save them to a specified format:
+
+        .. code-block:: bash
+
+            $ naija last_name --repeat 30 --output json
+            Generated data saved to /path/to/directory/filename.ext
+    """
+    data = generate_command_data(
+        repeat,
+        naija.last_name,
+        tribe=tribe,
+    )
+    if data:
+        handle_command_output(data, output, "last_name", "last names")
 
 
 @click.command()
@@ -295,7 +340,14 @@ def last_name(repeat: int, tribe: str) -> None:
     type=click.Choice(["traditional", "professional"], case_sensitive=False),
     help="Specify the title for the prefix.",
 )
-def prefix(repeat: int, gender: str | None, title: str | None) -> None:
+@click.option(
+    "--output",
+    "-o",
+    default=None,
+    help="The format of the output file.",
+    type=click.Choice(["json", "csv", "text"], case_sensitive=False),
+)
+def prefix(repeat: int, gender: str, title: str, output: str) -> None:
     """Returns random name prefixes.
 
     Args:
@@ -303,10 +355,12 @@ def prefix(repeat: int, gender: str | None, title: str | None) -> None:
             Must be a positive integer. Defaults to 1.
         gender (str): The gender for the prefix.
         title (str): The title for the prefix.
+        output (str): The format of the output file if provided.
 
     Note:
         - Gender options: male, female
         - Title options: traditional, professional
+        - Output options: csv, json, text
 
     Examples:
         To return a single random prefix:
@@ -347,14 +401,19 @@ def prefix(repeat: int, gender: str | None, title: str | None) -> None:
             Lady (Mrs.)
             Lolo
             Princess
-    """
-    if repeat < 1:
-        click.echo("Error: Repeat count must be a positive integer.", err=True)
-        return
 
-    for _ in range(repeat):
-        prefix = naija.prefix(gender=gender, title=title)
-        if prefix:
-            click.echo(prefix)
-        else:
-            click.echo("Error: Failed to return prefix.", err=True)
+        To generate 30 random prefixes and save them to a specified format:
+
+        .. code-block:: bash
+
+            $ naija prefix --repeat 30 --output json
+            Generated data saved to /path/to/directory/filename.ext
+    """
+    data = generate_command_data(
+        repeat,
+        naija.prefix,
+        gender=gender,
+        title=title,
+    )
+    if data:
+        handle_command_output(data, output, "prefix", "prefixes")
