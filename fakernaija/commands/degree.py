@@ -37,21 +37,21 @@ def degree(repeat: int, degree_type: str | None) -> None:
     Examples:
         To return a single random degree object:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija degree
             {'name': 'Bachelor of Science', 'degree_type': 'undergraduate', 'abbr': 'B.Sc.'}
 
         To return a random degree object by degree type:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija degree --degree-type undergraduate
             {'name': 'Bachelor of Medicine, Bachelor of Surgery', 'degree_type': 'undergraduate', 'abbr': 'MBBS'}
 
         To return 3 random degree objects:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija degree --repeat 3
             {'name': 'Doctor of Education', 'degree_type': 'doctorate', 'abbr': 'Ed.D.'}
@@ -106,14 +106,14 @@ def degree_name(repeat: int, degree_type: str | None) -> None:
     Examples:
         To return a single random degree name:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija degree_name
             Bachelor of Law
 
         To return 3 random random degree names:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija degree_name --repeat 3
             Bachelor of Technology
@@ -122,7 +122,7 @@ def degree_name(repeat: int, degree_type: str | None) -> None:
 
         To return a random degree name by degree type:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija degree_name --degree-type undergraduate
             Bachelor of Medicine, Bachelor of Surgery
@@ -172,14 +172,14 @@ def degree_abbr(repeat: int, degree_type: str | None) -> None:
     Examples:
         To return a single random degree abbreviation:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija degree_abbr
             B.Pharm.
 
         To return 3 random random degree abbreviations:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija degree_abbr --repeat 3
             MBBS
@@ -188,7 +188,7 @@ def degree_abbr(repeat: int, degree_type: str | None) -> None:
 
         To return a random degree abbreviation by degree type:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija degree_abbr --degree-type masters
             M.Eng.

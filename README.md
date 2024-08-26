@@ -22,7 +22,7 @@ The documentation is available on [Read the Docs](https://fakernaija.readthedocs
 
 ## Features ✨
 
-- Generate culturally accurate Nigerian data — no more _Oyinbo_ names that don't gel!
+- Generate culturally accurate Nigerian data — no more _Oyinbo_ data that don't gel!
 - Quickly generate data from your favourite terminal with our CLI commands.
 - Export your generated data to various formats like JSON, CSV, and plain text.
 
@@ -30,7 +30,7 @@ The documentation is available on [Read the Docs](https://fakernaija.readthedocs
 
 **Fakernaija** requires **Python 3.10** or higher. Installation is easy-peasy with `pip`, ensuring you get the latest stable release of the library.
 
-```bash
+```console
 pip install -U fakernaija
 ```
 
@@ -45,20 +45,20 @@ pip install -U fakernaija
 A random Nigerian full name: Ihuoma Maduabuchi
 ```
 
-_For more available method calls, please refer to the [Faker API](https://fakernaija.readthedocs.io/en/latest/faker.html)._
+_For more available method calls, please refer to the [Naija API Reference](https://fakernaija.readthedocs.io/en/latest/faker.html)._
 
-## Command Line Interface (CLI) 💻
+## Command Line Usage 💻
 
 **Fakernaija**'s CLI allows you to generate data directly from your terminal. Launch your favourite terminal and try out the example below:
 
-```bash
+```console
 $ naija email --domain unn.edu.ng --gender female --repeat 3
 ololade.lawal@unn.edu.ng
 kudiratbello@unn.edu.ng
 mmasichukwunwodo2000@unn.edu.ng
 ```
 
-_For more detailed usage of the CLI, please refer to the [Commands API](https://fakernaija.readthedocs.io/en/latest/commands.html)._
+_For more detailed usage of the CLI, please refer to the [CLI API Reference](https://fakernaija.readthedocs.io/en/latest/commands.html)._
 
 ## What Next? ➡️
 

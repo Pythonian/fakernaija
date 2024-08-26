@@ -25,14 +25,14 @@ def faculty(repeat: int) -> None:
     Examples:
         To return a single random faculty:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija faculty
             {'faculty_name': 'Medicine and Dentistry', 'departments': ['Bachelor of Medicine and Bachelor of Surgery', 'Dentistry']}
 
         To return 3 random faculty objects:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija faculty --repeat 3
             {'faculty_name': 'Basic Medical Sciences', 'departments': ['Human Anatomy', 'Physiology']}
@@ -72,14 +72,14 @@ def faculty_name(repeat: int) -> None:
     Examples:
         To return a single faculty name:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija faculty_name
             Allied Health Sciences
 
         To return 3 random faculty names:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija faculty_name --repeat 3
             Law
@@ -127,14 +127,14 @@ def department_name(faculty: str, repeat: int) -> None:
     Examples:
         To return a single department name:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija department_name
             Computer Science
 
         To return 3 random department names:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija department_name --repeat 3
             Physiology
@@ -143,14 +143,14 @@ def department_name(faculty: str, repeat: int) -> None:
 
         To return a single department by faculty name:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija department_name --faculty 'Basic Medical Sciences'
             Human Anatomy
 
         To return 3 random departments by faculty name:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija department_name --faculty 'computing' --repeat 3
             Computer Science

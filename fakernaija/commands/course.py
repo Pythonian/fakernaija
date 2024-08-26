@@ -25,14 +25,14 @@ def course(repeat: int) -> None:
     Examples:
         To return a single random course object:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija course
             {'name': 'Advanced Physical Chemistry I', 'code': 'CHM411'}
 
         To return 3 random course objects:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija course --repeat 3
             {'name': 'Advanced Quantum Mechanics', 'code': 'PHY463'}
@@ -72,14 +72,14 @@ def course_name(repeat: int) -> None:
     Examples:
         To return a single random course name:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija course_name
             Methods of Theoretical Physics I
 
         To return 3 random course names:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija course_name --repeat 3
             Multivariate Analysis
@@ -116,14 +116,14 @@ def course_code(repeat: int) -> None:
     Examples:
         To return a single random course code:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija course_code
             CHM302
 
         To return 3 random course codes:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija course_code --repeat 3
             PHY434

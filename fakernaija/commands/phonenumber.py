@@ -54,14 +54,14 @@ def phone_number(repeat: int, network: str, prefix: str) -> None:
     Examples:
         To generate a single random phone number:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija phone_number
             07062299016
 
         To generate 3 random phone numbers:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija phone_number --repeat 3
             08027680763
@@ -70,21 +70,21 @@ def phone_number(repeat: int, network: str, prefix: str) -> None:
 
         To generate a random phone number from a specific network:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija phone_number --network mtn
             08061821006
 
         To generate a random phone number with a specific prefix:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija phone_number --prefix 0703
             07039490580
 
         To generate 3 random phone numbers for a specific network and prefix:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija phone_number -r 3 --network glo --prefix 0805
             08055333680

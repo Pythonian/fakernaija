@@ -11,7 +11,7 @@ Syntax
 
 To run any command, use the ``naija`` command followed by a category command and any optional arguments. The general structure of the command is as follows:
 
-.. code-block:: bash
+.. code-block:: console
 
    naija [OPTIONS] COMMAND [ARGS]...
 
@@ -24,7 +24,7 @@ To run any command, use the ``naija`` command followed by a category command and
 - ``--version``: Show the version of the ``naija`` library and exit.
 - ``--help``: Show a help message and exit.
 
-.. code-block:: bash
+.. code-block:: console
 
    $ naija
    Usage: naija [OPTIONS] COMMAND [ARGS]...

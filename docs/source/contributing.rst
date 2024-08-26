@@ -22,27 +22,27 @@ To contribute to Fakernaija, you'll need to follow the steps below. A `Makefile 
 
 2. Clone your fork to your local machine.
 
-   .. code-block:: bash
+   .. code-block:: console
 
-      git clone https://github.com/your-username/fakernaija.git
+      $ git clone https://github.com/your-username/fakernaija.git
 
    Replace ``your-username`` with your GitHub username.
 
 3. Move into the cloned project directory.
 
-   .. code-block:: bash
+   .. code-block:: console
 
-      cd fakernaija
+      >>> cd fakernaija
 
 4. Set up the upstream remote to keep your fork in sync with the original repository.
 
-   .. code-block:: bash
+   .. code-block:: console
 
       git remote add upstream https://github.com/Pythonian/fakernaija.git
 
 5. Create a virtual environment to isolate your project dependencies.
 
-   .. code-block:: bash
+   .. code-block:: console
 
       make venv
 
@@ -50,19 +50,19 @@ To contribute to Fakernaija, you'll need to follow the steps below. A `Makefile 
 
    Now **activate** the virtual environment with:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       source .venv/bin/activate
 
 5. Install the necessary dependencies for development.
 
-   .. code-block:: bash
+   .. code-block:: console
 
       make install
 
 6. Ensure your development environment has been properly setup with the command:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       make check
 
@@ -70,7 +70,7 @@ If everything goes green, then you have successfully setup your development envi
 
 If you wish to reset your development environment to a clean slate, then run:
 
-.. code-block:: bash
+.. code-block:: console
 
    make clean
 
@@ -84,7 +84,7 @@ For any change you wish to make, we encourage you to follow the guideline we hav
 
 2. **Create a New Branch**: Always create a new branch for your contributions.
 
-   .. code-block:: bash
+   .. code-block:: console
 
       git checkout -b feature-or-bugfix-name
 
@@ -92,7 +92,7 @@ For any change you wish to make, we encourage you to follow the guideline we hav
 
 3. **Testing Your Changes**: Before committing your code, ensure your changes do not break existing functionality.
 
-   .. code-block:: bash
+   .. code-block:: console
 
       make check
 
@@ -100,7 +100,7 @@ For any change you wish to make, we encourage you to follow the guideline we hav
 
 4. **Commit Your Changes**: Make sure your commit messages are clear and concise.
 
-   .. code-block:: bash
+   .. code-block:: console
 
       git add .
       git commit -m "feat: Brief description of your changes"
@@ -109,7 +109,7 @@ For any change you wish to make, we encourage you to follow the guideline we hav
 
 5. **Push Your Changes**: Push your branch to your forked repository.
 
-   .. code-block:: bash
+   .. code-block:: console
 
       git push origin feature-or-bugfix-name
 
@@ -132,7 +132,7 @@ If you make changes to the code that affect the documentation, or if you are imp
 
 1. **Build the Documentation**:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       make docs
 
@@ -144,7 +144,7 @@ If you make changes to the code that affect the documentation, or if you are imp
 
 4. **Commit and Push Documentation Changes:**
 
-   .. code-block:: bash
+   .. code-block:: console
 
       git add .
       git commit -m "docs: commit message for the doc update"
@@ -158,19 +158,19 @@ To keep your fork up to date with the original repository and handle any potenti
 
 1. **Check Out Your main Branch**: Start by making sure you are on your fork's ``main`` branch.
 
-   .. code-block:: bash
+   .. code-block:: console
 
       git checkout main
 
 2. **Fetch the Latest Changes from Upstream**: Fetch the latest changes from the original repository (upstream). This downloads the changes but does not apply them to your branch yet.
 
-   .. code-block:: bash
+   .. code-block:: console
 
       git fetch upstream
 
 3. **Merge the Upstream Changes into Your main Branch**: Merge the fetched changes from the upstream ``main`` branch into your local ``main`` branch.
 
-   .. code-block:: bash
+   .. code-block:: console
 
       git merge upstream/main
 
@@ -178,7 +178,7 @@ To keep your fork up to date with the original repository and handle any potenti
 
    a. **Identify Conflicted Files**: Git will list the files with conflicts after the merge attempt. You can also see the list by running:
 
-      .. code-block:: bash
+      .. code-block:: console
 
          git status
 
@@ -188,7 +188,7 @@ To keep your fork up to date with the original repository and handle any potenti
 
    d. **Mark Files as Resolved**: After resolving all conflicts in a file, mark it as resolved using:
 
-      .. code-block:: bash
+      .. code-block:: console
 
          git add <file>
 
@@ -196,7 +196,7 @@ To keep your fork up to date with the original repository and handle any potenti
 
    e. **Continue the Merge**: After resolving all conflicts and staging the resolved files, complete the merge by running:
 
-      .. code-block:: bash
+      .. code-block:: console
 
          git commit
 
@@ -204,7 +204,7 @@ To keep your fork up to date with the original repository and handle any potenti
 
 4. **Push the Updated `main` Branch to Your Fork**: Finally, push the updated ``main`` branch back to your GitHub fork.
 
-   .. code-block:: bash
+   .. code-block:: console
 
       git push origin main
 

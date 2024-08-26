@@ -69,14 +69,14 @@ def email(
     Examples:
         To generate a single random email address:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija email
             osayandeiyamu@gov.ng
 
         To generate 3 random email addresses:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija email --repeat 3
             gidado.bello@hotmail.com
@@ -85,35 +85,35 @@ def email(
 
         To generate a random email address from a specific tribe:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija email --tribe igbo
             chioma.onyekaozuru97@gmail.com
 
         To generate a random email address from a specific gender:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija email --gender female
             oluchi.obi@gov.ng
 
         To generate a random email address with a custom domain:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija email --domain unn.edu.ng
             hassan.sadio54@unn.edu.ng
 
         To generate an email address from a specific name:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija email --name "Ugochi Maduike"
             ugochi.maduike75@mail.com
 
         To generate 3 random emails for a specific tribe, gender and domain:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija email -r 3 --tribe yoruba --gender male --domain gov.ng
             ogunlana.kola@gov.ng

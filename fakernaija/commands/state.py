@@ -25,14 +25,14 @@ def state(repeat: int) -> None:
     Examples:
         To return a single random state object:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija state
             {'code': 'BY', 'name': 'Bayelsa', 'capital': 'Yenagoa', 'slogan': 'Glory of All Lands', 'region': 'South South', 'postal_code': '561001', 'lgas': ['Brass', 'Ekeremor', 'Kolokuma Opokuma', 'Nembe', 'Ogbia', 'Sagbama', 'Southern-Ijaw', 'Yenagoa']}
 
         To return 3 random state objects:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija state --repeat 3
             {'code': 'EB', 'name': 'Ebonyi', 'capital': 'Abakaliki', 'slogan': 'Salt of the Nation', 'region': 'South East', 'postal_code': '840001', 'lgas': ['Abakaliki', 'Afikpo-North', 'Afikpo South (Edda)', 'Ebonyi', 'Ezza-North', 'Ezza-South', 'Ikwo', 'Ishielu', 'Ivo', 'Izzi', 'Ohaukwu', 'Onicha']}
@@ -72,14 +72,14 @@ def state_name(repeat: int) -> None:
     Examples:
         To return a single random state name:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija state_name
             Lagos
 
         To return 3 random state names:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija state_name --repeat 3
             Gombe
@@ -116,14 +116,14 @@ def state_capital(repeat: int) -> None:
     Examples:
         To return a random state capital:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija state_capital
             Port Harcourt
 
         To return 3 random state capitals:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija state_capital --repeat 3
             Kano
@@ -168,14 +168,14 @@ def state_lga(repeat: int, state: str) -> None:
     Examples:
         To return a single random LGA:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija state_lga
             Saki-West
 
         To return 3 random LGAs:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija state_lga --repeat 3
             Riyom
@@ -184,7 +184,7 @@ def state_lga(repeat: int, state: str) -> None:
 
         To return a random LGA from a specific state:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija state_lga --state "cross river"
             Obudu
@@ -227,14 +227,14 @@ def state_postal_code(repeat: int, state: str) -> None:
     Examples:
         To return a single random state postal code:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija state_postal_code
             700001
 
         To return 3 random state postal codes:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija state_postal_code --repeat 3
             740001
@@ -243,7 +243,7 @@ def state_postal_code(repeat: int, state: str) -> None:
 
         To return the postal code of a specific state:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija state_postal_code --state "akwa ibom"
             520001

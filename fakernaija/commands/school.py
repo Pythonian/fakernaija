@@ -57,14 +57,14 @@ def school(ownership: str, state: str, school_type: str, repeat: int) -> None:
     Examples:
         To return a single random school object:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija school
             {'name': 'Fidei Polytechnic', 'acronym': 'FIDEIPOLY', 'state': 'Benue', 'type': 'Polytechnic', 'ownership': 'Private'}
 
         To return 3 random school objects:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija school --repeat 3
             {'name': 'Federal Polytechnic Bali', 'acronym': 'FEDPOLYBALI', 'state': 'Taraba', 'type': 'Polytechnic', 'ownership': 'Federal'}
@@ -75,28 +75,28 @@ def school(ownership: str, state: str, school_type: str, repeat: int) -> None:
 
         To return a random school object filtered by ownership:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija school --ownership private
             {'name': 'Ajayi Crowther University', 'acronym': 'ACU', 'state': 'Oyo', 'type': 'University', 'ownership': 'Private'}
 
         To return a random school object filtered by school type:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija school --school_type college
             {'name': 'Federal College of Education, Zaria', 'acronym': 'FCEZARIA', 'state': 'Kaduna', 'type': 'College', 'ownership': 'Federal'}
 
         To return a random school object from a specific state in Nigeria:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija school --state abuja
             {'name': 'University of Abuja', 'acronym': 'UNIABUJA', 'state': 'Abuja', 'type': 'University', 'ownership': 'Federal'}
 
         To return 3 random school object filtered by ownership, school type and state:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija school --ownership private --state ogun --school_type university -r 3
             {'name': 'Babcock University', 'acronym': 'BU', 'state': 'Ogun', 'type': 'University', 'ownership': 'Private'}
@@ -185,21 +185,21 @@ def school_name(
     Examples:
         To return a single random school name:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija school_name
             Federal College of Education, Abeokuta
 
         To return a school acronym instead of the full name:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija school_name --acronym
             UNN
 
         To return 3 random school names:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija school_name -r 3
             Federal College of Education (Technical), Gombe
@@ -208,28 +208,28 @@ def school_name(
 
         To return a random school name filtered by ownership:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija school_name --ownership private
             Bells University of Technology
 
         To return a random school name filtered by school type:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija school_name --school_type college
             Abia State College of Education (Technical), Arochukwu
 
         To return a random school name from a specific state in Nigeria:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija school_name --state "akwa ibom"
             University of Uyo
 
         To return 3 random private universities in Ogun:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija school_name --school_type university --ownership private --state ogun --repeat 3
             Babcock University

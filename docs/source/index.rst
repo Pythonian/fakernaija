@@ -16,10 +16,14 @@ The source code is available on `GitHub <https://github.com/Pythonian/fakernaija
     faker
     commands
 
+.. attention::
+
+    Fakernaija helps you generate random data for your development and testing needs. Therefore, any resemblance between the generated data and actual entities should be seen as purely coincidental.
+
 Features
 --------
 
-- Generate culturally accurate Nigerian data — no more `Oyinbo` names that don't gel!
+- Generate culturally accurate Nigerian data — no more `Oyinbo` data that don't gel!
 - Quickly generate data from your favourite terminal with our CLI commands.
 - Export your generated data to various formats like JSON, CSV, and plain text.
 
@@ -28,7 +32,7 @@ Installation
 
 **Fakernaija** requires **Python 3.10** or higher. Installation is easy-peasy with `pip` and this ensures you always get the latest stable release of the library.
 
-.. code-block:: bash
+.. code-block:: console
 
     pip install -U fakernaija
 
@@ -110,7 +114,7 @@ Command Line Usage
 
 Once installed, **Fakernaija** can be invoked directly from your command line via the ``naija`` command. The :doc:`commands` command allows you to generate data directly from your terminal. This is powered by the `Click <https://click.palletsprojects.com/>`_ library. Below are some examples to help you get started:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ naija email --domain unn.edu.ng --tribe igbo --gender female
     somtochi.mbakwe@unn.edu.ng
@@ -123,7 +127,7 @@ Once installed, **Fakernaija** can be invoked directly from your command line vi
 
 To generate multiple outputs, use the ``--repeat`` (or ``-r``) flag:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ naija email --domain unn.edu.ng --tribe igbo --gender female --repeat 3
     maduike.ugochi@unn.edu.ng
@@ -137,7 +141,7 @@ To generate multiple outputs, use the ``--repeat`` (or ``-r``) flag:
 
 You can export the generated data to various formats using the ``--output`` (or ``-o``) flag:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ naija full_name --repeat 1000 --tribe edo --gender female --middle_name --output csv
     Generated full names saved to /path/to/directory/full_name.csv

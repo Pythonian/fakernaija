@@ -57,14 +57,14 @@ def full_name(
     Examples:
         To generate a single random full name:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija full_name
             Chibunna Ulelu
 
         To generate 3 random full names:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija full_name --repeat 3
             Kelechi Onyekwere
@@ -73,28 +73,28 @@ def full_name(
 
         To generate a random full name with middle name:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija full_name --middlename
             Kosisochukwu Somtochukwu Mbakwe
 
         To generate a random full name from a specific tribe:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija full_name --tribe igbo
             Chisom Nnabude
 
         To generate a random full name from a specific gender:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija full_name --gender male
             Ebube Madu
 
         To generate 3 random full names with middle names from a specific tribe and gender
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija full_name --tribe yoruba -r 3 --gender female --middlename
             Yetunde Bukola Ogunleye
@@ -155,37 +155,37 @@ def first_name(repeat: int, tribe: str, gender: str) -> None:
     Examples:
         To generate a single random first name:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija first_name
             Mmasichukwu
 
         To generate 3 random first names:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija first_name --repeat 3
             Ebuka
             Ololade
-            Bashir
+            Muhammed
 
         To generate a random first name from a specific tribe:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija first_name --tribe edo
             Osamagbe
 
         To generate a random first name from a specific gender:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija first_name --gender male
             Seyi
 
         To generate 3 random first names from a specific tribe and gender
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija first_name --tribe hausa --repeat 3 --gender female
             Amina
@@ -233,14 +233,14 @@ def last_name(repeat: int, tribe: str) -> None:
     Examples:
         To generate a single random last name:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija last_name
             Nwodo
 
         To generate 3 random last names:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija last_name --repeat 3
             Eze
@@ -249,14 +249,14 @@ def last_name(repeat: int, tribe: str) -> None:
 
         To generate a random last name from a specific tribe:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija last_name --tribe edo
             Osagie
 
         To generate 3 random last names from a specific tribe
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija last_name --tribe ijaw -r 3
             Ebiere
@@ -311,14 +311,14 @@ def prefix(repeat: int, gender: str | None, title: str | None) -> None:
     Examples:
         To return a single random prefix:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija prefix
             Mr.
 
         To return 3 random prefixes:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija prefix --repeat 3
             Otunba
@@ -327,21 +327,21 @@ def prefix(repeat: int, gender: str | None, title: str | None) -> None:
 
         To return a random prefix from a specific gender:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija prefix --gender male
             Prince
 
         To return a random prefix from a specific title:
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija prefix --title professional
             Engr.
 
         To return 3 random prefixes from a specific title and gender
 
-        .. code-block:: bash
+        .. code-block:: console
 
             $ naija prefix -r 3 --title traditional --gender female
             Lady (Mrs.)

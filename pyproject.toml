@@ -7,7 +7,7 @@ name = "fakernaija"
 authors = [
     {name = "Seyi Pythonian", email = "seyipythonian@gmail.com"},
 ]
-description = "A Python package to generate random Nigerian-specific data for you."
+description = "A Python library to generate realistic Nigerian-specific data for you."
 readme = "README.md"
 requires-python = ">=3.10"
 keywords = ["faker", "data", "generator", "mock", "nigeria", "naija", "test"]
