@@ -37,8 +37,8 @@ class State:
         Examples:
             .. code-block:: python
 
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
+                >>> from fakernaija import Naija
+                >>> naija = Naija()
 
                 >>> state = naija.state()
                 >>> print(f"Random state: {state}")
@@ -47,6 +47,24 @@ class State:
                 >>> state = naija.state(region="SS")
                 >>> print(f"Random state by region: {state}")
                 Random state by region: {'code': 'BY', 'name': 'Bayelsa', 'capital': 'Yenagoa', 'slogan': 'Glory of All Lands', 'region': 'South South', 'postal_code': '561001', 'lgas': ['Brass', 'Ekeremor', 'Kolokuma Opokuma', 'Nembe', 'Ogbia', 'Sagbama', 'Southern-Ijaw', 'Yenagoa']}
+
+                >>> for _ in range(2):
+                ...     state = naija.state()
+                ...     print(f"State name: {state['name']}")
+                ...     print(f"State capital: {state['capital']}")
+                ...     print(f"State code: {state['code']}")
+                ...     print(f"State slogan: {state['slogan']}")
+                ...     print()
+                ...
+                State name: Borno
+                State capital: Maiduguri
+                State code: BO
+                State slogan: Home of Peace
+
+                State name: Oyo
+                State capital: Ibadan
+                State code: OY
+                State slogan: Pace Setter State
         """
         if region:
             self.state_provider.validate_region(region)
@@ -74,8 +92,8 @@ class State:
         Examples:
             .. code-block:: python
 
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
+                >>> from fakernaija import Naija
+                >>> naija = Naija()
 
                 >>> state_name = naija.state_name()
                 >>> print(f"Random state name: {state_name}")
@@ -121,8 +139,8 @@ class State:
         Examples:
             .. code-block:: python
 
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
+                >>> from fakernaija import Naija
+                >>> naija = Naija()
 
                 >>> capital = naija.state_capital()
                 >>> print(f"Random state capital: {capital}")
@@ -171,8 +189,8 @@ class State:
         Examples:
             .. code-block:: python
 
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
+                >>> from fakernaija import Naija
+                >>> naija = Naija()
 
                 >>> state_lga = naija.state_lga()
                 >>> print(f"Random State LGA: {state_lga}")
@@ -216,8 +234,8 @@ class State:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
+                >>> from fakernaija import Naija
+                >>> naija = Naija()
 
                 >>> postal_code = naija.state_postal_code()
                 >>> print(f"Random postal code: {postal_code}")

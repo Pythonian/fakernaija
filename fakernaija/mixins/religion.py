@@ -21,8 +21,8 @@ class Religion:
         Examples:
             .. code-block:: python
 
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
+                >>> from fakernaija import Naija
+                >>> naija = Naija()
 
                 >>> religion = naija.religion()
                 >>> print(f"Random religion: {religion}")

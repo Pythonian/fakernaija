@@ -2,10 +2,10 @@
 
 import click
 
-from fakernaija import Faker
+from fakernaija import Naija
 from fakernaija.utils import generate_command_data, handle_command_output
 
-naija = Faker()
+naija = Naija()
 
 
 @click.command()

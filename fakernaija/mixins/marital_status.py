@@ -21,8 +21,8 @@ class MaritalStatus:
         Examples:
             .. code-block:: python
 
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
+                >>> from fakernaija import Naija
+                >>> naija = Naija()
 
                 >>> marital_status = naija.marital_status()
                 >>> print(f"Random marital status: {marital_status}")

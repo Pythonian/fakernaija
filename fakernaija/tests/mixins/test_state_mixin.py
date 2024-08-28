@@ -3,15 +3,15 @@
 import unittest
 from unittest.mock import MagicMock, patch
 
-from fakernaija import Faker
+from fakernaija import Naija
 
 
 class TestFakerStateProvider(unittest.TestCase):
-    """Unit tests for the Faker method from the StateProvider."""
+    """Unit tests for the Naija method from the StateProvider."""
 
     def setUp(self) -> None:
         """Set up the test case environment."""
-        self.faker = Faker()
+        self.naija = Naija()
 
     @patch("fakernaija.providers.StateProvider.get_states")
     @patch("random.choice")
@@ -27,7 +27,7 @@ class TestFakerStateProvider(unittest.TestCase):
         ]
         mock_choice.return_value = {"name": "Lagos", "code": "LA"}
 
-        result = self.faker.state()
+        result = self.naija.state()
         self.assertEqual(result["name"], "Lagos")
 
     @patch("fakernaija.providers.StateProvider.get_capitals")
@@ -41,7 +41,7 @@ class TestFakerStateProvider(unittest.TestCase):
         mock_get_capitals.return_value = ["Ikeja", "Abeokuta"]
         mock_choice.return_value = "Ikeja"
 
-        result = self.faker.state_capital()
+        result = self.naija.state_capital()
         self.assertEqual(result, "Ikeja")
 
     @patch("fakernaija.providers.StateProvider.get_state_lgas")
@@ -55,7 +55,7 @@ class TestFakerStateProvider(unittest.TestCase):
         mock_get_state_lgas.return_value = ["Ikeja", "Epe"]
         mock_choice.return_value = "Ikeja"
 
-        result = self.faker.state_lga(state="Lagos")
+        result = self.naija.state_lga(state="Lagos")
         self.assertEqual(result, "Ikeja")
 
     @patch("fakernaija.providers.StateProvider.get_lgas")
@@ -69,7 +69,7 @@ class TestFakerStateProvider(unittest.TestCase):
         mock_get_lgas.return_value = ["Ikeja", "Epe", "Abeokuta"]
         mock_choice.return_value = "Ikeja"
 
-        result = self.faker.state_lga()
+        result = self.naija.state_lga()
         self.assertEqual(result, "Ikeja")
 
     @patch("fakernaija.providers.StateProvider.get_postal_code_by_state")
@@ -80,7 +80,7 @@ class TestFakerStateProvider(unittest.TestCase):
         """Test postal code method with state parameter."""
         mock_get_postal_code_by_state.return_value = "100001"
 
-        result = self.faker.state_postal_code(state="Lagos")
+        result = self.naija.state_postal_code(state="Lagos")
         self.assertEqual(result, "100001")
 
     @patch("fakernaija.providers.StateProvider.get_postal_codes")
@@ -94,5 +94,5 @@ class TestFakerStateProvider(unittest.TestCase):
         mock_get_postal_codes.return_value = ["100001", "110001"]
         mock_choice.return_value = "100001"
 
-        result = self.faker.state_postal_code()
+        result = self.naija.state_postal_code()
         self.assertEqual(result, "100001")

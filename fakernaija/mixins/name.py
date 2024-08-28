@@ -38,8 +38,8 @@ class Name:
         Examples:
             .. code-block:: python
 
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
+                >>> from fakernaija import Naija
+                >>> naija = Naija()
 
                 >>> first_name = naija.first_name()
                 >>> print(f"Random first name: {first_name}")
@@ -88,8 +88,8 @@ class Name:
         Examples:
             .. code-block:: python
 
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
+                >>> from fakernaija import Naija
+                >>> naija = Naija()
 
                 >>> last_name = naija.last_name()
                 >>> print(f"Random last name: {last_name}")
@@ -137,8 +137,8 @@ class Name:
         Examples:
             .. code-block:: python
 
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
+                >>> from fakernaija import Naija
+                >>> naija = Naija()
 
                 >>> full_name = naija.full_name()
                 >>> print(f"Random full name: {full_name}")
@@ -207,8 +207,8 @@ class Name:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
+                >>> from fakernaija import Naija
+                >>> naija = Naija()
 
                 >>> name_prefix = naija.prefix()
                 >>> print(f"Random name prefix: {name_prefix}")

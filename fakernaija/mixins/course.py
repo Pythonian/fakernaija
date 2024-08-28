@@ -28,8 +28,8 @@ class Course:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
+                >>> from fakernaija import Naija
+                >>> naija = Naija()
 
                 >>> course = naija.course()
                 >>> print(f"Random course: {course}")
@@ -46,8 +46,8 @@ class Course:
         Examples:
             .. code-block:: python
 
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
+                >>> from fakernaija import Naija
+                >>> naija = Naija()
 
                 >>> course_name = naija.course_name()
                 >>> print(f"Random course name: {course_name}")
@@ -74,8 +74,8 @@ class Course:
         Examples:
             .. code-block:: python
 
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
+                >>> from fakernaija import Naija
+                >>> naija = Naija()
 
                 >>> course = naija.course_code()
                 >>> print(f"Random course: {course}")

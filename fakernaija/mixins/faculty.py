@@ -25,8 +25,8 @@ class Faculty:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
+                >>> from fakernaija import Naija
+                >>> naija = Naija()
 
                 >>> faculty = naija.faculty()
                 >>> print(f"Random faculty: {faculty}")
@@ -47,8 +47,8 @@ class Faculty:
         Examples:
             .. code-block:: python
 
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
+                >>> from fakernaija import Naija
+                >>> naija = Naija()
 
                 >>> faculty_name = naija.faculty_name()
                 >>> print(f"Random faculty name: {faculty_name}")
@@ -82,8 +82,8 @@ class Faculty:
         Examples:
             .. code-block:: python
 
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
+                >>> from fakernaija import Naija
+                >>> naija = Naija()
 
                 >>> department_name = naija.department_name()
                 >>> print(f"Random department name: {department_name}")

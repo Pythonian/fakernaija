@@ -38,8 +38,8 @@ class Degree:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
+                >>> from fakernaija import Naija
+                >>> naija = Naija()
 
                 >>> degree = naija.degree()
                 >>> print(f"Random degree: {degree}")
@@ -70,8 +70,8 @@ class Degree:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
+                >>> from fakernaija import Naija
+                >>> naija = Naija()
 
                 >>> degree_name = naija.degree_name()
                 >>> print(f"Random degree name: {degree_name}")
@@ -105,8 +105,8 @@ class Degree:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
+                >>> from fakernaija import Naija
+                >>> naija = Naija()
 
                 >>> degree_abbr = naija.degree_abbr()
                 >>> print(f"Random degree abbreviation: {degree_abbr}")

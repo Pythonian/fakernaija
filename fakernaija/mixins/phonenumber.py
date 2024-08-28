@@ -39,8 +39,8 @@ class PhoneNumber:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
+                >>> from fakernaija import Naija
+                >>> naija = Naija()
 
                 >>> phone = naija.phone_number()
                 >>> print(f"Random phone number: {phone}")

@@ -13,7 +13,7 @@ The source code is available on `GitHub <https://github.com/Pythonian/fakernaija
     :maxdepth: 1
 
     Home <self>
-    faker
+    naija
     commands
 
 .. attention::
@@ -39,12 +39,12 @@ Installation
 Getting Started
 ---------------
 
-The primary interface you will interact with is the :doc:`faker`. You will need to import and instantiate it then you can start generating data right away. To whet your appetite, launch your Python shell and try out these examples:
+The primary interface you will interact with is the :doc:`naija`. You will need to import and instantiate it then you can start generating data right away. To whet your appetite, launch your Python shell and try out these examples:
 
 .. code-block:: python
 
-    >>> from fakernaija import Faker
-    >>> naija = Faker()
+    >>> from fakernaija import Naija
+    >>> naija = Naija()
 
     >>> print(naija.full_name())
     Ugochi Maduike
@@ -65,8 +65,8 @@ The primary interface you will interact with is the :doc:`faker`. You will need 
 
 .. code-block:: python
 
-    >>> from fakernaija import Faker
-    >>> naija = Faker()
+    >>> from fakernaija import Naija
+    >>> naija = Naija()
 
     >>> for _ in range(5):
     ...     print(naija.school_name())
@@ -77,12 +77,12 @@ The primary interface you will interact with is the :doc:`faker`. You will need 
     Kwara State Polytechnic
     Federal Polytechnic, Ado-Ekiti
 
-You can also have control over the results of the data you generate. Faker methods accept optional parameters to customize the output. Here are a few examples:
+You can also have control over the results of the data you generate. Naija methods accept optional parameters to customize the output. Here are a few examples:
 
 .. code-block:: python
 
-    >>> from fakernaija import Faker
-    >>> naija = Faker()
+    >>> from fakernaija import Naija
+    >>> naija = Naija()
 
     >>> print(naija.email(tribe="igbo", gender="female", domain="unn.edu.ng"))
     maduike.ugochi@unn.edu.ng
@@ -97,8 +97,8 @@ You can also generate complete data objects, useful for when you need more than 
 
 .. code-block:: python
 
-    >>> from fakernaija import Faker
-    >>> naija = Faker()
+    >>> from fakernaija import Naija
+    >>> naija = Naija()
 
     >>> print(naija.course())
     {'name': 'Introduction to Computer Science', 'code': 'COS101'}
@@ -157,7 +157,7 @@ Next Steps
 
 Now that you have a basic understanding of **Fakernaija**, you can check out:
 
-* :doc:`faker`: For a reference of all available ``Faker`` methods you can call.
+* :doc:`naija`: For a reference of all available ``Naija`` methods you can call.
 * :doc:`commands`: For a reference of all available ``naija`` sub commands you can execute.
 
 Get Involved

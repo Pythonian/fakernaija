@@ -5,6 +5,6 @@ This package provides utilities to generate random data with a Nigerian context.
 
 __version__ = "1.0.0"
 
-from .faker import Faker
+from .naija import Naija
 
-__all__ = ["Faker"]
+__all__ = ["Naija"]

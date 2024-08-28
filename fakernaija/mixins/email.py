@@ -43,8 +43,8 @@ class Email:
         Example:
             .. code-block:: python
 
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
+                >>> from fakernaija import Naija
+                >>> naija = Naija()
 
                 >>> email = naija.email()
                 >>> print(f"Random email: {email}")

@@ -39,13 +39,13 @@ pip install -U fakernaija
 **Fakernaija** is easy to use. Launch your Python shell and try out the example below:
 
 ```python
->>> from fakernaija import Faker
->>> naija = Faker()
+>>> from fakernaija import Naija
+>>> naija = Naija()
 >>> print("A random Nigerian full name:", naija.full_name())
 A random Nigerian full name: Ihuoma Maduabuchi
 ```
 
-_For more available method calls, please refer to the [Naija API Reference](https://fakernaija.readthedocs.io/en/latest/faker.html)._
+_For more available method calls, please refer to the [Naija API Reference](https://fakernaija.readthedocs.io/en/latest/naija.html)._
 
 ## Command Line Usage 💻
 

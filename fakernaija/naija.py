@@ -1,4 +1,4 @@
-"""This module provides a `Faker` class that generates random Nigerian data."""
+"""This module provides a `Naija` class that generates random Nigerian data."""
 
 from fakernaija.mixins import (
     Course,
@@ -14,7 +14,7 @@ from fakernaija.mixins import (
 )
 
 
-class Faker(
+class Naija(
     Course,
     Degree,
     Email,
@@ -33,7 +33,7 @@ class Faker(
     """
 
     def __init__(self) -> None:
-        """Initializes the Faker class and its inherited mixins."""
+        """Initializes the Naija class and its inherited mixins."""
         Course.__init__(self)
         Degree.__init__(self)
         Email.__init__(self)

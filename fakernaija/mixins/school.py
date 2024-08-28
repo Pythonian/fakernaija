@@ -41,8 +41,8 @@ class School:
         Examples:
             .. code-block:: python
 
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
+                >>> from fakernaija import Naija
+                >>> naija = Naija()
 
                 >>> school = naija.school()
                 >>> print(f"Random school: {school}")
@@ -102,8 +102,8 @@ class School:
         Examples:
             .. code-block:: python
 
-                >>> from fakernaija import Faker
-                >>> naija = Faker()
+                >>> from fakernaija import Naija
+                >>> naija = Naija()
 
                 >>> school_name = naija.school_name()
                 >>> print(f"Random school name: {school_name}")
