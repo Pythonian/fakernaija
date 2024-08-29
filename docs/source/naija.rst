@@ -4,7 +4,7 @@ Naija Class
 Overview
 --------
 
-The ``Naija`` class is your go-to guy for generating all sorts of Nigerian data. You can think of it as your ultimate data plug — whether you need to generate Nigerian names, email addresses, phone numbers, state information or even school data.
+The ``Naija`` class serves as the main interface for generating Nigerian-specific data with the Fakernaija library. You can see it as your ultimate data plug for generating all sorts of Nigerian data like Nigerian names, email addresses, phone numbers, state information, school data, bank information and more.
 
 Initialization
 --------------
@@ -16,24 +16,39 @@ Setting up the ``Naija`` class is as easy as `ABC`. Just import the class and cr
     >>> from fakernaija import Naija
     >>> naija = Naija()
 
-In this example, we created an instance of the ``Naija`` class named ``naija``. Now, this ``naija`` has access to all available methods from the ``Naija`` class.
+In the above example, an instance of the ``Naija`` class named ``naija`` is created, giving you access to all the data generation methods available within the class.
+
+Quick Examples
+--------------
+
+Once initialized, you can generate various types of Nigerian data with just a method call. Below are some examples:
 
 .. code-block:: python
 
-    >>> # Generate an email address
+    >>> # Generate a Nigerian email address
     >>> email = naija.email()
     >>> print(f"Email: {email}")
+    Email: somtochi.mbakwe@gmail.com
 
     >>> # Generate a Nigerian full name
     >>> name = naija.full_name()
     >>> print(f"Nigerian name: {name}")
+    Nigerian name: Ugochi Maduike
+
+    >>> # Generate a Nigerian phone number
+    >>> phone = naija.phone_number()
+    >>> print(f"Phone Number: {phone}")
+    Phone Number: 08031234567
+
+    >>> # Generate a Nigerian license plate
+    >>> license_plate = naija.license_plate()
+    >>> print(f"License Plate: {license_plate}")
+    License Plate: KJA-234AB
 
 Reference
 ---------
 
-The ``Naija`` class gives you access to a variety of methods, each tied to a specific type of data.
-
-You can explore the list of available ``Naija`` methods below to see various data generation options:
+Each method of the ``Naija`` class has its own documentation, complete with usage examples, parameters, and expected outputs. For more understanding of each method, click on the links below:
 
 .. toctree::
    :maxdepth: 2

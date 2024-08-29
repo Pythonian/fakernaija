@@ -4,9 +4,9 @@ Welcome to Fakernaija's Documentation!
 Overview
 --------
 
-**Fakernaija** is a Python library that helps developers generate Nigerian-specific data like names, emails, addresses, phone numbers, banks, jobs, schools, states, license plate numbers, and much more. Whether you're working on testing, development, or educational projects, **Fakernaija** helps you generate realistic data, including a CLI for easy exports.
+**Fakernaija** is a Python library that helps developers generate Nigerian-specific data like names, emails, addresses, phone numbers, bank details, school names, states, license plate numbers, and much more. Whether you're working on testing, development, or educational projects, **Fakernaija** helps you generate realistic data, including a CLI for easy exports.
 
-The source code is available on `GitHub <https://github.com/Pythonian/fakernaija>`_
+The source code is available on `GitHub <https://github.com/Pythonian/fakernaija>`_.
 
 .. toctree::
     :hidden:
@@ -16,21 +16,18 @@ The source code is available on `GitHub <https://github.com/Pythonian/fakernaija
     naija
     commands
 
-.. attention::
-
-    Fakernaija helps you generate random data for your development and testing needs. Therefore, any resemblance between the generated data and actual entities should be seen as purely coincidental.
-
 Features
 --------
 
 - Generate culturally accurate Nigerian data — no more `Oyinbo` data that don't gel!
 - Quickly generate data from your favourite terminal with our CLI commands.
-- Export your generated data to various formats like JSON, CSV, and plain text.
+- Export generated data to various formats like JSON, CSV, and plain text.
+- Customize your data generation with optional parameters for targeted outputs.
 
 Installation
 ------------
 
-**Fakernaija** requires **Python 3.10** or higher. Installation is easy-peasy with `pip` and this ensures you always get the latest stable release of the library.
+**Fakernaija** requires **Python 3.10** or higher. Installation is easy-peasy with `pip`, ensuring you always get the latest stable release of the library.
 
 .. code-block:: console
 
@@ -39,7 +36,7 @@ Installation
 Getting Started
 ---------------
 
-The primary interface you will interact with is the :doc:`naija`. You will need to import and instantiate it then you can start generating data right away. To whet your appetite, launch your Python shell and try out these examples:
+The primary interface you will interact with is the :doc:`naija`. The ``Naija`` class serves as the main entry point for generating Nigerian-specific data. Import and instantiate it, and start generating data right away. Launch your Python shell and try out these examples:
 
 .. code-block:: python
 
@@ -61,7 +58,7 @@ The primary interface you will interact with is the :doc:`naija`. You will need 
     >>> print(naija.faculty_name())
     Pharmaceutical Sciences
 
-**Fakernaija** tries to ensure that each method call returns a different result within the same session until all possible outcomes are exhausted:
+**Fakernaija** tries to ensure that each method call returns different results within the same session until all possible outcomes are exhausted:
 
 .. code-block:: python
 
@@ -77,7 +74,7 @@ The primary interface you will interact with is the :doc:`naija`. You will need 
     Kwara State Polytechnic
     Federal Polytechnic, Ado-Ekiti
 
-You can also have control over the results of the data you generate. Naija methods accept optional parameters to customize the output. Here are a few examples:
+You can also control the output with optional parameters to generate specific results. Here are some examples:
 
 .. code-block:: python
 
@@ -93,7 +90,7 @@ You can also have control over the results of the data you generate. Naija metho
     >>> print(naija.school_name(acronym=True, ownership="federal", school_type="university"))
     UNN
 
-You can also generate complete data objects, useful for when you need more than just individual attributes that you can easily integrate into more complex structures for your web applications:
+You can also generate complete data objects for more complex integrations:
 
 .. code-block:: python
 
@@ -112,7 +109,7 @@ You can also generate complete data objects, useful for when you need more than 
 Command Line Usage
 ------------------
 
-Once installed, **Fakernaija** can be invoked directly from your command line via the ``naija`` command. The :doc:`commands` command allows you to generate data directly from your terminal. This is powered by the `Click <https://click.palletsprojects.com/>`_ library. Below are some examples to help you get started:
+Once installed, **Fakernaija** can be invoked directly from your command line via the ``naija`` command. The :doc:`commands` command allows you to generate data directly from your terminal. This is powered by the `Click <https://click.palletsprojects.com/>`_ library. Below are some examples:
 
 .. code-block:: console
 
@@ -139,7 +136,7 @@ To generate multiple outputs, use the ``--repeat`` (or ``-r``) flag:
     Ousmane Seydou Ahmed
     Femi Kayode Ajayi
 
-You can export the generated data to various formats using the ``--output`` (or ``-o``) flag:
+To export the generated data to various formats, use the ``--output`` (or ``-o``) flag:
 
 .. code-block:: console
 
@@ -155,18 +152,18 @@ You can export the generated data to various formats using the ``--output`` (or 
 Next Steps
 ----------
 
-Now that you have a basic understanding of **Fakernaija**, you can check out:
+Now that you have a basic understanding of **Fakernaija**, you can explore more:
 
-* :doc:`naija`: For a reference of all available ``Naija`` methods you can call.
-* :doc:`commands`: For a reference of all available ``naija`` sub commands you can execute.
+* :doc:`naija`: Reference for all available ``Naija`` methods you can call.
+* :doc:`commands`: Reference for all available ``naija`` sub-commands you can execute.
 
 Get Involved
 ------------
 
-If you want to contribute to **Fakernaija**, this section is your guide to the development process. Key sections include:
+Want to contribute to **Fakernaija**? This section guides you through the development process.
 
-- :doc:`contributing`: No be beans, but we've made it as easy as possible to contribute to the library.
-- :doc:`documentation`: If you'd like to update the docs, this guide will show you the ropes.
+- :doc:`contributing`: No be beans, but we have made contributing as easy as possible.
+- :doc:`documentation`: Prefer updating the docs? This guide shows you how.
 - :doc:`testing`: Skipping tests is like cooking jollof without pepper — it's just not right.
 - :doc:`deployment`: A guide to deploying new versions of the library on PyPI.
 
@@ -183,9 +180,9 @@ If you want to contribute to **Fakernaija**, this section is your guide to the d
 Meta
 ----
 
-This section provides information about the project itself:
+This section provides information about the project:
 
-- :doc:`changelog`: Think of this as our `Before and After` story — see what has changed.
+- :doc:`changelog`: See what has been added or removed over time.
 - :doc:`support`: No need to shout `Epp me!` — we've got your back.
 - :doc:`credits`: We believe in giving `Kudos` where it's due — because who no like better thing?
 - :doc:`license`: Just like free Wi-Fi, our ``MIT License`` makes it available for everyone to enjoy.

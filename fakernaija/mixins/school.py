@@ -28,7 +28,8 @@ class School:
             school_type (str | None, optional): Filter by type.
 
         Returns:
-            dict[str, str] | None: A dictionary representing a random school or None if no match found.
+            dict[str, str] | None: A dictionary representing a random school
+                or None if no match found.
 
         Raises:
             ValueError: If an unsupported ownership or school_type is provided.

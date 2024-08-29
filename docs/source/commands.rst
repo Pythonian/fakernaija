@@ -4,42 +4,77 @@ naija - CLI
 Overview
 --------
 
-The Commands module provides a set of command-line tools that allow users to generate various types of data directly from the terminal. Each command corresponds to a specific category of data, with available options to also customize the generated data.
+The ``naija`` CLI (Command Line Interface) is designed to provide users with a way to generate Nigerian-specific data directly from the terminal. Each command in the CLI corresponds to a different type of data, allowing for rapid generation of test data without writing any code.
+
+Why Use the CLI?
+----------------
+
+- **Quick Access**: Generate data directly from your terminal without needing to write scripts.
+- **Customization**: Use various options to tailor the generated data to your specific needs.
+- **Export Capability**: Output your generated data to multiple formats, including JSON, CSV, and plain text.
 
 Syntax
 ------
 
-To run any command, use the ``naija`` command followed by a category command and any optional arguments. The general structure of the command is as follows:
+To execute any command, use the ``naija`` command followed by the category command and optional arguments. The general structure is as follows:
 
 .. code-block:: console
 
    naija [OPTIONS] COMMAND [ARGS]...
 
-* ``naija``: The primary command used to access all other category commands.
-* ``COMMAND``: The category command to execute, responsible for generating specific types of data.
-* ``ARGS``: Optional parameters that can be passed to a category command to filter the generated output.
+* ``naija``: The main command used to access all other category commands.
+* ``COMMAND``: The specific category command to execute.
+* ``ARGS``: Optional arguments and flags to customize the output.
 
 **Options**:
 
-- ``--version``: Show the version of the ``naija`` library and exit.
-- ``--help``: Show a help message and exit.
+- ``--version``: Display the current version of Fakernaija and exit.
+- ``--help``: Display help information for the CLI or specific commands.
+
+Basic Usage
+-----------
+
+Running the ``naija`` command without any subcommands will display a help message listing all available options and commands:
 
 .. code-block:: console
 
-   $ naija
-   Usage: naija [OPTIONS] COMMAND [ARGS]...
+    $ naija
+    Usage: naija [OPTIONS] COMMAND [ARGS]...
 
       A CLI for generating and returning random Nigerian data.
 
-   Options:
+    Options:
       --version  Show the version and exit.
       --help     Show this message and exit.
 
-   Commands:
+    Commands:
       course             Returns random course objects.
       course_code        Returns random course codes.
       course_name        Returns random course names.
       ...                ...
+
+Below are some examples of how you can generate data with the command:
+
+.. code-block:: console
+
+    $ naija name --gender female --tribe yoruba
+    Aduke Lawal
+
+    $ naija email --domain technomaniac.com --tribe igbo --gender male
+    muolokwu.ekene@technomaniac.com
+
+    $ naija phonenumber --network mtn --prefix 0803
+    08031234567
+
+Exporting Data
+--------------
+
+The CLI supports exporting generated data to various formats. Use the `--output` or `-o` flag to specify the format:
+
+.. code-block:: console
+
+    $ naija full_name --repeat 1000 --output csv
+    Generated data saved to /path/to/directory/full_name.csv
 
 Reference
 ---------
