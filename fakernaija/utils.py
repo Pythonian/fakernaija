@@ -182,7 +182,6 @@ def write_data_to_file(
 def generate_command_data(
     repeat: int,
     generator_func: Callable[..., str | dict[str, Any] | None],
-    # generator_func: Callable[..., str | dict[str, Any]],
     **kwargs: Any,  # noqa: ANN401
 ) -> list[str | dict[str, Any]]:
     """Generates CLI data using the provided generator function.
