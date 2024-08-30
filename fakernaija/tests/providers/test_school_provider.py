@@ -150,3 +150,27 @@ class TestSchoolProvider(unittest.TestCase):
         provider = SchoolProvider()
         result = provider.get_school_names(state="benue")
         self.assertEqual(result, [])
+
+    @patch("fakernaija.providers.school.load_json")
+    def test_invalid_state_name(self, mock_load_json: MagicMock) -> None:
+        """Test that a ValueError is raised for an invalid state name."""
+        mock_load_json.return_value = self.sample_schools
+        provider = SchoolProvider()
+        with self.assertRaises(ValueError):
+            provider.get_schools(state="invalid_state")
+
+    @patch("fakernaija.providers.school.load_json")
+    def test_invalid_ownership(self, mock_load_json: MagicMock) -> None:
+        """Test that a ValueError is raised for an unsupported ownership."""
+        mock_load_json.return_value = self.sample_schools
+        provider = SchoolProvider()
+        with self.assertRaises(ValueError):
+            provider.get_schools(ownership="unsupported_ownership")
+
+    @patch("fakernaija.providers.school.load_json")
+    def test_invalid_school_type(self, mock_load_json: MagicMock) -> None:
+        """Test that a ValueError is raised for an unsupported school type."""
+        mock_load_json.return_value = self.sample_schools
+        provider = SchoolProvider()
+        with self.assertRaises(ValueError):
+            provider.get_schools(school_type="unsupported_type")

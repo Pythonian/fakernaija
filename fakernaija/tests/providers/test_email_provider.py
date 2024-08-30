@@ -268,3 +268,26 @@ class TestGenerateEmailMethod(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             self.email_provider.generate_email("yoruba", "male", "example.com")
+
+    @patch("random.choice")
+    def test_generate_email_with_name(self, mock_choice: MagicMock) -> None:
+        """Test generating an email when a name is provided."""
+        # Mocking random.choice to control output
+        mock_choice.side_effect = lambda x: x[0]  # Always select the first option
+
+        # Test with a specific name
+        email = self.email_provider.generate_email(name="Chinwe")
+        self.assertTrue(
+            email.startswith("chinwe")
+            and email.endswith(
+                (
+                    "gmail.com",
+                    "yahoo.com",
+                    "hotmail.com",
+                    "edu.ng",
+                    "gov.ng",
+                    "mail.com",
+                ),
+            ),
+            f"Generated email '{email}' does not match the expected format.",
+        )

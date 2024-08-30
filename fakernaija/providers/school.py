@@ -56,7 +56,6 @@ class SchoolProvider:
             if state.lower() not in matching_state_names:
                 msg = f"Invalid state name: {state}. Valid states are: {', '.join(self.state_names)}"
                 raise ValueError(msg)
-
         if ownership and ownership not in self.ownerships:
             msg = f"Unsupported ownership: {ownership}. Supported values are: {', '.join(self.ownerships)}"
             raise ValueError(msg)

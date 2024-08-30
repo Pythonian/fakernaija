@@ -51,3 +51,29 @@ class TestStateProvider(unittest.TestCase):
         """Test getting a list of Local Government Areas for a specific state."""
         lgas = self.state_provider.get_state_lgas("Lagos")
         self.assertIn("Agege", lgas)
+
+    def test_validate_region(self) -> None:
+        """Test validating a valid region abbreviation."""
+        self.state_provider.validate_region("SW")
+
+        with self.assertRaises(ValueError):
+            self.state_provider.validate_region("INVALID")
+
+    def test_get_regions(self) -> None:
+        """Test getting all geopolitical regions."""
+        regions = self.state_provider.get_regions()
+        self.assertTrue(any(region["abbr"] == "SW" for region in regions))
+
+    def test_get_states_by_region(self) -> None:
+        """Test getting states by a specific region code."""
+        states = self.state_provider.get_states_by_region("SW")
+        self.assertTrue(any(state["name"] == "Lagos" for state in states))
+
+    def test_get_state_error(self) -> None:
+        """Test the _get_state method indirectly via public methods for non-existent states."""
+        with self.assertRaises(ValueError) as context:
+            self.state_provider.get_postal_code_by_state("InvalidState")
+        self.assertIn(
+            "State 'InvalidState' does not exist in Nigeria.",
+            str(context.exception),
+        )

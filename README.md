@@ -1,6 +1,6 @@
-# Fakernaija
+# Overview
 
-**Fakernaija** is a Python library that helps developers generate Nigerian-specific data like names, emails, addresses, phone numbers, banks, jobs, schools, states, license plate numbers, and much more. Whether you're working on testing, development, or educational projects, **Fakernaija** helps you generate realistic data, including a CLI for easy exports.
+**Fakernaija** is a Python library that helps developers generate Nigerian-specific data like names, emails, addresses, phone numbers, bank details, school names, states, license plate numbers, and much more. Whether you're working on testing, development, or educational projects, **Fakernaija** helps you generate realistic data, including a CLI for easy exports.
 
 The documentation is available on [Read the Docs](https://fakernaija.readthedocs.io).
 
@@ -24,7 +24,8 @@ The documentation is available on [Read the Docs](https://fakernaija.readthedocs
 
 - Generate culturally accurate Nigerian data — no more _Oyinbo_ data that don't gel!
 - Quickly generate data from your favourite terminal with our CLI commands.
-- Export your generated data to various formats like JSON, CSV, and plain text.
+- Export generated data to various formats like JSON, CSV, and plain text.
+- Customize your data generation with optional parameters for targeted outputs.
 
 ## 🛠️ Installation
 

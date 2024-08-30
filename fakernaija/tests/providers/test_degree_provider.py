@@ -77,6 +77,21 @@ class TestDegreeProvider(unittest.TestCase):
         for abbr in expected_abbrs:
             self.assertIn(abbr, degree_abbrs)
 
+    def test_validate_degree_type_valid(self) -> None:
+        """Tests the validate_degree_type method with a valid degree type."""
+        valid_degree_type = self.degree_provider.validate_degree_type("undergraduate")
+        self.assertEqual(valid_degree_type, "undergraduate")
 
-if __name__ == "__main__":
-    unittest.main()
+    def test_validate_degree_type_invalid(self) -> None:
+        """Tests the validate_degree_type method with an invalid degree type."""
+        with self.assertRaises(ValueError) as context:
+            self.degree_provider.validate_degree_type("invalid_type")
+        self.assertEqual(
+            str(context.exception),
+            "Invalid degree_type. Must be one of ['undergraduate', 'masters', 'doctorate'].",
+        )
+
+    def test_validate_degree_type_none(self) -> None:
+        """Tests the validate_degree_type method with None."""
+        result = self.degree_provider.validate_degree_type(None)
+        self.assertIsNone(result)

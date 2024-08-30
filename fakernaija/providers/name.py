@@ -200,10 +200,10 @@ class NameProvider:
                 "Esq.",
             ]
         if title == "traditional":
-            return self._get_traditional_prefixes(gender)
-        return self._get_general_prefixes(gender)
+            return self.get_traditional_prefixes(gender)
+        return self.get_general_prefixes(gender)
 
-    def _get_traditional_prefixes(self, gender: str | None) -> list[str]:
+    def get_traditional_prefixes(self, gender: str | None) -> list[str]:
         """Helper method to get traditional prefixes based on gender."""
         male_prefixes = [
             "Chief",
@@ -237,7 +237,7 @@ class NameProvider:
             else male_prefixes + female_prefixes
         )
 
-    def _get_general_prefixes(self, gender: str | None) -> list[str]:
+    def get_general_prefixes(self, gender: str | None) -> list[str]:
         """Helper method to get general prefixes based on gender."""
         male_prefixes = [
             "Mr.",

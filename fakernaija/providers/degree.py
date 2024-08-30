@@ -24,7 +24,7 @@ class DegreeProvider:
         )
         self.valid_degree_types = ["undergraduate", "masters", "doctorate"]
 
-    def _validate_degree_type(self, degree_type: str | None) -> str | None:
+    def validate_degree_type(self, degree_type: str | None) -> str | None:
         """Normalize and validate degree type.
 
         Args:
@@ -52,7 +52,7 @@ class DegreeProvider:
         Returns:
             list[dict]: A list of degree dictionaries.
         """
-        degree_type = self._validate_degree_type(degree_type)
+        degree_type = self.validate_degree_type(degree_type)
         if degree_type:
             return [
                 degree

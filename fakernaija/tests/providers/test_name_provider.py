@@ -94,7 +94,7 @@ class TestNameProvider(unittest.TestCase):
         "random.choice",
         return_value={"tribe": "igbo", "gender": "female", "name": "Ugochi"},
     )
-    def test_generate_first_name(self, mock_choice: MagicMock) -> None:  # noqa: ARG002
+    def test_generate_first_name_with_filters(self, mock_choice: MagicMock) -> None:  # noqa: ARG002
         """Test generating a random first name with filters."""
         first_name = self.name_provider.generate_first_name(
             tribe="igbo",
@@ -145,3 +145,98 @@ class TestNameProvider(unittest.TestCase):
             middle_name=True,
         )
         self.assertEqual(result, "Ade Bisi Ojo")
+
+    @patch("fakernaija.providers.name.load_json")
+    def test_generate_first_name_unsupported_tribe(
+        self,
+        mock_load_json: MagicMock,
+    ) -> None:
+        """Test that a ValueError is raised for an unsupported tribe."""
+        mock_load_json.return_value = self.mock_first_names
+        provider = NameProvider()
+        with self.assertRaises(ValueError):
+            provider.generate_first_name(tribe="unsupported_tribe")
+
+    @patch("fakernaija.providers.name.load_json")
+    def test_generate_first_name_unsupported_gender(
+        self,
+        mock_load_json: MagicMock,
+    ) -> None:
+        """Test that a ValueError is raised for an unsupported gender."""
+        mock_load_json.return_value = self.mock_first_names
+        provider = NameProvider()
+        with self.assertRaises(ValueError):
+            provider.generate_first_name(gender="unsupported_gender")
+
+    @patch("fakernaija.providers.name.load_json")
+    def test_generate_last_name_unsupported_tribe(
+        self,
+        mock_load_json: MagicMock,
+    ) -> None:
+        """Test that a ValueError is raised for an unsupported tribe."""
+        mock_load_json.return_value = self.mock_last_names
+        provider = NameProvider()
+        with self.assertRaises(ValueError):
+            provider.generate_last_name(tribe="unsupported_tribe")
+
+    def test_generate_full_name_with_filters(self) -> None:
+        """Test generating a random full name with filters."""
+        full_name = self.name_provider.generate_full_name(tribe="igbo", gender="female")
+        self.assertTrue("Ugochi" in full_name)
+
+    def test_generate_prefixes_professional(self) -> None:
+        """Test generating professional prefixes."""
+        prefixes = self.name_provider.generate_prefixes("professional", None)
+        self.assertIn("Dr.", prefixes)
+
+    def test_generate_prefixes_traditional(self) -> None:
+        """Test generating traditional prefixes."""
+        prefixes = self.name_provider.generate_prefixes("traditional", "male")
+        self.assertIn("Oba", prefixes)
+
+    def test_generate_prefixes_general(self) -> None:
+        """Test generating general prefixes."""
+        prefixes = self.name_provider.generate_prefixes(None, "female")
+        self.assertIn("Mrs.", prefixes)
+
+    def test_generate_prefixes_general_no_gender(self) -> None:
+        """Test generating general prefixes without gender."""
+        prefixes = self.name_provider.generate_prefixes(None, None)
+        self.assertIn("Mr.", prefixes)
+        self.assertIn("Mrs.", prefixes)
+
+    def test_get_traditional_prefixes_male(self) -> None:
+        """Test getting traditional prefixes for male."""
+        prefixes = self.name_provider.get_traditional_prefixes("male")
+        self.assertIn("Oba", prefixes)
+        self.assertNotIn("Erelu", prefixes)
+
+    def test_get_traditional_prefixes_female(self) -> None:
+        """Test getting traditional prefixes for female."""
+        prefixes = self.name_provider.get_traditional_prefixes("female")
+        self.assertIn("Erelu", prefixes)
+        self.assertNotIn("Oba", prefixes)
+
+    def test_get_traditional_prefixes_no_gender(self) -> None:
+        """Test getting traditional prefixes without specifying gender."""
+        prefixes = self.name_provider.get_traditional_prefixes(None)
+        self.assertIn("Oba", prefixes)
+        self.assertIn("Erelu", prefixes)
+
+    def test_get_general_prefixes_male(self) -> None:
+        """Test getting general prefixes for male."""
+        prefixes = self.name_provider.get_general_prefixes("male")
+        self.assertIn("Mr.", prefixes)
+        self.assertNotIn("Mrs.", prefixes)
+
+    def test_get_general_prefixes_female(self) -> None:
+        """Test getting general prefixes for female."""
+        prefixes = self.name_provider.get_general_prefixes("female")
+        self.assertIn("Mrs.", prefixes)
+        self.assertNotIn("Mr.", prefixes)
+
+    def test_get_general_prefixes_no_gender(self) -> None:
+        """Test getting general prefixes without specifying gender."""
+        prefixes = self.name_provider.get_general_prefixes(None)
+        self.assertIn("Mr.", prefixes)
+        self.assertIn("Mrs.", prefixes)

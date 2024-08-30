@@ -61,3 +61,26 @@ class TestFacultyProvider(unittest.TestCase):
             "Public Relations",
         ]
         self.assertEqual(departments, expected_departments)
+
+    def test_get_department_names_with_filter(self) -> None:
+        """Test the get_department_names method with a faculty filter."""
+        expected_departments = ["Human Anatomy", "Physiology"]
+        self.assertEqual(
+            self.faculty_provider.get_department_names("Basic Medical Sciences"),
+            expected_departments,
+        )
+
+    def test_get_department_names_with_filter_case_insensitive(self) -> None:
+        """Test the get_department_names method with a case-insensitive faculty filter."""
+        expected_departments = ["Human Anatomy", "Physiology"]
+        self.assertEqual(
+            self.faculty_provider.get_department_names("basic medical sciences"),
+            expected_departments,
+        )
+
+    def test_get_department_names_with_invalid_faculty(self) -> None:
+        """Test the get_department_names method with an invalid faculty."""
+        self.assertEqual(
+            self.faculty_provider.get_department_names("Invalid Faculty"),
+            [],
+        )
