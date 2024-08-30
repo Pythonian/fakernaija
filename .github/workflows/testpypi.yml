@@ -1,11 +1,17 @@
-name: Publish Fakernaija distribution to TestPyPI
+name: CD - Publish to TestPyPI
 
-on: push
+on:
+  workflow_run:
+    workflows: ["CI - Run Tox Tests"]
+    types:
+      - completed
 
 jobs:
   build:
     name: Build distribution
     runs-on: ubuntu-latest
+
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     strategy:
       matrix:

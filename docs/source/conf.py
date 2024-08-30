@@ -1,9 +1,34 @@
 """Sphinx doc configurations."""
 
+import sys
+from pathlib import Path
+
+# Use Path to define the root directory
+project_root = Path(__file__).resolve().parents[2]
+
+# Insert the project root into the sys.path
+sys.path.insert(0, str(project_root))
+
+
+def get_version() -> str:
+    """Function to extract the version from __init__.py."""
+    version_file = (
+        Path(__file__).resolve().parent.parent.parent / "fakernaija" / "__init__.py"
+    )  # Absolute path
+    with version_file.open() as f:
+        for line in f:
+            if line.startswith("__version__"):
+                return line.split("=")[-1].strip().strip('"')
+    msg = "Version not found in __init__.py"
+    raise RuntimeError(msg)
+
+
+# Project information
 project = "Fakernaija"
-copyright = "2024, Seyi Pythonian"
+copyright = "2024, Seyi Pythonian"  # noqa: A001
 author = "Seyi Pythonian"
-release = "1.0.0"
+version = get_version()
+release = version
 
 extensions = [
     "sphinx_copybutton",
@@ -16,6 +41,7 @@ extensions = [
 ]
 
 templates_path = ["_templates"]
+suppress_warnings = ["epub.unknown_project_files"]
 exclude_patterns: list[str] = []
 copybutton_exclude = ".linenos, .gp, .go"
 copybutton_prompt_text = ">>> "
