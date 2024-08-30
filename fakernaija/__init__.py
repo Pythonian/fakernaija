@@ -3,7 +3,7 @@
 This package provides utilities to generate random data with a Nigerian context.
 """
 
-__version__ = "0.0.2"
+__version__ = "1.0.4"
 
 from .naija import Naija
 

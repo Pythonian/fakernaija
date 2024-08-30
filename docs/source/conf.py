@@ -11,10 +11,10 @@ sys.path.insert(0, str(project_root))
 
 
 def get_version() -> str:
-    """Function to extract the version from __init__.py."""
+    """Function to extract the version from fakernaija/__init__.py."""
     version_file = (
         Path(__file__).resolve().parent.parent.parent / "fakernaija" / "__init__.py"
-    )  # Absolute path
+    )
     with version_file.open() as f:
         for line in f:
             if line.startswith("__version__"):
@@ -23,7 +23,6 @@ def get_version() -> str:
     raise RuntimeError(msg)
 
 
-# Project information
 project = "Fakernaija"
 copyright = "2024, Seyi Pythonian"  # noqa: A001
 author = "Seyi Pythonian"
@@ -47,7 +46,7 @@ copybutton_exclude = ".linenos, .gp, .go"
 copybutton_prompt_text = ">>> "
 html_theme = "furo"
 html_show_sphinx = False
-html_title = "Fakernaija"
+html_title = f"Fakernaija v{get_version()}"
 html_theme_options = {
     "source_repository": "https://github.com/Pythonian/fakernaija",
     "source_branch": "main",
