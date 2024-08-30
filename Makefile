@@ -1,6 +1,6 @@
 .DEFAULT_GOAL=help
 
-.PHONY: help hello venv install install-dev install-build docs check build upload update clean
+.PHONY: help hello venv install install-dev install-build docs check clean
 
 VENV_DIR = .venv
 PYTHON = python3
@@ -53,19 +53,6 @@ check: ## Run code quality checks with Tox and Pre-commit
 	$(TOX)
 	$(PRE_COMMIT) run --all-files
 	@echo "All checks passed"
-
-build: ## Build the project source and wheel distribution.
-	$(call check_venv)
-	@rm -rf dist
-	$(PYTHON) -m build
-	@echo "Package built successfully."
-
-upload: ## Upload the project to TestPyPI.
-	$(call check_venv)
-	$(PYTHON) -m twine upload --repository testpypi dist/*
-	@echo "Package uploaded to TestPyPI."
-
-update: build upload ## Build and upload the project to TestPyPI in one command.
 
 clean: ## Clean up all generated files and directories.
 	@echo "Cleaning up the project..."
