@@ -69,7 +69,7 @@ If you would like to contribute, please read the [Contributing Guide](https://fa
 
 If you found a bug or have any suggestions, please [Raise an Issue](https://github.com/Pythonian/fakernaija/issues/new/choose) 🐛
 
-If you need to contact the author privately, please reach out on [Twitter](https://twitter.com/Fakernaija) 🐦
+If you need to contact the author privately, please send an [Email](mailto:seyipythonian@gmail.com) ✉️
 
 If you find this library useful or worthy of your attention, please give it a **Star** ⭐
 

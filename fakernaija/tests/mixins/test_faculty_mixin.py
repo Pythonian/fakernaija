@@ -1,6 +1,6 @@
 """Unit tests for the Faculty mixin methods.
 
-This module contains unit tests for the Faculty class, which provides methods
+This module contains unit tests for the Faculty mixin class, which provides methods
 to interact with the FacultyProvider class for generating faculty information.
 """
 

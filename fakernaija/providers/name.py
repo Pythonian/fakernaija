@@ -189,7 +189,19 @@ class NameProvider:
         title: str | None,
         gender: str | None,
     ) -> list[str]:
-        """Helper method to get the appropriate prefix list based on title and gender."""
+        """Helper method to get the appropriate prefix list based on title and gender.
+
+        Raises:
+            ValueError: If an invalid gender or title is provided.
+        """
+        if title not in {None, "professional", "traditional"}:
+            msg = f"Invalid title '{title}'. Must be 'professional' or 'traditional'."
+            raise ValueError(msg)
+
+        if gender not in {None, "male", "female"}:
+            msg = f"Invalid gender '{gender}'. Must be 'male' or 'female'."
+            raise ValueError(msg)
+
         if title == "professional":
             return [
                 "Prof.",

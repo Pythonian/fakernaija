@@ -241,14 +241,6 @@ class Name:
                 >>> print(f"Random female traditional prefix: {female_traditional_prefix}")
                 Random female traditional prefix: Iyalode
         """
-        if title not in {None, "professional", "traditional"}:
-            msg = f"Invalid title '{title}'. Must be 'professional' or 'traditional'."
-            raise ValueError(msg)
-
-        if gender not in {None, "male", "female"}:
-            msg = f"Invalid gender '{gender}'. Must be 'male' or 'female'."
-            raise ValueError(msg)
-
         prefixes = self.name_provider.generate_prefixes(title, gender)
         prefix = get_unique_value(prefixes, self._used_prefixes)
         self._used_prefixes.add(prefix)
