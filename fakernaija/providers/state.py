@@ -152,3 +152,19 @@ class StateProvider:
         """
         state_info = self._get_state(state_name)
         return state_info["lgas"]
+
+    def get_lga_codes(self, state_name: str | None = None) -> dict[str, list[str]]:
+        """Get LGA codes for a specific state or all states.
+
+        Args:
+            state_name (str | None, optional): The name of the state. Defaults to None.
+
+        Returns:
+            dict[str, list[str]]: A dictionary mapping state names to their LGA codes.
+        """
+        lga_codes = {}
+        for state in self.states_data:
+            if state_name and state["name"].lower() != state_name.lower():
+                continue
+            lga_codes[state["name"]] = [lga["code"] for lga in state["lgas"]]
+        return lga_codes

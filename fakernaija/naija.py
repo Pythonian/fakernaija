@@ -5,6 +5,7 @@ from fakernaija.mixins import (
     Degree,
     Email,
     Faculty,
+    LicensePlate,
     MaritalStatus,
     Name,
     PhoneNumber,
@@ -19,6 +20,7 @@ class Naija(
     Degree,
     Email,
     Faculty,
+    LicensePlate,
     MaritalStatus,
     Name,
     PhoneNumber,
@@ -38,6 +40,7 @@ class Naija(
         Degree.__init__(self)
         Email.__init__(self)
         Faculty.__init__(self)
+        LicensePlate.__init__(self)
         MaritalStatus.__init__(self)
         Name.__init__(self)
         PhoneNumber.__init__(self)

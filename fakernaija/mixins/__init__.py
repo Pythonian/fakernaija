@@ -2,6 +2,7 @@ from .course import Course
 from .degree import Degree
 from .email import Email
 from .faculty import Faculty
+from .license_plate import LicensePlate
 from .marital_status import MaritalStatus
 from .name import Name
 from .phonenumber import PhoneNumber
@@ -14,6 +15,7 @@ __all__ = [
     "Degree",
     "Email",
     "Faculty",
+    "LicensePlate",
     "MaritalStatus",
     "Name",
     "PhoneNumber",

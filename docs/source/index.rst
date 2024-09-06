@@ -4,7 +4,7 @@ Welcome to Fakernaija's Documentation!
 Overview
 --------
 
-**Fakernaija** is a Python library that helps developers generate Nigerian-specific data like names, emails, addresses, phone numbers, bank details, school names, states, license plate numbers, and much more. Whether you're working on testing, development, or educational projects, **Fakernaija** helps you generate realistic data, including a CLI for easy exports.
+**Fakernaija** is a Python library that can help developers generate Nigerian-specific data like names, emails, addresses, phone numbers, bank details, school names, states, license plate numbers, and much more. Whether you're working on testing, development, or educational projects, **Fakernaija** can help you to generate realistic data with Nigerian contexts, and it also comes with a CLI for easy data exports to various file formats.
 
 The source code is available on `GitHub <https://github.com/Pythonian/fakernaija>`_.
 
@@ -27,7 +27,7 @@ Features
 Installation
 ------------
 
-**Fakernaija** requires **Python 3.10** or higher. Installation is easy-peasy with `pip`, ensuring you always get the latest stable release of the library.
+**Fakernaija** requires **Python 3.10** or higher, and installing it is easy-peasy with ``pip``.
 
 .. code-block:: console
 
@@ -47,16 +47,19 @@ The primary interface you will interact with is the :doc:`naija`. The ``Naija`` 
     Ugochi Maduike
 
     >>> print(naija.state_capital())
-    Owerri
+    Damaturu
 
-    >>> print(naija.course_name())
-    Introduction to Computer Science
+    >>> print(naija.school_name())
+    University of Nigeria, Nsukka
 
-    >>> print(naija.degree_name())
-    Bachelor of Pharmacy
+    >>> print(naija.phone_number())
+    09039294684
 
-    >>> print(naija.faculty_name())
-    Pharmaceutical Sciences
+    >>> print(naija.email())
+    ololadelawal@hotmail.com
+
+    >>> print(naija.license_plate())
+    YLA-435EH
 
 **Fakernaija** tries to ensure that each method call returns different results within the same session until all possible outcomes are exhausted:
 

@@ -38,5 +38,5 @@ and this project adheres to `Semantic Versioning <https://semver.org/spec/v2.0.0
 
 **Added:**
 
-- Fakernaija data for: ``course``, ``degree``, ``email``, ``faculty``, ``marital_status``, ``name``, ``phonenumber``, ``religion``, ``school``, ``state``.
+- Fakernaija data for: ``course``, ``degree``, ``email``, ``faculty``, ``license_plate``, ``marital_status``, ``name``, ``phonenumber``, ``religion``, ``school``, ``state``.
 - Added everything else.

@@ -57,6 +57,7 @@ Each method of the ``Naija`` class has its own documentation, complete with usag
    naija/degree
    naija/email
    naija/faculty
+   naija/license_plate
    naija/marital_status
    naija/name
    naija/phonenumber

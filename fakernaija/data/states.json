@@ -7,12 +7,30 @@
         "region": "North Central",
         "postal_code": "900001",
         "lgas": [
-            "Abuja",
-            "Kwali",
-            "Kuje",
-            "Gwagwalada",
-            "Bwari",
-            "Abaji"
+            {
+                "name": "Abuja",
+                "code": "ABJ"
+            },
+            {
+                "name": "Kwali",
+                "code": "KWA"
+            },
+            {
+                "name": "Kuje",
+                "code": "KUJ"
+            },
+            {
+                "name": "Gwagwalada",
+                "code": "GWA"
+            },
+            {
+                "name": "Bwari",
+                "code": "BWR"
+            },
+            {
+                "name": "Abaji",
+                "code": "ABJ"
+            }
         ]
     },
     {
@@ -23,26 +41,74 @@
         "region": "South East",
         "postal_code": "440001",
         "lgas": [
-            "Aba North",
-            "Aba South",
-            "Arochukwu",
-            "Bende",
-            "Ikawuno",
-            "Ikwuano",
-            "Isiala-Ngwa North",
-            "Isiala-Ngwa South",
-            "Isuikwuato",
-            "Umu Nneochi",
-            "Obi Ngwa",
-            "Obioma Ngwa",
-            "Ohafia",
-            "Ohaozara",
-            "Osisioma",
-            "Ugwunagbo",
-            "Ukwa West",
-            "Ukwa East",
-            "Umuahia North",
-            "Umuahia South"
+            {
+                "name": "Aba North",
+                "code": "EZA"
+            },
+            {
+                "name": "Aba South",
+                "code": "ABA"
+            },
+            {
+                "name": "Arochukwu",
+                "code": "ACH"
+            },
+            {
+                "name": "Bende",
+                "code": "BND"
+            },
+            {
+                "name": "Ikwuano",
+                "code": "KWU"
+            },
+            {
+                "name": "Isiala-Ngwa North",
+                "code": "KPU"
+            },
+            {
+                "name": "Isiala-Ngwa South",
+                "code": "MBA"
+            },
+            {
+                "name": "Isuikwuato",
+                "code": "MBL"
+            },
+            {
+                "name": "Umu Nneochi",
+                "code": "UNC"
+            },
+            {
+                "name": "Obi Ngwa",
+                "code": "NGK"
+            },
+            {
+                "name": "Ohafia",
+                "code": "HAF"
+            },
+            {
+                "name": "Osisioma",
+                "code": "SSM"
+            },
+            {
+                "name": "Ugwunagbo",
+                "code": "GWB"
+            },
+            {
+                "name": "Ukwa West",
+                "code": "KKE"
+            },
+            {
+                "name": "Ukwa East",
+                "code": "KEK"
+            },
+            {
+                "name": "Umuahia North",
+                "code": "UMA"
+            },
+            {
+                "name": "Umuahia South",
+                "code": "APR"
+            }
         ]
     },
     {
@@ -53,27 +119,90 @@
         "region": "North East",
         "postal_code": "640001",
         "lgas": [
-            "Demsa",
-            "Fufore",
-            "Ganye",
-            "Girei",
-            "Gombi",
-            "Guyuk",
-            "Hong",
-            "Jada",
-            "Lamurde",
-            "Madagali",
-            "Maiha",
-            "Mayo-Belwa",
-            "Michika",
-            "Mubi-North",
-            "Mubi-South",
-            "Numan",
-            "Shelleng",
-            "Song",
-            "Toungo",
-            "Yola North",
-            "Yola South"
+            {
+                "name": "Demsa",
+                "code": "DSA"
+            },
+            {
+                "name": "Fufore",
+                "code": "FUR"
+            },
+            {
+                "name": "Ganye",
+                "code": "GAN"
+            },
+            {
+                "name": "Girei",
+                "code": "GRE"
+            },
+            {
+                "name": "Gombi",
+                "code": "GMB"
+            },
+            {
+                "name": "Guyuk",
+                "code": "GUY"
+            },
+            {
+                "name": "Hong",
+                "code": "HNG"
+            },
+            {
+                "name": "Jada",
+                "code": "JAD"
+            },
+            {
+                "name": "Jimeta",
+                "code": "JMT"
+            },
+            {
+                "name": "Lamurde",
+                "code": "LMR"
+            },
+            {
+                "name": "Madagali",
+                "code": "MDG"
+            },
+            {
+                "name": "Maiha",
+                "code": "MAH"
+            },
+            {
+                "name": "Mayo-Belwa",
+                "code": "MWA"
+            },
+            {
+                "name": "Michika",
+                "code": "MCH"
+            },
+            {
+                "name": "Mubi-North",
+                "code": "MUB"
+            },
+            {
+                "name": "Mubi-South",
+                "code": "GYL"
+            },
+            {
+                "name": "Numan",
+                "code": "NUM"
+            },
+            {
+                "name": "Shelleng",
+                "code": "SHG"
+            },
+            {
+                "name": "Song",
+                "code": "SNG"
+            },
+            {
+                "name": "Toungo",
+                "code": "TNG"
+            },
+            {
+                "name": "Yola",
+                "code": "YLA"
+            }
         ]
     },
     {
@@ -84,37 +213,130 @@
         "region": "South South",
         "postal_code": "520001",
         "lgas": [
-            "Abak",
-            "Eastern-Obolo",
-            "Eket",
-            "Esit-Eket",
-            "Essien-Udim",
-            "Etim-Ekpo",
-            "Etinan",
-            "Ibeno",
-            "Ibesikpo-Asutan",
-            "Ibiono-Ibom",
-            "Ika",
-            "Ikono",
-            "Ikot-Abasi",
-            "Ikot-Ekpene",
-            "Ini",
-            "Itu",
-            "Mbo",
-            "Mkpat-Enin",
-            "Nsit-Atai",
-            "Nsit-Ibom",
-            "Nsit-Ubium",
-            "Obot-Akara",
-            "Okobo",
-            "Onna",
-            "Oron",
-            "Oruk Anam",
-            "Udung-Uko",
-            "Ukanafun",
-            "Urue-Offong/Oruko",
-            "Uruan",
-            "Uyo"
+            {
+                "name": "Abak",
+                "code": "ABK"
+            },
+            {
+                "name": "Eastern-Obolo",
+                "code": "KRT"
+            },
+            {
+                "name": "Eket",
+                "code": "KET"
+            },
+            {
+                "name": "Esit-Eket",
+                "code": "KST"
+            },
+            {
+                "name": "Essien-Udim",
+                "code": "AFH"
+            },
+            {
+                "name": "Etim-Ekpo",
+                "code": "AEE"
+            },
+            {
+                "name": "Etinan",
+                "code": "ETN"
+            },
+            {
+                "name": "Ibeno",
+                "code": "PNG"
+            },
+            {
+                "name": "Ibesikpo-Asutan",
+                "code": "NGD"
+            },
+            {
+                "name": "Ibiono-Ibom",
+                "code": "BMT"
+            },
+            {
+                "name": "Ika",
+                "code": "NYA"
+            },
+            {
+                "name": "Ikono",
+                "code": "KKN"
+            },
+            {
+                "name": "Ikot-Abasi",
+                "code": "KTS"
+            },
+            {
+                "name": "Ikot-Ekpene",
+                "code": "KTE"
+            },
+            {
+                "name": "Ini",
+                "code": "DRK"
+            },
+            {
+                "name": "Itu",
+                "code": "TTU"
+            },
+            {
+                "name": "Mbo",
+                "code": "ENW"
+            },
+            {
+                "name": "Mkpat-Enin",
+                "code": "MKP"
+            },
+            {
+                "name": "Nsit-Atai",
+                "code": "TAI"
+            },
+            {
+                "name": "Nsit-Ibom",
+                "code": "AFG"
+            },
+            {
+                "name": "Nsit-Ubium",
+                "code": "KTD"
+            },
+            {
+                "name": "Obot-Akara",
+                "code": "NTE"
+            },
+            {
+                "name": "Okobo",
+                "code": "KPD"
+            },
+            {
+                "name": "Onna",
+                "code": "ABT"
+            },
+            {
+                "name": "Oron",
+                "code": "RNN"
+            },
+            {
+                "name": "Oruk Anam",
+                "code": "KTM"
+            },
+            {
+                "name": "Udung-Uko",
+                "code": "EYF"
+            },
+            {
+                "name": "Ukanafun",
+                "code": "KPK"
+            },
+            {
+                "name": "Urue-Offong/Oruko",
+                "code": "UFG"
+            },
+            {
+                "name": "Uruan",
+                "code": "DUU"
+            },
+            {
+                "name": "Uyo",
+                "code": "UYY"
+            }
         ]
     },
     {
@@ -125,26 +347,90 @@
         "region": "South East",
         "postal_code": "420001",
         "lgas": [
-            "Aguata",
-            "Anambra East",
-            "Anambra West",
-            "Anaocha",
-            "Awka North",
-            "Awka South",
-            "Ayamelum",
-            "Dunukofia",
-            "Ekwusigo",
-            "Idemili-North",
-            "Idemili-South",
-            "Ihiala",
-            "Njikoka",
-            "Nnewi-North",
-            "Nnewi-South",
-            "Ogbaru",
-            "Onitsha-North",
-            "Onitsha-South",
-            "Orumba-North",
-            "Orumba-South"
+            {
+                "name": "Aguata",
+                "code": "AGU"
+            },
+            {
+                "name": "Anambra East",
+                "code": "AAH"
+            },
+            {
+                "name": "Anambra West",
+                "code": "NZM"
+            },
+            {
+                "name": "Anaocha",
+                "code": "NEN"
+            },
+            {
+                "name": "Awka North",
+                "code": "ACA"
+            },
+            {
+                "name": "Awka South",
+                "code": "AWK"
+            },
+            {
+                "name": "Ayamelum",
+                "code": "NKK"
+            },
+            {
+                "name": "Dunukofia",
+                "code": "KPP"
+            },
+            {
+                "name": "Ekwusigo",
+                "code": "ZBL"
+            },
+            {
+                "name": "Idemili North",
+                "code": "GDD"
+            },
+            {
+                "name": "Idemili South",
+                "code": "JJT"
+            },
+            {
+                "name": "Ihiala",
+                "code": "HAL"
+            },
+            {
+                "name": "Njikoka",
+                "code": "ABN"
+            },
+            {
+                "name": "Nnewi North",
+                "code": "NNE"
+            },
+            {
+                "name": "Nnewi South",
+                "code": "UKP"
+            },
+            {
+                "name": "Ogbaru",
+                "code": "ATN"
+            },
+            {
+                "name": "Onitsha North",
+                "code": "NSH"
+            },
+            {
+                "name": "Onitsha South",
+                "code": "FGG"
+            },
+            {
+                "name": "Orumba North",
+                "code": "AJL"
+            },
+            {
+                "name": "Orumba South",
+                "code": "UMZ"
+            },
+            {
+                "name": "Oyi",
+                "code": "HTE"
+            }
         ]
     },
     {
@@ -155,26 +441,86 @@
         "region": "North West",
         "postal_code": "740001",
         "lgas": [
-            "Alkaleri",
-            "Bauchi",
-            "Bogoro",
-            "Damban",
-            "Darazo",
-            "Dass",
-            "Gamawa",
-            "Ganjuwa",
-            "Giade",
-            "Itas Gadau",
-            "Jama'Are",
-            "Katagum",
-            "Kirfi",
-            "Misau",
-            "Ningi",
-            "Shira",
-            "Tafawa-Balewa",
-            "Toro",
-            "Warji",
-            "Zaki"
+            {
+                "name": "Alkaleri",
+                "code": "ALK"
+            },
+            {
+                "name": "Bauchi",
+                "code": "BAU"
+            },
+            {
+                "name": "Bogoro",
+                "code": "BGR"
+            },
+            {
+                "name": "Damban",
+                "code": "DBM"
+            },
+            {
+                "name": "Darazo",
+                "code": "DRZ"
+            },
+            {
+                "name": "Dass",
+                "code": "DAS"
+            },
+            {
+                "name": "Gamawa",
+                "code": "GAM"
+            },
+            {
+                "name": "Ganjuwa",
+                "code": "GJW"
+            },
+            {
+                "name": "Giade",
+                "code": "GYD"
+            },
+            {
+                "name": "Itas/Gadau",
+                "code": "TSG"
+            },
+            {
+                "name": "Jama'Are",
+                "code": "JMA"
+            },
+            {
+                "name": "Katagum",
+                "code": "KTG"
+            },
+            {
+                "name": "Kirfi",
+                "code": "KRF"
+            },
+            {
+                "name": "Misau",
+                "code": "MSA"
+            },
+            {
+                "name": "Ningi",
+                "code": "NNG"
+            },
+            {
+                "name": "Shira",
+                "code": "SHR"
+            },
+            {
+                "name": "Tafawa-Balewa",
+                "code": "TFB"
+            },
+            {
+                "name": "Toro",
+                "code": "TRR"
+            },
+            {
+                "name": "Warji",
+                "code": "WRJ"
+            },
+            {
+                "name": "Zaki",
+                "code": "ZAK"
+            }
         ]
     },
     {
@@ -185,14 +531,38 @@
         "region": "South South",
         "postal_code": "561001",
         "lgas": [
-            "Brass",
-            "Ekeremor",
-            "Kolokuma Opokuma",
-            "Nembe",
-            "Ogbia",
-            "Sagbama",
-            "Southern-Ijaw",
-            "Yenagoa"
+            {
+                "name": "Brass",
+                "code": "BRS"
+            },
+            {
+                "name": "Ekeremor",
+                "code": "KMR"
+            },
+            {
+                "name": "Kolokuma/Opokuma",
+                "code": "KMK"
+            },
+            {
+                "name": "Nembe",
+                "code": "NEM"
+            },
+            {
+                "name": "Ogbia",
+                "code": "GBB"
+            },
+            {
+                "name": "Sagbama",
+                "code": "SAG"
+            },
+            {
+                "name": "Southern Ijaw",
+                "code": "SPR"
+            },
+            {
+                "name": "Yenagoa",
+                "code": "YEN"
+            }
         ]
     },
     {
@@ -203,28 +573,98 @@
         "region": "North Central",
         "postal_code": "970001",
         "lgas": [
-            "Ado",
-            "Agatu",
-            "Apa",
-            "Buruku",
-            "Gboko",
-            "Guma",
-            "Gwer-East",
-            "Gwer-West",
-            "Katsina-Ala",
-            "Konshisha",
-            "Kwande",
-            "Logo",
-            "Makurdi",
-            "Ogbadibo",
-            "Ohimini",
-            "Oju",
-            "Okpokwu",
-            "Otukpo",
-            "Tarka",
-            "Ukum",
-            "Ushongo",
-            "Vandeikya"
+            {
+                "name": "Ado",
+                "code": "GMU"
+            },
+            {
+                "name": "Agatu",
+                "code": "GTU"
+            },
+            {
+                "name": "Apa",
+                "code": "GKP"
+            },
+            {
+                "name": "Buruku",
+                "code": "BKB"
+            },
+            {
+                "name": "Gboko",
+                "code": "GBK"
+            },
+            {
+                "name": "Guma",
+                "code": "YGJ"
+            },
+            {
+                "name": "Gwer-East",
+                "code": "ALD"
+            },
+            {
+                "name": "Gwer-West",
+                "code": "NAK"
+            },
+            {
+                "name": "Katsina-Ala",
+                "code": "KAL"
+            },
+            {
+                "name": "Konshisha",
+                "code": "TSE"
+            },
+            {
+                "name": "Kwande",
+                "code": "WDP"
+            },
+            {
+                "name": "Logo",
+                "code": "GBG"
+            },
+            {
+                "name": "Makurdi",
+                "code": "MKD"
+            },
+            {
+                "name": "Obi",
+                "code": "BRT"
+            },
+            {
+                "name": "Ogbadibo",
+                "code": "BGT"
+            },
+            {
+                "name": "Ohimini",
+                "code": "DKP"
+            },
+            {
+                "name": "Oju",
+                "code": "JUX"
+            },
+            {
+                "name": "Okpokwu",
+                "code": "PKG"
+            },
+            {
+                "name": "Otukpo",
+                "code": "TKP"
+            },
+            {
+                "name": "Tarka",
+                "code": "WNN"
+            },
+            {
+                "name": "Ukum",
+                "code": "UKM"
+            },
+            {
+                "name": "Ushongo",
+                "code": "SEL"
+            },
+            {
+                "name": "Vandeikya",
+                "code": "VDY"
+            }
         ]
     },
     {
@@ -235,33 +675,114 @@
         "region": "North East",
         "postal_code": "600001",
         "lgas": [
-            "Abadam",
-            "Askira-Uba",
-            "Bama",
-            "Bayo",
-            "Biu",
-            "Chibok",
-            "Damboa",
-            "Dikwa",
-            "Gubio",
-            "Guzamala",
-            "Gwoza",
-            "Hawul",
-            "Jere",
-            "Kaga",
-            "Kala Balge",
-            "Konduga",
-            "Kukawa",
-            "Kwaya-Kusar",
-            "Mafa",
-            "Magumeri",
-            "Maiduguri",
-            "Marte",
-            "Mobbar",
-            "Monguno",
-            "Ngala",
-            "Nganzai",
-            "Shani"
+            {
+                "name": "Abadam",
+                "code": "ADM"
+            },
+            {
+                "name": "Askira-Uba",
+                "code": "ASU"
+            },
+            {
+                "name": "Bama",
+                "code": "BAM"
+            },
+            {
+                "name": "Bayo",
+                "code": "BAY"
+            },
+            {
+                "name": "Biu",
+                "code": "BBU"
+            },
+            {
+                "name": "Chibok",
+                "code": "CBK"
+            },
+            {
+                "name": "Damboa",
+                "code": "DAM"
+            },
+            {
+                "name": "Dikwa",
+                "code": "DKW"
+            },
+            {
+                "name": "Gubio",
+                "code": "GUB"
+            },
+            {
+                "name": "Guzamala",
+                "code": "GZM"
+            },
+            {
+                "name": "Gwoza",
+                "code": "GZA"
+            },
+            {
+                "name": "Hawul",
+                "code": "HWL"
+            },
+            {
+                "name": "Jere",
+                "code": "JRE"
+            },
+            {
+                "name": "Kaga",
+                "code": "KGG"
+            },
+            {
+                "name": "Kala Balge",
+                "code": "KBG"
+            },
+            {
+                "name": "Konduga",
+                "code": "KDG"
+            },
+            {
+                "name": "Kukawa",
+                "code": "KWA"
+            },
+            {
+                "name": "Kwaya-Kusar",
+                "code": "KWY"
+            },
+            {
+                "name": "Mafa",
+                "code": "MAF"
+            },
+            {
+                "name": "Magumeri",
+                "code": "MGM"
+            },
+            {
+                "name": "Maiduguri",
+                "code": "MAG"
+            },
+            {
+                "name": "Marte",
+                "code": "MAR"
+            },
+            {
+                "name": "Mobbar",
+                "code": "MBR"
+            },
+            {
+                "name": "Monguno",
+                "code": "MNG"
+            },
+            {
+                "name": "Ngala",
+                "code": "NGL"
+            },
+            {
+                "name": "Nganzai",
+                "code": "NGZ"
+            },
+            {
+                "name": "Shani",
+                "code": "SHN"
+            }
         ]
     },
     {
@@ -272,24 +793,78 @@
         "region": "South South",
         "postal_code": "540001",
         "lgas": [
-            "Abi",
-            "Akamkpa",
-            "Akpabuyo",
-            "Bakassi",
-            "Bekwarra",
-            "Biase",
-            "Boki",
-            "Calabar-Municipal",
-            "Calabar-South",
-            "Etung",
-            "Ikom",
-            "Obanliku",
-            "Obubra",
-            "Obudu",
-            "Odukpani",
-            "Ogoja",
-            "Yakurr",
-            "Yala"
+            {
+                "name": "Abi",
+                "code": "TGD"
+            },
+            {
+                "name": "Akamkpa",
+                "code": "RAM"
+            },
+            {
+                "name": "Akpabuyo",
+                "code": "KTA"
+            },
+            {
+                "name": "Bakassi",
+                "code": "BKS"
+            },
+            {
+                "name": "Bekwarra",
+                "code": "ABE"
+            },
+            {
+                "name": "Biase",
+                "code": "AKP"
+            },
+            {
+                "name": "Boki",
+                "code": "BJE"
+            },
+            {
+                "name": "Calabar-Municipal",
+                "code": "CAL"
+            },
+            {
+                "name": "Calabar-South",
+                "code": "ANA"
+            },
+            {
+                "name": "Etung",
+                "code": "EFE"
+            },
+            {
+                "name": "Ikom",
+                "code": "KMM"
+            },
+            {
+                "name": "Obanliku",
+                "code": "BNS"
+            },
+            {
+                "name": "Obubra",
+                "code": "BRA"
+            },
+            {
+                "name": "Obudu",
+                "code": "UDU"
+            },
+            {
+                "name": "Odukpani",
+                "code": "DUK"
+            },
+            {
+                "name": "Ogoja",
+                "code": "GGJ"
+            },
+            {
+                "name": "Yakurr",
+                "code": "GEP"
+            },
+            {
+                "name": "Yala",
+                "code": "CKK"
+            }
         ]
     },
     {
@@ -300,32 +875,106 @@
         "region": "South South",
         "postal_code": "320001",
         "lgas": [
-            "Aniocha North",
-            "Aniocha-North",
-            "Aniocha-South",
-            "Bomadi",
-            "Burutu",
-            "Ethiope-East",
-            "Ethiope-West",
-            "Ika-North-East",
-            "Ika-South",
-            "Isoko-North",
-            "Isoko-South",
-            "Ndokwa-East",
-            "Ndokwa-West",
-            "Okpe",
-            "Oshimili-North",
-            "Oshimili-South",
-            "Patani",
-            "Sapele",
-            "Udu",
-            "Ughelli-North",
-            "Ughelli-South",
-            "Ukwuani",
-            "Uvwie",
-            "Warri South-West",
-            "Warri North",
-            "Warri South"
+            {
+                "name": "Aniocha-North",
+                "code": "SLK"
+            },
+            {
+                "name": "Aniocha-South",
+                "code": "GWK"
+            },
+            {
+                "name": "Bomadi",
+                "code": "BMA"
+            },
+            {
+                "name": "Burutu",
+                "code": "BUR"
+            },
+            {
+                "name": "Ethiope-East",
+                "code": "SKL"
+            },
+            {
+                "name": "Ethiope-West",
+                "code": "GRA"
+            },
+            {
+                "name": "Ika-North-East",
+                "code": "AGB"
+            },
+            {
+                "name": "Ika-South",
+                "code": "AYB"
+            },
+            {
+                "name": "Isoko-North",
+                "code": "DSZ"
+            },
+            {
+                "name": "Isoko-South",
+                "code": "LEH"
+            },
+            {
+                "name": "Ndokwa-East",
+                "code": "ABH"
+            },
+            {
+                "name": "Ndokwa-West",
+                "code": "KWC"
+            },
+            {
+                "name": "Okpe",
+                "code": "KPE"
+            },
+            {
+                "name": "Oshimili-North",
+                "code": "AKU"
+            },
+            {
+                "name": "Oshimili-South",
+                "code": "ASB"
+            },
+            {
+                "name": "Patani",
+                "code": "PTN"
+            },
+            {
+                "name": "Sapele",
+                "code": "SAP"
+            },
+            {
+                "name": "Udu",
+                "code": "ALA"
+            },
+            {
+                "name": "Ughelli-North",
+                "code": "UGH"
+            },
+            {
+                "name": "Ughelli-South",
+                "code": "JRT"
+            },
+            {
+                "name": "Ukwuani",
+                "code": "BKW"
+            },
+            {
+                "name": "Uvwie",
+                "code": "EFR"
+            },
+            {
+                "name": "Warri-Central",
+                "code": "GBJ"
+            },
+            {
+                "name": "Warri-North",
+                "code": "KLK"
+            },
+            {
+                "name": "Warri-South",
+                "code": "WWR"
+            }
         ]
     },
     {
@@ -336,18 +985,54 @@
         "region": "South East",
         "postal_code": "840001",
         "lgas": [
-            "Abakaliki",
-            "Afikpo-North",
-            "Afikpo South (Edda)",
-            "Ebonyi",
-            "Ezza-North",
-            "Ezza-South",
-            "Ikwo",
-            "Ishielu",
-            "Ivo",
-            "Izzi",
-            "Ohaukwu",
-            "Onicha"
+            {
+                "name": "Abakaliki",
+                "code": "AKL"
+            },
+            {
+                "name": "Afikpo-North",
+                "code": "AFK"
+            },
+            {
+                "name": "Afikpo-South (Edda)",
+                "code": "EDA"
+            },
+            {
+                "name": "Ebonyi",
+                "code": "UGB"
+            },
+            {
+                "name": "Ezza-North",
+                "code": "EBJ"
+            },
+            {
+                "name": "Ezza-South",
+                "code": "NKE"
+            },
+            {
+                "name": "Ikwo",
+                "code": "CHR"
+            },
+            {
+                "name": "Ishielu",
+                "code": "ZLL"
+            },
+            {
+                "name": "Ivo",
+                "code": "SKA"
+            },
+            {
+                "name": "Izzi",
+                "code": "BKL"
+            },
+            {
+                "name": "Ohaukwu",
+                "code": "HKW"
+            },
+            {
+                "name": "Onicha",
+                "code": "NCA"
+            }
         ]
     },
     {
@@ -358,24 +1043,78 @@
         "region": "South South",
         "postal_code": "300001",
         "lgas": [
-            "Akoko Edo",
-            "Egor",
-            "Esan-Central",
-            "Esan-North-East",
-            "Esan-South-East",
-            "Esan-West",
-            "Etsako-Central",
-            "Etsako-East",
-            "Etsako-West",
-            "Igueben",
-            "Ikpoba-Okha",
-            "Oredo",
-            "Orhionmwon",
-            "Ovia-North-East",
-            "Ovia-South-West",
-            "Owan East",
-            "Owan-West",
-            "Uhunmwonde"
+            {
+                "name": "Akoko Edo",
+                "code": "GAR"
+            },
+            {
+                "name": "Egor",
+                "code": "USL"
+            },
+            {
+                "name": "Esan-Central",
+                "code": "RRU"
+            },
+            {
+                "name": "Esan-North-East",
+                "code": "URM"
+            },
+            {
+                "name": "Esan-South-East",
+                "code": "UBJ"
+            },
+            {
+                "name": "Esan-West",
+                "code": "EKP"
+            },
+            {
+                "name": "Etsako-Central",
+                "code": "FUG"
+            },
+            {
+                "name": "Etsako-East",
+                "code": "AGD"
+            },
+            {
+                "name": "Etsako-West",
+                "code": "AUC"
+            },
+            {
+                "name": "Igueben",
+                "code": "GUE"
+            },
+            {
+                "name": "Ikpoba-Okha",
+                "code": "DGE"
+            },
+            {
+                "name": "Oredo",
+                "code": "BEN"
+            },
+            {
+                "name": "Orhionmwon",
+                "code": "ABD"
+            },
+            {
+                "name": "Ovia-North-East",
+                "code": "AKA"
+            },
+            {
+                "name": "Ovia-South-West",
+                "code": "GBZ"
+            },
+            {
+                "name": "Owan East",
+                "code": "AFZ"
+            },
+            {
+                "name": "Owan-West",
+                "code": "SGD"
+            },
+            {
+                "name": "Uhunmwonde",
+                "code": "HER"
+            }
         ]
     },
     {
@@ -386,22 +1125,70 @@
         "region": "South West",
         "postal_code": "360001",
         "lgas": [
-            "Ado-Ekiti",
-            "Efon",
-            "Ekiti-East",
-            "Ekiti-South-West",
-            "Ekiti-West",
-            "Emure",
-            "Gbonyin",
-            "Ido-Osi",
-            "Ijero",
-            "Ikere",
-            "Ikole",
-            "Ilejemeje",
-            "Irepodun Ifelodun",
-            "Ise-Orun",
-            "Moba",
-            "Oye"
+            {
+                "name": "Ado-Ekiti",
+                "code": "ADK"
+            },
+            {
+                "name": "Efon",
+                "code": "EFY"
+            },
+            {
+                "name": "Ekiti-East",
+                "code": "MUE"
+            },
+            {
+                "name": "Ekiti-South-West",
+                "code": "LAW"
+            },
+            {
+                "name": "Ekiti-West",
+                "code": "AMK"
+            },
+            {
+                "name": "Emure",
+                "code": "EMR"
+            },
+            {
+                "name": "Gbonyin",
+                "code": "DEA"
+            },
+            {
+                "name": "Ido-Osi",
+                "code": "DEK"
+            },
+            {
+                "name": "Ijero",
+                "code": "JER"
+            },
+            {
+                "name": "Ikere",
+                "code": "KER"
+            },
+            {
+                "name": "Ikole",
+                "code": "RLE"
+            },
+            {
+                "name": "Ilejemeje",
+                "code": "YEK"
+            },
+            {
+                "name": "Irepodun/Ifelodun",
+                "code": "GED"
+            },
+            {
+                "name": "Ise-Orun",
+                "code": "SSE"
+            },
+            {
+                "name": "Moba",
+                "code": "TUN"
+            },
+            {
+                "name": "Oye",
+                "code": "YEE"
+            }
         ]
     },
     {
@@ -412,23 +1199,74 @@
         "region": "South East",
         "postal_code": "400001",
         "lgas": [
-            "Aninri",
-            "Awgu",
-            "Enugu-East",
-            "Enugu-North",
-            "Enugu-South",
-            "Ezeagu",
-            "Igbo-Etiti",
-            "Igbo-Eze-North",
-            "Igbo-Eze-South",
-            "Isi-Uzo",
-            "Nkanu-East",
-            "Nkanu-West",
-            "Nsukka",
-            "Oji-River",
-            "Udenu",
-            "Udi",
-            "Uzo-Uwani"
+            {
+                "name": "Aninri",
+                "code": "DBR"
+            },
+            {
+                "name": "Awgu",
+                "code": "AWG"
+            },
+            {
+                "name": "Enugu-East",
+                "code": "NKW"
+            },
+            {
+                "name": "Enugu-North",
+                "code": "ENU"
+            },
+            {
+                "name": "Enugu-South",
+                "code": "UWN"
+            },
+            {
+                "name": "Ezeagu",
+                "code": "AGW"
+            },
+            {
+                "name": "Igbo-Etiti",
+                "code": "GBD"
+            },
+            {
+                "name": "Igbo-Eze-North",
+                "code": "ENZ"
+            },
+            {
+                "name": "Igbo-Eze-South",
+                "code": "BBG"
+            },
+            {
+                "name": "Isi-Uzo",
+                "code": "KEM"
+            },
+            {
+                "name": "Nkanu-East",
+                "code": "MGL"
+            },
+            {
+                "name": "Nkanu-West",
+                "code": "AGN"
+            },
+            {
+                "name": "Nsukka",
+                "code": "NSK"
+            },
+            {
+                "name": "Oji-River",
+                "code": "JRV"
+            },
+            {
+                "name": "Udenu",
+                "code": "BLF"
+            },
+            {
+                "name": "Udi",
+                "code": "UDD"
+            },
+            {
+                "name": "Uzo-Uwani",
+                "code": "UMU"
+            }
         ]
     },
     {
@@ -439,17 +1277,50 @@
         "region": "North East",
         "postal_code": "760001",
         "lgas": [
-            "Akko",
-            "Balanga",
-            "Billiri",
-            "Dukku",
-            "Funakaye",
-            "Gombe",
-            "Kaltungo",
-            "Kwami",
-            "Nafada",
-            "Shongom",
-            "Yamaltu Deba"
+            {
+                "name": "Akko",
+                "code": "AKK"
+            },
+            {
+                "name": "Balanga",
+                "code": "BLG"
+            },
+            {
+                "name": "Billiri",
+                "code": "BLR"
+            },
+            {
+                "name": "Dukku",
+                "code": "DKU"
+            },
+            {
+                "name": "Funakaye",
+                "code": "FKY"
+            },
+            {
+                "name": "Gombe",
+                "code": "GME"
+            },
+            {
+                "name": "Kaltungo",
+                "code": "KLT"
+            },
+            {
+                "name": "Kwami",
+                "code": "KWM"
+            },
+            {
+                "name": "Nafada/Bajoga",
+                "code": "NFD"
+            },
+            {
+                "name": "Shongom",
+                "code": "SHM"
+            },
+            {
+                "name": "Yamaltu/Deba",
+                "code": "YDB"
+            }
         ]
     },
     {
@@ -460,33 +1331,114 @@
         "region": "South East",
         "postal_code": "460001",
         "lgas": [
-            "Aboh-Mbaise",
-            "Ahiazu-Mbaise",
-            "Ehime-Mbano",
-            "Ezinihitte",
-            "Ideato-North",
-            "Ideato-South",
-            "Ihitte Uboma",
-            "Ikeduru",
-            "Isiala-Mbano",
-            "Isu",
-            "Mbaitoli",
-            "Ngor-Okpala",
-            "Njaba",
-            "Nkwerre",
-            "Nwangele",
-            "Obowo",
-            "Oguta",
-            "Ohaji-Egbema",
-            "Okigwe",
-            "Onuimo",
-            "Orlu",
-            "Orsu",
-            "Oru-East",
-            "Oru-West",
-            "Owerri-Municipal",
-            "Owerri-North",
-            "Owerri-West"
+            {
+                "name": "Aboh-Mbaise",
+                "code": "ABB"
+            },
+            {
+                "name": "Ahiazu-Mbaise",
+                "code": "AFR"
+            },
+            {
+                "name": "Ehime-Mbano",
+                "code": "EHM"
+            },
+            {
+                "name": "Ezinihitte",
+                "code": "ETU"
+            },
+            {
+                "name": "Ideato-North",
+                "code": "URU"
+            },
+            {
+                "name": "Ideato-South",
+                "code": "DFB"
+            },
+            {
+                "name": "Ihitte Uboma",
+                "code": "EKE"
+            },
+            {
+                "name": "Ikeduru",
+                "code": "KED"
+            },
+            {
+                "name": "Isiala-Mbano",
+                "code": "UML"
+            },
+            {
+                "name": "Isu",
+                "code": "UMD"
+            },
+            {
+                "name": "Mbaitoli",
+                "code": "NWA"
+            },
+            {
+                "name": "Ngor-Okpala",
+                "code": "NGN"
+            },
+            {
+                "name": "Njaba",
+                "code": "UMK"
+            },
+            {
+                "name": "Nkwerre",
+                "code": "NKR"
+            },
+            {
+                "name": "Nwangele",
+                "code": "AMG"
+            },
+            {
+                "name": "Obowo",
+                "code": "TTK"
+            },
+            {
+                "name": "Oguta",
+                "code": "GUA"
+            },
+            {
+                "name": "Ohaji-Egbema",
+                "code": "EBM"
+            },
+            {
+                "name": "Okigwe",
+                "code": "KGE"
+            },
+            {
+                "name": "Onuimo",
+                "code": "KWE"
+            },
+            {
+                "name": "Orlu",
+                "code": "RLU"
+            },
+            {
+                "name": "Orsu",
+                "code": "AWT"
+            },
+            {
+                "name": "Oru-East",
+                "code": "MMA"
+            },
+            {
+                "name": "Oru-West",
+                "code": "NGB"
+            },
+            {
+                "name": "Owerri-Municipal",
+                "code": "WER"
+            },
+            {
+                "name": "Owerri-North",
+                "code": "RRT"
+            },
+            {
+                "name": "Owerri-West",
+                "code": "UMG"
+            }
         ]
     },
     {
@@ -497,32 +1449,110 @@
         "region": "North West",
         "postal_code": "720001",
         "lgas": [
-            "Auyo",
-            "Babura",
-            "Biriniwa",
-            "Birnin-Kudu",
-            "Buji",
-            "Dutse",
-            "Gagarawa",
-            "Garki",
-            "Gumel",
-            "Guri",
-            "Gwaram",
-            "Gwiwa",
-            "Hadejia",
-            "Jahun",
-            "Kafin-Hausa",
-            "Kaugama",
-            "Kazaure",
-            "Kiri kasama",
-            "Maigatari",
-            "Malam Madori",
-            "Miga",
-            "Ringim",
-            "Roni",
-            "Sule-Tankarkar",
-            "Taura",
-            "Yankwashi"
+            {
+                "name": "Auyo",
+                "code": "AUY"
+            },
+            {
+                "name": "Babura",
+                "code": "BBR"
+            },
+            {
+                "name": "Biriniwa",
+                "code": "BNW"
+            },
+            {
+                "name": "Birnin-Kudu",
+                "code": "BKD"
+            },
+            {
+                "name": "Buji",
+                "code": "BUJ"
+            },
+            {
+                "name": "Dutse",
+                "code": "DUT"
+            },
+            {
+                "name": "Gagarawa",
+                "code": "GGW"
+            },
+            {
+                "name": "Garki",
+                "code": "GRK"
+            },
+            {
+                "name": "Gumel",
+                "code": "GML"
+            },
+            {
+                "name": "Guri",
+                "code": "GRR"
+            },
+            {
+                "name": "Gwaram",
+                "code": "GRM"
+            },
+            {
+                "name": "Gwiwa",
+                "code": "GWW"
+            },
+            {
+                "name": "Hadejia",
+                "code": "HJA"
+            },
+            {
+                "name": "Jahun",
+                "code": "JHN"
+            },
+            {
+                "name": "Kafin-Hausa",
+                "code": "KHS"
+            },
+            {
+                "name": "Kaugama",
+                "code": "KGM"
+            },
+            {
+                "name": "Kazaure",
+                "code": "KZR"
+            },
+            {
+                "name": "Kiri Kasamma",
+                "code": "KKM"
+            },
+            {
+                "name": "Maigatari",
+                "code": "MGR"
+            },
+            {
+                "name": "Malam Madori",
+                "code": "MMR"
+            },
+            {
+                "name": "Miga",
+                "code": "MGA"
+            },
+            {
+                "name": "Ringim",
+                "code": "RNG"
+            },
+            {
+                "name": "Roni",
+                "code": "RRN"
+            },
+            {
+                "name": "Sule-Tankarkar",
+                "code": "STK"
+            },
+            {
+                "name": "Taura",
+                "code": "TAR"
+            },
+            {
+                "name": "Yankwashi",
+                "code": "YKS"
+            }
         ]
     },
     {
@@ -533,29 +1563,98 @@
         "region": "North West",
         "postal_code": "800001",
         "lgas": [
-            "Birnin-Gwari",
-            "Chikun",
-            "Giwa",
-            "Igabi",
-            "Ikara",
-            "Jaba",
-            "Jema'A",
-            "Kachia",
-            "Kaduna-North",
-            "Kaduna-South",
-            "Kagarko",
-            "Kajuru",
-            "Kaura",
-            "Kauru",
-            "Kubau",
-            "Kudan",
-            "Lere",
-            "Makarfi",
-            "Sabon-Gari",
-            "Sanga",
-            "Soba",
-            "Zangon-Kataf",
-            "Zaria"
+            {
+                "name": "Birnin-Gwari",
+                "code": "BNG"
+            },
+            {
+                "name": "Chikun",
+                "code": "KJM"
+            },
+            {
+                "name": "Giwa",
+                "code": "GKW"
+            },
+            {
+                "name": "Igabi",
+                "code": "TRK"
+            },
+            {
+                "name": "Ikara",
+                "code": "KAR"
+            },
+            {
+                "name": "Jaba",
+                "code": "KWB"
+            },
+            {
+                "name": "Jema'a",
+                "code": "KAF"
+            },
+            {
+                "name": "Kachia",
+                "code": "KCH"
+            },
+            {
+                "name": "Kaduna-North",
+                "code": "DKA"
+            },
+            {
+                "name": "Kaduna-South",
+                "code": "MKA"
+            },
+            {
+                "name": "Kagarko",
+                "code": "KGK"
+            },
+            {
+                "name": "Kajuru",
+                "code": "KJR"
+            },
+            {
+                "name": "Kaura",
+                "code": "KRA"
+            },
+            {
+                "name": "Kauru",
+                "code": "KRU"
+            },
+            {
+                "name": "Kubau",
+                "code": "ANC"
+            },
+            {
+                "name": "Kudan",
+                "code": "HKY"
+            },
+            {
+                "name": "Lere",
+                "code": "SNK"
+            },
+            {
+                "name": "Makarfi",
+                "code": "MKR"
+            },
+            {
+                "name": "Sabon-Gari",
+                "code": "SBG"
+            },
+            {
+                "name": "Sanga",
+                "code": "GWT"
+            },
+            {
+                "name": "Soba",
+                "code": "MGN"
+            },
+            {
+                "name": "Zangon-Kataf",
+                "code": "ZKW"
+            },
+            {
+                "name": "Zaria",
+                "code": "ZAR"
+            }
         ]
     },
     {
@@ -566,50 +1665,182 @@
         "region": "North West",
         "postal_code": "700001",
         "lgas": [
-            "Ajingi",
-            "Albasu",
-            "Bagwai",
-            "Bebeji",
-            "Bichi",
-            "Bunkure",
-            "Dala",
-            "Dambatta",
-            "Dawakin-Kudu",
-            "Dawakin-Tofa",
-            "Doguwa",
-            "Fagge",
-            "Gabasawa",
-            "Garko",
-            "Garun-Mallam",
-            "Gaya",
-            "Gezawa",
-            "Gwale",
-            "Gwarzo",
-            "Kabo",
-            "Kano-Municipal",
-            "Karaye",
-            "Kibiya",
-            "Kiru",
-            "Kumbotso",
-            "Kunchi",
-            "Kura",
-            "Madobi",
-            "Makoda",
-            "Minjibir",
-            "Nasarawa",
-            "Rano",
-            "Rimin-Gado",
-            "Rogo",
-            "Shanono",
-            "Sumaila",
-            "Takai",
-            "Tarauni",
-            "Tofa",
-            "Tsanyawa",
-            "Tudun-Wada",
-            "Ungogo",
-            "Warawa",
-            "Wudil"
+            {
+                "name": "Ajingi",
+                "code": "AJG"
+            },
+            {
+                "name": "Albasu",
+                "code": "ABS"
+            },
+            {
+                "name": "Bagwai",
+                "code": "BGW"
+            },
+            {
+                "name": "Bebeji",
+                "code": "BBJ"
+            },
+            {
+                "name": "Bichi",
+                "code": "BCH"
+            },
+            {
+                "name": "Bunkure",
+                "code": "BNK"
+            },
+            {
+                "name": "Dala",
+                "code": "DAL"
+            },
+            {
+                "name": "Dambatta",
+                "code": "DBT"
+            },
+            {
+                "name": "Dawakin-Kudu",
+                "code": "DKD"
+            },
+            {
+                "name": "Dawakin-Tofa",
+                "code": "DTF"
+            },
+            {
+                "name": "Doguwa",
+                "code": "DGW"
+            },
+            {
+                "name": "Fagge",
+                "code": "FGE"
+            },
+            {
+                "name": "Gabasawa",
+                "code": "DSW"
+            },
+            {
+                "name": "Garko",
+                "code": "GAK"
+            },
+            {
+                "name": "Garun-Mallam",
+                "code": "GNM"
+            },
+            {
+                "name": "Gaya",
+                "code": "GYA"
+            },
+            {
+                "name": "Gezawa",
+                "code": "GZW"
+            },
+            {
+                "name": "Gwale",
+                "code": "GWL"
+            },
+            {
+                "name": "Gwarzo",
+                "code": "GRZ"
+            },
+            {
+                "name": "Kano-Municipal",
+                "code": "KMC"
+            },
+            {
+                "name": "Karaye",
+                "code": "KRY"
+            },
+            {
+                "name": "Kibiya",
+                "code": "KBY"
+            },
+            {
+                "name": "Kiru",
+                "code": "KKU"
+            },
+            {
+                "name": "Kumbotso",
+                "code": "KBT"
+            },
+            {
+                "name": "Kunchi",
+                "code": "KNC"
+            },
+            {
+                "name": "Kura",
+                "code": "KUR"
+            },
+            {
+                "name": "Madobi",
+                "code": "MDB"
+            },
+            {
+                "name": "Makoda",
+                "code": "MKK"
+            },
+            {
+                "name": "Minjibir",
+                "code": "MJB"
+            },
+            {
+                "name": "Nasarawa",
+                "code": "NSR"
+            },
+            {
+                "name": "Rano",
+                "code": "RAN"
+            },
+            {
+                "name": "Rimin-Gado",
+                "code": "RMG"
+            },
+            {
+                "name": "Rogo",
+                "code": "RGG"
+            },
+            {
+                "name": "Shanono",
+                "code": "SNN"
+            },
+            {
+                "name": "Sumaila",
+                "code": "SML"
+            },
+            {
+                "name": "Takai",
+                "code": "TAK"
+            },
+            {
+                "name": "Tarauni",
+                "code": "TRN"
+            },
+            {
+                "name": "Tofa",
+                "code": "TEA"
+            },
+            {
+                "name": "Tsanyawa",
+                "code": "TYW"
+            },
+            {
+                "name": "Tudun-Wada",
+                "code": "TWD"
+            },
+            {
+                "name": "Ungogo",
+                "code": "UGG"
+            },
+            {
+                "name": "Warawa",
+                "code": "WRA"
+            },
+            {
+                "name": "Wudil",
+                "code": "WDL"
+            },
+            {
+                "name": "Kabo",
+                "code": "KBK"
+            }
         ]
     },
     {
@@ -620,40 +1851,142 @@
         "region": "North West",
         "postal_code": "820001",
         "lgas": [
-            "Bakori",
-            "Batagarawa",
-            "Batsari",
-            "Baure",
-            "Bindawa",
-            "Charanchi",
-            "Dan-Musa",
-            "Dandume",
-            "Danja",
-            "Daura",
-            "Dutsi",
-            "Dutsin-Ma",
-            "Faskari",
-            "Funtua",
-            "Ingawa",
-            "Jibia",
-            "Kafur",
-            "Kaita",
-            "Kankara",
-            "Kankia",
-            "Katsina",
-            "Kurfi",
-            "Kusada",
-            "Mai-Adua",
-            "Malumfashi",
-            "Mani",
-            "Mashi",
-            "Matazu",
-            "Musawa",
-            "Rimi",
-            "Sabuwa",
-            "Safana",
-            "Sandamu",
-            "Zango"
+            {
+                "name": "Bakori",
+                "code": "BKR"
+            },
+            {
+                "name": "Batagarawa",
+                "code": "BAT"
+            },
+            {
+                "name": "Batsari",
+                "code": "BTR"
+            },
+            {
+                "name": "Baure",
+                "code": "BRE"
+            },
+            {
+                "name": "Bindawa",
+                "code": "BDW"
+            },
+            {
+                "name": "Charanchi",
+                "code": "CRC"
+            },
+            {
+                "name": "Dan-Musa",
+                "code": "DMS"
+            },
+            {
+                "name": "Dandume",
+                "code": "DDM"
+            },
+            {
+                "name": "Danja",
+                "code": "DJA"
+            },
+            {
+                "name": "Daura",
+                "code": "DRA"
+            },
+            {
+                "name": "Dutsi",
+                "code": "DTS"
+            },
+            {
+                "name": "Dutsin-Ma",
+                "code": "DTM"
+            },
+            {
+                "name": "Faskari",
+                "code": "FSK"
+            },
+            {
+                "name": "Funtua",
+                "code": "FTA"
+            },
+            {
+                "name": "Ingawa",
+                "code": "NGW"
+            },
+            {
+                "name": "Jibia",
+                "code": "JBY"
+            },
+            {
+                "name": "Kafur",
+                "code": "KFR"
+            },
+            {
+                "name": "Kaita",
+                "code": "KAT"
+            },
+            {
+                "name": "Kankara",
+                "code": "KKR"
+            },
+            {
+                "name": "Kankia",
+                "code": "KNK"
+            },
+            {
+                "name": "Katsina",
+                "code": "KTN"
+            },
+            {
+                "name": "Kurfi",
+                "code": "KUF"
+            },
+            {
+                "name": "Kusada",
+                "code": "KSD"
+            },
+            {
+                "name": "Mai-Adua",
+                "code": "MDW"
+            },
+            {
+                "name": "Malumfashi",
+                "code": "MNF"
+            },
+            {
+                "name": "Mani",
+                "code": "MAN"
+            },
+            {
+                "name": "Mashi",
+                "code": "MSH"
+            },
+            {
+                "name": "Matazu",
+                "code": "MTZ"
+            },
+            {
+                "name": "Musawa",
+                "code": "MSW"
+            },
+            {
+                "name": "Rimi",
+                "code": "RMY"
+            },
+            {
+                "name": "Sabuwa",
+                "code": "SBA"
+            },
+            {
+                "name": "Safana",
+                "code": "SFN"
+            },
+            {
+                "name": "Sandamu",
+                "code": "SDM"
+            },
+            {
+                "name": "Zango",
+                "code": "ZNG"
+            }
         ]
     },
     {
@@ -664,27 +1997,90 @@
         "region": "North West",
         "postal_code": "860001",
         "lgas": [
-            "Aleiro",
-            "Arewa-Dandi",
-            "Argungu",
-            "Augie",
-            "Bagudo",
-            "Birnin-Kebbi",
-            "Bunza",
-            "Dandi",
-            "Fakai",
-            "Gwandu",
-            "Jega",
-            "Kalgo",
-            "Koko-Besse",
-            "Maiyama",
-            "Ngaski",
-            "Sakaba",
-            "Shanga",
-            "Suru",
-            "Wasagu/Danko",
-            "Yauri",
-            "Zuru"
+            {
+                "name": "Aleiro",
+                "code": "ALR"
+            },
+            {
+                "name": "Arewa-Dandi",
+                "code": "KGW"
+            },
+            {
+                "name": "Argungu",
+                "code": "ARG"
+            },
+            {
+                "name": "Augie",
+                "code": "AUG"
+            },
+            {
+                "name": "Bagudo",
+                "code": "BGD"
+            },
+            {
+                "name": "Birnin-Kebbi",
+                "code": "BRK"
+            },
+            {
+                "name": "Bunza",
+                "code": "BNZ"
+            },
+            {
+                "name": "Dandi",
+                "code": "KMB"
+            },
+            {
+                "name": "Fakai",
+                "code": "MHT"
+            },
+            {
+                "name": "Gwandu",
+                "code": "GWN"
+            },
+            {
+                "name": "Jega",
+                "code": "JEG"
+            },
+            {
+                "name": "Kalgo",
+                "code": "KLG"
+            },
+            {
+                "name": "Koko-Besse",
+                "code": "BES"
+            },
+            {
+                "name": "Maiyama",
+                "code": "MYM"
+            },
+            {
+                "name": "Ngaski",
+                "code": "WRR"
+            },
+            {
+                "name": "Sakaba",
+                "code": "DRD"
+            },
+            {
+                "name": "Shanga",
+                "code": "SNA"
+            },
+            {
+                "name": "Suru",
+                "code": "DKG"
+            },
+            {
+                "name": "Wasagu/Danko",
+                "code": "RBH"
+            },
+            {
+                "name": "Yauri",
+                "code": "YLW"
+            },
+            {
+                "name": "Zuru",
+                "code": "ZUR"
+            }
         ]
     },
     {
@@ -695,27 +2091,86 @@
         "region": "North Central",
         "postal_code": "260001",
         "lgas": [
-            "Adavi",
-            "Ajaokuta",
-            "Ankpa",
-            "Dekina",
-            "Ibaji",
-            "Idah",
-            "Igalamela-Odolu",
-            "Ijumu",
-            "Kabba Bunu",
-            "Kogi",
-            "Lokoja",
-            "Mopa-Muro",
-            "Ofu",
-            "Ogori Magongo",
-            "Okehi",
-            "Okene",
-            "Olamaboro",
-            "Omala",
-            "Oyi",
-            "Yagba-East",
-            "Yagba-West"
+            {
+                "name": "Adavi",
+                "code": "DAV"
+            },
+            {
+                "name": "Ajaokuta",
+                "code": "AJA"
+            },
+            {
+                "name": "Ankpa",
+                "code": "KPA"
+            },
+            {
+                "name": "Dekina",
+                "code": "KNA"
+            },
+            {
+                "name": "Ibaji",
+                "code": "NDG"
+            },
+            {
+                "name": "Idah",
+                "code": "DAH"
+            },
+            {
+                "name": "Igalamela-Odolu",
+                "code": "AJK"
+            },
+            {
+                "name": "Ijumu",
+                "code": "JMU"
+            },
+            {
+                "name": "Kabba/Bunu",
+                "code": "KAB"
+            },
+            {
+                "name": "Kogi",
+                "code": "KKF"
+            },
+            {
+                "name": "Lokoja",
+                "code": "LKJ"
+            },
+            {
+                "name": "Mopa-Muro",
+                "code": "MPA"
+            },
+            {
+                "name": "Ofu",
+                "code": "KFU"
+            },
+            {
+                "name": "Ogori/Magongo",
+                "code": "KPF"
+            },
+            {
+                "name": "Okehi",
+                "code": "KKH"
+            },
+            {
+                "name": "Okene",
+                "code": "KNE"
+            },
+            {
+                "name": "Olamaboro",
+                "code": "LAM"
+            },
+            {
+                "name": "Omala",
+                "code": "BJK"
+            },
+            {
+                "name": "Yagba-East",
+                "code": "ERE"
+            },
+            {
+                "name": "Yagba-West",
+                "code": "SAN"
+            }
         ]
     },
     {
@@ -726,20 +2181,62 @@
         "region": "North Central",
         "postal_code": "240001",
         "lgas": [
-            "Asa",
-            "Baruten",
-            "Edu",
-            "Ekiti (Araromi/Opin)",
-            "Ilorin-East",
-            "Ilorin-South",
-            "Ilorin-West",
-            "Isin",
-            "Kaiama",
-            "Moro",
-            "Offa",
-            "Oke-Ero",
-            "Oyun",
-            "Pategi"
+            {
+                "name": "Asa",
+                "code": "AFN"
+            },
+            {
+                "name": "Baruten",
+                "code": "KSB"
+            },
+            {
+                "name": "Edu",
+                "code": "LAF"
+            },
+            {
+                "name": "Ekiti",
+                "code": "ARP"
+            },
+            {
+                "name": "Ilorin-East",
+                "code": "KEY"
+            },
+            {
+                "name": "Ilorin-South",
+                "code": "FUF"
+            },
+            {
+                "name": "Ilorin-West",
+                "code": "LRN"
+            },
+            {
+                "name": "Isin",
+                "code": "WSN"
+            },
+            {
+                "name": "Kaiama",
+                "code": "KMA"
+            },
+            {
+                "name": "Moro",
+                "code": "BDU"
+            },
+            {
+                "name": "Offa",
+                "code": "FFA"
+            },
+            {
+                "name": "Oke-Ero",
+                "code": "LFF"
+            },
+            {
+                "name": "Oyun",
+                "code": "LEM"
+            },
+            {
+                "name": "Pategi",
+                "code": "PTG"
+            }
         ]
     },
     {
@@ -750,27 +2247,86 @@
         "region": "South West",
         "postal_code": "100001",
         "lgas": [
-            "Agege",
-            "Ajeromi-Ifelodun",
-            "Alimosho",
-            "Amuwo-Odofin",
-            "Apapa",
-            "Badagry",
-            "Epe",
-            "Eti-Osa",
-            "Ibeju-Lekki",
-            "Ifako-Ijaiye",
-            "Ikeja",
-            "Ikorodu",
-            "Kosofe",
-            "Lagos-Island",
-            "Lagos-Mainland",
-            "Mushin",
-            "Ojo",
-            "Oshodi-Isolo",
-            "Shomolu",
-            "Surulere",
-            "Yewa-South"
+            {
+                "name": "Agege",
+                "code": "GGE"
+            },
+            {
+                "name": "Ajeromi-Ifelodun",
+                "code": "AGL"
+            },
+            {
+                "name": "Alimosho",
+                "code": "KTU"
+            },
+            {
+                "name": "Amuwo-Odofin",
+                "code": "FST"
+            },
+            {
+                "name": "Apapa",
+                "code": "APP"
+            },
+            {
+                "name": "Badagry",
+                "code": "BDG"
+            },
+            {
+                "name": "Epe",
+                "code": "EPE"
+            },
+            {
+                "name": "Eti-Osa",
+                "code": "EKY"
+            },
+            {
+                "name": "Ibeju-Lekki",
+                "code": "AKD"
+            },
+            {
+                "name": "Ifako-Ijaiye",
+                "code": "FKJ"
+            },
+            {
+                "name": "Ikeja",
+                "code": "KJA"
+            },
+            {
+                "name": "Ikorodu",
+                "code": "KRD"
+            },
+            {
+                "name": "Kosofe",
+                "code": "KSF"
+            },
+            {
+                "name": "Lagos-Island",
+                "code": "AAA"
+            },
+            {
+                "name": "Lagos-Mainland",
+                "code": "LND"
+            },
+            {
+                "name": "Mushin",
+                "code": "MUS"
+            },
+            {
+                "name": "Ojo",
+                "code": "JJJ"
+            },
+            {
+                "name": "Oshodi-Isolo",
+                "code": "LSD"
+            },
+            {
+                "name": "Somolu",
+                "code": "SMK"
+            },
+            {
+                "name": "Surulere",
+                "code": "LSR"
+            }
         ]
     },
     {
@@ -781,19 +2337,58 @@
         "region": "North Central",
         "postal_code": "962001",
         "lgas": [
-            "Akwanga",
-            "Awe",
-            "Doma",
-            "Karu",
-            "Keana",
-            "Keffi",
-            "Kokona",
-            "Lafia",
-            "Nasarawa",
-            "Nasarawa-Eggon",
-            "Obi",
-            "Wamba",
-            "Toto"
+            {
+                "name": "Akwanga",
+                "code": "AKW"
+            },
+            {
+                "name": "Awe",
+                "code": "AWE"
+            },
+            {
+                "name": "Doma",
+                "code": "DMA"
+            },
+            {
+                "name": "Karu",
+                "code": "KRV"
+            },
+            {
+                "name": "Keana",
+                "code": "KEN"
+            },
+            {
+                "name": "Keffi",
+                "code": "KEF"
+            },
+            {
+                "name": "Kokona",
+                "code": "GRU"
+            },
+            {
+                "name": "Lafia",
+                "code": "LFA"
+            },
+            {
+                "name": "Nasarawa",
+                "code": "NSW"
+            },
+            {
+                "name": "Nasarawa-Eggon",
+                "code": "NEG"
+            },
+            {
+                "name": "Obi",
+                "code": "NBB"
+            },
+            {
+                "name": "Wamba",
+                "code": "WAM"
+            },
+            {
+                "name": "Toto",
+                "code": "NTT"
+            }
         ]
     },
     {
@@ -804,31 +2399,106 @@
         "region": "North Central",
         "postal_code": "920001",
         "lgas": [
-            "Agaie",
-            "Agwara",
-            "Bida",
-            "Borgu",
-            "Bosso",
-            "Chanchaga",
-            "Edati",
-            "Gbako",
-            "Gurara",
-            "Katcha",
-            "Kontagora",
-            "Lapai",
-            "Lavun",
-            "Magama",
-            "Mariga",
-            "Mashegu",
-            "Mokwa",
-            "Moya",
-            "Paikoro",
-            "Rafi",
-            "Rijau",
-            "Shiroro",
-            "Suleja",
-            "Tafa",
-            "Wushishi"
+            {
+                "name": "Agaie",
+                "code": "AGA"
+            },
+            {
+                "name": "Agwara",
+                "code": "AGR"
+            },
+            {
+                "name": "Bida",
+                "code": "BDA"
+            },
+            {
+                "name": "Borgu",
+                "code": "NBS"
+            },
+            {
+                "name": "Bosso",
+                "code": "MAK"
+            },
+            {
+                "name": "Chanchaga",
+                "code": "MNA"
+            },
+            {
+                "name": "Edati",
+                "code": "ENG"
+            },
+            {
+                "name": "Gbako",
+                "code": "LMU"
+            },
+            {
+                "name": "Gurara",
+                "code": "GWU"
+            },
+            {
+                "name": "Katcha",
+                "code": "KHA"
+            },
+            {
+                "name": "Kontagora",
+                "code": "KNT"
+            },
+            {
+                "name": "Lapai",
+                "code": "LAP"
+            },
+            {
+                "name": "Lavun",
+                "code": "KUG"
+            },
+            {
+                "name": "Magama",
+                "code": "NAS"
+            },
+            {
+                "name": "Mariga",
+                "code": "BMG"
+            },
+            {
+                "name": "Mashegu",
+                "code": "MSG"
+            },
+            {
+                "name": "Mokwa",
+                "code": "MKW"
+            },
+            {
+                "name": "Muya",
+                "code": "SRP"
+            },
+            {
+                "name": "Paikoro",
+                "code": "PAK"
+            },
+            {
+                "name": "Rafi",
+                "code": "KAG"
+            },
+            {
+                "name": "Rijau",
+                "code": "RJA"
+            },
+            {
+                "name": "Shiroro",
+                "code": "KUT"
+            },
+            {
+                "name": "Suleja",
+                "code": "SUL"
+            },
+            {
+                "name": "Tafa",
+                "code": "WSE"
+            },
+            {
+                "name": "Wushishi",
+                "code": "WSU"
+            }
         ]
     },
     {
@@ -839,25 +2509,86 @@
         "region": "South West",
         "postal_code": "110001",
         "lgas": [
-            "Abeokuta-North",
-            "Abeokuta-South",
-            "Ado-Odo Ota",
-            "Ewekoro",
-            "Ifo",
-            "Ijebu-East",
-            "Ijebu-North",
-            "Ijebu-North-East",
-            "Ijebu-Ode",
-            "Ikenne",
-            "Imeko-Afon",
-            "Ipokia",
-            "Obafemi-Owode",
-            "Odeda",
-            "Odogbolu",
-            "Ogun-Waterside",
-            "Remo-North",
-            "Shagamu",
-            "Yewa North"
+            {
+                "name": "Abeokuta-North",
+                "code": "AKM"
+            },
+            {
+                "name": "Abeokuta-South",
+                "code": "AAB"
+            },
+            {
+                "name": "Ado-Odo Ota",
+                "code": "OTA"
+            },
+            {
+                "name": "Ewekoro",
+                "code": "TRE"
+            },
+            {
+                "name": "Ifo",
+                "code": "FFF"
+            },
+            {
+                "name": "Yewa North",
+                "code": "AYE"
+            },
+            {
+                "name": "Yewa South",
+                "code": "LAR"
+            },
+            {
+                "name": "Ijebu-East",
+                "code": "GBE"
+            },
+            {
+                "name": "Ijebu-North",
+                "code": "JGB"
+            },
+            {
+                "name": "Ijebu-North-East",
+                "code": "JNE"
+            },
+            {
+                "name": "Ijebu-Ode",
+                "code": "JBD"
+            },
+            {
+                "name": "Ikenne",
+                "code": "KNN"
+            },
+            {
+                "name": "Imeko-Afon",
+                "code": "MEK"
+            },
+            {
+                "name": "Ipokia",
+                "code": "PKA"
+            },
+            {
+                "name": "Obafemi-Owode",
+                "code": "WDE"
+            },
+            {
+                "name": "Odeda",
+                "code": "DED"
+            },
+            {
+                "name": "Odogbolu",
+                "code": "DGB"
+            },
+            {
+                "name": "Ogun-Waterside",
+                "code": "ABG"
+            },
+            {
+                "name": "Remo-North",
+                "code": "JRM"
+            },
+            {
+                "name": "Shagamu",
+                "code": "SMG"
+            }
         ]
     },
     {
@@ -868,24 +2599,78 @@
         "region": "South West",
         "postal_code": "340001",
         "lgas": [
-            "Akoko North-East",
-            "Akoko North-West",
-            "Akoko South-West",
-            "Akoko South-East",
-            "Akure-North",
-            "Akure-South",
-            "Ese-Odo",
-            "Idanre",
-            "Ifedore",
-            "Ilaje",
-            "Ile-Oluji-Okeigbo",
-            "Irele",
-            "Odigbo",
-            "Okitipupa",
-            "Ondo West",
-            "Ondo-East",
-            "Ose",
-            "Owo"
+            {
+                "name": "Akoko North-East",
+                "code": "KAK"
+            },
+            {
+                "name": "Akoko North-West",
+                "code": "ANG"
+            },
+            {
+                "name": "Akoko South-West",
+                "code": "SUA"
+            },
+            {
+                "name": "Akoko South-East",
+                "code": "KAA"
+            },
+            {
+                "name": "Akure-North",
+                "code": "AKR"
+            },
+            {
+                "name": "Akure-South",
+                "code": "JTA"
+            },
+            {
+                "name": "Ese-Odo",
+                "code": "GKB"
+            },
+            {
+                "name": "Idanre",
+                "code": "WEN"
+            },
+            {
+                "name": "Ifedore",
+                "code": "FGB"
+            },
+            {
+                "name": "Ilaje",
+                "code": "GBA"
+            },
+            {
+                "name": "Ile-Oluji-Okeigbo",
+                "code": "LEL"
+            },
+            {
+                "name": "Irele",
+                "code": "REL"
+            },
+            {
+                "name": "Odigbo",
+                "code": "REF"
+            },
+            {
+                "name": "Okitipupa",
+                "code": "KTP"
+            },
+            {
+                "name": "Ondo West",
+                "code": "NND"
+            },
+            {
+                "name": "Ondo-East",
+                "code": "BDR"
+            },
+            {
+                "name": "Ose",
+                "code": "FFN"
+            },
+            {
+                "name": "Owo",
+                "code": "WWW"
+            }
         ]
     },
     {
@@ -896,35 +2681,126 @@
         "region": "South West",
         "postal_code": "230001",
         "lgas": [
-            "Atakumosa West",
-            "Atakumosa East",
-            "Ayedaade",
-            "Ayedire",
-            "Boluwaduro",
-            "Boripe",
-            "Ede South",
-            "Ede North",
-            "Egbedore",
-            "Ejigbo",
-            "Ife North",
-            "Ife South",
-            "Ife-Central",
-            "Ife-East",
-            "Ifelodun",
-            "Ila",
-            "Ilesa-East",
-            "Ilesa-West",
-            "Irepodun",
-            "Irewole",
-            "Isokan",
-            "Iwo",
-            "Obokun",
-            "Odo-Otin",
-            "Ola Oluwa",
-            "Olorunda",
-            "Oriade",
-            "Orolu",
-            "Osogbo"
+            {
+                "name": "Atakumosa West",
+                "code": "SSU"
+            },
+            {
+                "name": "Atakumosa East",
+                "code": "PRN"
+            },
+            {
+                "name": "Ayedaade",
+                "code": "GBN"
+            },
+            {
+                "name": "Ayedire",
+                "code": "LGB"
+            },
+            {
+                "name": "Boluwaduro",
+                "code": "TAN"
+            },
+            {
+                "name": "Boripe",
+                "code": "RGB"
+            },
+            {
+                "name": "Ede South",
+                "code": "EDE"
+            },
+            {
+                "name": "Ede North",
+                "code": "EDT"
+            },
+            {
+                "name": "Egbedore",
+                "code": "AAW"
+            },
+            {
+                "name": "Ejigbo",
+                "code": "EJG"
+            },
+            {
+                "name": "Ife North",
+                "code": "PMD"
+            },
+            {
+                "name": "Ife South",
+                "code": "FTD"
+            },
+            {
+                "name": "Ife-Central",
+                "code": "FFE"
+            },
+            {
+                "name": "Ife-East",
+                "code": "FEE"
+            },
+            {
+                "name": "Ifedayo",
+                "code": "FDY"
+            },
+            {
+                "name": "Ifelodun",
+                "code": "KNR"
+            },
+            {
+                "name": "Ila",
+                "code": "LRG"
+            },
+            {
+                "name": "Ilesa-East",
+                "code": "LES"
+            },
+            {
+                "name": "Ilesa-West",
+                "code": "LEW"
+            },
+            {
+                "name": "Irepodun",
+                "code": "RLG"
+            },
+            {
+                "name": "Irewole",
+                "code": "KRE"
+            },
+            {
+                "name": "Isokan",
+                "code": "APM"
+            },
+            {
+                "name": "Iwo",
+                "code": "WWD"
+            },
+            {
+                "name": "Obokun",
+                "code": "BKN"
+            },
+            {
+                "name": "Odo-Otin",
+                "code": "DTN"
+            },
+            {
+                "name": "Ola Oluwa",
+                "code": "BDS"
+            },
+            {
+                "name": "Olorunda",
+                "code": "GNN"
+            },
+            {
+                "name": "Oriade",
+                "code": "JJS"
+            },
+            {
+                "name": "Orolu",
+                "code": "FNN"
+            },
+            {
+                "name": "Osogbo",
+                "code": "SGB"
+            }
         ]
     },
     {
@@ -935,40 +2811,142 @@
         "region": "South West",
         "postal_code": "200001",
         "lgas": [
-            "Afijio",
-            "Akinyele",
-            "Atiba",
-            "Atisbo",
-            "Egbeda",
-            "Ibadan North",
-            "Ibadan North-East",
-            "Ibadan North-West",
-            "Ibadan South-East",
-            "Ibadan South-West",
-            "Ibarapa-Central",
-            "Ibarapa-East",
-            "Ibarapa-North",
-            "Ido",
-            "Ifedayo",
-            "Irepo",
-            "Iseyin",
-            "Itesiwaju",
-            "Iwajowa",
-            "Kajola",
-            "Lagelu",
-            "Ogo-Oluwa",
-            "Ogbomosho-North",
-            "Ogbomosho-South",
-            "Olorunsogo",
-            "Oluyole",
-            "Ona-Ara",
-            "Orelope",
-            "Ori-Ire",
-            "Oyo-West",
-            "Oyo-East",
-            "Saki-East",
-            "Saki-West",
-            "Surulere"
+            {
+                "name": "Afijio",
+                "code": "JBL"
+            },
+            {
+                "name": "Akinyele",
+                "code": "MNY"
+            },
+            {
+                "name": "Atiba",
+                "code": "FMT"
+            },
+            {
+                "name": "Atisbo",
+                "code": "TDE"
+            },
+            {
+                "name": "Egbeda",
+                "code": "EGB"
+            },
+            {
+                "name": "Ibadan North",
+                "code": "BDJ"
+            },
+            {
+                "name": "Ibadan North-East",
+                "code": "AGG"
+            },
+            {
+                "name": "Ibadan North-West",
+                "code": "MRK"
+            },
+            {
+                "name": "Ibadan South-East",
+                "code": "MAP"
+            },
+            {
+                "name": "Ibadan South-West",
+                "code": "LUY"
+            },
+            {
+                "name": "Ibarapa-Central",
+                "code": "RUW"
+            },
+            {
+                "name": "Ibarapa-East",
+                "code": "AYT"
+            },
+            {
+                "name": "Ibarapa-North",
+                "code": "IRP"
+            },
+            {
+                "name": "Ido",
+                "code": "DDA"
+            },
+            {
+                "name": "Ifedayo",
+                "code": "KSH"
+            },
+            {
+                "name": "Irepo",
+                "code": "KSH"
+            },
+            {
+                "name": "Iseyin",
+                "code": "SEY"
+            },
+            {
+                "name": "Itesiwaju",
+                "code": "TUT"
+            },
+            {
+                "name": "Iwajowa",
+                "code": "WEL"
+            },
+            {
+                "name": "Kajola",
+                "code": "KEH"
+            },
+            {
+                "name": "Lagelu",
+                "code": "YNF"
+            },
+            {
+                "name": "Ogo-Oluwa",
+                "code": "AJW"
+            },
+            {
+                "name": "Ogbomosho-North",
+                "code": "KNH"
+            },
+            {
+                "name": "Ogbomosho-South",
+                "code": "AME"
+            },
+            {
+                "name": "Olorunsogo",
+                "code": "GBY"
+            },
+            {
+                "name": "Oluyole",
+                "code": "YRE"
+            },
+            {
+                "name": "Ona-Ara",
+                "code": "AKN"
+            },
+            {
+                "name": "Orelope",
+                "code": "GBH"
+            },
+            {
+                "name": "Ori-Ire",
+                "code": "KKY"
+            },
+            {
+                "name": "Oyo-West",
+                "code": "JND"
+            },
+            {
+                "name": "Oyo-East",
+                "code": "YYY"
+            },
+            {
+                "name": "Saki-East",
+                "code": "GMD"
+            },
+            {
+                "name": "Saki-West",
+                "code": "SHK"
+            },
+            {
+                "name": "Surulere",
+                "code": "RSD"
+            }
         ]
     },
     {
@@ -979,23 +2957,74 @@
         "region": "North Central",
         "postal_code": "930001",
         "lgas": [
-            "Barkin-Ladi",
-            "Bassa",
-            "Bokkos",
-            "Jos-East",
-            "Jos-North",
-            "Jos-South",
-            "Kanam",
-            "Kanke",
-            "Langtang-North",
-            "Langtang-South",
-            "Mangu",
-            "Mikang",
-            "Pankshin",
-            "Qua'an Pan",
-            "Riyom",
-            "Shendam",
-            "Wase"
+            {
+                "name": "Barkin-Ladi",
+                "code": "BLD"
+            },
+            {
+                "name": "Bassa",
+                "code": "BSA"
+            },
+            {
+                "name": "Bokkos",
+                "code": "BKK"
+            },
+            {
+                "name": "Jos-East",
+                "code": "ANW"
+            },
+            {
+                "name": "Jos-North",
+                "code": "JJN"
+            },
+            {
+                "name": "Jos-South",
+                "code": "BUU"
+            },
+            {
+                "name": "Kanam",
+                "code": "DNG"
+            },
+            {
+                "name": "Kanke",
+                "code": "KWK"
+            },
+            {
+                "name": "Langtang-North",
+                "code": "LGT"
+            },
+            {
+                "name": "Langtang-South",
+                "code": "MBD"
+            },
+            {
+                "name": "Mangu",
+                "code": "MGU"
+            },
+            {
+                "name": "Mikang",
+                "code": "TNK"
+            },
+            {
+                "name": "Pankshin",
+                "code": "PKN"
+            },
+            {
+                "name": "Qua'an Pan",
+                "code": "QAP"
+            },
+            {
+                "name": "Riyom",
+                "code": "RYM"
+            },
+            {
+                "name": "Shendam",
+                "code": "SHD"
+            },
+            {
+                "name": "Wase",
+                "code": "WAS"
+            }
         ]
     },
     {
@@ -1006,29 +3035,98 @@
         "region": "South South",
         "postal_code": "500001",
         "lgas": [
-            "Abua-Odual",
-            "Ahoada East",
-            "Ahoada West",
-            "Akuku-Toru",
-            "Andoni",
-            "Asari-Toru",
-            "Bonny",
-            "Degema",
-            "Eleme",
-            "Emohua",
-            "Etche",
-            "Gokana",
-            "Ikwerre",
-            "Khana",
-            "Obio-Akpor",
-            "Ogba-Egbema-Ndoni",
-            "Ogu-Bolo",
-            "Okrika",
-            "Omuma",
-            "Opobo-Nkoro",
-            "Oyigbo",
-            "Port-Harcourt",
-            "Tai"
+            {
+                "name": "Abua-Odual",
+                "code": "ABU"
+            },
+            {
+                "name": "Ahoada East",
+                "code": "AHD"
+            },
+            {
+                "name": "Ahoada West",
+                "code": "KNM"
+            },
+            {
+                "name": "Akuku-Toru",
+                "code": "ABM"
+            },
+            {
+                "name": "Andoni",
+                "code": "NDN"
+            },
+            {
+                "name": "Asari-Toru",
+                "code": "BGM"
+            },
+            {
+                "name": "Bonny",
+                "code": "BNY"
+            },
+            {
+                "name": "Degema",
+                "code": "DEG"
+            },
+            {
+                "name": "Eleme",
+                "code": "NCH"
+            },
+            {
+                "name": "Emohua",
+                "code": "MHA"
+            },
+            {
+                "name": "Etche",
+                "code": "KHE"
+            },
+            {
+                "name": "Gokana",
+                "code": "KPR"
+            },
+            {
+                "name": "Ikwerre",
+                "code": "SKP"
+            },
+            {
+                "name": "Khana",
+                "code": "BRR"
+            },
+            {
+                "name": "Obio-Akpor",
+                "code": "RUM"
+            },
+            {
+                "name": "Ogba-Egbema-Ndoni",
+                "code": "RGM"
+            },
+            {
+                "name": "Ogu-Bolo",
+                "code": "GGU"
+            },
+            {
+                "name": "Okrika",
+                "code": "KRK"
+            },
+            {
+                "name": "Omuma",
+                "code": "BER"
+            },
+            {
+                "name": "Opobo-Nkoro",
+                "code": "PBT"
+            },
+            {
+                "name": "Oyigbo",
+                "code": "AFM"
+            },
+            {
+                "name": "Port Harcourt",
+                "code": "PHC"
+            },
+            {
+                "name": "Tai",
+                "code": "SKN"
+            }
         ]
     },
     {
@@ -1039,28 +3137,98 @@
         "region": "North West",
         "postal_code": "840001",
         "lgas": [
-            "Binji",
-            "Bodinga",
-            "Dange-Shuni",
-            "Gada",
-            "Goronyo",
-            "Gudu",
-            "Gwadabawa",
-            "Illela",
-            "Kebbe",
-            "Kware",
-            "Rabah",
-            "Sabon Birni",
-            "Shagari",
-            "Silame",
-            "Sokoto-North",
-            "Sokoto-South",
-            "Tambuwal",
-            "Tangaza",
-            "Tureta",
-            "Wamako",
-            "Wurno",
-            "Yabo"
+            {
+                "name": "Binji",
+                "code": "BJN"
+            },
+            {
+                "name": "Bodinga",
+                "code": "DBN"
+            },
+            {
+                "name": "Dange-Shuni",
+                "code": "DGS"
+            },
+            {
+                "name": "Gada",
+                "code": "GAD"
+            },
+            {
+                "name": "Goronyo",
+                "code": "GRY"
+            },
+            {
+                "name": "Gudu",
+                "code": "BLE"
+            },
+            {
+                "name": "Gwadabawa",
+                "code": "GWD"
+            },
+            {
+                "name": "Illela",
+                "code": "LLA"
+            },
+            {
+                "name": "Isa",
+                "code": "SAA"
+            },
+            {
+                "name": "Kebbe",
+                "code": "KBE"
+            },
+            {
+                "name": "Kware",
+                "code": "KWR"
+            },
+            {
+                "name": "Rabah",
+                "code": "RBA"
+            },
+            {
+                "name": "Sabon-Birni",
+                "code": "SBN"
+            },
+            {
+                "name": "Shagari",
+                "code": "SGR"
+            },
+            {
+                "name": "Silame",
+                "code": "SLM"
+            },
+            {
+                "name": "Sokoto-North",
+                "code": "SKK"
+            },
+            {
+                "name": "Sokoto-South",
+                "code": "SRZ"
+            },
+            {
+                "name": "Tambuwal",
+                "code": "TBW"
+            },
+            {
+                "name": "Tangaza",
+                "code": "TGZ"
+            },
+            {
+                "name": "Tureta",
+                "code": "TRT"
+            },
+            {
+                "name": "Wamako",
+                "code": "WMK"
+            },
+            {
+                "name": "Wurno",
+                "code": "WRN"
+            },
+            {
+                "name": "Yabo",
+                "code": "YYB"
+            }
         ]
     },
     {
@@ -1071,22 +3239,70 @@
         "region": "North East",
         "postal_code": "660001",
         "lgas": [
-            "Ardo-Kola",
-            "Bali",
-            "Donga",
-            "Gashaka",
-            "Gassol",
-            "Ibi",
-            "Jalingo",
-            "Karim-Lamido",
-            "Kurmi",
-            "Lau",
-            "Sardauna",
-            "Takum",
-            "Ussa",
-            "Wukari",
-            "Yorro",
-            "Zing"
+            {
+                "name": "Ardo-Kola",
+                "code": "ARD"
+            },
+            {
+                "name": "Bali",
+                "code": "BAL"
+            },
+            {
+                "name": "Donga",
+                "code": "DGA"
+            },
+            {
+                "name": "Gashaka",
+                "code": "GKA"
+            },
+            {
+                "name": "Gassol",
+                "code": "GAS"
+            },
+            {
+                "name": "Ibi",
+                "code": "BBB"
+            },
+            {
+                "name": "Jalingo",
+                "code": "JAL"
+            },
+            {
+                "name": "Karim-Lamido",
+                "code": "KLD"
+            },
+            {
+                "name": "Kurmi",
+                "code": "KRM"
+            },
+            {
+                "name": "Lau",
+                "code": "LAU"
+            },
+            {
+                "name": "Sardauna",
+                "code": "SDA"
+            },
+            {
+                "name": "Takum",
+                "code": "TTM"
+            },
+            {
+                "name": "Ussa",
+                "code": "USS"
+            },
+            {
+                "name": "Wukari",
+                "code": "WKR"
+            },
+            {
+                "name": "Yorro",
+                "code": "YRR"
+            },
+            {
+                "name": "Zing",
+                "code": "TZG"
+            }
         ]
     },
     {
@@ -1097,23 +3313,74 @@
         "region": "North East",
         "postal_code": "320001",
         "lgas": [
-            "Bade",
-            "Bursari",
-            "Damaturu",
-            "Fika",
-            "Fune",
-            "Geidam",
-            "Gujba",
-            "Gulani",
-            "Jakusko",
-            "Karasuwa",
-            "Machina",
-            "Nangere",
-            "Nguru",
-            "Potiskum",
-            "Tarmuwa",
-            "Yunusari",
-            "Yusufari"
+            {
+                "name": "Bade",
+                "code": "GSH"
+            },
+            {
+                "name": "Bursari",
+                "code": "DPH"
+            },
+            {
+                "name": "Damaturu",
+                "code": "DTR"
+            },
+            {
+                "name": "Fika",
+                "code": "FKA"
+            },
+            {
+                "name": "Fune",
+                "code": "FUN"
+            },
+            {
+                "name": "Geidam",
+                "code": "GDM"
+            },
+            {
+                "name": "Gujba",
+                "code": "GJB"
+            },
+            {
+                "name": "Gulani",
+                "code": "GLN"
+            },
+            {
+                "name": "Jakusko",
+                "code": "JAK"
+            },
+            {
+                "name": "Karasuwa",
+                "code": "KRS"
+            },
+            {
+                "name": "Machina",
+                "code": "MCN"
+            },
+            {
+                "name": "Nangere",
+                "code": "NNR"
+            },
+            {
+                "name": "Nguru",
+                "code": "NGU"
+            },
+            {
+                "name": "Potiskum",
+                "code": "PKM"
+            },
+            {
+                "name": "Tarmuwa",
+                "code": "TMW"
+            },
+            {
+                "name": "Yunusari",
+                "code": "YUN"
+            },
+            {
+                "name": "Yusufari",
+                "code": "YSF"
+            }
         ]
     },
     {
@@ -1124,22 +3391,66 @@
         "region": "North West",
         "postal_code": "860001",
         "lgas": [
-            "Anka",
-            "Bakura",
-            "Birnin Magaji/Kiyaw",
-            "Bukkuyum",
-            "Bungudu",
-            "Gummi",
-            "Gusau",
-            "Isa",
-            "Kaura-Namoda",
-            "Kiyawa",
-            "Maradun",
-            "Maru",
-            "Shinkafi",
-            "Talata-Mafara",
-            "Tsafe",
-            "Zurmi"
+            {
+                "name": "Anka",
+                "code": "ANK"
+            },
+            {
+                "name": "Bakura",
+                "code": "BKA"
+            },
+            {
+                "name": "Birnin Magaji/Kiyaw",
+                "code": "BKM"
+            },
+            {
+                "name": "Bukkuyum",
+                "code": "BUG"
+            },
+            {
+                "name": "Bungudu",
+                "code": "GMM"
+            },
+            {
+                "name": "Gusau",
+                "code": "GUS"
+            },
+            {
+                "name": "Isa",
+                "code": "KRN"
+            },
+            {
+                "name": "Kaura-Namoda",
+                "code": "BMJ"
+            },
+            {
+                "name": "Kiyawa",
+                "code": "MRD"
+            },
+            {
+                "name": "Maradun",
+                "code": "MRR"
+            },
+            {
+                "name": "Maru",
+                "code": "SKF"
+            },
+            {
+                "name": "Shinkafi",
+                "code": "TMA"
+            },
+            {
+                "name": "Talata-Mafara",
+                "code": "TSF"
+            },
+            {
+                "name": "Tsafe",
+                "code": "ZRM"
+            },
+            {
+                "name": "Zurmi",
+                "code": "ZRM"
+            }
         ]
     }
 ]

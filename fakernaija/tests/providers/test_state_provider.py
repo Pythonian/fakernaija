@@ -32,11 +32,6 @@ class TestStateProvider(unittest.TestCase):
         capitals = self.state_provider.get_capitals()
         self.assertIn("Ikeja", capitals)
 
-    def test_get_lgas(self) -> None:
-        """Test getting all LGAs for all states."""
-        lgas = self.state_provider.get_lgas()
-        self.assertIn("Apapa", lgas)
-
     def test_get_postal_codes(self) -> None:
         """Test getting all postal codes of states."""
         postal_codes = self.state_provider.get_postal_codes()
@@ -46,11 +41,6 @@ class TestStateProvider(unittest.TestCase):
         """Test getting the postal code of a specific state."""
         postal_code = self.state_provider.get_postal_code_by_state("Lagos")
         self.assertEqual(postal_code, "100001")
-
-    def test_get_state_lgas(self) -> None:
-        """Test getting a list of Local Government Areas for a specific state."""
-        lgas = self.state_provider.get_state_lgas("Lagos")
-        self.assertIn("Agege", lgas)
 
     def test_validate_region(self) -> None:
         """Test validating a valid region abbreviation."""

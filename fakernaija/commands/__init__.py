@@ -8,6 +8,7 @@ from .faculty import (
     faculty,
     faculty_name,
 )
+from .license_plate import license_plate
 from .marital_status import marital_status
 from .name import first_name, full_name, last_name, prefix
 from .phonenumber import phone_number
@@ -36,6 +37,8 @@ __all__ = [
     "faculty",
     "faculty_name",
     "department_name",
+    # License plate command
+    "license_plate",
     # Marital status command
     "marital_status",
     # Name commands
