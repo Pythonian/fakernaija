@@ -1,6 +1,6 @@
 .DEFAULT_GOAL=help
 
-.PHONY: help hello venv install install-dev install-build docs check clean
+.PHONY: help hello venv install docs check clean
 
 VENV_DIR = .venv
 PYTHON = python3
@@ -22,25 +22,18 @@ help: ## Display this help message with available make commands.
 hello: ## Display a welcome message for contributors.
 	@echo "Your face show, your shoe shine. Thank you for contributing to Fakernaija. E go better for you!"
 
-venv: ## Create a virtual environment for project isolation.
+venv: ## Create a virtual environment.
 	$(PYTHON) -m venv $(VENV_DIR)
 	@echo "Virtual environment created."
 	@echo "Activate with the command 'source $(VENV_DIR)/bin/activate'"
 
-install-dev: ## Install local development dependencies.
+install: ## Install local development dependencies.
 	$(call check_venv)
 	$(PIP) install -U pip setuptools pre-commit tox
 	$(PIP) install -e .
 	$(PIP) install -r docs/requirements.txt
 	$(PRE_COMMIT) install
 	@echo "Development dependencies installed."
-
-install-build: ## Install project distribution dependencies.
-	$(call check_venv)
-	$(PIP) install -U build twine
-	@echo "Build dependencies installed."
-
-install: install-dev install-build ## Install all dependencies with one command.
 
 docs: ## Generate project HTML documentation using Sphinx.
 	$(call check_venv)

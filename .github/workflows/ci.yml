@@ -10,8 +10,8 @@ permissions:
   contents: read
 
 jobs:
-  build:
 
+  build:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -28,11 +28,10 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install dependencies
-        run: |
-          python3 -m pip install -U pip tox
+        run: python3 -m pip install -U pip tox
 
-      - name: Run Tox
-        run: tox
+      - name: Run Tox for Python Tests
+        run: tox -e py${{ matrix.python-version }}
 
       - name: Generate coverage report
         run: |
@@ -50,3 +49,37 @@ jobs:
           fail_ci_if_error: true
           verbose: true
         if: success()
+
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+
+      - name: Install dependencies
+        run: python3 -m pip install -U pip tox
+
+      - name: Run Linting, Formatting, Security and Type Checks
+        run: tox -e lint,format,security,type
+
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+
+      - name: Install dependencies
+        run: python3 -m pip install -U pip tox
+
+      - name: Build Project Documentation
+        run: tox -e docs
