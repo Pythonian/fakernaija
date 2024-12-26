@@ -26,7 +26,7 @@ class MaritalStatus:
 
                 >>> marital_status = naija.marital_status()
                 >>> print(f"Random marital status: {marital_status}")
-                Random marital_status: Separated
+                Random marital status: Separated
 
                 >>> for _ in range(3):
                 ...     print(naija.marital_status())

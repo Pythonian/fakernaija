@@ -211,9 +211,7 @@ class State:
             state_lgas = self.state_provider.get_state_lgas(state)
         else:
             state_lgas = self.state_provider.get_lgas()
-        state_lga = get_unique_value(state_lgas, self._used_state_lgas)
-        self._used_state_lgas.add(state_lga)
-        return state_lga
+        return random.choice(state_lgas)
 
     def state_postal_code(self, state: str | None = None) -> str:
         """Get a random state postal code.
