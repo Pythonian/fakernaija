@@ -36,7 +36,7 @@ class PhoneNumber:
                 - airtel: 0802, 0808, 0812, 0708, 0701, 0901, 0902, 0907
                 - etisalat: 0809, 0817, 0818, 0908, 0909
 
-        Example:
+        Examples:
             .. code-block:: python
 
                 >>> from fakernaija import Naija

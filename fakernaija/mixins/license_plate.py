@@ -11,10 +11,10 @@ class LicensePlate:
         self.license_plate_provider = LicensePlateProvider()
 
     def license_plate(self, state: str | None = None) -> str:
-        """Generate a random license plate.
+        """Generate a random license plate number.
 
         Args:
-            state (str | None, optional): The state to generate the license plate for.
+            state (str | None, optional): The state to generate the license plate number from.
 
         Returns:
             str: The generated license plate.
@@ -46,4 +46,8 @@ class LicensePlate:
                 >>> print(f"Random license plate number from a specific state: {license_plate}")
                 Random license plate number from a specific state: EZA-352CC
         """
-        return self.license_plate_provider.generate_license_plate(state=state)
+        try:
+            return self.license_plate_provider.generate_license_plate(state=state)
+        except ValueError as e:
+            msg = f"Invalid state name: {state}. {e!s}"
+            raise ValueError(msg) from e

@@ -3,6 +3,7 @@
 import csv
 import json
 import random
+import unicodedata
 from collections.abc import Callable
 from pathlib import Path
 from typing import Any
@@ -106,6 +107,18 @@ def normalize_input(value: str | None) -> str | None:
     Returns:
         str | None: The normalized value or None if the input is None.
     """
+    if value is None:
+        return None
+
+    # Normalize and strip whitespace
+    value = value.strip()
+
+    # Remove accents
+    value = (
+        unicodedata.normalize("NFKD", value).encode("ascii", "ignore").decode("ascii")
+    )
+
+    # Convert to lowercase
     return value.lower() if value else None
 
 

@@ -204,7 +204,7 @@ class Name:
             - Gender options: male, female
             - Title options: traditional, professional
 
-        Example:
+        Examples:
             .. code-block:: python
 
                 >>> from fakernaija import Naija

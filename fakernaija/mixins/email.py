@@ -40,7 +40,7 @@ class Email:
             - Gender options: male, female
             - Tribe options: yoruba, igbo, hausa, edo, fulani, ijaw
 
-        Example:
+        Examples:
             .. code-block:: python
 
                 >>> from fakernaija import Naija
@@ -64,6 +64,10 @@ class Email:
                 >>> email = naija.email(tribe="igbo")
                 >>> print(f"Random email with tribe filter: {email}")
                 Random email with tribe filter: ugochi.maduike@gmail.com
+
+                >>> email = naija.email(domain="edu.ng")
+                >>> print(f"Random email with domain filter: {email}")
+                Random email with domain filter: maduike.ugochi1999@edu.ng
 
                 >>> email = naija.email(gender="female")
                 >>> print(f"Random email with gender filter: {email}")

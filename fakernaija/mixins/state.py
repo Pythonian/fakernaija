@@ -229,7 +229,7 @@ class State:
         Note:
             - State options: 36 states in Nigeria + FCT.
 
-        Example:
+        Examples:
             .. code-block:: python
 
                 >>> from fakernaija import Naija

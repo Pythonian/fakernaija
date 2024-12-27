@@ -35,7 +35,7 @@ class Degree:
         Note:
             - Degree type options: undergraduate, masters, doctorate
 
-        Example:
+        Examples:
             .. code-block:: python
 
                 >>> from fakernaija import Naija
@@ -67,7 +67,7 @@ class Degree:
         Note:
             - Degree type options: undergraduate, masters, doctorate
 
-        Example:
+        Examples:
             .. code-block:: python
 
                 >>> from fakernaija import Naija
@@ -102,7 +102,7 @@ class Degree:
         Note:
             - Degree type options: undergraduate, masters, doctorate
 
-        Example:
+        Examples:
             .. code-block:: python
 
                 >>> from fakernaija import Naija
