@@ -123,6 +123,28 @@ class TestSchoolProvider(unittest.TestCase):
         self.assertEqual(result, expected)
 
     @patch("fakernaija.providers.school.load_json")
+    @patch("fakernaija.providers.school.StateProvider")
+    def test_invalid_state_with_suggestions(
+        self, mock_state_provider_class: MagicMock, mock_load_json: MagicMock
+    ) -> None:
+        """Test raising suggestions for invalid state name."""
+        mock_load_json.return_value = self.sample_schools
+
+        # Patch the StateProvider to return a fixed list of states.
+        mock_state_provider_instance = mock_state_provider_class.return_value
+        mock_state_provider_instance.get_state_names.return_value = ["Lagos", "Kaduna"]
+
+        provider = SchoolProvider()
+
+        # Use a misspelled state name that should trigger suggestions.
+        with self.assertRaises(ValueError) as context:
+            provider.get_schools(state="lagoss")  # Note the extra "s"
+
+        error_message = str(context.exception)
+        self.assertIn("Did you mean:", error_message)
+        self.assertIn("Lagos", error_message)
+
+    @patch("fakernaija.providers.school.load_json")
     def test_get_school_names_with_acronym(self, mock_load_json: MagicMock) -> None:
         """Test get_school_names with acronym option."""
         mock_load_json.return_value = self.sample_schools
