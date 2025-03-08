@@ -1,5 +1,6 @@
 """This module provides a StateProvider class for accessing information about states in Nigeria from a JSON file."""
 
+import difflib
 from pathlib import Path
 from typing import Any
 
@@ -38,8 +39,16 @@ class StateProvider:
         for state in self.states_data:
             if state["name"].lower() == state_name.lower():
                 return state
+
         available_states = ", ".join(self.get_state_names())
-        msg = f"State '{state_name}' does not exist in Nigeria. Available states are: {available_states}."
+        suggestions = difflib.get_close_matches(
+            state_name, available_states, n=3, cutoff=0.6
+        )
+        msg = (
+            f"Invalid state: {state_name}. Did you mean: {', '.join(suggestions)}?"
+            if suggestions
+            else f"Invalid state: {state_name}. Available states are: {available_states}"
+        )
         raise ValueError(msg)
 
     def validate_region(self, region: str) -> None:

@@ -64,6 +64,6 @@ class TestStateProvider(unittest.TestCase):
         with self.assertRaises(ValueError) as context:
             self.state_provider.get_postal_code_by_state("InvalidState")
         self.assertIn(
-            "State 'InvalidState' does not exist in Nigeria.",
+            "Invalid state: InvalidState.",
             str(context.exception),
         )

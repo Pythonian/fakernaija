@@ -1,5 +1,6 @@
 """This module provides a PhoneNumberProvider class for generating Nigerian phone numbers based on specified network prefixes."""
 
+import difflib
 import random
 
 
@@ -78,11 +79,20 @@ class PhoneNumberProvider:
             raise ValueError(msg)
 
         if network:
-            if network.lower() in self.network_prefixes:
-                prefix = random.choice(self.network_prefixes[network.lower()])
+            network = network.lower()
+            if network in self.network_prefixes:
+                prefix = random.choice(self.network_prefixes[network])
                 return self.generate_random_phone_number(prefix)
+
+            # Suggest similar networks
+            suggestions = difflib.get_close_matches(
+                network, self.network_prefixes.keys(), n=3, cutoff=0.6
+            )
             msg = (
                 f"Network '{network}' is not recognized. "
+                f"Did you mean: {', '.join(suggestions)}?"
+                if suggestions
+                else f"Network '{network}' is not recognized. "
                 f"Please use one of the following: {list(self.network_prefixes.keys())}"
             )
             raise ValueError(msg)

@@ -31,23 +31,23 @@ __all__ = [
     "degree",
     "degree_abbr",
     "degree_name",
+    "department_name",
     # Email command
     "email",
     # Faculty commands
     "faculty",
     "faculty_name",
-    "department_name",
-    # License plate command
-    "license_plate",
-    # Marital status command
-    "marital_status",
     # Name commands
     "first_name",
     "full_name",
     "last_name",
-    "prefix",
+    # License plate command
+    "license_plate",
+    # Marital status command
+    "marital_status",
     # PhoneNumber command
     "phone_number",
+    "prefix",
     # Religion command
     "religion",
     # School commands

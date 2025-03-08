@@ -107,7 +107,7 @@ You can also generate complete data objects for more complex integrations:
     {'name': 'Bachelor of Science', 'degree_type': 'undergraduate', 'abbr': 'B.Sc.'}
 
     >>> print(naija.school())
-    {'name': 'Lagos State University', 'acronym': 'LASU', 'state': 'Lagos', 'type': 'university', 'ownership': 'State'}
+    {'name': 'Lagos State University', 'acronym': 'LASU', 'state': 'Lagos', 'type': 'University', 'ownership': 'State'}
 
 Command Line Usage
 ------------------

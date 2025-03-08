@@ -57,10 +57,10 @@ class TestNameMixin(unittest.TestCase):
         self, mock_generate_first_name: MagicMock
     ) -> None:
         """Test first_name method raises ValueError for invalid tribe."""
-        mock_generate_first_name.side_effect = ValueError("Invalid tribe")
+        mock_generate_first_name.side_effect = ValueError("Unsupported tribe")
         with self.assertRaises(ValueError) as context:
             self.name_mixin.first_name(tribe="invalid_tribe")
-        self.assertEqual(str(context.exception), "Invalid tribe")
+        self.assertEqual(str(context.exception), "Unsupported tribe")
 
     @patch.object(NameProvider, "generate_first_name")
     def test_first_name_invalid_gender(
@@ -91,10 +91,10 @@ class TestNameMixin(unittest.TestCase):
     @patch.object(NameProvider, "generate_last_name")
     def test_last_name_invalid_tribe(self, mock_generate_last_name: MagicMock) -> None:
         """Test last_name method raises ValueError for invalid tribe."""
-        mock_generate_last_name.side_effect = ValueError("Invalid tribe")
+        mock_generate_last_name.side_effect = ValueError("Unsupported tribe")
         with self.assertRaises(ValueError) as context:
             self.name_mixin.last_name(tribe="invalid_tribe")
-        self.assertEqual(str(context.exception), "Invalid tribe")
+        self.assertEqual(str(context.exception), "Unsupported tribe")
 
     @patch.object(NameProvider, "generate_full_name")
     def test_full_name_default(self, mock_generate_full_name: MagicMock) -> None:
@@ -155,10 +155,10 @@ class TestNameMixin(unittest.TestCase):
     @patch.object(NameProvider, "generate_full_name")
     def test_full_name_invalid_tribe(self, mock_generate_full_name: MagicMock) -> None:
         """Test full_name method raises ValueError for invalid tribe."""
-        mock_generate_full_name.side_effect = ValueError("Invalid tribe")
+        mock_generate_full_name.side_effect = ValueError("Unsupported tribe")
         with self.assertRaises(ValueError) as context:
             self.name_mixin.full_name(tribe="invalid_tribe")
-        self.assertEqual(str(context.exception), "Invalid tribe")
+        self.assertEqual(str(context.exception), "Unsupported tribe")
 
     @patch.object(NameProvider, "generate_full_name")
     def test_full_name_invalid_gender(self, mock_generate_full_name: MagicMock) -> None:

@@ -1,5 +1,6 @@
 """This module provides a DegreeProvider class for accessing information about degrees awarded in Nigerian schools from a JSON file."""
 
+import difflib
 from pathlib import Path
 
 from fakernaija.utils import load_json, normalize_input
@@ -38,7 +39,15 @@ class DegreeProvider:
         """
         degree_type = normalize_input(degree_type)
         if degree_type and degree_type not in self.valid_degree_types:
-            msg = f"Invalid degree_type. Must be one of {self.valid_degree_types}."
+            # Find close matches to the input degree type
+            suggestions = difflib.get_close_matches(
+                degree_type, self.valid_degree_types, n=3, cutoff=0.6
+            )
+            msg = (
+                f"Invalid degree_type: '{degree_type}'. Did you mean: {', '.join(suggestions)}?"
+                if suggestions
+                else f"Invalid degree_type: '{degree_type}'. Valid types are: {', '.join(self.valid_degree_types)}."
+            )
             raise ValueError(msg)
         return degree_type
 

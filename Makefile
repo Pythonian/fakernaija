@@ -20,7 +20,7 @@ help: ## Display this help message with available make commands.
 	@egrep -h '\s##\s' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
 hello: ## Display a welcome message for contributors.
-	@echo "Your face show, your shoe shine. Thank you for contributing to Fakernaija. E go better for you!"
+	@echo "Hey, $(USER)! Your face show, your shoe shine. Thank you for contributing to Fakernaija. E go better for you!"
 
 venv: ## Create a virtual environment.
 	$(PYTHON) -m venv $(VENV_DIR)
@@ -49,15 +49,10 @@ check: ## Run code quality checks with Tox and Pre-commit
 
 clean: ## Clean up all generated files and directories.
 	@echo "Cleaning up the project..."
-	@rm -rf $(VENV_DIR)
-	@rm -rf .cache
-	@rm -rf htmlcov coverage.xml .coverage
-	@rm -rf .tox
-	@rm -rf .mypy_cache
-	@rm -rf .ruff_cache
-	@rm -rf *.egg-info
-	@rm -rf dist
+	@rm -rf $(VENV_DIR) .cache htmlcov coverage.xml .coverage
+	@rm -rf .tox .mypy_cache .ruff_cache *.egg-info dist build
 	@find . -name "*.pyc" -delete
 	@find . -type d -name "__pycache__" -exec rm -rf {} +
+	@find . -type d -name "*.egg-info" -exec rm -rf {} +
 	@find . -type d -name "build" -exec rm -rf {} +
 	@echo "Cleanup completed."

@@ -80,7 +80,7 @@ class TestFacultyProvider(unittest.TestCase):
 
     def test_get_department_names_with_invalid_faculty(self) -> None:
         """Test the get_department_names method with an invalid faculty."""
-        self.assertEqual(
-            self.faculty_provider.get_department_names("Invalid Faculty"),
-            [],
-        )
+        with self.assertRaises(ValueError) as context:
+            self.faculty_provider.get_department_names("Invalid Faculty")
+        self.assertIn("Invalid faculty name", str(context.exception))
+        self.assertIn("Valid faculties are:", str(context.exception))

@@ -1,5 +1,6 @@
 """This module provides a NameProvider class for generating Nigerian name combinations."""
 
+import difflib
 import random
 from pathlib import Path
 
@@ -104,11 +105,23 @@ class NameProvider:
         gender = normalize_input(gender)
 
         if tribe and tribe not in self.tribes:
-            msg = f"Unsupported tribe: {tribe}. Supported values are: {', '.join(self.tribes)}"
+            suggestions = difflib.get_close_matches(tribe, self.tribes, n=3, cutoff=0.6)
+            msg = (
+                f"Unsupported tribe: {tribe}. Did you mean: {', '.join(suggestions)}?"
+                if suggestions
+                else f"Unsupported tribe: {tribe}. Supported values are: {', '.join(self.tribes)}"
+            )
             raise ValueError(msg)
 
         if gender and gender not in self.genders:
-            msg = f"Unsupported gender: {gender}. Supported values are: {', '.join(self.genders)}"
+            suggestions = difflib.get_close_matches(
+                gender, self.genders, n=3, cutoff=0.6
+            )
+            msg = (
+                f"Unsupported gender: {gender}. Did you mean: {', '.join(suggestions)}?"
+                if suggestions
+                else f"Unsupported gender: {gender}. Supported values are: {', '.join(self.genders)}"
+            )
             raise ValueError(msg)
 
         first_names = self.get_first_names(tribe, gender)
@@ -132,7 +145,12 @@ class NameProvider:
         tribe = normalize_input(tribe)
 
         if tribe and tribe not in self.tribes:
-            msg = f"Unsupported tribe: {tribe}. Supported values are: {', '.join(self.tribes)}"
+            suggestions = difflib.get_close_matches(tribe, self.tribes, n=3, cutoff=0.6)
+            msg = (
+                f"Unsupported tribe: {tribe}. Did you mean: {', '.join(suggestions)}?"
+                if suggestions
+                else f"Unsupported tribe: {tribe}. Supported values are: {', '.join(self.tribes)}"
+            )
             raise ValueError(msg)
 
         last_names = self.get_last_names(tribe)
@@ -164,13 +182,25 @@ class NameProvider:
         gender = normalize_input(gender)
 
         if gender and gender not in self.genders:
-            msg = f"Unsupported gender: {gender}. Supported values are: {', '.join(self.genders)}"
+            suggestions = difflib.get_close_matches(
+                gender, self.genders, n=3, cutoff=0.6
+            )
+            msg = (
+                f"Unsupported gender: {gender}. Did you mean: {', '.join(suggestions)}?"
+                if suggestions
+                else f"Unsupported gender: {gender}. Supported values are: {', '.join(self.genders)}"
+            )
             raise ValueError(msg)
 
         if tribe is None:
             tribe = random.choice(self.tribes)
         elif tribe not in self.tribes:
-            msg = f"Unsupported tribe: {tribe}. Supported values are: {', '.join(self.tribes)}"
+            suggestions = difflib.get_close_matches(tribe, self.tribes, n=3, cutoff=0.6)
+            msg = (
+                f"Unsupported tribe: {tribe}. Did you mean: {', '.join(suggestions)}?"
+                if suggestions
+                else f"Unsupported tribe: {tribe}. Supported values are: {', '.join(self.tribes)}"
+            )
             raise ValueError(msg)
 
         first_name = self.generate_first_name(tribe, gender)

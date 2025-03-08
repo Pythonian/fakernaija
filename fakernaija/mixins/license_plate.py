@@ -46,8 +46,4 @@ class LicensePlate:
                 >>> print(f"Random license plate number from a specific state: {license_plate}")
                 Random license plate number from a specific state: EZA-352CC
         """
-        try:
-            return self.license_plate_provider.generate_license_plate(state=state)
-        except ValueError as e:
-            msg = f"Invalid state name: {state}. {e!s}"
-            raise ValueError(msg) from e
+        return self.license_plate_provider.generate_license_plate(state=state)

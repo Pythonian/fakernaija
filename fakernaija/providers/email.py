@@ -1,5 +1,6 @@
 """This module provides an EmailProvider class for generating email addresses with Nigerian name combinations."""
 
+import difflib
 import random
 import re
 
@@ -74,10 +75,33 @@ class EmailProvider:
         Raises:
             ValueError: If the domain is invalid or if no matching data is found for the given tribe or gender.
         """
-        # Normalize the inputs to lowercase
+        # Normalize the inputs
         tribe = normalize_input(tribe)
         gender = normalize_input(gender)
         domain = normalize_input(domain)
+
+        if tribe and tribe not in self.name_provider.tribes:
+            # Check if the tribe exists in the list and suggest close matches
+            suggestions = difflib.get_close_matches(
+                tribe, self.name_provider.tribes, n=3, cutoff=0.6
+            )
+            msg = (
+                f"Unsupported tribe: '{tribe}'. Did you mean: {', '.join(suggestions)}?"
+                if suggestions
+                else f"Unsupported tribe: '{tribe}'. Available tribes are: {', '.join(self.name_provider.tribes)}."
+            )
+            raise ValueError(msg)
+
+        if gender and gender not in self.name_provider.genders:
+            suggestions = difflib.get_close_matches(
+                gender, self.name_provider.genders, n=3, cutoff=0.6
+            )
+            msg = (
+                f"Invalid gender: '{gender}'. Did you mean: {', '.join(suggestions)}?"
+                if suggestions
+                else f"Invalid gender: '{gender}'. Valid genders are: {', '.join(self.name_provider.genders)}."
+            )
+            raise ValueError(msg)
 
         if domain and not self.validate_domain(domain):
             msg = f"Invalid domain: {domain}"

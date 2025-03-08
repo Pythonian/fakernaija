@@ -86,10 +86,7 @@ class TestDegreeProvider(unittest.TestCase):
         """Tests the validate_degree_type method with an invalid degree type."""
         with self.assertRaises(ValueError) as context:
             self.degree_provider.validate_degree_type("invalid_type")
-        self.assertEqual(
-            str(context.exception),
-            "Invalid degree_type. Must be one of ['undergraduate', 'masters', 'doctorate'].",
-        )
+        self.assertIn("Invalid degree_type", str(context.exception))
 
     def test_validate_degree_type_none(self) -> None:
         """Tests the validate_degree_type method with None."""

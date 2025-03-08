@@ -7,9 +7,6 @@ from pathlib import Path
 from fakernaija.providers.state import StateProvider
 from fakernaija.utils import load_json, normalize_input
 
-DIGIT_COUNT = 3
-LETTER_COUNT = 2
-
 
 class LicensePlateProvider:
     """Provider class to generate Nigerian license plates."""
@@ -57,10 +54,11 @@ class LicensePlateProvider:
                 suggestions = difflib.get_close_matches(
                     state, self.state_names, n=3, cutoff=0.6
                 )
-                if suggestions:
-                    msg = f"Invalid state name: {state}. Did you mean: {', '.join(suggestions)}?"
-                else:
-                    msg = f"Invalid state name: {state}. Valid states are: {', '.join(self.state_names)}"
+                msg = (
+                    f"Invalid state name: {state}. Did you mean: {', '.join(suggestions)}?"
+                    if suggestions
+                    else f"Invalid state name: {state}. Valid states are: {', '.join(self.state_names)}"
+                )
                 raise ValueError(msg)
             # Use the correctly cased state name to access LGA codes
             state_name = state_dict[state.lower()]
@@ -70,6 +68,6 @@ class LicensePlateProvider:
             all_lgas = [code for codes in self.lga_codes.values() for code in codes]
             lga_code = random.choice(all_lgas)
 
-        digits = "".join(random.choices("0123456789", k=DIGIT_COUNT))
-        letters = "".join(random.choices("ABCDEFGHIJKLMNOPQRSTUVWXYZ", k=LETTER_COUNT))
+        digits = "".join(random.choices("0123456789", k=3))
+        letters = "".join(random.choices("ABCDEFGHIJKLMNOPQRSTUVWXYZ", k=2))
         return f"{lga_code}-{digits}{letters}"

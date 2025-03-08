@@ -1,5 +1,6 @@
 """This module provides a SchoolProvider class for accessing information about schools in Nigeria from a JSON file."""
 
+import difflib
 from pathlib import Path
 
 from fakernaija.providers.state import StateProvider
@@ -54,7 +55,15 @@ class SchoolProvider:
         if state:
             matching_state_names = [s.lower() for s in self.state_names]
             if state.lower() not in matching_state_names:
-                msg = f"Invalid state name: {state}. Valid states are: {', '.join(self.state_names)}"
+                # Find suggestions for close matches
+                suggestions = difflib.get_close_matches(
+                    state.lower(), matching_state_names, n=3, cutoff=0.6
+                )
+                if suggestions:
+                    suggestion_msg = f" Did you mean: {', '.join(suggestion.title() for suggestion in suggestions)}?"
+                else:
+                    suggestion_msg = ""
+                msg = f"Invalid state name: {state}.{suggestion_msg} Valid states are: {', '.join(self.state_names)}"
                 raise ValueError(msg)
         if ownership and ownership not in self.ownerships:
             msg = f"Unsupported ownership: {ownership}. Supported values are: {', '.join(self.ownerships)}"

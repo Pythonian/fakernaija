@@ -110,6 +110,11 @@ def normalize_input(value: str | None) -> str | None:
     if value is None:
         return None
 
+    # Ensure the input is a string
+    if not isinstance(value, str):
+        msg = f"Expected a string or None, got {type(value).__name__}"
+        raise TypeError(msg)
+
     # Normalize and strip whitespace
     value = value.strip()
 
