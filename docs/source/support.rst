@@ -11,8 +11,8 @@ Whether you're facing an issue, need guidance, have suggestions, or are looking 
 
 - **Contributions**: We welcome contributions to improve the library and its documentation. For more details, refer to our `contributing guide <https://fakernaija.readthedocs.io/en/latest/contributing.html>`_.
 
-- **Twitter**: Follow us on Twitter at `@Fakernaija <https://twitter.com/fakernaija>`_ for updates, tips, and announcements. You can also tweet your questions or feedback using the hashtag ``#Fakernaija``.
+- **Twitter**: Follow us on Twitter (X) at `@Fakernaija <https://x.com/fakernaija>`_ for updates.
 
-- **Professional Support**: For professional support or custom development services, please send an email to `seyipythonian@gmail.com <mailto:seyipythonian@gmail.com>`_.
+- **Professional Support**: For professional services, please send an email to the `Author <mailto:seyipythonian@gmail.com>`_.
 
 Thank you for using **Fakernaija**!

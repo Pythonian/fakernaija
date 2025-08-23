@@ -187,8 +187,8 @@ This section provides information about the project:
 
 - :doc:`changelog`: See what has been added or removed over time.
 - :doc:`support`: No need to shout `Epp me!` — we've got your back.
-- :doc:`credits`: We believe in giving `Kudos` where it's due — because who no like better thing?
-- :doc:`license`: Just like free Wi-Fi, our ``MIT License`` makes it available for everyone to enjoy.
+- :doc:`credits`: Acknowledgments and attributions for contributors and resources that made this project possible.
+- :doc:`license`: Released under the ``MIT License``, making it free to use, modify, and distribute.
 
 .. toctree::
     :caption: Meta

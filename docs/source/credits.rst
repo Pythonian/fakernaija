@@ -1,57 +1,41 @@
 Credits
 =======
 
-**Fakernaija** no be one-man show o! It’s a collective effort by many talented individuals, projects, and resources. We want to say a big "Thank you!" to everyone who has supported and inspired this project. E no easy!
+**Fakernaija** was born out of the need to provide culturally relevant and contextually accurate fake data for Nigerian developers who were tired of using generic Western names and data in their applications. The project addresses the gap in localized data generation tools for the Nigerian tech ecosystem. Hence, we encourage developers who benefit from this project to also contribute back to the community by adding new features, improving existing functionality, or expanding our data sets.
 
 Core Contributors
 -----------------
 
-We no go forget the core contributors who put in the hard work, late nights, and plenty of `garri` and groundnut to make **Fakernaija** what it is today:
-
-- **Your Name**: Creator and Lead Developer (The Oga at the top)
-- **Contributor Name**: GitHub Handle (The person wey sabi)
+- **Seyi Pythonian**: Creator
 
 Inspired By
 -----------
 
-**Fakernaija** draws inspiration from some wonderful projects that laid the groundwork for this library. Na dem wey first clear road:
+**Fakernaija** draws significant inspiration from the following projects:
 
-- **Python Faker Library**: Special thanks to the `Python Faker <https://github.com/joke2k/faker>`_ library. Without their pioneering work, **Fakernaija** no go fit reach this level. We took inspiration and sprinkled some Naija vibes to make it our own.
+- **Python Faker Library**: The `Python Faker <https://github.com/joke2k/faker>`_ library provided the foundational concepts and architecture that influenced Fakernaija's design and implementation.
 
-Acknowledgments
----------------
+Data Sources
+------------
 
-We also want to give a shout-out to the following repositories and communities wey dey help us level up:
+The authenticity of Nigerian-specific data in Fakernaija is made possible by referencing credible sources:
 
-- **GitHub Repositories**: We got plenty of ideas from different GitHub repositories that focus on data generation and localization. Here are some of the major contributors:
+- **National Population Commission of Nigeria**: Demographic data and population distribution
+- **Nigerian Universities Commission**: Comprehensive list of universities and academic programs
+- **Central Bank of Nigeria**: Banking codes, institutions, and financial data standards
+- **Nigerian Communications Commission**: Telecommunications data and phone number formats
 
-  - `Project Name <GitHub URL>`_: Their structure helped us set up some of our providers, na real correct people.
-  - `Project Name <GitHub URL>`_: Influenced our CLI design, these guys sabi this thing well well.
+Open Source Libraries
+---------------------
 
-- **GitHub Gists and Datasets**: We dey thankful for publicly available data and examples shared by the community:
+Fakernaija builds upon several open-source Python libraries:
 
-  - `Gist Title <Gist URL>`_: Gave us a head start on Nigerian banks and states data — na better gist.
-  - `Dataset Source <Dataset URL>`_: Provided data on Nigerian phone numbers, dem no fall our hand.
+- **Click**: Powers our command-line interface
+- **Sphinx**: Generates our documentation
 
-References
-----------
+Contributing
+------------
 
-No forget, the following sources dey always help us make sure say the data accurate and culturally relevant:
+If you'd like to contribute to Fakernaija, please see our `contributing guidelines <contributing.html>`_.
 
-- **Data Providers**: Information wey we use for **Fakernaija** come from different credible sources to make sure say e dey authentic and Naija-like:
-
-  - `National Population Commission of Nigeria <Website URL>`_: For correct demographic data and distribution.
-  - `Nigerian Universities Commission <Website URL>`_: The source for our list of universities and courses, them sabi the work well.
-  - `Central Bank of Nigeria <Website URL>`_: To make sure bank details and codes dey kampe.
-  - `Nigerian Communications Commission <Website URL>`_: For phone number formats and telecommunications data.
-
-- **Community Feedback**: Big shout-out to everybody wey dey provide feedback, suggest features, and report issues on GitHub. Without una, this project no go dey as sweet as e dey now!
-
-Special Thanks
---------------
-
-We want to give special thanks to all our community members who don’t tire to support, suggest, and contribute. Una too much!
-
-If you feel like adding your own spice to **Fakernaija**, abeg, check our `contributing guidelines <https://github.com/Pythonian/fakernaija/blob/main/CONTRIBUTING.md>`_.
-
-Thank you for using and supporting **Fakernaija**! We hope say e go make your project more Naija-licious!
+Thank you for using Fakernaija!

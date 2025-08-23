@@ -3,268 +3,186 @@ Contributing
 
 Thank you for your interest in contributing to Fakernaija! This guide will walk you through the process of setting up your development environment, testing your changes, and submitting your contributions.
 
+Quick Start
+-----------
 
-Prerequisites
--------------
+Ready to contribute? Here's the fastest way to get started:
 
-This guide assumes the following:
+1. Fork the `Fakernaija repository <https://github.com/Pythonian/fakernaija>`_ on GitHub
+2. Clone your fork: ``git clone https://github.com/your-username/fakernaija.git``
+3. Create a virtual environment: ``python -m venv .venv``
+4. Activate it and install dependencies (see detailed setup below)
+5. Make your changes and add tests
+6. Run ``tox`` to test your changes
+7. Submit a pull request
 
-- **Python 3.10 or higher** installed
-- A **Linux/MacOS environment** or **WSL** (if using Windows)
+Detailed Setup
+--------------
 
+**1. Fork and Clone**
 
-Getting Started
----------------
-
-To contribute to Fakernaija, you'll need to follow the steps below. A `Makefile <https://github.com/Pythonian/fakernaija/blob/main/Makefile>`_ has been provided for easy project setup.
-
-1. Create a fork of `Fakernaija <https://github.com/Pythonian/fakernaija>`_ to your GitHub account.
-
-2. Clone your fork to your local machine.
-
-   .. code-block:: console
-
-      git clone https://github.com/your-username/fakernaija.git
-
-   Replace ``your-username`` with your GitHub username.
-
-3. Move into the cloned project directory.
-
-   .. code-block:: console
-
-      cd fakernaija
-
-4. Set up the upstream remote to keep your fork in sync with the original repository.
-
-   .. code-block:: console
-
-      git remote add upstream https://github.com/Pythonian/fakernaija.git
-
-5. Create a virtual environment to isolate your project dependencies.
-
-   .. code-block:: console
-
-      make venv
-
-   This will create a virtual environment in the ``.venv`` directory.
-
-   Now **activate** the virtual environment with:
-
-   .. code-block:: console
-
-      source .venv/bin/activate
-
-5. Install the necessary dependencies for development.
-
-   .. code-block:: console
-
-      make install
-
-6. Ensure your development environment has been properly setup with the command:
-
-   .. code-block:: console
-
-      make check
-
-If everything goes green, then you have successfully setup your development environment for contributions.
-
-If you wish to reset your development environment to a clean slate, then run:
+Create a fork of `Fakernaija <https://github.com/Pythonian/fakernaija>`_ to your GitHub account, then clone it:
 
 .. code-block:: console
 
-   make clean
+   git clone https://github.com/your-username/fakernaija.git
+   cd fakernaija
 
+Replace ``your-username`` with your GitHub username.
 
-Contribution Process
+**2. Set Up Upstream Remote**
+
+.. code-block:: console
+
+   git remote add upstream https://github.com/Pythonian/fakernaija.git
+
+**3. Create Virtual Environment**
+
+.. code-block:: console
+
+   python -m venv .venv
+
+**4. Activate Virtual Environment**
+
+**On Windows:**
+
+.. code-block:: console
+
+   .venv\Scripts\activate
+
+**On Linux/macOS:**
+
+.. code-block:: console
+
+   source .venv/bin/activate
+
+**Install Dependencies**
+
+.. code-block:: console
+
+   pip install -U pip setuptools
+   pip install -e .
+   pip install -r docs/requirements.txt
+   pip install tox pre-commit
+
+**5. Set Up Pre-commit Hooks (Optional)**
+
+.. code-block:: console
+
+   pre-commit install
+
+**6. Verify Setup**
+
+Run the checks to ensure everything is working:
+
+.. code-block:: console
+
+   tox
+
+If tests pass, you're ready to contribute!
+
+Making Contributions
 --------------------
 
-For any change you wish to make, we encourage you to follow the guideline we have set out.
+**1. Create an Issue**
 
-1. **Open an Issue**: Create a `new issue <https://github.com/Pythonian/fakernaija/issues/new/choose>`_ and itemize your proposed changes.
+Before making changes, create a `new issue <https://github.com/Pythonian/fakernaija/issues/new/choose>`_ describing your proposed changes.
 
-2. **Create a New Branch**: Always create a new branch for your contributions.
+**2. Create a New Branch**
 
-   .. code-block:: console
+.. code-block:: console
 
-      git checkout -b feature-or-bugfix-name
+   git checkout -b feature-or-bugfix-name
 
-   Replace ``feature-or-bugfix-name`` with a descriptive name that reflect the work you are doing.
+Use a descriptive name that reflects the work you're doing.
 
-3. **Testing Your Changes**: Before committing your code, ensure your changes do not break existing functionality.
+**3. Make Your Changes**
 
-   .. code-block:: console
+- Write your code following the coding guidelines below
+- Add tests for new functionality
+- Update documentation if needed
 
-      make check
+**4. Test Your Changes**
 
-   **Note**: If you add new functionality, please include corresponding tests and update the documentation where necessary.
+Run the full test suite:
 
-4. **Commit Your Changes**: Make sure your commit messages are clear and concise.
+.. code-block:: console
 
-   .. code-block:: console
+   tox
 
-      git add .
-      git commit -m "feat: Brief description of your changes"
+**5. Commit Your Changes**
 
-   We encourage you to follow `conventional commit <https://www.conventionalcommits.org/>`_ guidelines for your commit messages.
+.. code-block:: console
 
-5. **Push Your Changes**: Push your branch to your forked repository.
+   git add .
+   git commit -m "feat: Brief description of your changes"
 
-   .. code-block:: console
+We encourage following `conventional commit <https://www.conventionalcommits.org/>`_ guidelines.
 
-      git push origin feature-or-bugfix-name
+**6. Push and Create Pull Request**
 
-6. **Submit a Pull Request**:
+.. code-block:: console
 
-   - Go to the `Fakernaija repository <https://github.com/Pythonian/fakernaija>`_ on GitHub.
-   - Click the ``Compare & pull request`` button.
-   - Provide a title and description of your changes, including the issue number.
-   - Submit the pull request for review.
+   git push origin feature-or-bugfix-name
 
-   **Note**: Ensure that your pull request is up to date with the upstream `main` branch before submitting it.
+Then go to GitHub and create a pull request with:
+- A clear title and description
+- Reference to the related issue number
+- Summary of changes made
 
-7. **Review Process and Merging**: Your pull request will be reviewed by the maintainers. Be prepared to make adjustments based on their feedback. Once your pull request is approved, it will be merged into the main branch. **Only repository maintainers** have the authority to build and push releases to PyPI.
+Testing
+-------
 
+- Write unit tests for all new features and bug fixes
+- Tests should be in the ``tests/`` directory
+- Aim for good test coverage
+- Use descriptive test names
 
 Documentation Changes
 ---------------------
 
-If you make changes to the code that affect the documentation, or if you are improving the documentation, follow these steps:
+If you're updating documentation:
 
-1. **Build the Documentation**:
-
-   .. code-block:: console
-
-      make docs
-
-   This will generate the HTML documentation in the ``docs/build`` directory.
-
-2. **Update the Documentation**: Make your changes to the ``.rst`` files in the ``docs`` directory.
-
-3. **Verify Your Changes**: Ensure that the documentation builds correctly by viewing the generated HTML files in a browser.
-
-4. **Commit and Push Documentation Changes:**
+1. **Build the docs locally:**
 
    .. code-block:: console
 
-      git add .
-      git commit -m "docs: commit message for the doc update"
-      git push origin doc-branch-name
+      sphinx-build -M html docs/source/ docs/build/
 
+2. **View the generated HTML** in ``docs/build/html/index.html``
 
-Updating your Fork
-------------------
-
-To keep your fork up to date with the original repository and handle any potential merge conflicts, follow these steps:
-
-1. **Check Out Your main Branch**: Start by making sure you are on your fork's ``main`` branch.
+3. **Commit documentation changes** with a clear commit message:
 
    .. code-block:: console
 
-      git checkout main
+      git commit -m "docs: update installation instructions"
 
-2. **Fetch the Latest Changes from Upstream**: Fetch the latest changes from the original repository (upstream). This downloads the changes but does not apply them to your branch yet.
+Keeping Your Fork Updated
+--------------------------
 
-   .. code-block:: console
+To sync your fork with the original repository:
 
-      git fetch upstream
+.. code-block:: console
 
-3. **Merge the Upstream Changes into Your main Branch**: Merge the fetched changes from the upstream ``main`` branch into your local ``main`` branch.
+   git checkout main
+   git fetch upstream
+   git merge upstream/main
+   git push origin main
 
-   .. code-block:: console
+If you encounter merge conflicts, resolve them manually in your editor, then:
 
-      git merge upstream/main
+.. code-block:: console
 
-   If there are no conflicts, proceed to step 4. However, if there are merge conflicts, follow the steps below to resolve them before continuing:
+   git add .
+   git commit
 
-   a. **Identify Conflicted Files**: Git will list the files with conflicts after the merge attempt. You can also see the list by running:
+Getting Help
+------------
 
-      .. code-block:: console
+If you need help or have questions:
 
-         git status
+- Check existing `issues <https://github.com/Pythonian/fakernaija/issues>`_ for similar problems
+- Create a new issue with the "question" label
+- Join discussions in existing pull requests
 
-   b. **Open Conflicted Files**: Open each conflicted file in your text editor or IDE. Git marks the conflicts with ``<<<<<<<``, ``=======``, and ``>>>>>>>`` markers. The content between ``<<<<<<<`` and ``=======`` is your version, and the content between ``=======`` and ``>>>>>>>`` is the upstream version.
-
-   c. **Resolve Conflicts**: Edit the conflicted sections to choose the correct code, or manually combine the changes as needed. Remove the conflict markers (``<<<<<<<``, ``=======``, ``>>>>>>>``) after resolving the conflicts.
-
-   d. **Mark Files as Resolved**: After resolving all conflicts in a file, mark it as resolved using:
-
-      .. code-block:: console
-
-         git add <file>
-
-      Do this for each conflicted file.
-
-   e. **Continue the Merge**: After resolving all conflicts and staging the resolved files, complete the merge by running:
-
-      .. code-block:: console
-
-         git commit
-
-      Git may prompt you to enter a commit message describing the merge. You can use the default message or write your own.
-
-4. **Push the Updated `main` Branch to Your Fork**: Finally, push the updated ``main`` branch back to your GitHub fork.
-
-   .. code-block:: console
-
-      git push origin main
-
-By following these steps, you will keep your fork up to date with the original repository and properly handle any merge conflicts that arise during the process.
-
-
-Coding Guidelines
------------------
-
-Adhering to coding standards is crucial for maintaining the quality, consistency, and security of the project. Follow these guidelines to ensure that your contributions meet the project's standards.
-
-**Code Style**
-
-- **Follow PEP 8**: Adhere to PEP 8 for Python code style, including indentation, spacing, and line length. The project is configured to use ``ruff`` with custom settings for code formatting and linting.
-- **Meaningful Names**: Use clear, descriptive names for variables, functions, and classes.
-- **Docstrings**: Write comprehensive docstrings for all functions and classes. Use the Google style for docstrings, as configured in ``pyproject.toml``.
-- **Quotes and Indentation**: Use double quotes for strings and follow the specified indentation style (4 spaces). The ``ruff`` configuration ensures consistency across the project.
-
-**Type Annotations**
-
-- **Enforce Type Annotations**: All functions should have explicit type annotations. The ``mypy`` tool is configured to enforce type correctness, and you should address any type errors before submitting code.
-
-**Linting and Formatting**
-
-- **Linting**: Use ``ruff`` for linting. The project's ``tox`` configuration includes a linting environment that checks for common issues. Run ``tox -e lint`` before committing code to ensure linting passes without issues.
-- **Formatting**: The code should be formatted using the ``ruff`` formatter. Run ``tox -e format`` to automatically format your code before committing. The project enforces consistent formatting, including quote style and line endings.
-
-**Testing**
-
-- **Unit Tests**: All new features and bug fixes should include unit tests. Tests are located in the ``fakernaija/tests`` directory and should follow the structure of the existing tests.
-- **Coverage**: The project uses ``coverage`` to ensure that tests cover a substantial portion of the codebase. Aim for at least 80% test coverage, and check this by running ``tox -e test``.
-
-**Security**
-
-- **Security Checks**: The project uses ``bandit`` to identify potential security issues. Run ``tox -e security`` to check your code for common security flaws, and fix any issues before submitting your code.
-
-**Documentation**
-
-- **Documentation**: Update the documentation to reflect any changes or new features you introduce. The project uses Sphinx for documentation, and you can build the HTML documentation using ``make docs``.
-- **Docstring Format**: Ensure that your docstrings are formatted according to the project's standards, as enforced by ``pydocstyle``.
-
-**Pre-Commit Hooks**
-
-- **Pre-Commit Checks**: The project uses pre-commit hooks to automatically check for common issues before committing code. These checks include verifying the format, linting, and ensuring that no large files or private keys are committed.
-- **Setup**: Install the pre-commit hooks by running ``make install-dev``. This step is required before your first commit.
-
-**Dependency Management**
-
-- **Dependencies**: The project manages dependencies through ``pyproject.toml`` and ``tox``. Ensure that all necessary dependencies are listed in these files and avoid adding unnecessary packages.
-- **Environment Isolation**: Use the provided Makefile to create a virtual environment and install dependencies. This ensures that your development environment is consistent with the project's requirements.
-
-**Contribution Process**
-
-- **Commit Messages**: Write clear, concise commit messages that explain the purpose of the changes. Follow the project's guidelines for commit message format.
-- **Pull Requests**: Before submitting a pull request, ensure that all tests pass, code is linted and formatted correctly, and documentation is updated. Use the ``make check`` command to verify this.
-
-
-Help and Support
-----------------
-
-If you encounter any issues during the contribution process or you have any questions to ask or need additional help, feel free to `open an issue <https://github.com/Pythonian/fakernaija/issues/new/choose>`_ on the GitHub repository or reach out to `Seyi Pythonian <https://github.com/Ajibel>`_.
-
-Thank you for your contribution!
+Thank you for contributing to Fakernaija!
